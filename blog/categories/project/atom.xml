@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Jade's fantastic Blog]]></title>
-  <link href="http://zjhiphop.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: project | Jade's fantastic Blog]]></title>
+  <link href="http://zjhiphop.github.com/blog/categories/project/atom.xml" rel="self"/>
   <link href="http://zjhiphop.github.com/"/>
   <updated>2012-04-16T18:21:25+08:00</updated>
   <id>http://zjhiphop.github.com/</id>
