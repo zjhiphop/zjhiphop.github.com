@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
+url: http://zjhiphop.github.com
 title: My Octopress Blog
 subtitle: A blogging framework for hackers.
 author: Your Name
@@ -56,7 +56,6 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.ht
 # ----------------------- #
 #   3rd Party Settings    #
 # ----------------------- #
-
 # Github repositories
 github_user:
 github_repo_count: 0
