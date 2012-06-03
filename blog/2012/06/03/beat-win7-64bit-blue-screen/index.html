@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Beat Win7 64bit Blue Screen - Jade's fantastic Blog</title>
+  <meta name="author" content="zjhiphop">
+
+  
+  <meta name="description" content="这两天被折腾的够惨的，因为蓝屏总是时刻伴随着我，猝不及防，我了个丫的，我今天非把你给解决掉！
+蓝屏代码：Stop: 0x000000C5 0X000000C5错误几乎总是由已损坏系统的驱动程序造成的，一般都是一些驱动程序出现故障，所以请尝试到计算机制造商下载安装最新版本的驱动程序安装更新。 现象 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zjhiphop.github.com/blog/2012/06/03/beat-win7-64bit-blue-screen">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Jade's fantastic Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Jade's fantastic Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zjhiphop.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About </a></li> 
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Beat Win7 64bit Blue Screen</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-03T16:18:00+08:00" pubdate data-updated="true">Jun 3<span>rd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>这两天被折腾的够惨的，因为蓝屏总是时刻伴随着我，猝不及防，我了个丫的，我今天非把你给解决掉！
+蓝屏代码：Stop: 0x000000C5</p>
+
+<blockquote><p>0X000000C5错误几乎总是由已损坏系统的驱动程序造成的，一般都是一些驱动程序出现故障，所以请尝试到计算机制造商下载安装最新版本的驱动程序安装更新。</p></blockquote>
+
+<p>现象：<br/>
+1. 当我尝试运行迅雷7进行网络监测时直接进入蓝屏<br/>
+2. 当我运行酷狗音乐盒一段时间后，然后让电脑睡眠，过一段时间接着回到运行界面，后面你懂得</p>
+
+<p>排错过程： <br/>
+1. 首先我的机器是全新的，排除硬件问题 <br/>
+2. 那一定就是软件的驱动问题 <br/>
+3. 根据现象一，起初我认为是迅雷导致，于是我把迅雷卸载掉，情况依旧 <br/>
+4. 情况不容乐观，看来不能只看表面现象，于是我请来了windows的<a href="http://msdn.microsoft.com/en-us/windows/hardware/gg463009">debugger tool</a>和<a href="http://http//msdn.microsoft.com/en-us/windows/hardware/gg463028">symbol库</a><br/>
+5. 使用tool来分析问题，win->windbg 运行tool<br/>
+6. 导入symbol库，“File→Symbol Search Path”，输入 &#8220;SRV<em>c:\sytemp</em>http://msdl.microsoft.com/download/symbols&#8221;。<br/>
+7. 导入.dmp文件(windows的crash记录文件)，一般位于C:\Windows\MEMORY.DMP 或 C:\Windows\Minidup文件夹中，“File（文件）”－“Open Crash Dump（打开内存转储文件）”，然后选择路径就可以了<br/>
+内容如下：</p>
+
+<pre><code>~ Microsoft (R) Windows Debugger Version 6.2.8400.0 AMD64  
+Copyright (c) Microsoft Corporation. All rights reserved.  
+Loading Dump File [C:\Windows\Minidump\060312-17050-01.dmp]  
+Mini Kernel Dump File: Only registers and stack trace are available  
+Symbol search path is: D:\Symbols  
+Executable search path is:   
+Unable to load image \SystemRoot\system32\ntoskrnl.exe, Win32 error 0n2  
+*** WARNING: Unable to verify timestamp for ntoskrnl.exe  
+*** ERROR: Module load completed but symbols could not be loaded for ntoskrnl.exe  
+Windows 7 Kernel Version 7601 (Service Pack 1) MP (8 procs) Free x64  
+Product: WinNt, suite: TerminalServer SingleUserTS  
+Built by: 7601.17640.amd64fre.win7sp1_gdr.110622-1506  
+Machine Name:  
+Kernel base = 0xfffff800`04067000 PsLoadedModuleList = 0xfffff800`042ac670  
+Debug session time: Sun Jun  3 11:07:51.221 2012 (UTC + 8:00)  
+System Uptime: 0 days 0:02:42.080  
+Unable to load image \SystemRoot\system32\ntoskrnl.exe, Win32 error 0n2...  ~    
+</code></pre>
+
+<ul>
+<li>发现<a href="http://baike.baidu.com/view/449849.htm">ntoskrnl.exe</a>加载错误,这个错误一般是在系统启动加载阶段导致</li>
+<li><p>由于信息不够，需要进一步查询：使用 “!analyze -v ”命令继续查找，信息如下：</p>
+
+<p>  DRIVER_CORRUPTED_EXPOOL (c5)
+  An attempt was made to access a pageable (or completely invalid) address at an
+  interrupt request level (IRQL) that is too high.  This is
+  caused by drivers that have corrupted the system pool.  Run the driver
+  verifier against any new (or suspect) drivers, and if that doesn&#8217;t turn up
+  the culprit, then use gflags to enable special pool.
+  Arguments:
+  Arg1: 0000000000002f2c, memory referenced
+  Arg2: 0000000000000002, IRQL
+  Arg3: 0000000000000000, value 0 = read operation, 1 = write operation
+  Arg4: fffff80004212dd3, address which referenced memory
+  Debugging Details:</p>
+
+<p>  <strong><em> WARNING: Unable to verify timestamp for VBoxNetFlt.sys
+  </em></strong> ERROR: Module load completed but symbols could not be loaded for VBoxNetFlt.sys
+  &#8230; &#8230;
+  FOLLOWUP_IP:
+  VBoxNetFlt+3aca
+  fffff880`059bfaca ??              ???
+  SYMBOL_STACK_INDEX:  5
+  SYMBOL_NAME:  VBoxNetFlt+3aca
+  FOLLOWUP_NAME:  MachineOwner
+  MODULE_NAME: VBoxNetFlt
+  IMAGE_NAME:  VBoxNetFlt.sys
+  DEBUG_FLR_IMAGE_TIMESTAMP:  4f86ff00
+  FAILURE_BUCKET_ID:  X64_0xC5_2_VBoxNetFlt+3aca
+  BUCKET_ID:  X64_0xC5_2_VBoxNetFlt+3aca
+  Followup: MachineOwner</p></li>
+<li><p>这下豁然开朗了，原来是VBoxNetFlt.sys导致问题，想起前段时间确实更新了一次Virtual Box，于是果断卸载virtual box，这下天下太平了！阿门！</p></li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">zjhiphop</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-03T16:18:00+08:00" pubdate data-updated="true">Jun 3<span>rd</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/thing-in-life/'>thing in life</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://zjhiphop.github.com/blog/2012/06/03/beat-win7-64bit-blue-screen/" data-via="" data-counturl="http://zjhiphop.github.com/blog/2012/06/03/beat-win7-64bit-blue-screen/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/06/03/how-to-build-a-framework/" title="Previous Post: How to build a framework">&laquo; How to build a framework</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/06/03/beat-win7-64bit-blue-screen/">Beat Win7 64bit Blue Screen</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/03/how-to-build-a-framework/">How to build a framework</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/03/js-web-applications/">JS Web Applications</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/02/js-saving-byte-tec/">JavaScript Byte-saving Technique</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/02/smacss/">SMACSS</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - zjhiphop -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
