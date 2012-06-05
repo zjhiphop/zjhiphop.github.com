@@ -4,7 +4,7 @@
   <title><![CDATA[Category: thinking in JS | Jade's fantastic Blog]]></title>
   <link href="http://zjhiphop.github.com/blog/categories/thinking-in-js/atom.xml" rel="self"/>
   <link href="http://zjhiphop.github.com/"/>
-  <updated>2012-06-03T17:04:48+08:00</updated>
+  <updated>2012-06-05T15:37:44+08:00</updated>
   <id>http://zjhiphop.github.com/</id>
   <author>
     <name><![CDATA[zjhiphop]]></name>
@@ -18,7 +18,28 @@
     <link href="http://zjhiphop.github.com/blog/2012/06/03/how-to-build-a-framework/"/>
     <updated>2012-06-03T15:40:00+08:00</updated>
     <id>http://zjhiphop.github.com/blog/2012/06/03/how-to-build-a-framework</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p>If let u to build a javascript framework,how will you do?<br/>
+对比几个比较流行的jQuery等框架，不难发现，有以下几个基础部分：<br/>
+* 浏览器的兼容性检测<br/>
+* 干净，可重用的API设计<br/>
+* 有统一的基准和性能<br/>
+* 编写有好的轻量的javascript<br/>
+* 使用Github</p>
+
+<p>为了便于合作，我们必须订立号项目的目标和开发的风格,以下是一种尝试：</p>
+
+<blockquote><p>复杂性Verbose: 变量和方法名必须是有意义的，易懂和易理解<br/>
+移植性Portable: 浏览器和控制台<br/>
+显式的Explicit: 代码应该是可以快速理解的<br/>
+注释Comments: 注释需要简洁明了的。TODO 和 FIXME 可以详细一点.<br/>
+简单Simple:   保持代码简单<br/>
+缩进Indentation: 两个空格<br/>
+分号Semicolons:  添加分号以便人们可以方便压缩<br/>
+质量Quality: JsLint和读者留言!<br/>
+测试Testing: 在浏览器和控制台中都要测试<br/>
+版本控制Versioning: 使用GitHub</p></blockquote>
+
+<p>高级框架结构</p>
 ]]></content>
   </entry>
   
@@ -27,7 +48,25 @@
     <link href="http://zjhiphop.github.com/blog/2012/06/03/js-web-applications/"/>
     <updated>2012-06-03T15:22:00+08:00</updated>
     <id>http://zjhiphop.github.com/blog/2012/06/03/js-web-applications</id>
-    <content type="html"><![CDATA[<p>Anything that can go right will go right.</p>
+    <content type="html"><![CDATA[<p>Anything that can go right will go right. --反墨菲定律</p>
+
+<p>MVC and Classes</p>
+
+<p>Events and Observing</p>
+
+<p>Models and Data</p>
+
+<p>Controllers and State</p>
+
+<p>The Real-Time Web</p>
+
+<p>Testing and Debugging</p>
+
+<p>The Spine Library</p>
+
+<p>The Backbone Library</p>
+
+<p>The JavascriptMVC Library</p>
 ]]></content>
   </entry>
   
