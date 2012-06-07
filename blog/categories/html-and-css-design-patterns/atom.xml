@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: HTML and CSS Design Patterns | Jade's fantastic Blog]]></title>
+  <link href="http://zjhiphop.github.com/blog/categories/html-and-css-design-patterns/atom.xml" rel="self"/>
+  <link href="http://zjhiphop.github.com/"/>
+  <updated>2012-06-07T09:39:50+08:00</updated>
+  <id>http://zjhiphop.github.com/</id>
+  <author>
+    <name><![CDATA[zjhiphop]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Callouts and Quotes]]></title>
+    <link href="http://zjhiphop.github.com/blog/2012/06/05/callouts-and-quotes/"/>
+    <updated>2012-06-05T15:33:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2012/06/05/callouts-and-quotes</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Alerts]]></title>
+    <link href="http://zjhiphop.github.com/blog/2012/06/05/alerts/"/>
+    <updated>2012-06-05T15:33:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2012/06/05/alerts</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tables]]></title>
+    <link href="http://zjhiphop.github.com/blog/2012/06/05/tables/"/>
+    <updated>2012-06-05T15:32:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2012/06/05/tables</id>
+    <content type="html"><![CDATA[<p>Tables</p>
+
+<p>Table Column Layout</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Layouts]]></title>
+    <link href="http://zjhiphop.github.com/blog/2012/06/05/layouts/"/>
+    <updated>2012-06-05T15:32:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2012/06/05/layouts</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Images]]></title>
+    <link href="http://zjhiphop.github.com/blog/2012/06/05/images/"/>
+    <updated>2012-06-05T15:32:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2012/06/05/images</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+</feed>

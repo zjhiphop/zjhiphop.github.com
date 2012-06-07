@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: thinking in JS | Jade's fantastic Blog]]></title>
+  <link href="http://zjhiphop.github.com/blog/categories/thinking-in-js/atom.xml" rel="self"/>
+  <link href="http://zjhiphop.github.com/"/>
+  <updated>2012-06-07T09:39:50+08:00</updated>
+  <id>http://zjhiphop.github.com/</id>
+  <author>
+    <name><![CDATA[zjhiphop]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[How to build a framework]]></title>
+    <link href="http://zjhiphop.github.com/blog/2012/06/03/how-to-build-a-framework/"/>
+    <updated>2012-06-03T15:40:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2012/06/03/how-to-build-a-framework</id>
+    <content type="html"><![CDATA[<p>If let u to build a javascript framework,how will you do?<br/>
+对比几个比较流行的jQuery等框架，不难发现，有以下几个基础部分：<br/>
+* 浏览器的兼容性检测<br/>
+* 干净，可重用的API设计<br/>
+* 有统一的基准和性能<br/>
+* 编写有好的轻量的javascript<br/>
+* 使用Github</p>
+
+<p>为了便于合作，我们必须订立好项目的目标和开发的风格,以下是一种尝试：</p>
+
+<blockquote><p>复杂性Verbose: 变量和方法名必须是有意义的，易懂和易理解<br/>
+移植性Portable: 浏览器和控制台<br/>
+显式的Explicit: 代码应该是可以快速理解的<br/>
+注释Comments: 注释需要简洁明了的。TODO 和 FIXME 可以详细一点.<br/>
+简单Simple:   保持代码简单<br/>
+缩进Indentation: 两个空格<br/>
+分号Semicolons:  添加分号以便人们可以方便压缩<br/>
+质量Quality: JsLint和读者留言!<br/>
+测试Testing: 在浏览器和控制台中都要测试<br/>
+版本控制Versioning: 使用GitHub</p></blockquote>
+
+<p>高级框架结构<br/>
+* prototype<br/>
+* namespace<br/>
+* traits<br/>
+* CommonJS</p>
+
+<p>Helper Methods<br/>
+为什么?</p>
+
+<blockquote><p>reduce the effort required to call commonly used functions<br/>
+how?<br/>
+should be succinct but clear</p></blockquote>
+
+<p>初始化
+* version<br/>
+* metadata</p>
+
+<p>模块和插件
+* define your own global namespace,like jQuery,Mooltools etc.</p>
+
+<p>选择测试框架<br/>
+* riot.js<br/>
+* jasmine</p>
+
+<p>面向对象的javascript<br/>
+为什么？<br/>
+1. 便于管理自己的代码<br/>
+2. 对于Java或Ruby程序员来说很习惯这种方式</p>
+
+<p>原型vs类继承</p>
+
+<p>原型的优点：<br/>
+1. it’s useful to abstract it<br/>
+2. offer extra features beyond what JavaScript has as standard</p>
+
+<p>类继承</p>
+
+<p>优点：
+1. keeps code simpler
+2. it easer for people to navigate your code.</p>
+
+<p>缺点：<br/>
+1. 创建对象需要用一个包装器，如：Class.create</p>
+
+<p>创建自己的继承方法：<br/>
+1. The ability to extend classes with new methods by copying them<br/>
+2. Class creation: use of apply and prototype.constructor to run the constructors<br/>
+3. The ability to determine if a parent class is being passed for inheritance<br/>
+4. Mixins</p>
+
+<p>继承：</p>
+
+<pre><code>for (var property in source )
+    destination [property ] = source [property ];
+</code></pre>
+
+<p>创建类：</p>
+
+<pre><code>// This would be defined in our "oo" namespace
+create : function (methods ) {
+    var klass = function () { this.initialize .apply (this, arguments ); };
+    // Copy the passed in methods
+    extend (klass .prototype , methods );
+    // Set the constructor
+    klass .prototype .constructor = klass ;
+    // If there's no initialize method, set an empty one
+    if (!klass .prototype .initialize )
+    klass .prototype .initialize = function (){};
+    return klass ;
+}
+</code></pre>
+
+<p>更深层次的类：<br/>
+initialize 方法是我们的构造函数。使用Class.create的方法来创建新类。</p>
+
+<p>语法糖<br/>
+Extend === Mixin ?</p>
+
+<p>Mixin是通过简单的规则将对象的属性进行组合： <br/>
+• Methods should be included from the specified classes <br/>
+• The initialize method should not be overwritten <br/>
+• Multiple includes should be possible</p>
+
+<pre><code>var MixinUser = Root.Class ({
+    include : User,
+    initialize : function (log) {
+        this.log = log;
+    }
+});
+</code></pre>
+
+<p>Super</p>
+
+<pre><code>var SuperUser = Root.Class(User, {
+    initialize : function () {
+        this.$super('initialize' , arguments );
+    },
+    toString : function () {
+        return "SuperUser: " + this.$super ('toString' );
+    }
+});
+</code></pre>
+
+<p>函数式编程：<br/>
+why?<br/>
+1. use ideas from functional programming to simplify common programming tasks<br/>
+2. we need define our own method like iterator to cause the browser support is inconsistent<br/>
+what?<br/>
+• Describing problems rather than focusing on the mechanics of their solution <br/>
+• Treating functions as first class citizens, and manipulating them like variables<br/>
+• Avoiding state and mutable data</p>
+
+<p>迭代器Iterators</p>
+
+<blockquote><p>Enumerable uses each to create lots of other methods that are inspired by functional languages. Any collection-style object can mixin Enumerable to get all those methods for free.</p></blockquote>
+
+<p>Underscore's each</p>
+
+<pre><code>// The cornerstone, an each implementation.
+// Handles objects implementing forEach, arrays, and raw objects.
+// Delegates to JavaScript 1.6's native forEach if available.
+var each = _.forEach = function (obj, iterator , context ) {
+try {
+if (nativeForEach &amp;&amp; obj.forEach === nativeForEach ) {
+obj.forEach (iterator , context );
+} else if (_.isNumber (obj.length )) {
+for (var i = 0, l = obj.length ; i &lt; l; i++) iterator .call(context , obj[i], i, obj);
+} else {
+for (var key in obj) {
+if (hasOwnProperty .call(obj, key)) iterator .call(context , obj[key], key, obj);
+}
+}
+} catch (e) {
+if (e != breaker ) throw e;
+}
+return obj;
+};
+</code></pre>
+
+<p>基准Benchmarks</p>
+
+<blockquote><p>The native method performs very well than defined by yourself</p></blockquote>
+
+<p>API设计<br/>
+why?<br/>
+* easy to use<br/>
+* avoid conflict with third party libs <br/>
+* safely namespacing</p>
+
+<p>为each定义更多函数方法<br/>
+Filter<br/>
+1. Check if there’s a native filter method and use it if possible<br/>
+2. Else use Root.enumerable.each<br/>
+3. Filter objects into multi-dimensional arrays if required<br/>
+Detect</p>
+
+<blockquote><p>Detect simply uses each with the user-supplied callback, until a truthy value is returned. Then it throws a Break.<br/>
+Chaining<br/>
+Chained functions are possible when each function returns an object that can be used to call the next one.<br/>
+1. Store temporary values<br/>
+2. Runs appropriate methods from Root.enumerable by mapping the temporary value into the first argument<br/>
+3. After running the method, return this so the chain can continue</p></blockquote>
+
+<p>实现：</p>
+
+<pre><code>// store temporary values in this.results
+Root.enumerable .Chainer = Root.Class ({
+    initialize : function (values ) {
+    this.results = values ;
+    },
+    values : function () {
+    return this.results ;
+    }
+});
+// Map selected methods by wrapping them in a closure that returns this each time
+Root.enumerable .each(['map' , 'detect' , 'filter' ], function (methodName ) {
+    var method = Root.enumerable [methodName ];
+    Root.enumerable .Chainer .prototype [methodName ] = function () {
+        var args = Array .prototype .slice .call(arguments );
+        args.unshift (this.results );
+        this.results = method .apply (this, args);
+        return this;
+    }
+});
+</code></pre>
+
+<p>选择器和引擎(Selector and Selector Engines)<br/>
+1. XPath<br/>
+2. CSS</p>
+
+<p>浏览器支持 <br/>
+Sizzle的做法：</p>
+
+<blockquote><p>It creates a fake element to probe browser behaviour. Supporting browsers is a black art beyond the patience of most well-meaning JavaScript hackers.</p>
+
+<pre><code>// Check to see if the browser returns elements by name when
+// querying by getElementById (and provide a workaround)
+(function (){
+    // We're going to inject a fake input element with a specified name
+    var form = document .createElement ("div" ),
+    id = "script" + (new Date()).getTime ();
+    form.innerHTML = "&lt;a name='" + id + "'/&gt;" ;
+    // Inject it into the root element, check its status, and remove it quickly
+    var root = document .documentElement ;
+    root.insertBefore ( form, root.firstChild );
+</code></pre>
+
+<p>性能</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JS Web Applications]]></title>
+    <link href="http://zjhiphop.github.com/blog/2012/06/03/js-web-applications/"/>
+    <updated>2012-06-03T15:22:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2012/06/03/js-web-applications</id>
+    <content type="html"><![CDATA[<p>Anything that can go right will go right. --反墨菲定律</p>
+
+<p>MVC and Classes</p>
+
+<p>Events and Observing</p>
+
+<p>Models and Data</p>
+
+<p>Controllers and State</p>
+
+<p>The Real-Time Web</p>
+
+<p>Testing and Debugging</p>
+
+<p>The Spine Library</p>
+
+<p>The Backbone Library</p>
+
+<p>The JavascriptMVC Library</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JavaScript Byte-saving Technique]]></title>
+    <link href="http://zjhiphop.github.com/blog/2012/06/02/js-saving-byte-tec/"/>
+    <updated>2012-06-02T22:21:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2012/06/02/js-saving-byte-tec</id>
+    <content type="html"><![CDATA[<h3>Byte-saving Technique</h3>
+
+<p>下面展示的是一系列javascript魔法，它可以剥掉一层你的JS代码！这些技术参考自"140bytes"，一下所说明的技术会帮助你减少JS的代码量，但是在性能方面还有很多方面有待考究！</p>
+
+<h3>Arguments</h3>
+
+<p>使用按字母排序的一个字母一个位置的参数<br/>
+我们总是希望参数越短越好，这样可以在生命周期中尽可能的重用他们。最佳的处理方法是仅仅将他们用作一个占位符而不是总是尝试给予一个变量有意义的名字。同时使用一个字母命名法会稍微改变在单独函数中的可读性，保持一致的做法会对函数交互时的可读性有帮助！</p>
+
+<pre><code>function(t,d,v,i,f){...} // before  
+function(a,b,c,d,e){...} // after  
+</code></pre>
+
+<p>不要使用arguments.length去判断参数是否存在，使用in去检查是否有参数被传递</p>
+
+<pre><code>arguments.length&gt;1||(cb=alert) // before  
+1 in arguments||(cb=alert)     // after  
+</code></pre>
+
+<h3>Variables</h3>
+
+<p>使用占位符取代var<br/>
+通过在函数arguments声明取代var使用来节省字节</p>
+
+<pre><code>function(a){var b=1;...} // before  
+function(a,b){b=1;...}   // after  
+</code></pre>
+
+<p>尽可能的重用变量<br/>
+谨慎使用那些不再使用的变量来节省字节</p>
+
+<pre><code>setTimeout(function(){for(var i=10;i--;)... }, a) // before  
+setTimeout(function(){for(a=10;a--;)... }, a)     // after  
+</code></pre>
+
+<p>无论何处，尽可能的赋值<br/>
+因为分配变量会返回被赋得值，同时进行赋值和判断会节省一些字节。有一个很好的例子：JSONP函数，其中script是在createElement方法中被赋值的！</p>
+
+<pre><code>a=this.localStorage;if(a){...} // before  
+if(a=this.localStorage){...}   // after  
+</code></pre>
+
+<p>使用数组交换变量<br/>
+数组可以用来临时保存数据占位，这样可以避免声明另一个变量！</p>
+
+<pre><code>var a=1,b=2,c;c=a;a=b;b=c // before  
+var a=1,b=2;a=[b,b=a][0]  // after  
+</code></pre>
+
+<p>强制原则使用开拓<br/>
+JS强制原则是精华也是糟粕，但是有时相当有用。pubsub函数减少了负面的变量，然后使用一个字符串将结果连接起来，最终结果类似somestring-123，这个字符串会在后续处理中使用连字符“-”来还原为原始的字符串！（也许你可以看看）</p>
+
+<h3>Loops</h3>
+
+<p>忽略循环体<br/>
+如果你能在循环条件中执行所有的逻辑，那么你就不需要循环体。示例：timeAgo使用for而不是while for和while需要相同的字节空间，但是for会给予你更多的赋值机会。</p>
+
+<pre><code>while(i--){...} // before  
+for(;i--;){...} // after  
+i=10;while(i--){...} // before  
+for(i=10;i--;){...}  // after  
+</code></pre>
+
+<p>使用存在的缩索引去迭代数组中的真实元素<br/>
+当你迭代一组真实存在的数组对象时，缩短循环对象的回路将会减少很多字节。</p>
+
+<pre><code>for(a=[1,2,3,4,5],l=a.length,i=0;i&lt;l;i++){b=a[i];...}  
+for(a=[1,2,3,4,5],i=0;b=a[i++];){...}  
+</code></pre>
+
+<p>使用for..in来分配并且获得一个对象的keys</p>
+
+<pre><code>a=[];for(b in window)a.push(window[b]) // before  
+a=[];i=0;for(a[i++]in window);        // after  
+</code></pre>
+
+<h3>Operators</h3>
+
+<p>理解操作符优先级<br/>
+This Mozilla page是一个非常好的页面让你去开始学习。<br/>
+理解位操作运算hacks<br/>
+使用’~‘配合indexof来测试<br/>
+Use ~ with indexOf to test presence</p>
+
+<pre><code>hasAnF="This sentence has an f.".indexOf("f")&gt;=0 // before  
+hasAnF=~"This sentence has an f.".indexOf("f")   // after  
+~-1  
+0  
+~1  
+-2  
+~-2  
+1  
+~0  
+-1  
+</code></pre>
+
+<p>使用’,’来在同一行串联表达式</p>
+
+<pre><code>with(document){open();write("hello");close()}  
+with(document)open(),write("hello"),close()  
+</code></pre>
+
+<p>使用’[].<em>’取代’void 0’，’undefined’("".</em> ，1.._和0[0]也会起作用，但是会更慢)
+去除操作符之后的不必要的空格，操作符之后的空格不总是必须的，有时是可以忽略的！</p>
+
+<pre><code>typeof [] // before  
+typeof[]  // after  
+</code></pre>
+
+<h3>Numbers</h3>
+
+<p>使用’<del>~’和’0|’取代Math.floor<br/>
+以上这两种组合将会对数字取整(注意:</del>比|的优先级别低，除此之外没什么区别)</p>
+
+<pre><code>rand10=Math.floor(Math.random()*10) // before  
+rand10=0|Math.random()*10           // after  
+</code></pre>
+
+<p>使用AeB的格式书写大的十进制的数字<br/>
+这种写法等价于A*Math.pow(10,B).</p>
+
+<pre><code>million=1000000 // before  
+million=1e6     // after  
+</code></pre>
+
+<p>使用A&lt;&lt;B的格式来书写一个大的二进制数据<br/>
+这种写法等价于A*Math.pow(2,B). 示例：rgb2hex</p>
+
+<pre><code>color=0x100000 // before  
+color=1&lt;&lt;20    // after  
+</code></pre>
+
+<p>使用1/0来取代无穷(Infinity)<br/>
+这种做法会更加简短。除此之外，division by zero gets you free internet points.</p>
+
+<pre><code>[Infinity,-Infinity] // before  
+[1/0,-1/0]           // after  
+</code></pre>
+
+<p>挖掘出0作为假(Exploit the "falsiness" of 0)<br/>
+当比较几个数字时，通常将值转化为对0进行比较以达到是代码精简的目的！</p>
+
+<pre><code>a==1||console.log("not one") // before  
+!~-a||console.log("not one")  // after  
+</code></pre>
+
+<h3>Strings</h3>
+
+<p>使用0来分隔字符串<br/>
+使用0作为分隔符将会节省两个byte，示例：timeAgo</p>
+
+<pre><code>"alpha,bravo,charlie".split(",") // before  
+"alpha0bravo0charlie".split(0)   // after  
+</code></pre>
+
+<p>使用很少被知道的’.link’方法<br/>
+Strings有一个内建的方法’link’,用来创建一个html link element。你可以查看示例： linkify 函数.</p>
+
+<pre><code>html="&lt;a href=""+url+"" mce_href=""+url+""&gt;"+text+"&lt;/a&gt;" // before  
+html=text.link(url)                   // after  
+</code></pre>
+
+<p>使用’replace’来创建强力的字符串迭代<br/>
+因为 ‘replace’方法可以使用function作为第二个参数，它可以用来捕获大量的迭代’账簿’。你可以查看示例：templates and UUID functions.
+使用数组来重复字符串</p>
+
+<pre><code>for(a="",i=32;i--;)a+=0 // before  
+a=Array(33).join(0)     // after  
+</code></pre>
+
+<h3>Conditionals</h3>
+
+<p>尽可能的使用&amp;&amp;和||在所有的地方</p>
+
+<pre><code>if(a)if(b)return c // before  
+return a&amp;&amp;b&amp;&amp;c     // after  
+if(!a)a=Infinity // before  
+a||(a=Infinity)  // after  
+</code></pre>
+
+<h3>Arrays</h3>
+
+<p>Use elision<br/>
+Array elision 在某些特定的场景可以节省字节空间！查看示例： router API for a real-world example.</p>
+
+<pre><code>[undefined,undefined,2] // before  
+[,,2]                   // after  
+// Note: Be mindful of elided elements at the end of the element list  
+[2,undefined,undefined] // before length is 3  
+[2,,]                   // after length is 2  
+</code></pre>
+
+<h3>Regular Expressions</h3>
+
+<p>非规范化的缩减<br/>
+//d{2}/比较灵活, //d/d/ 更加简短.<br/>
+eval解析正则表达式比直接使用RegExp()更简短</p>
+
+<pre><code>r=new RegExp("{"+p+"}","g") // before  
+r=eval("/{"+p+"}/g")    // after  
+</code></pre>
+
+<h3>Booleans</h3>
+
+<p>使用’!’来创建boolean<br/>
+true 和 false 可以用’!’联合数字使用达到相同的效果</p>
+
+<pre><code>[true,false] // before  
+[!0,!1]      // after  
+</code></pre>
+
+<h3>Functions</h3>
+
+<p>使用命名的函数进行递归<br/>
+递归通常比循环更加简洁，因为递归会卸载掉栈调用的列表簿。查看示例：walk function.
+使用命名的函数来保存状态
+如果状态需要在函数调用的时候进行保存，那么使用命名的函数并且将他作容器使用。示例：JSONP function.</p>
+
+<pre><code>function(i){return function(){console.log("called "+(++i)+" times")}}(0) // before  
+(function a(){console.log("called "+(a.i=a.i+1||1)+" times")})           // after  
+0,function a(){console.log("called "+(a.i=a.i+1||1)+" times")}           // another alternative  
+</code></pre>
+
+<p>忽略”()”当使用不带参数的new创建新的对象时<br/>
+“new Object” 等价于 new Object()</p>
+
+<pre><code>now = +new Date() // before  
+now = +new Date   // after  
+</code></pre>
+
+<p>reutrn语句<br/>
+当返回任何数据除了变量，不需要在return之后加空格return ：</p>
+
+<pre><code>['foo',42,'bar']; // before  
+return['foo',42,'bar'];  // after  
+return {x:42,y:417}; // before  
+return{x:42,y:417};  // after  
+return .01; // before  
+return.01;  // after  
+</code></pre>
+
+<p>正确的使用函数闭包 Use the right closure for the job<br/>
+如果你需要立即执行函数，请使用最适当的闭包.</p>
+
+<pre><code>;(function(){...})() // before  
+new function(){...}  // after, if you plan on returning an object and can use `this`  
+!function(){...}()   // after, if you don't need to return anything  
+</code></pre>
+
+<h3>In the browser</h3>
+
+<p>使用浏览器对象避免额外的逻辑<br/>
+你可以使用浏览器anchor elements去解析URLs取代自己写的逻辑。示例：parseURL, 将文本转化为html：escapeHTML.
+Use global scope
+因为window在浏览器中是一个全局对象，你可以直接引用它的任何属性。比如说document和location，除此之外还有其他比较有用的属性，像：innerWidth，查看示例： screensaver.</p>
+
+<h3>APIs</h3>
+
+<p>尽可能的对每个参数传递静态的数据<br/>
+使用额外的字节去提供默认值<br/>
+只做一件事并做到最好</p>
+
+<h3>Other resources</h3>
+
+<p>Ben Alman's explanation of his <a href="http://benalman.com/news/2010/08/organ1k-js1k-contest-entry/">JS1K entry</a>  <br/>
+Marijn Haverbeke's explanation of his <a href="http://benalman.com/news/2010/08/organ1k-js1k-contest-entry/">JS1K entry</a><br/>
+<a href="http://code.google.com/p/closure-compiler/issues/detail?id=36">Suggested Closure Compiler optimizations</a> <br/>
+Angus Croll's <a href="http://javascriptweblog.wordpress.com/">blog</a></p>
+]]></content>
+  </entry>
+  
+</feed>
