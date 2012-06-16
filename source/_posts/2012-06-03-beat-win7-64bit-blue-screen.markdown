@@ -3,7 +3,7 @@ layout: post
 title: "Beat Win7 64bit Blue Screen"
 date: 2012-06-03 16:18
 comments: true
-categories: [thing in life]
+categories: [thinking in life]
 ---
 
 这两天被折腾的够惨的，因为蓝屏总是时刻伴随着我，猝不及防，我了个丫的，我今天非把你给解决掉！
