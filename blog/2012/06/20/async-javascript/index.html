@@ -5,13 +5,16 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Styling Text - Jade's fantastic Blog</title>
+  <title>async javascript - Jade's fantastic Blog</title>
   <meta name="author" content="zjhiphop">
 
   
-  <meta name="description" content="Font shows how to style text using fonts.
-Highlight shows how to highlight text using color and tiled background images.
-Text Decoration shows how &hellip;">
+  <meta name="description" content="异步的javascript Ways to do this: Browser Ways:
+1. use timeout/interval
+2. web worker
+3. promise mode Node ways:
+1. use process.nexttick
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +23,7 @@ Text Decoration shows how &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://zjhiphop.github.com/blog/2012/06/05/styling-text">
+  <link rel="canonical" href="http://zjhiphop.github.com/blog/2012/06/20/async-javascript">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -70,7 +73,7 @@ Text Decoration shows how &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Styling Text</h1>
+      <h1 class="entry-title">Async Javascript</h1>
     
     
       <p class="meta">
@@ -86,38 +89,24 @@ Text Decoration shows how &hellip;">
   
 
 
-<time datetime="2012-06-05T15:31:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+<time datetime="2012-06-20T15:33:00+08:00" pubdate data-updated="true">Jun 20<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><ul>
-<li><strong>Font</strong> shows how to style text using fonts.</li>
-<li><strong>Highlight</strong> shows how to highlight text using color and tiled background images.</li>
-<li><strong>Text Decoration</strong> shows how to create custom styles for underlines, overlines, and
-line-throughs.</li>
-<li><strong>Text Shadow</strong> shows how to automatically generate shadows behind text in
-Internet Explorer 6 and Safari.</li>
-<li><strong>Text Replacement with Image</strong> shows how to replace text with an image. The text
-is readable by screen readers and degrades nicely when the image is unavailable.
-This is an essential tool for making sites beautiful and accessible.</li>
-<li><strong>Text Replacement with canvas and VML (Vector Markup Language)</strong> consists of
-two separate parts: a font generator, which converts fonts to a proprietary format
-using VML, and a rendering engine. An advantage of this technique is that users
-can select and copy the text, whereas this is impossible with the imagereplacement
-method.</li>
-<li><strong>Font Embedding</strong> is a CSS3 alternative to the text-replacement techniques, which
-uses the @font-face attribute to directly download a font file from the server
-before applying it to an element.</li>
-<li><strong>Invisible Text</strong> shows how to hide text without adding markup. It isn’t as useful as
-Text Replacement but requires no additional markup.</li>
-<li><strong>Screenreader-only</strong> shows how to make text readable by screen readers while
-completely hiding it from sighted users. This is an essential tool for making sites
-accessible for nonsighted users while keeping them uncluttered for sighted users.</li>
-</ul>
+<div class="entry-content"><p>异步的javascript</p>
 
+<p>Ways to do this:</p>
+
+<p>Browser Ways:
+1. use timeout/interval
+2. web worker
+3. promise mode</p>
+
+<p>Node ways:
+1. use process.nexttick</p>
 </div>
 
 
@@ -140,12 +129,12 @@ accessible for nonsighted users while keeping them uncluttered for sighted users
   
 
 
-<time datetime="2012-06-05T15:31:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+<time datetime="2012-06-20T15:33:00+08:00" pubdate data-updated="true">Jun 20<span>th</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/html-and-css-design-patterns/'>HTML and CSS Design Patterns</a>
+    <a class='category' href='/blog/categories/thinking-in-js/'>thinking in JS</a>
   
 </span>
 
@@ -154,7 +143,7 @@ accessible for nonsighted users while keeping them uncluttered for sighted users
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://zjhiphop.github.com/blog/2012/06/05/styling-text/" data-via="" data-counturl="http://zjhiphop.github.com/blog/2012/06/05/styling-text/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://zjhiphop.github.com/blog/2012/06/20/async-javascript/" data-via="" data-counturl="http://zjhiphop.github.com/blog/2012/06/20/async-javascript/" >Tweet</a>
   
   
   
@@ -163,10 +152,8 @@ accessible for nonsighted users while keeping them uncluttered for sighted users
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/06/05/spacing-content-and-aliging-content/" title="Previous Post: Spacing Content and Aliging Content">&laquo; Spacing Content and Aliging Content</a>
+        <a class="basic-alignment left" href="/blog/2012/06/07/10-small-habits-of-less-stressed-people/" title="Previous Post: 轻松生活的十个小习惯">&laquo; 轻松生活的十个小习惯</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/06/05/drop-caps/" title="next Post: Drop Caps">Drop Caps &raquo;</a>
       
     </p>
   </footer>
