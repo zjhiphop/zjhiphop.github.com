@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Tables - Jade's fantastic Blog</title>
+  <meta name="author" content="zjhiphop">
+
+  
+  <meta name="description" content="Tables • Table shows how to create and style the fundamental structure of a table.
+• Row and Column Groups shows how to create and style row headers &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zjhiphop.github.com/blog/2012/06/05/tables">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Jade's fantastic Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Jade's fantastic Blog</a></h1>
+  
+    <h2>Make a difference.Where amazing happens!</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zjhiphop.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About </a></li> 
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Tables</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-05T15:32:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>Tables</h2>
+
+<p>• Table shows how to create and style the fundamental structure of a table.
+• Row and Column Groups shows how to create and style row headers, row
+footers, row groups, column groups, and columns.
+• Table Selectors shows how to select cells from columns, rows, and row groups.
+• Separated Borders shows how to separate table borders from cell borders.
+• Collapsed Borders shows how to combine table and cell borders.
+• Styled Collapsed Borders shows how to style collapsed borders.
+• Hidden and Removed Cells shows how to hide or remove cells.
+• Removed and Hidden Rows and Columns shows how to remove or hide rows,
+row groups, and columns of cells.
+• Vertical-Aligned Data shows how to vertically align data to the top, middle,
+bottom, or baseline of a cell.
+• Striped Tables shows how to assign alternating backgrounds to rows.
+• Accessible Tables shows how to create a table that is friendly to nonsighted users.
+• Tabled, Rowed, and Celled shows how to turn any element into a table, row, or
+cell.
+• Table Layout shows how to create the four types of tables: shrinkwrapped, sized,
+stretched, and fixed.</p>
+
+<h2>Table Column Layout</h2>
+
+<p>• Column Width shows how a browser calculates the column width when cells in
+the same column in different rows have different widths, different types of widths,
+different minimum content widths, and different maximum content widths. This
+pattern applies to shrinkwrapped, sized, and stretched tables.
+• Shrinkwrapped Columns shows how to shrinkwrap columns to fit the width of
+their content. This pattern applies to shrinkwrapped tables.
+• Sized Columns shows how to assign fixed widths to columns while keeping the
+table’s width within a minimum or maximum value. This pattern applies to
+shrinkwrapped or fixed tables.
+• Content-Proportioned Columns shows how to automatically distribute a table’s
+width among its columns proportionally to the width of the content in each
+column. Columns with wider content are assigned to a wider width than columns
+with narrower content. This pattern applies to sized and stretched tables. It also
+applies to shrinkwrapped tables when their content stretches them to the width of
+their containers.
+• Size-Proportioned Columns shows how to automatically distribute a table’s
+width among its columns proportionally to the width assigned to each column. In
+this design pattern, a browser does not necessarily render a column at its assigned
+width. Instead, it renders a column proportionally to the widths assigned to other
+columns. This pattern applies to sized, stretched, and fixed tables. It also appliesto shrinkwrapped tables when assigned cell widths stretch them to the width of
+their containers.
+• Percentage-Proportioned Columns shows how to distribute a table’s width
+among its columns proportionally to the percentage assigned to the width of each
+column. In this design pattern, a browser does not necessarily render a column at
+its assigned percentage of the table’s width. Instead, it renders a column
+proportionally to the percentages assigned to other columns. This pattern applies
+to sized, stretched, and fixed tables.
+• Inverse-Proportioned Columns shows how to size columns in proportion to
+their content. For example, a cell can be sized to be double the width of its
+content. This pattern applies to shrinkwrapped tables.
+• Equal Content-Sized Columns shows how to automatically shrink a table to its
+smallest possible width while sizing all columns equally. In other words, it sets all
+columns to the same width while using the smallest possible width that will
+display each cell’s content. It creates compact tables with uniform columns. It
+works best with tables containing numbers and short text. This pattern applies to
+shrinkwrapped tables.
+• Equal-Sized Columns shows how to automatically divide a table’s width into
+equal proportions for each cell. This pattern applies to sized, stretched, and fixed
+tables.
+• Undersized Columns shows how to create columns that are narrower than their
+content. This pattern applies to fixed tables.
+• Flex Columns shows how to create dynamically sized columns alongside fixedwidth
+or percentage-width columns. These columns fill in the space not taken by
+sized or percentage cells. As a table’s container grows or shrinks, so do flex
+columns. This pattern is most useful when applied to stretched and fixed tables,
+but also applies to sized tables.
+• Mixed Column Layouts shows how to combine fixed-width, percentage-width,
+and auto-width columns to create additional layouts. It shows how browsers
+assign different priorities to fixed-width, percentage-width, and auto-width
+columns depending on whether a table is shrinkwrapped, sized, stretched, or
+fixed.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">zjhiphop</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-05T15:32:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/html-and-css-design-patterns/'>HTML and CSS Design Patterns</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://zjhiphop.github.com/blog/2012/06/05/tables/" data-via="" data-counturl="http://zjhiphop.github.com/blog/2012/06/05/tables/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/06/05/layouts/" title="Previous Post: Layouts">&laquo; Layouts</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/06/05/alerts/" title="next Post: Alerts">Alerts &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/06/20/async-javascript/">async javascript</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/07/10-small-habits-of-less-stressed-people/">轻松生活的十个小习惯</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/callouts-and-quotes/">Callouts and Quotes</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/alerts/">Alerts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/tables/">Tables</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - zjhiphop -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

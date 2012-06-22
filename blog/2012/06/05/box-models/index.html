@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Box Models - Jade's fantastic Blog</title>
+  <meta name="author" content="zjhiphop">
+
+  
+  <meta name="description" content="Box Models Problem You want to style the box of an element. Solution The Box Model design pattern is built into CSS. This model defines the &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zjhiphop.github.com/blog/2012/06/05/box-models">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Jade's fantastic Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Jade's fantastic Blog</a></h1>
+  
+    <h2>Make a difference.Where amazing happens!</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zjhiphop.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About </a></li> 
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Box Models</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-05T15:30:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>Box Models</h2>
+
+<h3>Problem</h3>
+
+<p>   You want to style the box of an element.</p>
+
+<h3>Solution</h3>
+
+<ul>
+<li>The Box Model design pattern is built into CSS. This model defines the relationship between
+the following properties: display, width, height, padding, border, margin, background,
+overflow, and visibility.</li>
+<li><strong>width</strong> normally sets the width of an element’s inner box.</li>
+<li><strong>height</strong> normally sets the height of an element’s inner box.</li>
+<li><strong>padding</strong> sets the size of the padding surrounding the inner box. The padding is transparent
+to the element’s background.</li>
+<li><strong>border</strong> sets the size, pattern, and color of the border surrounding the padding.</li>
+<li><strong>margin</strong> sets the size of the margin surrounding the border. The margin is transparent to the
+background of the element’s parent. The outside of the margin is the element’s outer box.</li>
+<li><strong>background</strong> assigns the padding area inside the box to a background color and/or image.</li>
+<li><strong>overflow</strong> determines what happens when an element’s content is larger than its inner box.<br/>
+The default is to show the overflowing content.</li>
+<li><strong>visibility</strong> can make the element visible or hidden.
+
+<h3>Pattern</h3>
+
+<pre><code>      SELECTOR { display:CONSTANT;
+      overflow:VALUE;
+      visibility:VALUE;
+      width:+VALUE;
+      height:+VALUE;
+      padding:+VALUE;
+      border:+WIDTH STYLE COLOR;
+      margin:±VALUE;
+      background:VALUES; }  
+</code></pre>
+
+<h3>Location</h3>
+
+This design pattern applies to all elements.
+
+<h3>Example</h3>
+
+The example contains additional HTML markup and CSS rules that are not shown. This
+extra code renders a label over each part of the box and draws the outer box and inner box
+borders.
+
+<h3>Notes</h3>
+
+CSS defines six main types of boxes: inline, inline-block, block, table, absolute, and floated.
+The type of box is determined by the combination of the following properties: display,
+position, and float. Box Model properties work differently and produce different layouts
+depending on the type of box. Certain types of boxes have additional functionality provided
+by additional properties, such as line-height, border-collapse, and table-layout.
+
+<h3>Related to</h3>
+
+All Box Model design patterns
+
+<h2>Box Model Extents</h2></li>
+<li><strong>Width</strong> contrasts how width can size, shrinkwrap, or stretch each type of box.</li>
+<li><strong>Height</strong> contrasts how height can size, shrinkwrap, or stretch each type of box.</li>
+<li><strong>Sized</strong> shows how to set the height or width of an element. An element is sized
+when you manually assign it a height and/or a width. For example, you can use
+height:50% to size an element’s height to 50% of the height of its container.</li>
+<li><strong>Shrinkwrapped</strong> shows how to shrink the width or height of an element to the size
+of its content. For example, height:auto causes the height of a static block
+element to expand automatically to fit the total height of its lines, and width:auto
+causes the width of an absolute element to shrink to fit to the width of its widest
+line.</li>
+<li><strong>Stretched</strong> shows how to stretch the width or height of an element to the sides of
+its container. For example, width:auto causes the width of a static block element
+to expand automatically to fit the width of its container. For example, top:0,
+bottom:0, and height:auto cause an absolute element to expand automatically to
+fit the height of its container. A stretched element’s left side aligns to the left side
+of its container, and its right side aligns to the right side of the container. Similarly,
+its top and bottom sides align to the top and bottom sides of its container.
+
+<h2>Box Model Properties</h2></li>
+<li><strong>Margin</strong> contrasts how margins work differently for different types of boxes. It
+shows how margins change the position of an element in relation to its container
+and siblings.</li>
+<li><strong>Border</strong> contrasts how borders work differently for different types of boxes. It
+shows how borders change the position of an element in ways similar to margins,
+and in some ways different from margins.</li>
+<li><strong>Padding</strong> contrasts how padding works differently for different types of boxes. It
+shows how padding works almost identically to borders and margins.</li>
+<li><strong>Background</strong> shows how to assign a color to the background of an element. It also
+shows how to use a tiled image for the background. You can tile the image across
+and down, across only, or down only, or show the image only once. You can
+position the image at a specific location in the background. You can also direct
+whether the image scrolls with the content or remains in a fixed location.</li>
+<li><strong>Overflow</strong> shows how to hide overflowing content, display it, or display scrollbars.</li>
+<li><strong>Visibility</strong> shows how to hide an element while leaving a placeholder for it in the
+flow.</li>
+<li><strong>Page Break</strong> shows how to insert a page break into your document before</li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">zjhiphop</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-05T15:30:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/html-and-css-design-patterns/'>HTML and CSS Design Patterns</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://zjhiphop.github.com/blog/2012/06/05/box-models/" data-via="" data-counturl="http://zjhiphop.github.com/blog/2012/06/05/box-models/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/06/03/beat-win7-64bit-blue-screen/" title="Previous Post: Beat Win7 64bit Blue Screen">&laquo; Beat Win7 64bit Blue Screen</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/06/05/css-selectors-and-inheritance/" title="next Post: CSS Selectors and Inheritance">CSS Selectors and Inheritance &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/06/20/async-javascript/">async javascript</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/07/10-small-habits-of-less-stressed-people/">轻松生活的十个小习惯</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/callouts-and-quotes/">Callouts and Quotes</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/alerts/">Alerts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/tables/">Tables</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - zjhiphop -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
