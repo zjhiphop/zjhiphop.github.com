@@ -9,8 +9,8 @@
   <meta name="author" content="zjhiphop">
 
   
-  <meta name="description" content="EF Architech Philosophy The more you write,the uglier it gets! --mikael Wish list Back-end should be a service provider shared
-among all clients &hellip;">
+  <meta name="description" content="找出数字数组中最大的元素（使用Match.max函数） Math.max.apply(null,[1,2,3]);
+转化一个数字数组为function数组（每个function都弹出相应的数字） (function(a) { var r=[];while(a.length){r.push( &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +66,121 @@ among all clients &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/05/interesting-js-puzzle/">Interesting_js_puzzle</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-05T14:42:00+08:00" pubdate data-updated="true">Jul 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ol>
+<li><p>找出数字数组中最大的元素（使用Match.max函数）</p>
+
+<p> Math.max.apply(null,[1,2,3]);</p></li>
+<li><p>转化一个数字数组为function数组（每个function都弹出相应的数字）</p>
+
+<p> (function(a) {
+ var r=[];while(a.length){r.push(function(t){return function(){return t}}(a.pop()))} return r
+ })([1,2,3])</p></li>
+<li><p>给object数组进行排序（排序条件是每个元素对象的属性个数）</p>
+
+<p> [{a:1,b:34},{a:45},{a:23,b:56,c:90}].sort(function(a,b){
+ if(Object.keys) return Object.keys(a).length-Object.keys(b).length;
+ var i=0,j;
+ for(j in a){</p>
+
+<pre><code> if(a.hasOwnProperty(j)) i++;
+</code></pre>
+
+ }
+ for(j in b){
+
+<pre><code> if(a.hasOwnProperty(j)) i--;
+</code></pre>
+
+<p> }
+ return i;
+ })</p></li>
+<li><p>利用JavaScript打印出Fibonacci数（不使用全局变量）</p>
+
+<p> (function print(n){</p>
+
+<pre><code> var arr=[],i=1;
+ if(n===1){
+     arr=[1];
+ }else if(n===2){
+     arr=[1,1];
+ }else if(n&gt;0){
+     arr.push(1,1);
+     while(++i&lt;n){
+         arr[i]=arr[i-1]+arr[i-2];
+     };
+ }
+
+ return arr;
+</code></pre>
+
+<p> })(6);</p></li>
+<li><p>实现如下语法的功能：var a = (5).plus(3).minus(6);</p>
+
+<p> Number.prototype.plus=function(a){</p>
+
+<pre><code> return this+a;
+</code></pre>
+
+ }
+ Number.prototype.minus=function(b){
+
+<pre><code> return this-b;
+</code></pre>
+
+<p> }
+ var a = (5).plus(3).minus(6)</p></li>
+<li><p>实现如下语法的功能：var a = add(2)(3)(4);</p>
+
+<p> function add(a){</p>
+
+<pre><code>return function(b){
+     return function(c){
+         return a+b+c;
+     }
+}
+</code></pre>
+
+<p> }
+ var a = add(2)(3)(4)</p></li>
+</ol>
+
+
+<p>Others interesting will coming soon&#8230;</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1845,54 +1960,6 @@ the drop cap.</li>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/06/05/styling-text/">Styling Text</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-05T15:31:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><ul>
-<li><strong>Font</strong> shows how to style text using fonts.</li>
-<li><strong>Highlight</strong> shows how to highlight text using color and tiled background images.</li>
-<li><strong>Text Decoration</strong> shows how to create custom styles for underlines, overlines, and line-throughs.</li>
-<li><strong>Text Shadow</strong> shows how to automatically generate shadows behind text in Internet Explorer 6 and Safari.</li>
-<li><strong>Text Replacement with Image</strong> shows how to replace text with an image. The text is readable by screen readers and degrades nicely when the image is unavailable.
-This is an essential tool for making sites beautiful and accessible.</li>
-<li><strong>Text Replacement with canvas and VML (Vector Markup Language)</strong> consists of two separate parts: a font generator, which converts fonts to a proprietary format using VML, and a rendering engine. An advantage of this technique is that users can select and copy the text, whereas this is impossible with the imagereplacement method.</li>
-<li><strong>Font Embedding</strong> is a CSS3 alternative to the text-replacement techniques, which uses the @font-face attribute to directly download a font file from the server before applying it to an element.</li>
-<li><strong>Invisible Text</strong> shows how to hide text without adding markup. It isn’t as useful as Text Replacement but requires no additional markup.</li>
-<li><strong>Screenreader-only</strong> shows how to make text readable by screen readers while completely hiding it from sighted users. This is an essential tool for making sites accessible for nonsighted users while keeping them uncluttered for sighted users.</li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1908,6 +1975,10 @@ This is an essential tool for making sites beautiful and accessible.</li>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/07/05/interesting-js-puzzle/">interesting_js_puzzle</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/07/04/frontend-architecture/">frontend architecture</a>
       </li>
     
@@ -1921,10 +1992,6 @@ This is an essential tool for making sites beautiful and accessible.</li>
     
       <li class="post">
         <a href="/blog/2012/06/05/callouts-and-quotes/">Callouts and Quotes</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/06/05/alerts/">Alerts</a>
       </li>
     
   </ul>

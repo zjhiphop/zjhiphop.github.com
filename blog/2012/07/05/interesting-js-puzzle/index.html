@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: thinking in life - Jade's fantastic Blog</title>
+  <title>interesting_js_puzzle - Jade's fantastic Blog</title>
   <meta name="author" content="zjhiphop">
 
   
-  <meta name="description" content="Category: thinking in life">
+  <meta name="description" content="找出数字数组中最大的元素（使用Match.max函数） Math.max.apply(null,[1,2,3]);
+转化一个数字数组为function数组（每个function都弹出相应的数字） (function(a) { var r=[];while(a.length){r.push( &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://zjhiphop.github.comblog/categories/thinking-in-life">
+  <link rel="canonical" href="http://zjhiphop.github.com/blog/2012/07/05/interesting-js-puzzle">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -64,49 +65,163 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Thinking in Life</h1>
+    
+      <h1 class="entry-title">Interesting_js_puzzle</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-05T14:42:00+08:00" pubdate data-updated="true">Jul 5<span>th</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><ol>
+<li><p>找出数字数组中最大的元素（使用Match.max函数）</p>
 
-  
-  <h2>2012</h2>
+<p> Math.max.apply(null,[1,2,3]);</p></li>
+<li><p>转化一个数字数组为function数组（每个function都弹出相应的数字）</p>
 
-<article>
-  
-<h1><a href="/blog/2012/06/07/10-small-habits-of-less-stressed-people/">轻松生活的十个小习惯</a></h1>
-<time datetime="2012-06-07T09:35:00+08:00" pubdate><span class='month'>Jun</span> <span class='day'>07</span> <span class='year'>2012</span></time>
+<p> (function(a) {
+ var r=[];while(a.length){r.push(function(t){return function(){return t}}(a.pop()))} return r
+ })([1,2,3])</p></li>
+<li><p>给object数组进行排序（排序条件是每个元素对象的属性个数）</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/thinking-in-life/'>thinking in life</a></span>
-</footer>
+<p> [{a:1,b:34},{a:45},{a:23,b:56,c:90}].sort(function(a,b){
+ if(Object.keys) return Object.keys(a).length-Object.keys(b).length;
+ var i=0,j;
+ for(j in a){</p>
+
+<pre><code> if(a.hasOwnProperty(j)) i++;
+</code></pre>
+
+ }
+ for(j in b){
+
+<pre><code> if(a.hasOwnProperty(j)) i--;
+</code></pre>
+
+<p> }
+ return i;
+ })</p></li>
+<li><p>利用JavaScript打印出Fibonacci数（不使用全局变量）</p>
+
+<p> (function print(n){</p>
+
+<pre><code> var arr=[],i=1;
+ if(n===1){
+     arr=[1];
+ }else if(n===2){
+     arr=[1,1];
+ }else if(n&gt;0){
+     arr.push(1,1);
+     while(++i&lt;n){
+         arr[i]=arr[i-1]+arr[i-2];
+     };
+ }
+
+ return arr;
+</code></pre>
+
+<p> })(6);</p></li>
+<li><p>实现如下语法的功能：var a = (5).plus(3).minus(6);</p>
+
+<p> Number.prototype.plus=function(a){</p>
+
+<pre><code> return this+a;
+</code></pre>
+
+ }
+ Number.prototype.minus=function(b){
+
+<pre><code> return this-b;
+</code></pre>
+
+<p> }
+ var a = (5).plus(3).minus(6)</p></li>
+<li><p>实现如下语法的功能：var a = add(2)(3)(4);</p>
+
+<p> function add(a){</p>
+
+<pre><code>return function(b){
+     return function(c){
+         return a+b+c;
+     }
+}
+</code></pre>
+
+<p> }
+ var a = add(2)(3)(4)</p></li>
+</ol>
 
 
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/06/03/beat-win7-64bit-blue-screen/">Beat Win7 64bit Blue Screen</a></h1>
-<time datetime="2012-06-03T16:18:00+08:00" pubdate><span class='month'>Jun</span> <span class='day'>03</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/thinking-in-life/'>thinking in life</a></span>
-</footer>
-
-
-</article>
-
+<p>Others interesting will coming soon&#8230;</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">zjhiphop</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-05T14:42:00+08:00" pubdate data-updated="true">Jul 5<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/thinking-in-js/'>thinking in js</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://zjhiphop.github.com/blog/2012/07/05/interesting-js-puzzle/" data-via="" data-counturl="http://zjhiphop.github.com/blog/2012/07/05/interesting-js-puzzle/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/07/04/frontend-architecture/" title="Previous Post: frontend architecture">&laquo; frontend architecture</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>
