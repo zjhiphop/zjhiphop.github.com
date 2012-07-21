@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: thinking in architecture | Jade's fantastic Blog]]></title>
+  <link href="http://zjhiphop.github.com/blog/categories/thinking-in-architecture/atom.xml" rel="self"/>
+  <link href="http://zjhiphop.github.com/"/>
+  <updated>2012-07-05T15:45:01+08:00</updated>
+  <id>http://zjhiphop.github.com/</id>
+  <author>
+    <name><![CDATA[zjhiphop]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[frontend architecture]]></title>
+    <link href="http://zjhiphop.github.com/blog/2012/07/04/frontend-architecture/"/>
+    <updated>2012-07-04T18:00:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2012/07/04/frontend-architecture</id>
+    <content type="html"><![CDATA[<h2>EF Architech Philosophy</h2>
+
+<pre><code>The more you write,the uglier it gets!
+                               --mikael   
+</code></pre>
+
+<h4>Wish list</h4>
+
+<ul>
+<li>Back-end should be a service provider shared
+among all clients</li>
+<li>Generate your UI on the client, but separate
+from logic (MVC)</li>
+<li>Write components, not snippets (AMD)</li>
+<li>Connect components (PubSub)</li>
+<li>Convention over configuration</li>
+<li>Pick framework(s) (but KISS)</li>
+</ul>
+
+
+<h4>Solutions</h4>
+
+<ul>
+<li>Back-end should be a service provider shared
+among all clients</li>
+<li>Generate your UI on the client, but separate
+from logic (MVC)</li>
+<li>Write components, not snippets (AMD)</li>
+<li>Connect components (PubSub)</li>
+<li>Convention over configuration</li>
+<li>Pick framework(s) (but KISS)</li>
+</ul>
+
+
+<h4>Libraries</h4>
+
+<ul>
+<li><a href="https://github.com/jrburke/requirejs">RequireJS</a></li>
+<li><a href="https://github.com/kriszyp/compose">ComposeJS</a></li>
+<li><a href="https://github.com/jquery/jquery">JQuery</a></li>
+<li><a href="https://github.com/troopjs">TroopJS</a></li>
+<li><a href="https://github.com/jburke/r.js">R.js</a></li>
+<li><a href="https://github.com/cowboy/grunt">Grunt</a></li>
+</ul>
+
+
+<h2>My Thinking</h2>
+
+<p>Coming soon... ...</p>
+]]></content>
+  </entry>
+  
+</feed>
