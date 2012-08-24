@@ -9,12 +9,7 @@
   <meta name="author" content="zjhiphop">
 
   
-<<<<<<< HEAD
-  <meta name="description" content="Byte-saving Technique 下面展示的是一系列javascript魔法，它可以剥掉一层你的JS代码！这些技术参考自&#8221;140bytes&#8221;，一下所说明的技术会帮助你减少JS的代码量，但是在性能方面还有很多方面有待考究！ Arguments &hellip;">
-=======
-  <meta name="description" content="Notes: This article is based on SMACSS. what is smacss? SMACSS (pronounced &#8220;smacks&#8221;) is more style guide than
-rigid framework. There is &hellip;">
->>>>>>> 3d316c3e741c277d7dbd2d7d957017408ed31ac7
+  <meta name="description" content="Anything that can go right will go right. &#8211;反墨菲定�MVC and Classes Events and Observing Models and Data Controllers and State The Real-Time Web &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,7 +71,63 @@ rigid framework. There is &hellip;">
       
   <header>
     
-<<<<<<< HEAD
+      <h1 class="entry-title"><a href="/blog/2012/06/03/js-web-applications/">JS Web Applications</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-03T15:22:00+08:00" pubdate data-updated="true">Jun 3<span>rd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Anything that can go right will go right. &#8211;反墨菲定�/p>
+
+<p><img src="/images/web-client-applications-v3.0.png" title="web client applications" alt="web client applications" />
+MVC and Classes</p>
+
+<p>Events and Observing</p>
+
+<p>Models and Data</p>
+
+<p>Controllers and State</p>
+
+<p>The Real-Time Web</p>
+
+<p>Testing and Debugging</p>
+
+<p>The Spine Library</p>
+
+<p>The Backbone Library</p>
+
+<p>The JavascriptMVC Library</p>
+
+<p><img src="/images/front-end-architecture.png" title="front end architecture" alt="front end architecture" /></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/06/02/js-saving-byte-tec/">JavaScript Byte-saving Technique</a></h1>
     
     
@@ -102,18 +153,18 @@ rigid framework. There is &hellip;">
 
   <div class="entry-content"><h3>Byte-saving Technique</h3>
 
-<p>下面展示的是一系列javascript魔法，它可以剥掉一层你的JS代码！这些技术参考自&#8221;140bytes&#8221;，一下所说明的技术会帮助你减少JS的代码量，但是在性能方面还有很多方面有待考究！</p>
+<p>下面展示的是一系列javascript魔法，它可以剥掉一层你的JS代码！这些技术参考自&#8221;140bytes&#8221;，一下所说明的技术会帮助你减少JS的代码量，但是在性能方面还有很多方面有待考究�/p>
 
 <h3>Arguments</h3>
 
 <p>使用按字母排序的一个字母一个位置的参数<br/>
-我们总是希望参数越短越好，这样可以在生命周期中尽可能的重用他们。最佳的处理方法是仅仅将他们用作一个占位符而不是总是尝试给予一个变量有意义的名字。同时使用一个字母命名法会稍微改变在单独函数中的可读性，保持一致的做法会对函数交互时的可读性有帮助！</p>
+我们总是希望参数越短越好，这样可以在生命周期中尽可能的重用他们。最佳的处理方法是仅仅将他们用作一个占位符而不是总是尝试给予一个变量有意义的名字。同时使用一个字母命名法会稍微改变在单独函数中的可读性，保持一致的做法会对函数交互时的可读性有帮助�/p>
 
 <pre><code>function(t,d,v,i,f){...} // before  
 function(a,b,c,d,e){...} // after  
 </code></pre>
 
-<p>不要使用arguments.length去判断参数是否存在，使用in去检查是否有参数被传递</p>
+<p>不要使用arguments.length去判断参数是否存在，使用in去检查是否有参数被传�/p>
 
 <pre><code>arguments.length&gt;1||(cb=alert) // before  
 1 in arguments||(cb=alert)     // after  
@@ -122,7 +173,7 @@ function(a,b,c,d,e){...} // after
 <h3>Variables</h3>
 
 <p>使用占位符取代var<br/>
-通过在函数arguments声明取代var使用来节省字节</p>
+通过在函数arguments声明取代var使用来节省字�/p>
 
 <pre><code>function(a){var b=1;...} // before  
 function(a,b){b=1;...}   // after  
@@ -135,8 +186,8 @@ function(a,b){b=1;...}   // after
 setTimeout(function(){for(a=10;a--;)... }, a)     // after  
 </code></pre>
 
-<p>无论何处，尽可能的赋值<br/>
-因为分配变量会返回被赋得值，同时进行赋值和判断会节省一些字节。有一个很好的例子：JSONP函数，其中script是在createElement方法中被赋值的！</p>
+<p>无论何处，尽可能的赋�br/>
+因为分配变量会返回被赋得值，同时进行赋值和判断会节省一些字节。有一个很好的例子：JSONP函数，其中script是在createElement方法中被赋值的�/p>
 
 <pre><code>a=this.localStorage;if(a){...} // before  
 if(a=this.localStorage){...}   // after  
@@ -149,13 +200,13 @@ if(a=this.localStorage){...}   // after
 var a=1,b=2;a=[b,b=a][0]  // after  
 </code></pre>
 
-<p>强制原则使用开拓<br/>
-JS强制原则是精华也是糟粕，但是有时相当有用。pubsub函数减少了负面的变量，然后使用一个字符串将结果连接起来，最终结果类似somestring-123，这个字符串会在后续处理中使用连字符“-”来还原为原始的字符串！（也许你可以看看）</p>
+<p>强制原则使用开�br/>
+JS强制原则是精华也是糟粕，但是有时相当有用。pubsub函数减少了负面的变量，然后使用一个字符串将结果连接起来，最终结果类似somestring-123，这个字符串会在后续处理中使用连字符�”来还原为原始的字符串！（也许你可以看看�/p>
 
 <h3>Loops</h3>
 
-<p>忽略循环体<br/>
-如果你能在循环条件中执行所有的逻辑，那么你就不需要循环体。示例：timeAgo使用for而不是while for和while需要相同的字节空间，但是for会给予你更多的赋值机会。</p>
+<p>忽略循环�br/>
+如果你能在循环条件中执行所有的逻辑，那么你就不需要循环体。示例：timeAgo使用for而不是while for和while需要相同的字节空间，但是for会给予你更多的赋值机会�/p>
 
 <pre><code>while(i--){...} // before  
 for(;i--;){...} // after  
@@ -163,8 +214,8 @@ i=10;while(i--){...} // before
 for(i=10;i--;){...}  // after  
 </code></pre>
 
-<p>使用存在的缩索引去迭代数组中的真实元素<br/>
-当你迭代一组真实存在的数组对象时，缩短循环对象的回路将会减少很多字节。</p>
+<p>使用存在的缩索引去迭代数组中的真实元�br/>
+当你迭代一组真实存在的数组对象时，缩短循环对象的回路将会减少很多字节�/p>
 
 <pre><code>for(a=[1,2,3,4,5],l=a.length,i=0;i&lt;l;i++){b=a[i];...}  
 for(a=[1,2,3,4,5],i=0;b=a[i++];){...}  
@@ -179,9 +230,9 @@ a=[];i=0;for(a[i++]in window);        // after
 <h3>Operators</h3>
 
 <p>理解操作符优先级<br/>
-This Mozilla page是一个非常好的页面让你去开始学习。<br/>
+This Mozilla page是一个非常好的页面让你去开始学习�br/>
 理解位操作运算hacks<br/>
-使用’~‘配合indexof来测试<br/>
+使用’~‘配合indexof来测�br/>
 Use ~ with indexOf to test presence</p>
 
 <pre><code>hasAnF="This sentence has an f.".indexOf("f")&gt;=0 // before  
@@ -196,14 +247,14 @@ hasAnF=~"This sentence has an f.".indexOf("f")   // after
 -1  
 </code></pre>
 
-<p>使用’,’来在同一行串联表达式</p>
+<p>使用�’来在同一行串联表达式</p>
 
 <pre><code>with(document){open();write("hello");close()}  
 with(document)open(),write("hello"),close()  
 </code></pre>
 
-<p>使用’[].<em>’取代’void 0’，’undefined’(&#8220;&#8221;.</em> ，1.._和0[0]也会起作用，但是会更慢)
-去除操作符之后的不必要的空格，操作符之后的空格不总是必须的，有时是可以忽略的！</p>
+<p>使用’[].<em>’取代’void 0’，’undefined�&#8220;&#8221;.</em> �.._�[0]也会起作用，但是会更�
+去除操作符之后的不必要的空格，操作符之后的空格不总是必须的，有时是可以忽略的�/p>
 
 <pre><code>typeof [] // before  
 typeof[]  // after  
@@ -211,14 +262,14 @@ typeof[]  // after
 
 <h3>Numbers</h3>
 
-<p>使用’<del>~’和’0|’取代Math.floor<br/>
-以上这两种组合将会对数字取整(注意:</del>比|的优先级别低，除此之外没什么区别)</p>
+<p>使用�del>~’和�|’取代Math.floor<br/>
+以上这两种组合将会对数字取整(注意:</del>比|的优先级别低，除此之外没什么区�</p>
 
 <pre><code>rand10=Math.floor(Math.random()*10) // before  
 rand10=0|Math.random()*10           // after  
 </code></pre>
 
-<p>使用AeB的格式书写大的十进制的数字<br/>
+<p>使用AeB的格式书写大的十进制的数�br/>
 这种写法等价于A*Math.pow(10,B).</p>
 
 <pre><code>million=1000000 // before  
@@ -232,15 +283,15 @@ million=1e6     // after
 color=1&lt;&lt;20    // after  
 </code></pre>
 
-<p>使用1/0来取代无穷(Infinity)<br/>
+<p>使用1/0来取代无�Infinity)<br/>
 这种做法会更加简短。除此之外，division by zero gets you free internet points.</p>
 
 <pre><code>[Infinity,-Infinity] // before  
 [1/0,-1/0]           // after  
 </code></pre>
 
-<p>挖掘出0作为假(Exploit the &#8220;falsiness&#8221; of 0)<br/>
-当比较几个数字时，通常将值转化为对0进行比较以达到是代码精简的目的！</p>
+<p>挖掘�作为�Exploit the &#8220;falsiness&#8221; of 0)<br/>
+当比较几个数字时，通常将值转化为�进行比较以达到是代码精简的目的！</p>
 
 <pre><code>a==1||console.log("not one") // before  
 !~-a||console.log("not one")  // after  
@@ -255,8 +306,8 @@ color=1&lt;&lt;20    // after
 "alpha0bravo0charlie".split(0)   // after  
 </code></pre>
 
-<p>使用很少被知道的’.link’方法<br/>
-Strings有一个内建的方法’link’,用来创建一个html link element。你可以查看示例： linkify 函数.</p>
+<p>使用很少被知道的�link’方�br/>
+Strings有一个内建的方法’link�用来创建一个html link element。你可以查看示例�linkify 函数.</p>
 
 <pre><code>html="&lt;a href=""+url+"" mce_href=""+url+""&gt;"+text+"&lt;/a&gt;" // before  
 html=text.link(url)                   // after  
@@ -294,9 +345,9 @@ Array elision 在某些特定的场景可以节省字节空间！查看示例：
 
 <h3>Regular Expressions</h3>
 
-<p>非规范化的缩减<br/>
-//d{2}/比较灵活, //d/d/ 更加简短.<br/>
-eval解析正则表达式比直接使用RegExp()更简短</p>
+<p>非规范化的缩�br/>
+//d{2}/比较灵活, //d/d/ 更加简�<br/>
+eval解析正则表达式比直接使用RegExp()更简�/p>
 
 <pre><code>r=new RegExp("{"+p+"}","g") // before  
 r=eval("/{"+p+"}/g")    // after  
@@ -304,8 +355,8 @@ r=eval("/{"+p+"}/g")    // after
 
 <h3>Booleans</h3>
 
-<p>使用’!’来创建boolean<br/>
-true 和 false 可以用’!’联合数字使用达到相同的效果</p>
+<p>使用�’来创建boolean<br/>
+true �false 可以用�’联合数字使用达到相同的效果</p>
 
 <pre><code>[true,false] // before  
 [!0,!1]      // after  
@@ -315,23 +366,22 @@ true 和 false 可以用’!’联合数字使用达到相同的效果</p>
 
 <p>使用命名的函数进行递归<br/>
 递归通常比循环更加简洁，因为递归会卸载掉栈调用的列表簿。查看示例：walk function.
-使用命名的函数来保存状态
-如果状态需要在函数调用的时候进行保存，那么使用命名的函数并且将他作容器使用。示例：JSONP function.</p>
+使用命名的函数来保存状�如果状态需要在函数调用的时候进行保存，那么使用命名的函数并且将他作容器使用。示例：JSONP function.</p>
 
 <pre><code>function(i){return function(){console.log("called "+(++i)+" times")}}(0) // before  
 (function a(){console.log("called "+(a.i=a.i+1||1)+" times")})           // after  
 0,function a(){console.log("called "+(a.i=a.i+1||1)+" times")}           // another alternative  
 </code></pre>
 
-<p>忽略”()”当使用不带参数的new创建新的对象时<br/>
-“new Object” 等价于 new Object()</p>
+<p>忽略�)”当使用不带参数的new创建新的对象�br/>
+“new Object�等价�new Object()</p>
 
 <pre><code>now = +new Date() // before  
 now = +new Date   // after  
 </code></pre>
 
 <p>reutrn语句<br/>
-当返回任何数据除了变量，不需要在return之后加空格return ：</p>
+当返回任何数据除了变量，不需要在return之后加空格return �/p>
 
 <pre><code>['foo',42,'bar']; // before  
 return['foo',42,'bar'];  // after  
@@ -341,8 +391,8 @@ return .01; // before
 return.01;  // after  
 </code></pre>
 
-<p>正确的使用函数闭包 Use the right closure for the job<br/>
-如果你需要立即执行函数，请使用最适当的闭包.</p>
+<p>正确的使用函数闭�Use the right closure for the job<br/>
+如果你需要立即执行函数，请使用最适当的闭�</p>
 
 <pre><code>;(function(){...})() // before  
 new function(){...}  // after, if you plan on returning an object and can use `this`  
@@ -359,8 +409,8 @@ Use global scope
 <h3>APIs</h3>
 
 <p>尽可能的对每个参数传递静态的数据<br/>
-使用额外的字节去提供默认值<br/>
-只做一件事并做到最好</p>
+使用额外的字节去提供默认�br/>
+只做一件事并做到最�/p>
 
 <h3>Other resources</h3>
 
@@ -380,8 +430,6 @@ Angus Croll&#8217;s <a href="http://javascriptweblog.wordpress.com/">blog</a></p
       
   <header>
     
-=======
->>>>>>> 3d316c3e741c277d7dbd2d7d957017408ed31ac7
       <h1 class="entry-title"><a href="/blog/2012/06/02/smacss/">SMACSS</a></h1>
     
     
@@ -833,7 +881,6 @@ MailChimp UI Library based on OOCSS</p></blockquote></li>
 <li>We must build basic reuseable libry to cross bworser</li>
 </ol>
 
-<<<<<<< HEAD
 
 <h4>Why HTML5&amp;CSS3 need patterns?</h4>
 
@@ -851,8 +898,6 @@ MailChimp UI Library based on OOCSS</p></blockquote></li>
 <li>Orgnized by topic</li>
 </ol>
 
-=======
->>>>>>> 3d316c3e741c277d7dbd2d7d957017408ed31ac7
 </div>
   
   
@@ -961,15 +1006,15 @@ MailChimp UI Library based on OOCSS</p></blockquote></li>
   <ul id="recent_posts">
     
       <li class="post">
-<<<<<<< HEAD
+        <a href="/blog/2012/07/21/some-valueable-links/">Some Valueable Links</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/07/05/interesting-js-puzzle/">interesting_js_puzzle</a>
       </li>
     
       <li class="post">
         <a href="/blog/2012/07/04/frontend-architecture/">frontend architecture</a>
-=======
-        <a href="/blog/2012/07/21/some-valueable-links/">Some Valueable Links</a>
->>>>>>> 3d316c3e741c277d7dbd2d7d957017408ed31ac7
       </li>
     
       <li class="post">
@@ -980,17 +1025,6 @@ MailChimp UI Library based on OOCSS</p></blockquote></li>
         <a href="/blog/2012/06/07/10-small-habits-of-less-stressed-people/">轻松生活的十个小习惯</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2012/06/05/callouts-and-quotes/">Callouts and Quotes</a>
-      </li>
-    
-<<<<<<< HEAD
-=======
-      <li class="post">
-        <a href="/blog/2012/06/05/alerts/">Alerts</a>
-      </li>
-    
->>>>>>> 3d316c3e741c277d7dbd2d7d957017408ed31ac7
   </ul>
 </section>
 

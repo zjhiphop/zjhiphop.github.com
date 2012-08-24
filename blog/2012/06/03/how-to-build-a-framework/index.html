@@ -10,9 +10,7 @@
 
   
   <meta name="description" content="If let u to build a javascript framework,how will you do?
-对比几个比较流行的jQuery等框架，不难发现，有以下几个基础部分：
-* 浏览器的兼容性检测
-* 干净，可重用的API设计
+对比几个比较流行的jQuery等框架，不难发现，有以下几个基础部分�* 浏览器的兼容性检�* 干净，可重用的API设计
 * 有统一的基准和性能
 * &hellip;">
   
@@ -97,8 +95,8 @@
 
 
 <div class="entry-content"><p>If let u to build a javascript framework,how will you do?<br/>
-对比几个比较流行的jQuery等框架，不难发现，有以下几个基础部分：<br/>
-* 浏览器的兼容性检测<br/>
+对比几个比较流行的jQuery等框架，不难发现，有以下几个基础部分�br/>
+* 浏览器的兼容性检�br/>
 * 干净，可重用的API设计<br/>
 * 有统一的基准和性能<br/>
 * 编写有好的轻量的javascript<br/>
@@ -107,14 +105,14 @@
 <h2>为了便于合作，我们必须订立好项目的目标和开发的风格,以下是一种尝试：</h2>
 
 <blockquote><p>复杂性Verbose: 变量和方法名必须是有意义的，易懂和易理解<br/>
-移植性Portable: 浏览器和控制台<br/>
+移植性Portable: 浏览器和控制�br/>
 显式的Explicit: 代码应该是可以快速理解的<br/>
-注释Comments: 注释需要简洁明了的。TODO 和 FIXME 可以详细一点.<br/>
-简单Simple:   保持代码简单<br/>
+注释Comments: 注释需要简洁明了的。TODO �FIXME 可以详细一�<br/>
+简单Simple:   保持代码简�br/>
 缩进Indentation: 两个空格<br/>
 分号Semicolons:  添加分号以便人们可以方便压缩<br/>
 质量Quality: JsLint和读者留言!<br/>
-测试Testing: 在浏览器和控制台中都要测试<br/>
+测试Testing: 在浏览器和控制台中都要测�br/>
 版本控制Versioning: 使用GitHub</p></blockquote>
 
 <h2>高级框架结构</h2>
@@ -129,13 +127,13 @@
 
 <h3>Helper Methods</h3>
 
-<p>为什么?</p>
+<p>为什�</p>
 
 <blockquote><p>reduce the effort required to call commonly used functions<br/>
 how?<br/>
 should be succinct but clear</p></blockquote>
 
-<h3>初始化</h3>
+<h3>初始�/h3>
 
 <ul>
 <li>version</li>
@@ -143,7 +141,7 @@ should be succinct but clear</p></blockquote>
 </ul>
 
 
-<h3>模块和插件</h3>
+<h3>模块和插�/h3>
 
 <ul>
 <li>define your own global namespace,like jQuery,Mooltools etc.</li>
@@ -161,10 +159,10 @@ should be succinct but clear</p></blockquote>
 <h2>面向对象的javascript</h2>
 
 <p>为什么？<br/>
-1. 便于管理自己的代码<br/>
+1. 便于管理自己的代�br/>
 2. 对于Java或Ruby程序员来说很习惯这种方式</p>
 
-<h3>原型vs类继承</h3>
+<h3>原型vs类继�/h3>
 
 <h4>原型的优点：</h4>
 
@@ -174,13 +172,12 @@ should be succinct but clear</p></blockquote>
 </ol>
 
 
-<h4>类继承</h4>
+<h4>类继�/h4>
 
-<p>优点：
-1. keeps code simpler
+<p>优点�1. keeps code simpler
 2. it easer for people to navigate your code.</p>
 
-<p>缺点：<br/>
+<p>缺点�br/>
 1. 创建对象需要用一个包装器，如：Class.create</p>
 
 <h3>创建自己的继承方法：</h3>
@@ -193,7 +190,7 @@ should be succinct but clear</p></blockquote>
 </ol>
 
 
-<h3>继承：</h3>
+<h3>继承�/h3>
 
 <pre><code>for (var property in source )
     destination [property ] = source [property ];
@@ -215,11 +212,11 @@ create : function (methods ) {
 }
 </code></pre>
 
-<h3>更深层次的类：</h3>
+<h3>更深层次的类�/h3>
 
-<p>initialize 方法是我们的构造函数。使用Class.create的方法来创建新类。</p>
+<p>initialize 方法是我们的构造函数。使用Class.create的方法来创建新类�/p>
 
-<h3>语法糖</h3>
+<h3>语法�/h3>
 
 <p>Extend === Mixin ?</p>
 
@@ -305,7 +302,7 @@ Chained functions are possible when each function returns an object that can be 
 2. Runs appropriate methods from Root.enumerable by mapping the temporary value into the first argument<br/>
 3. After running the method, return this so the chain can continue</p></blockquote>
 
-<h3>实现：</h3>
+<h3>实现�/h3>
 
 <pre><code>// store temporary values in this.results
 Root.enumerable .Chainer = Root.Class ({
@@ -336,7 +333,7 @@ Root.enumerable .each(['map' , 'detect' , 'filter' ], function (methodName ) {
 </ol>
 
 
-<h3>浏览器支持</h3>
+<h3>浏览器支�/h3>
 
 <p>Sizzle的做法：</p>
 
@@ -369,7 +366,7 @@ Root.enumerable .each(['map' , 'detect' , 'filter' ], function (methodName ) {
 </ol>
 
 
-<h3>选择器引擎</h3>
+<h3>选择器引�/h3>
 
 <ol>
 <li><a href="http://jamesdonaghue.com/static/peppy/docs/">Peppy</a></li>
@@ -398,17 +395,17 @@ Root.enumerable .each(['map' , 'detect' , 'filter' ], function (methodName ) {
 </ol>
 
 
-<h3>CSS 选择器</h3>
+<h3>CSS 选择�/h3>
 
 <blockquote><p><a href="http://www.w3.org/TR/CSS2/selector.html">CSS2 selectors</a>,<a href="http://www.w3.org/TR/CSS21/grammar.html">CSS2 grammer</a><br/>
-1. E – Matches any element named E<br/>
-2. E F – Matches any element F that descends from E<br/>
-3. .class – Matches any element with the class class<br/>
-4. E.class – Matches any element named E with the class class<br/>
-5. #id – Matches any element with the id id<br/>
-6. E#id – Matches any element named E with the id id</p></blockquote>
+1. E �Matches any element named E<br/>
+2. E F �Matches any element F that descends from E<br/>
+3. .class �Matches any element with the class class<br/>
+4. E.class �Matches any element named E with the class class<br/>
+5. #id �Matches any element with the id id<br/>
+6. E#id �Matches any element named E with the id id</p></blockquote>
 
-<h3>CSS的解析规则</h3>
+<h3>CSS的解析规�/h3>
 
 <ol>
 <li>ID Rules</li>
@@ -472,12 +469,12 @@ Root.enumerable .each(['map' , 'detect' , 'filter' ], function (methodName ) {
 </ol>
 
 
-<h3>分词器(Tokenizer)</h3>
+<h3>分词�Tokenizer)</h3>
 
-<h3>给你一个selector，我们需要做：</h3>
+<h3>给你一个selector，我们需要做�/h3>
 
 <ol>
-<li>去掉额外的空格</li>
+<li>去掉额外的空�/li>
 <li>用某种方法处理并转化为一系列的指令解析器处理</li>
 <li><p>Run the tokens through the parser against the DOM</p>
 
@@ -496,7 +493,7 @@ Root.enumerable .each(['map' , 'detect' , 'filter' ], function (methodName ) {
  };
  //The finder property is one of those keys in findMap. The identity is the original rule from the selector.
 
-<h3>扫描器(Scanner)</h3>
+<h3>扫描�Scanner)</h3>
 
 <blockquote><p>CSS grammer specification
  macros = {</p>
@@ -537,9 +534,9 @@ Root.enumerable .each(['map' , 'detect' , 'filter' ], function (methodName ) {
 </ul>
 
 
-<h3>搜索器(Searcher)</h3>
+<h3>搜索�Searcher)</h3>
 
-<p>搜索器使用分词器的处理结果来搜索dom。初始化时需要指定搜索的root元素和一个token数组。</p>
+<p>搜索器使用分词器的处理结果来搜索dom。初始化时需要指定搜索的root元素和一个token数组�/p>
 
 <pre><code>find = {
 byId: function (root, id) {
@@ -579,7 +576,7 @@ findMap = {
 
 <h2>Events</h2>
 
-<h3>基本的事件绑定方式</h3>
+<h3>基本的事件绑定方�/h3>
 
 <ol>
 <li>inline</li>
@@ -587,16 +584,16 @@ findMap = {
 
 <h3>访问事件</h3>
 
-<p>event或者window.event，虽然直接访问window.event有潜在的危险，因为window.event是保存在上一次的事件对象，但javascript是单线程的，所以他是安全的。<br/>
+<p>event或者window.event，虽然直接访问window.event有潜在的危险，因为window.event是保存在上一次的事件对象，但javascript是单线程的，所以他是安全的�br/>
 中断事件(Stopping Events)</p></li>
 <li>return false
 
-<h3>事件捕获和冒泡</h3>
+<h3>事件捕获和冒�/h3>
 
-<p>why？</p></li>
+<p>why�/p></li>
 <li>同时绑定给两个父子级元素绑定click事件，很难确定事件的执行顺序</li>
 <li>不同的浏览器有不同的处理方法<br/>
-How？<br/>
+How�br/>
  function handler (event ) {
 
 <pre><code> if (!event ) var event = window .event ;
@@ -606,16 +603,15 @@ How？<br/>
 
  }
 
-<h3>多个事件处理器</h3>
+<h3>多个事件处理�/h3>
 
-<p>eg：
- element .onclick = function () { alert (&#8216;Hello World!&#8217; ); return false ; };
+<p>eg� element .onclick = function () { alert (&#8216;Hello World!&#8217; ); return false ; };
  element .onclick = function () { alert (&#8216;This was the best example I could think of&#8217;); return false;}
- //这里第二个事件会将第一个事件覆盖</p></li>
+ //这里第二个事件会将第一个事件覆�/p></li>
 </ol>
 
 
-<h3>事件api的定义</h3>
+<h3>事件api的定�/h3>
 
 <ol>
 <li>Normalise event names, so onClick becomes click</li>
@@ -624,13 +620,12 @@ How？<br/>
 <li>Mask the complexities of event bubbling</li>
 <li>Provide cross-browser access to keyboard and mouse interaction</li>
 <li>Patch browser incompetency like IE memory leaks<br/>
-jQuery的做法
-
+jQuery的做�
 <blockquote><p>$(&#8216;a&#8217;).click (function (event ) {<br/>
 alert (&#8216;A link has been clicked&#8217; );<br/>
 });<br/>
 The Event’s element is in event.target<br/>
-The current event within the bubbling phase is in event.currentTarget — also found in the
+The current event within the bubbling phase is in event.currentTarget �also found in the
 this object in the function  <br/>
 The default action can be prevented with event.preventDefault()<br/>
 Bubbling can be stopped with event.stopPropagation();<br/>
@@ -639,7 +634,7 @@ Events can be fired with $(&#8216;a&#8217;).trigger(&#8216;click&#8217;);</p></b
 </ol>
 
 
-<p>Prototype的做法</p>
+<p>Prototype的做�/p>
 
 <blockquote><p>$(&#8216;id&#8217;).observe (&#8216;click&#8217; , function (event ) {<br/>
 var element = Event .element (event );<br/>
@@ -649,7 +644,7 @@ Events are stopped with Event.stop()<br/>
 Events can be removed with Event.stopObserving(element, eventName, handler);<br/>
 Events can be fired with Event.fire(element)</p></blockquote>
 
-<p>Glow的做法</p>
+<p>Glow的做�/p>
 
 <blockquote><p>glow.events .addListener (&#8216;a&#8217;, &#8216;click&#8217; , function (event ) {  <br/>
 alert (&#8216;Hello World!&#8217; );<br/>
@@ -660,7 +655,7 @@ Events can be removed with glow.events.removeListener(handler) where handler is<
 the returned value from glow.events.addListener<br/>
 Events can be fired with glow.events.fire()</p></blockquote>
 
-<p>Dojo的做法</p>
+<p>Dojo的做�/p>
 
 <blockquote><p>dojo.connect (dojo.byId(&#8216;a#hello&#8217; ), &#8216;onclick&#8217; , function (event ) {</p>
 
@@ -670,7 +665,7 @@ Events can be fired with glow.events.fire()</p></blockquote>
 <p>});<br/>
 Notice that the event names aren’t mapped. Like the other frameworks, the event object is normalised.<br/>
 The Event’s element is in event.target<br/>
-The current event within the bubbling phase is in event.currentTarget — this is also this in
+The current event within the bubbling phase is in event.currentTarget �this is also this in
 the function<br/>
 The default action can be prevented with event.preventDefault()<br/>
 Bubbling can be stopped with event.stopPropagation();<br/>
@@ -678,15 +673,15 @@ Events can be removed with dojo.disconnect()</p></blockquote>
 
 <h3>总结</h3>
 
-<p>在以上的framework中，jquery的event handler是最具有魅力的，首先，它统一使用W3C的事件系统在各个浏览器中，较好的名称空间，完全解决了事件冒泡问题，这主要是由于Micorosoft的API在冒泡时的问题。</p>
+<p>在以上的framework中，jquery的event handler是最具有魅力的，首先，它统一使用W3C的事件系统在各个浏览器中，较好的名称空间，完全解决了事件冒泡问题，这主要是由于Micorosoft的API在冒泡时的问题�/p>
 
 <h3>实现</h3>
 
 <ol>
 <li>event.srcElement , event.target</li>
 <li>事件绑定  attachEvent,addEventlistener</li>
-<li>验证元素是否有效，确保元素非文本和注释节点</li>
-<li>阻止默认和冒泡事件</li>
+<li>验证元素是否有效，确保元素非文本和注释节�/li>
+<li>阻止默认和冒泡事�/li>
 <li>其他的浏览器修复</li>
 <li>NodeList</li>
 <li>事件代理<br/>
@@ -789,7 +784,7 @@ Events can be removed with dojo.disconnect()</p></blockquote>
 </ol>
 
 
-<h3>发送请求</h3>
+<h3>发送请�/h3>
 
 <ol>
 <li>Set a callback for onreadystatechange</li>
@@ -841,24 +836,24 @@ dataType : dataType
 <h3>JavaScript动画</h3>
 
 <p>Methods to work with CSS properties and animate them<br/>
-A queuing system, for scheduling animations, and animating each “frame” CSS colour parsing<br/>
+A queuing system, for scheduling animations, and animating each “frame�CSS colour parsing<br/>
 Helpers that make common web effects easy to use alongside events</p>
 
 <h3>动画框架</h3>
 
 <ol>
-<li>最流行的框架<a href="http://madrobby.github.com/scriptaculous/combination-effects-demo/">aculo</a></li>
+<li>最流行的框�a href="http://madrobby.github.com/scriptaculous/combination-effects-demo/">aculo</a></li>
 <li>Mootools <a href="http://mootools.net/docs/core/Fx/Fx">FX</a></li>
 <li>jQuery <a href="http://api.jquery.com/animate/">animate</a></li>
 <li>Glow <a href="http://www.bbc.co.uk/glow/docs/1.7/api/glow.anim.animation.shtml">animation</a>
 
 <h3>动画队列</h3>
 
-setInterval 和 clearInterval 来处理事件序列 <br/>
+setInterval �clearInterval 来处理事件序�<br/>
 Easing function
 
-<blockquote><p>“Ease-in” and “ease-out” in digital animation typically refer to a mechanism for defining the
-‘physics’ of the transition between two animation states, eg. the linearity of a tween.</p></blockquote></li>
+<blockquote><p>“Ease-in�and “ease-out�in digital animation typically refer to a mechanism for defining the
+‘physics�of the transition between two animation states, eg. the linearity of a tween.</p></blockquote></li>
 </ol>
 
 
@@ -876,12 +871,12 @@ easing .sine = function (position ) {
 };
 </code></pre>
 
-<h3>动画helper函数 &#8211; 一些比较常用的特效的封装</h3>
+<h3>动画helper函数 &#8211; 一些比较常用的特效的封�/h3>
 
 <ul>
-<li>Fade — fade an element by changing its opacity</li>
-<li>Highlight — rapidly change an element’s background colour to draw attention to it</li>
-<li>Movement — move an element<br/>
+<li>Fade �fade an element by changing its opacity</li>
+<li>Highlight �rapidly change an element’s background colour to draw attention to it</li>
+<li>Movement �move an element<br/>
   root.anim.fade(element , duration , { &#8216;from&#8217; : &#8216;8em&#8217; , &#8216;to&#8217;: &#8216;100px&#8217; , &#8216;easing&#8217; : easing });
   anim.fadeIn = function (element , duration , options ) {
 
@@ -954,9 +949,9 @@ left: 100px;
 slow animations.</li>
 <li>Hardware Acceleration
 
-<h3>特性检测</h3>
+<h3>特性检�/h3>
 
-是否支持硬件加速 <br/>
+是否支持硬件加�<br/>
  function isHWAcceleratedSafari () {
 
 <pre><code> var ua = navigator .userAgent , av = navigator .appVersion ;
@@ -965,7 +960,7 @@ slow animations.</li>
 </code></pre>
 
 <p> }
-是否支持WebKitTransitionEvent 或 MozTransition</p>
+是否支持WebKitTransitionEvent �MozTransition</p>
 
 <p>  var div = document .createElement (&#8216;div&#8217; );
   try {</p>
@@ -984,8 +979,7 @@ slow animations.</li>
   }
   }
   div = null;
-查询浏览器厂商支持
-  // CSS3 vendor detection
+查询浏览器厂商支�  // CSS3 vendor detection
   vendors = {
   // Opera Presto 2.3
   &#8216;opera&#8217; : {
@@ -1046,7 +1040,7 @@ slow animations.</li>
 
   }
 
-<h3>移动动画的实现</h3>
+<h3>移动动画的实�/h3>
 
 <p>Detect when a CSS property is being used to move an element<br/>
 Get the vendor prefix<br/>
@@ -1056,7 +1050,7 @@ Set up CSS3 style properties instead of using JS animation engine</p></li>
 
 <h2>支持TouchScreen</h2>
 
-<h3>目前支持的framework：</h3>
+<h3>目前支持的framework�/h3>
 
 <ol>
 <li><a href="http://www.jqtouch.com/">jQTouch</a> : iPhone, iPad and Android phones</li>
@@ -1119,7 +1113,7 @@ If touchmove fired, work out the distance of the movement and how long it took f
 
 <h3>总结</h3>
 
-<p>A “container function” is used to create new objects without having to type new<br/>
+<p>A “container function�is used to create new objects without having to type new<br/>
 It returns objects based on a CSS selector<br/>
 A class is created and copied so usage of methods like find can be called in a chain</p>
 
@@ -1147,7 +1141,7 @@ var chainedAliases = ('click dblclick mouseover mouseout mousemove ' +
 };
 </code></pre>
 
-<h2>特性检测  eg：querySelectorAll</h2>
+<h2>特性检� eg：querySelectorAll</h2>
 
 <h3>实现</h3>
 
@@ -1240,15 +1234,15 @@ turing .addDetectionTest ('querySelectorAll' , function () {
   <ul id="recent_posts">
     
       <li class="post">
-<<<<<<< HEAD
+        <a href="/blog/2012/07/21/some-valueable-links/">Some Valueable Links</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/07/05/interesting-js-puzzle/">interesting_js_puzzle</a>
       </li>
     
       <li class="post">
         <a href="/blog/2012/07/04/frontend-architecture/">frontend architecture</a>
-=======
-        <a href="/blog/2012/07/21/some-valueable-links/">Some Valueable Links</a>
->>>>>>> 3d316c3e741c277d7dbd2d7d957017408ed31ac7
       </li>
     
       <li class="post">
@@ -1259,17 +1253,6 @@ turing .addDetectionTest ('querySelectorAll' , function () {
         <a href="/blog/2012/06/07/10-small-habits-of-less-stressed-people/">轻松生活的十个小习惯</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2012/06/05/callouts-and-quotes/">Callouts and Quotes</a>
-      </li>
-    
-<<<<<<< HEAD
-=======
-      <li class="post">
-        <a href="/blog/2012/06/05/alerts/">Alerts</a>
-      </li>
-    
->>>>>>> 3d316c3e741c277d7dbd2d7d957017408ed31ac7
   </ul>
 </section>
 

@@ -4,11 +4,7 @@
   <title><![CDATA[Category: Reuseable and Scaleable HTML&CSS | Jade's fantastic Blog]]></title>
   <link href="http://zjhiphop.github.com/blog/categories/reuseable-and-scaleable-html-css/atom.xml" rel="self"/>
   <link href="http://zjhiphop.github.com/"/>
-<<<<<<< HEAD
-  <updated>2012-07-05T15:45:01+08:00</updated>
-=======
-  <updated>2012-07-21T19:51:45+08:00</updated>
->>>>>>> 3d316c3e741c277d7dbd2d7d957017408ed31ac7
+  <updated>2012-08-14T10:27:43+08:00</updated>
   <id>http://zjhiphop.github.com/</id>
   <author>
     <name><![CDATA[zjhiphop]]></name>
@@ -396,37 +392,4 @@ MailChimp UI Library based on OOCSS</p></blockquote></li>
 ]]></content>
   </entry>
   
-<<<<<<< HEAD
-=======
-  <entry>
-    <title type="html"><![CDATA[thinking in CSS]]></title>
-    <link href="http://zjhiphop.github.com/blog/2012/06/02/thinking-in-css/"/>
-    <updated>2012-06-02T14:54:00+08:00</updated>
-    <id>http://zjhiphop.github.com/blog/2012/06/02/thinking-in-css</id>
-    <content type="html"><![CDATA[<h4>What is CSS?</h4>
-
-<blockquote><p> Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation semantics (the look and formatting) of a document written in a markup language. Its most common application is to style web pages written in HTML and XHTML, but the language can also be applied to any kind of XML document, including plain XML, SVG and XUL.</p></blockquote>
-
-<h4>CSS is very important for front-end develope,but it's also very hard to do maintenance.</h4>
-
-<ol>
-<li>Selectors have many priority levels which always confuse</li>
-<li>The different browsers have different render method</li>
-<li>Many many repeated code is very offen to see</li>
-</ol>
-
-
-<h4>We need to find some good ways to make the code is easy to scales,mantains,modules.</h4>
-
-<ol>
-<li>We must know the HTML/CSS design patterns</li>
-<li>We must define our own patterns to make css more loose coupled</li>
-<li>We must find some easy way to build css basic on some tools</li>
-<li>We must build basic reuseable libry to cross bworser</li>
-</ol>
-
-]]></content>
-  </entry>
-  
->>>>>>> 3d316c3e741c277d7dbd2d7d957017408ed31ac7
 </feed>
