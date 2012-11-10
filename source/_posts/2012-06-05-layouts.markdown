@@ -5,3 +5,26 @@ date: 2012-06-05 15:32
 comments: true
 categories: [HTML and CSS Design Patterns]
 ---
+
+<div><ul>
+<li><strong>Fluid Layout </strong> Overview explores problems and solutions in creating fluid layouts.</li>
+<li><strong>Outside-in Box</strong> shows how to size the outer width of a box instead of the inner
+width.</li>
+<li><strong>Floating Section </strong> shows how to render sections in columns using a fluid layout.</li>
+<li><strong>Float Divider</strong> shows how to separate and integrate floats and content predictably.</li>
+<li><strong>Fluid Layout </strong> shows how to create layouts that automatically adapt to any display.</li>
+<li><strong>Opposing Floats</strong> shows how to move content to opposite sides of its container.</li>
+<li><strong>Event Styling </strong> shows how to assign events to elements without putting code in
+your document. It shows how events can modify classes to change how elements
+are styled.</li>
+<li><strong>Rollup </strong> shows how to collapse and open sections with a mouse click.</li>
+<li><strong>Tab Menu </strong> shows how to create a tabbed interface that loads new pages when
+clicked.</li>
+<li><strong>Tabs </strong> shows how to create a tabbed interface that dynamically switches content in
+and out of the display when the user clicks a tab—without loading a new page.</li>
+<li><strong>Flyout Menu </strong> shows how to create a menu that opens when clicked or hovered
+over.</li>
+<li><strong>Button </strong> shows how to create buttons and process their events using JavaScript.</li>
+<li><strong>Layout Links </strong> shows how to use links as part of the layout, such as breadcrumbs.</li>
+<li><strong>Multi-column </strong> shows how to distribute content over multiple columns.</li>
+</ul></div>

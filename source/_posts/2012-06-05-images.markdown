@@ -5,3 +5,32 @@ date: 2012-06-05 15:32
 comments: true
 categories: [HTML and CSS Design Patterns]
 ---
+
+<div><ul>
+<li><strong>Image</strong> shows how to use the <img> element. It also contrasts the advantages and
+disadvantages of the GIF, JPG, and PNG image formats.</li>
+<li><strong>Image Map</strong> shows how to overlay an image with clickable areas that link to other
+pages.</li>
+<li><strong>Fade-Out</strong> shows how to use gradient images to add subtle shading behind
+content. It also shows how to create chameleon gradients that adapt to the current
+background.</li>
+<li><strong>Semi-transparent</strong> shows how to put a partially transparent background behind
+an element so that it stands out from the background below it without obscuring
+it.</li>
+<li><strong>Replaced Text</strong> shows how to replace text with an image while remaining
+accessible to nonsighted users. This technique also shows the text when the image
+is unavailable.</li>
+<li><strong>Content over</strong> Image shows how to overlay text and other images on top of an
+image.</li>
+<li><strong>Content over Background</strong> Image shows how to overlay text and other images on
+top of a background image.</li>
+<li><strong>CSS Sprite</strong> shows how to embed multiple images into one file and display them
+independently as the background of different elements of a document.</li>
+<li><strong>Basic Shadowed Image</strong> shows how to create and apply a simple shadow to an
+image without modifying the image itself.</li>
+<li><strong>Shadowed Image</strong> shows a generic way of applying a shadow to an image of any
+size.</li>
+<li><strong>Rounded Corners</strong> shows how to round the corners of an element’s borders and
+how to create custom borders of any style imaginable.</li>
+<li><strong>Image Example</strong> showcases these patterns in one document.</li>
+</ul></div>

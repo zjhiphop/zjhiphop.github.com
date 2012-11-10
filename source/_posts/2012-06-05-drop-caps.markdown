@@ -5,3 +5,27 @@ date: 2012-06-05 15:32
 comments: true
 categories: [HTML and CSS Design Patterns]
 ---
+
+<div><ul>
+<li><strong>Aligned Drop Cap</strong> shows how to create a simple drop cap by enlarging it and
+vertically aligning it.</li>
+<li><strong>First-letter Drop Cap</strong> shows how to create a drop cap without inserting extra
+markup.</li>
+<li><strong>Hanging Drop Cap</strong> shows how to use a hanging indent to create a drop cap.</li>
+<li><strong>Padded Graphical Drop Cap</strong> shows how to add left padding to the drop cap to
+make room for a background image showing a banner, a grabber, or a decoration.</li>
+<li><strong>Floating Drop Cap</strong> shows how to float the drop cap to the left so that text below
+the drop cap wraps back under the drop cap.</li>
+<li><strong>Floating Graphical Drop Cap</strong> shows how to display a graphic on top of the
+dropcap text. It works great for screen readers, and it shows a styled text version of
+the drop cap when the image is unavailable. This is the best Graphical Drop Cap
+design pattern for allowing text below the drop cap to wrap back under the drop
+cap.</li>
+<li><strong>Marginal Drop Cap</strong> shows how to use absolute positioning to move the drop cap
+into the left margin of a block. All lines of the block are indented.</li>
+<li><strong>Marginal Graphical Drop Cap</strong> shows how to display a graphic on top of the
+dropcap text. It works great for screen readers, and it shows a styled text version of
+the drop cap when the image is unavailable. This is the best Graphical Drop Cap
+design pattern for preventing text below the drop cap from wrapping back under
+the drop cap.</li>
+</ul></div>
