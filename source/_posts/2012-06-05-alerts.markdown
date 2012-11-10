@@ -5,3 +5,26 @@ date: 2012-06-05 15:33
 comments: true
 categories: [HTML and CSS Design Patterns]
 ---
+
+<div><ul>
+<li><strong>JavaScript Alert</strong> shows how to dynamically pop up an alert based on an event.</li>
+<li><strong>Tooltip= Alert</strong> shows how to create a tooltip to show the user extra information.</li>
+<li><strong>Pop-Up Alert</strong> shows how to pop up an alert to show the user extra information.</li>
+<li><strong>Alert shows</strong> the basic HTML structure of an alert.</li>
+<li><strong>Inline Alert</strong> shows how to make an alert using an inline element.</li>
+<li><strong>Hanging Alert</strong> shows how to move the alert’s heading to the left side and the
+content to the right side by using a hanging indent that does not require extra
+markup.</li>
+<li><strong>Graphical Alert</strong> shows how to move the alert’s heading to the left side and the
+content to the right side and replace the heading with an image.</li>
+<li><strong>Run-In Alert</strong> shows how to run the alert’s heading into the first line of the
+content.</li>
+<li><strong>Floating Alert</strong> shows how to float an alert to the left or the right of the content
+with its heading on the left and its content on the right.</li>
+<li><strong>Left Marginal Alert</strong> shows how to move an alert into the left margin using
+absolute positioning.</li>
+<li><strong>Right Marginal Alert</strong> shows how to move an alert into the right margin using
+absolute positioning.</li>
+<li><strong>Form Validation</strong> shows how to natively validate HTML5 forms and alert the user
+for wrong input.</li>
+</ul></div>
