@@ -1,0 +1,1051 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Jade's fantastic Blog</title>
+  <meta name="author" content="zjhiphop">
+
+  
+  <meta name="description" content="Anything that can go right will go right. &#8211;反墨菲定律 MVC and Classes Events and Observing Models and Data Controllers and State The Real-Time Web &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zjhiphop.github.com/blog/page/3">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Jade's fantastic Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Jade's fantastic Blog</a></h1>
+  
+    <h2>Make a difference.Where amazing happens!</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zjhiphop.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About </a></li> 
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/03/js-web-applications/">JS Web Applications</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-03T15:22:00+08:00" pubdate data-updated="true">Jun 3<span>rd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Anything that can go right will go right. &#8211;反墨菲定律</p>
+
+<p>MVC and Classes</p>
+
+<p>Events and Observing</p>
+
+<p>Models and Data</p>
+
+<p>Controllers and State</p>
+
+<p>The Real-Time Web</p>
+
+<p>Testing and Debugging</p>
+
+<p>The Spine Library</p>
+
+<p>The Backbone Library</p>
+
+<p>The JavascriptMVC Library</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/02/js-saving-byte-tec/">JavaScript Byte-saving Technique</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-02T22:21:00+08:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>Byte-saving Technique</h3>
+
+<p>下面展示的是一系列javascript魔法，它可以剥掉一层你的JS代码！这些技术参考自&#8221;140bytes&#8221;，一下所说明的技术会帮助你减少JS的代码量，但是在性能方面还有很多方面有待考究！</p>
+
+<h3>Arguments</h3>
+
+<p>使用按字母排序的一个字母一个位置的参数<br/>
+我们总是希望参数越短越好，这样可以在生命周期中尽可能的重用他们。最佳的处理方法是仅仅将他们用作一个占位符而不是总是尝试给予一个变量有意义的名字。同时使用一个字母命名法会稍微改变在单独函数中的可读性，保持一致的做法会对函数交互时的可读性有帮助！</p>
+
+<pre><code>function(t,d,v,i,f){...} // before  
+function(a,b,c,d,e){...} // after  
+</code></pre>
+
+<p>不要使用arguments.length去判断参数是否存在，使用in去检查是否有参数被传递</p>
+
+<pre><code>arguments.length&gt;1||(cb=alert) // before  
+1 in arguments||(cb=alert)     // after  
+</code></pre>
+
+<h3>Variables</h3>
+
+<p>使用占位符取代var<br/>
+通过在函数arguments声明取代var使用来节省字节</p>
+
+<pre><code>function(a){var b=1;...} // before  
+function(a,b){b=1;...}   // after  
+</code></pre>
+
+<p>尽可能的重用变量<br/>
+谨慎使用那些不再使用的变量来节省字节</p>
+
+<pre><code>setTimeout(function(){for(var i=10;i--;)... }, a) // before  
+setTimeout(function(){for(a=10;a--;)... }, a)     // after  
+</code></pre>
+
+<p>无论何处，尽可能的赋值<br/>
+因为分配变量会返回被赋得值，同时进行赋值和判断会节省一些字节。有一个很好的例子：JSONP函数，其中script是在createElement方法中被赋值的！</p>
+
+<pre><code>a=this.localStorage;if(a){...} // before  
+if(a=this.localStorage){...}   // after  
+</code></pre>
+
+<p>使用数组交换变量<br/>
+数组可以用来临时保存数据占位，这样可以避免声明另一个变量！</p>
+
+<pre><code>var a=1,b=2,c;c=a;a=b;b=c // before  
+var a=1,b=2;a=[b,b=a][0]  // after  
+</code></pre>
+
+<p>强制原则使用开拓<br/>
+JS强制原则是精华也是糟粕，但是有时相当有用。pubsub函数减少了负面的变量，然后使用一个字符串将结果连接起来，最终结果类似somestring-123，这个字符串会在后续处理中使用连字符“-”来还原为原始的字符串！（也许你可以看看）</p>
+
+<h3>Loops</h3>
+
+<p>忽略循环体<br/>
+如果你能在循环条件中执行所有的逻辑，那么你就不需要循环体。示例：timeAgo使用for而不是while for和while需要相同的字节空间，但是for会给予你更多的赋值机会。</p>
+
+<pre><code>while(i--){...} // before  
+for(;i--;){...} // after  
+i=10;while(i--){...} // before  
+for(i=10;i--;){...}  // after  
+</code></pre>
+
+<p>使用存在的缩索引去迭代数组中的真实元素<br/>
+当你迭代一组真实存在的数组对象时，缩短循环对象的回路将会减少很多字节。</p>
+
+<pre><code>for(a=[1,2,3,4,5],l=a.length,i=0;i&lt;l;i++){b=a[i];...}  
+for(a=[1,2,3,4,5],i=0;b=a[i++];){...}  
+</code></pre>
+
+<p>使用for..in来分配并且获得一个对象的keys</p>
+
+<pre><code>a=[];for(b in window)a.push(window[b]) // before  
+a=[];i=0;for(a[i++]in window);        // after  
+</code></pre>
+
+<h3>Operators</h3>
+
+<p>理解操作符优先级<br/>
+This Mozilla page是一个非常好的页面让你去开始学习。<br/>
+理解位操作运算hacks<br/>
+使用’~‘配合indexof来测试<br/>
+Use ~ with indexOf to test presence</p>
+
+<pre><code>hasAnF="This sentence has an f.".indexOf("f")&gt;=0 // before  
+hasAnF=~"This sentence has an f.".indexOf("f")   // after  
+~-1  
+0  
+~1  
+-2  
+~-2  
+1  
+~0  
+-1  
+</code></pre>
+
+<p>使用’,’来在同一行串联表达式</p>
+
+<pre><code>with(document){open();write("hello");close()}  
+with(document)open(),write("hello"),close()  
+</code></pre>
+
+<p>使用’[].<em>’取代’void 0’，’undefined’(&#8220;&#8221;.</em> ，1.._和0[0]也会起作用，但是会更慢)
+去除操作符之后的不必要的空格，操作符之后的空格不总是必须的，有时是可以忽略的！</p>
+
+<pre><code>typeof [] // before  
+typeof[]  // after  
+</code></pre>
+
+<h3>Numbers</h3>
+
+<p>使用’<del>~’和’0|’取代Math.floor<br/>
+以上这两种组合将会对数字取整(注意:</del>比|的优先级别低，除此之外没什么区别)</p>
+
+<pre><code>rand10=Math.floor(Math.random()*10) // before  
+rand10=0|Math.random()*10           // after  
+</code></pre>
+
+<p>使用AeB的格式书写大的十进制的数字<br/>
+这种写法等价于A*Math.pow(10,B).</p>
+
+<pre><code>million=1000000 // before  
+million=1e6     // after  
+</code></pre>
+
+<p>使用A&lt;&lt;B的格式来书写一个大的二进制数据<br/>
+这种写法等价于A*Math.pow(2,B). 示例：rgb2hex</p>
+
+<pre><code>color=0x100000 // before  
+color=1&lt;&lt;20    // after  
+</code></pre>
+
+<p>使用1/0来取代无穷(Infinity)<br/>
+这种做法会更加简短。除此之外，division by zero gets you free internet points.</p>
+
+<pre><code>[Infinity,-Infinity] // before  
+[1/0,-1/0]           // after  
+</code></pre>
+
+<p>挖掘出0作为假(Exploit the &#8220;falsiness&#8221; of 0)<br/>
+当比较几个数字时，通常将值转化为对0进行比较以达到是代码精简的目的！</p>
+
+<pre><code>a==1||console.log("not one") // before  
+!~-a||console.log("not one")  // after  
+</code></pre>
+
+<h3>Strings</h3>
+
+<p>使用0来分隔字符串<br/>
+使用0作为分隔符将会节省两个byte，示例：timeAgo</p>
+
+<pre><code>"alpha,bravo,charlie".split(",") // before  
+"alpha0bravo0charlie".split(0)   // after  
+</code></pre>
+
+<p>使用很少被知道的’.link’方法<br/>
+Strings有一个内建的方法’link’,用来创建一个html link element。你可以查看示例： linkify 函数.</p>
+
+<pre><code>html="&lt;a href=""+url+"" mce_href=""+url+""&gt;"+text+"&lt;/a&gt;" // before  
+html=text.link(url)                   // after  
+</code></pre>
+
+<p>使用’replace’来创建强力的字符串迭代<br/>
+因为 ‘replace’方法可以使用function作为第二个参数，它可以用来捕获大量的迭代’账簿’。你可以查看示例：templates and UUID functions.
+使用数组来重复字符串</p>
+
+<pre><code>for(a="",i=32;i--;)a+=0 // before  
+a=Array(33).join(0)     // after  
+</code></pre>
+
+<h3>Conditionals</h3>
+
+<p>尽可能的使用&amp;&amp;和||在所有的地方</p>
+
+<pre><code>if(a)if(b)return c // before  
+return a&amp;&amp;b&amp;&amp;c     // after  
+if(!a)a=Infinity // before  
+a||(a=Infinity)  // after  
+</code></pre>
+
+<h3>Arrays</h3>
+
+<p>Use elision<br/>
+Array elision 在某些特定的场景可以节省字节空间！查看示例： router API for a real-world example.</p>
+
+<pre><code>[undefined,undefined,2] // before  
+[,,2]                   // after  
+// Note: Be mindful of elided elements at the end of the element list  
+[2,undefined,undefined] // before length is 3  
+[2,,]                   // after length is 2  
+</code></pre>
+
+<h3>Regular Expressions</h3>
+
+<p>非规范化的缩减<br/>
+//d{2}/比较灵活, //d/d/ 更加简短.<br/>
+eval解析正则表达式比直接使用RegExp()更简短</p>
+
+<pre><code>r=new RegExp("{"+p+"}","g") // before  
+r=eval("/{"+p+"}/g")    // after  
+</code></pre>
+
+<h3>Booleans</h3>
+
+<p>使用’!’来创建boolean<br/>
+true 和 false 可以用’!’联合数字使用达到相同的效果</p>
+
+<pre><code>[true,false] // before  
+[!0,!1]      // after  
+</code></pre>
+
+<h3>Functions</h3>
+
+<p>使用命名的函数进行递归<br/>
+递归通常比循环更加简洁，因为递归会卸载掉栈调用的列表簿。查看示例：walk function.
+使用命名的函数来保存状态
+如果状态需要在函数调用的时候进行保存，那么使用命名的函数并且将他作容器使用。示例：JSONP function.</p>
+
+<pre><code>function(i){return function(){console.log("called "+(++i)+" times")}}(0) // before  
+(function a(){console.log("called "+(a.i=a.i+1||1)+" times")})           // after  
+0,function a(){console.log("called "+(a.i=a.i+1||1)+" times")}           // another alternative  
+</code></pre>
+
+<p>忽略”()”当使用不带参数的new创建新的对象时<br/>
+“new Object” 等价于 new Object()</p>
+
+<pre><code>now = +new Date() // before  
+now = +new Date   // after  
+</code></pre>
+
+<p>reutrn语句<br/>
+当返回任何数据除了变量，不需要在return之后加空格return ：</p>
+
+<pre><code>['foo',42,'bar']; // before  
+return['foo',42,'bar'];  // after  
+return {x:42,y:417}; // before  
+return{x:42,y:417};  // after  
+return .01; // before  
+return.01;  // after  
+</code></pre>
+
+<p>正确的使用函数闭包 Use the right closure for the job<br/>
+如果你需要立即执行函数，请使用最适当的闭包.</p>
+
+<pre><code>;(function(){...})() // before  
+new function(){...}  // after, if you plan on returning an object and can use `this`  
+!function(){...}()   // after, if you don't need to return anything  
+</code></pre>
+
+<h3>In the browser</h3>
+
+<p>使用浏览器对象避免额外的逻辑<br/>
+你可以使用浏览器anchor elements去解析URLs取代自己写的逻辑。示例：parseURL, 将文本转化为html：escapeHTML.
+Use global scope
+因为window在浏览器中是一个全局对象，你可以直接引用它的任何属性。比如说document和location，除此之外还有其他比较有用的属性，像：innerWidth，查看示例： screensaver.</p>
+
+<h3>APIs</h3>
+
+<p>尽可能的对每个参数传递静态的数据<br/>
+使用额外的字节去提供默认值<br/>
+只做一件事并做到最好</p>
+
+<h3>Other resources</h3>
+
+<p>Ben Alman&#8217;s explanation of his <a href="http://benalman.com/news/2010/08/organ1k-js1k-contest-entry/">JS1K entry</a>  <br/>
+Marijn Haverbeke&#8217;s explanation of his <a href="http://benalman.com/news/2010/08/organ1k-js1k-contest-entry/">JS1K entry</a><br/>
+<a href="http://code.google.com/p/closure-compiler/issues/detail?id=36">Suggested Closure Compiler optimizations</a> <br/>
+Angus Croll&#8217;s <a href="http://javascriptweblog.wordpress.com/">blog</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/02/smacss/">SMACSS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-02T17:04:00+08:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Notes: This article is based on <a href="http://smacss.com/">SMACSS</a>.</p>
+
+<hr />
+
+<h3>what is smacss?</h3>
+
+<blockquote><p>SMACSS (pronounced &#8220;smacks&#8221;) is more style guide than
+rigid framework. There is no library within here for you
+to download or install. SMACSS is a way to examine your
+design process and as a way to fit those rigid frame-works into a flexible thought process. It is an attempt to
+document a consistent approach to site development
+when using CSS. And really, who isn’t building a site
+Scalable and Modular Architecture for CSS
+with CSS these days?! Feel free to take this in its entirety
+or use only the parts that work best for you. Or don’t
+use it at all. I understand that this won’t be everybody’s
+cup of tea. When it comes to web development, the an-swer to most questions is “it depends&#8221;.</p></blockquote>
+
+<h3>Categorizing CSS Rules</h3>
+
+<ol>
+<li>Base
+
+<blockquote><p>Base rules are the defaults. They are almost exclusively
+single element selectors but it could include attribute
+selectors, pseudo-class selectors, child selectors or sib-
+ling selectors. Essentially, a base style says that wherev-
+er this element is on the page, it should look likethis.</p>
+
+<h4>CSS Resets to define a consistent founda-tion across browsers to build the site on.</h4></blockquote></li>
+<li>Layout
+
+<blockquote><p>divide the page into sections. Layouts hold
+one or more modules together.</p>
+
+<h5>Try to use id provide efficient hooks for JavaScript</h5>
+
+<h5>Use class selectors can make styling more compli-cated due to increasing specificity</h5></blockquote></li>
+<li>Module
+
+<blockquote><p>reusable, modular parts of our design.
+They are the callouts, the sidebar sections, the product
+lists and so on.</p>
+
+<h5>Avoid element selectors except the element selectors will and can be predictable</h5>
+
+<h5>Better understand where context changes are likely to occur</h5>
+
+<h5>Use subclassing Modules to let module more reuseable</h5></blockquote></li>
+<li>State
+
+<blockquote><p>are ways to describe how our modules or
+layouts will look when in a particular state. Is it hidden
+or expanded? Is it active or inactive? They are about de-scribing how a module or layout looks on screens that
+are smaller or bigger. They are also about describing
+how a module might look in different views like the
+home page or the inside page.</p>
+
+<h5>apply to layout and/or module styles</h5>
+
+<h5>State styles indicate a JavaScript dependency</h5>
+
+<h5>States should be made to stand alone and are usually built of a single class selector.Sometimes need to</h5>
+
+<p>use !important</p>
+
+<h5>Combining State Rules with Modules</h5></blockquote></li>
+<li>Theme
+
+<blockquote><p>similar to state rules in that
+they describe how modules or layouts might look. Most
+sites don’t require a layer of theming but it is good to be
+aware of it.</p>
+
+<h5>they aren&#8217;t included as part of the core types</h5>
+
+<h5>defines colours and images that give your application or site its look and feel</h5></blockquote></li>
+<li>Font
+
+<blockquote><p>Font rules will normally affect base, module and state styles. Font styles won’t normally be specified at the lay-out level as layouts are intended for positioning and placement, not for stylistic changes like fonts and
+colours.</p>
+
+<h5>Your site should only have 3 to 6 different font-sizes</h5>
+
+<h5>locale for more countries</h5></blockquote></li>
+</ol>
+
+
+<h3>Naming Rules</h3>
+
+<h4>why?</h4>
+
+<ol>
+<li>Beneficial for immediately understanding</li>
+<li>On large projects, it is more likely to have styles broken up across multiple files</li>
+<li>it easier to find which file a style belongs to
+
+<h4>How?</h4></li>
+<li>l- or lay-out for layout,and usr prefix to separate different layouts,such grid</li>
+<li>is- or is-hidden or is-collapsed for state</li>
+<li>every module start with a prefix like .moduleName-</li>
+<li>use .exm for code examples
+
+<h4>Do it</h4>
+
+<blockquote><p>Have a convention, document it, and stick to it.</p></blockquote></li>
+</ol>
+
+
+<h3>Changing state</h3>
+
+<ol>
+<li>class name
+
+<blockquote><p>A class name change happens with JavaScript. Via some
+interaction, be it moving the mouse around, hitting
+something on the keyboard, or some other event occur-ring. An element gets a new class applied and then the
+visual appearance changes.</p></blockquote></li>
+<li>pseudo-class
+
+<blockquote><p>A pseudo-class change is done via any number of pseudo-classes, and there are a lot. In these cases, we no longer have to rely on JavaScript to describe the state change. Pseudo-classes are still limited in that we can
+only style changes to elements that are descendants or siblings of the element in which the pseudo-class ap-plies. Otherwise, we are back to using JavaScript.</p></blockquote></li>
+<li>media query
+
+<blockquote><p>media queriesdescribe how things should by styled under defined criteria, such as different viewport sizes.</p></blockquote></li>
+</ol>
+
+
+<h3>Depth of Applicability</h3>
+
+<h4>Why?</h4>
+
+<ol>
+<li>HTML is like a tree structure of parents and children.
+The depth of applicability is the number of generations
+that are affected by a given rule.</li>
+<li>The problem with such a depth is that it enforces a
+much greater dependency on a particular HTML struc-ture.</li>
+</ol>
+
+
+<h3>Selector Performance</h3>
+
+<h4>Do u know?</h4>
+
+<p>1.The style of an element is evaluated on  element creation
+2.CSS gets evaluated from right to left.</p>
+
+<h3>Constrain yourself, don’t choke yourself</h3>
+
+<h4>How?</h4>
+
+<ol>
+<li>Use child selectors</li>
+<li>Avoid tag selectors for common elements</li>
+<li>Use class names as the right-most selector</li>
+</ol>
+
+
+<h3>HTML5 and SMACSS</h3>
+
+<h4>Why?</h4>
+
+<ol>
+<li>Increase the semantic value of a section of HTML and content</li>
+<li>Decrease the expectation of a specific HTML structure</li>
+</ol>
+
+
+<h3>Prototyping</h3>
+
+<ol>
+<li>Bootstrap(for a variety of site components)</li>
+<li>960.gs (for layout grids)</li>
+<li>mustache template for render template</li>
+<li>MailChimp a php tool used to build protype easily
+
+<h4>why?</h4></li>
+<li>show states</li>
+<li>review localization</li>
+<li>isolate dependencies</li>
+</ol>
+
+
+<h3>Preprocessors</h3>
+
+<h4>why?</h4>
+
+<blockquote><p>As great as CSS is, it is still missing features that many
+designers and developers would like it to have. To help
+fill this void—and to help speed up development—tools
+have been created to make our lives easier.
+* Variables
+* Operations
+* Mixins
+* Nesting
+* Functions
+* Interpolation
+* File importing
+* Extending</p></blockquote>
+
+<h4>What?</h4>
+
+<blockquote><p>A CSS preprocessor allows you to use a special syntax in
+your CSS that is then compiled within your project.
+Some preprocessors try and stick as closely as possible
+to actual CSS syntax, whereas others try to simplify
+things as much as possible.</p></blockquote>
+
+<h4>how?</h4>
+
+<ol>
+<li>Stylus</li>
+<li>Sass</li>
+<li>Less</li>
+</ol>
+
+
+<h4>Problem?</h4>
+
+<ol>
+<li>Deep Nesting  State-based Media Queries with Nesting</li>
+<li>Unnecessary extending</li>
+<li>Overused Mixins</li>
+</ol>
+
+
+<h4>Organizing Your Files</h4>
+
+<ul>
+<li>Place all Base rules into their own file.</li>
+<li>Depending on the type of layouts you have,
+either place all of them into a single file or major
+layouts into separate files.</li>
+<li>Put each module into its own file.</li>
+<li>Depending on size of project, place sub-modules
+into their own file.</li>
+<li>Place global states into their own file.</li>
+<li>Place layout and module states, including media
+queries that affect those layouts and modules,
+into the module files.</li>
+</ul>
+
+
+<blockquote><p>A sample directory structure<br/>
++-layout/<br/>
+| +-grid.scss <br/>
+| +-alternate.scss<br/>
++-module/<br/>
+| +-callout.scss<br/>
+| +-bookmarks.scss<br/>
+| +-btn.scss<br/>
+| +-btn-compose.scss<br/>
++-base.scss<br/>
++-states.scss<br/>
++-site-settings.scss<br/>
++-mixins.scss</p></blockquote>
+
+<h3>Drop the Base</h3>
+
+<h4>why?</h4>
+
+<ol>
+<li>There are some elements—not many, but a few that aren&#8217;t used very often</li>
+<li>Some elements like button,table, and input sometimes changes
+
+<h4>How to do without base?</h4></li>
+<li>make a module</li>
+<li>used less CSS</li>
+</ol>
+
+
+<h3>The Icon Module</h3>
+
+<h4>why?</h4>
+
+<ul>
+<li>We became reliant on a very specific HTML
+structure: the list item.</li>
+<li>Sprites had to be redefined to be used in other
+modules.</li>
+<li>Positioning within the element was very fragile:
+bumping up font size could reveal other parts of
+the sprite.</li>
+<li>Handling right-to-left interfaces was more
+difficult since we could only use horizontal
+sprites and fix the x position to 0.</li>
+</ul>
+
+
+<h4>How ?</h4>
+
+<blockquote><p>the icon module<br/>
+Restructuring the HTML to create the icon module
+<li><i class="ico ico-16 ico-inbox"></i> Inbox</li></p></blockquote>
+
+<h3>Complicated Inheritance</h3>
+
+<h4>inheritance can wreak some havoc on our well-laid plans</h4>
+
+<h4>Minimizing the number of situations like these</h4>
+
+<h3>Formatting Code</h3>
+
+<h4>Why mutiple line</h4>
+
+<ol>
+<li>properties assigned to a rule set were quite small</li>
+<li>could find the selector I wanted and all of the properties would be visible on the screen</li>
+<li>CSS3 vender-specific prefixes that come with it can get out of hand quickly</li>
+<li>easier for everybody to have each property/value pair on its own line
+
+<h4>Grouping Properties</h4></li>
+<li>Box display,float,position,left,top,height,width</li>
+<li>Border border-im-age, andborder-radius</li>
+<li>Background CSS3</li>
+<li>Text font-family,font-size,text-transform,letter-spacing</li>
+<li>Other
+
+<h4>Colour Declarations</h4></li>
+<li>hex Shorter than keywords,rgb,hsl. hex as the first choice</li>
+<li>use rgba and hsla for opacity</li>
+</ol>
+
+
+<h3>Resources</h3>
+
+<h4>CSS Preprocessors</h4>
+
+<h5><a href="http://lesscss.org">Less</a></h5>
+
+<h5><a href="http://sass-lang.com">Sass</a></h5>
+
+<h4>Component-based Frameworks/Methodologies</h4>
+
+<ul>
+<li><a href="http://oocss.org">Object-Oriented CSS (OOCSS)</a>
+
+<blockquote><p>OOCSS for JavaScript Pirates Slides<br/>
+MailChimp UI Library based on OOCSS</p></blockquote></li>
+<li><a href="http://github.com/bem">BEM</a></li>
+</ul>
+
+
+<h4>Other Frameworks</h4>
+
+<ul>
+<li><a href="http://html5boileplate.com">HTML5 Boilerplate</a></li>
+<li><a href="http://github.com/necolas/normalize.css">normalize.css</a></li>
+<li><a href="http://twitter.github.com/bootstrap">Bootstrap</a></li>
+<li><a href="http://960.gs">960.gs</a></li>
+<li><a href="http://meyerweb.com/eric/tools/css/reset">Eric Meyer CSS Reset</a></li>
+</ul>
+
+
+<h4>Documentation</h4>
+
+<ul>
+<li><a href="http://24ways.org/2011/front-end-style-guides">Front-end Style Guides</a></li>
+<li><a href="http://warpspire.com/posts/kss">Knyle Style Sheets</a></li>
+</ul>
+
+
+<h4>Other Resources</h4>
+
+<ul>
+<li><a href="http://mustache.github.com">mustache</a> is a logic-less template language. It&#8217;s the format we chose at Yahoo!.</li>
+<li><a href="https://github.com/adactio/pattern-primer">Pattern Primeris</a> a PHP script that lets you preview your snippets of HTML all on one page.</li>
+<li><a href="http://www.terrifically.org">Terrifically</a> is a JavaScript/jQuery framework for work-ing with OOCSS</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/02/thinking-in-css/">Thinking in CSS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-02T14:54:00+08:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h4>What is CSS?</h4>
+
+<blockquote><p> Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation semantics (the look and formatting) of a document written in a markup language. Its most common application is to style web pages written in HTML and XHTML, but the language can also be applied to any kind of XML document, including plain XML, SVG and XUL.</p></blockquote>
+
+<h4>CSS is very important for front-end develope,but it&#8217;s also very hard to do maintenance.</h4>
+
+<ol>
+<li>Selectors have many priority levels which always confuse</li>
+<li>The different browsers have different render method</li>
+<li>Many many repeated code is very offen to see</li>
+</ol>
+
+
+<h4>We need to find some good ways to make the code is easy to scales,mantains,modules.</h4>
+
+<ol>
+<li>We must know the HTML/CSS design patterns</li>
+<li>We must define our own patterns to make css more loose coupled</li>
+<li>We must find some easy way to build css basic on some tools</li>
+<li>We must build basic reuseable libry to cross bworser</li>
+</ol>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/04/16/my-opensource-projects/">My Opensource Projects</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-16T16:44:00+08:00" pubdate data-updated="true">Apr 16<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+  <li>
+  <div>
+  <a href="https://github.com/zjhiphop/blitz">blitz</a>
+    <header>Blitz is used to fater develope in all browser and imporve performence in all browser.</header>
+    <ul>
+        <li>mobile compatible</li>
+        <li>expend to load even css and other resourse</li>
+        <li>moudule it</li>
+        <li>utility tools</li>
+        <li>saving js byte method</li>
+        <li>OOJS,MVC and MVVM</li>
+    </ul>
+  </div></li>
+  <li><div>
+        <a href="https://github.com/zjhiphop/cheetah">cheetah</a>
+        <header>A project used to refactor courseware</header>
+      </div>
+  </li>
+  <li>
+    <div>
+        <a href="https://github.com/zjhiphop/fancy">fancy</a>
+        <header>HTML5 Game Labs</header>
+    </div>
+  </li>
+  <li>
+    <div>
+        <a href="https://github.com/zjhiphop/optimize">optimize</a>
+        <header>This is a tool which is used to merge&compress js/css files</header>
+    </div>
+  </li>
+  <li>
+   <div>
+    <a href="https://github.com/zjhiphop/ET-Refactor">ET-Refactor</a>
+    <header>use requireJS and some css/html template to make the project more efficent</header>
+   </div>
+  </li>
+  <li>
+    <div>
+        <a href="https://github.com/zjhiphop/ETPM">ETPM</a>
+        <header>A package manage tool used to create/publish activity</header>
+    </div>
+  </li>
+  <li>
+    <div>
+        <a href="https://github.com/zjhiphop/pminpm">pminpm</a>
+        <header>A nodeJS common package manager generator,A common abstract useful tool for u to create your own package manager!</header>
+    </div>
+  </li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/2/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/18/software-architect/">Software Architect</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/08/how-to-be-an-excellent-programmer-for-many-years/">How to be an Excellent Programmer for Many Years</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/21/some-valueable-links/">Some Valueable Links</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/22/async-javascript/">async javascript</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/07/10-small-habits-of-less-stressed-people/">轻松生活的十个小习惯</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - zjhiphop -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

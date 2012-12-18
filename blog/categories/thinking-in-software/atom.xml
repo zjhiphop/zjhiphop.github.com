@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: thinking in software | Jade's fantastic Blog]]></title>
+  <link href="http://zjhiphop.github.com/blog/categories/thinking-in-software/atom.xml" rel="self"/>
+  <link href="http://zjhiphop.github.com/"/>
+  <updated>2012-12-18T11:35:41+08:00</updated>
+  <id>http://zjhiphop.github.com/</id>
+  <author>
+    <name><![CDATA[zjhiphop]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Software Architect]]></title>
+    <link href="http://zjhiphop.github.com/blog/2012/12/18/software-architect/"/>
+    <updated>2012-12-18T10:11:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2012/12/18/software-architect</id>
+    <content type="html"><![CDATA[<p>软件架构师是为技术团队服务而存在的，不是为其它的。</p>
+
+<p>软件架构师是导师。</p>
+
+<p>软件架构师是学生。</p>
+
+<p>软件架构师是程序看门人。在狂欢过后留下来高兴的清扫场地。</p>
+
+<p>软件架构师在混乱的地方维持次序，在有歧义的地方提出指导意见，在有争议的地方作出决断。</p>
+
+<p>软件架构师参与系统的编码，对系统的核心有最彻底的理解。</p>
+
+<p>软件架构师创造出能让整个公司内部有效交流的标准用语。</p>
+
+<p>软件架构师读的代码要比他写的多——在系统变更完成前捕捉住bug。</p>
+
+<p>软件架构师在不忽略当前的需求要求下提供产品技术上的远瞻。</p>
+
+<p>软件架构师对错误勇于承认，对功绩不贪享。</p>
+
+<p>软件架构师勇于承担工作，在工作完成时才心满意足。</p>
+
+<p><a href="http://www.aqee.net/a-software-architect/">原文</a></p>
+]]></content>
+  </entry>
+  
+</feed>

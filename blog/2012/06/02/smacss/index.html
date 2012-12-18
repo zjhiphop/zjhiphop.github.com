@@ -1,0 +1,591 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>SMACSS - Jade's fantastic Blog</title>
+  <meta name="author" content="zjhiphop">
+
+  
+  <meta name="description" content="Notes: This article is based on SMACSS. what is smacss? SMACSS (pronounced &#8220;smacks&#8221;) is more style guide than
+rigid framework. There is &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zjhiphop.github.com/blog/2012/06/02/smacss">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Jade's fantastic Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Jade's fantastic Blog</a></h1>
+  
+    <h2>Make a difference.Where amazing happens!</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zjhiphop.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About </a></li> 
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">SMACSS</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-02T17:04:00+08:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Notes: This article is based on <a href="http://smacss.com/">SMACSS</a>.</p>
+
+<hr />
+
+<h3>what is smacss?</h3>
+
+<blockquote><p>SMACSS (pronounced &#8220;smacks&#8221;) is more style guide than
+rigid framework. There is no library within here for you
+to download or install. SMACSS is a way to examine your
+design process and as a way to fit those rigid frame-works into a flexible thought process. It is an attempt to
+document a consistent approach to site development
+when using CSS. And really, who isn’t building a site
+Scalable and Modular Architecture for CSS
+with CSS these days?! Feel free to take this in its entirety
+or use only the parts that work best for you. Or don’t
+use it at all. I understand that this won’t be everybody’s
+cup of tea. When it comes to web development, the an-swer to most questions is “it depends&#8221;.</p></blockquote>
+
+<h3>Categorizing CSS Rules</h3>
+
+<ol>
+<li>Base
+
+<blockquote><p>Base rules are the defaults. They are almost exclusively
+single element selectors but it could include attribute
+selectors, pseudo-class selectors, child selectors or sib-
+ling selectors. Essentially, a base style says that wherev-
+er this element is on the page, it should look likethis.</p>
+
+<h4>CSS Resets to define a consistent founda-tion across browsers to build the site on.</h4></blockquote></li>
+<li>Layout
+
+<blockquote><p>divide the page into sections. Layouts hold
+one or more modules together.</p>
+
+<h5>Try to use id provide efficient hooks for JavaScript</h5>
+
+<h5>Use class selectors can make styling more compli-cated due to increasing specificity</h5></blockquote></li>
+<li>Module
+
+<blockquote><p>reusable, modular parts of our design.
+They are the callouts, the sidebar sections, the product
+lists and so on.</p>
+
+<h5>Avoid element selectors except the element selectors will and can be predictable</h5>
+
+<h5>Better understand where context changes are likely to occur</h5>
+
+<h5>Use subclassing Modules to let module more reuseable</h5></blockquote></li>
+<li>State
+
+<blockquote><p>are ways to describe how our modules or
+layouts will look when in a particular state. Is it hidden
+or expanded? Is it active or inactive? They are about de-scribing how a module or layout looks on screens that
+are smaller or bigger. They are also about describing
+how a module might look in different views like the
+home page or the inside page.</p>
+
+<h5>apply to layout and/or module styles</h5>
+
+<h5>State styles indicate a JavaScript dependency</h5>
+
+<h5>States should be made to stand alone and are usually built of a single class selector.Sometimes need to</h5>
+
+<p>use !important</p>
+
+<h5>Combining State Rules with Modules</h5></blockquote></li>
+<li>Theme
+
+<blockquote><p>similar to state rules in that
+they describe how modules or layouts might look. Most
+sites don’t require a layer of theming but it is good to be
+aware of it.</p>
+
+<h5>they aren&#8217;t included as part of the core types</h5>
+
+<h5>defines colours and images that give your application or site its look and feel</h5></blockquote></li>
+<li>Font
+
+<blockquote><p>Font rules will normally affect base, module and state styles. Font styles won’t normally be specified at the lay-out level as layouts are intended for positioning and placement, not for stylistic changes like fonts and
+colours.</p>
+
+<h5>Your site should only have 3 to 6 different font-sizes</h5>
+
+<h5>locale for more countries</h5></blockquote></li>
+</ol>
+
+
+<h3>Naming Rules</h3>
+
+<h4>why?</h4>
+
+<ol>
+<li>Beneficial for immediately understanding</li>
+<li>On large projects, it is more likely to have styles broken up across multiple files</li>
+<li>it easier to find which file a style belongs to
+
+<h4>How?</h4></li>
+<li>l- or lay-out for layout,and usr prefix to separate different layouts,such grid</li>
+<li>is- or is-hidden or is-collapsed for state</li>
+<li>every module start with a prefix like .moduleName-</li>
+<li>use .exm for code examples
+
+<h4>Do it</h4>
+
+<blockquote><p>Have a convention, document it, and stick to it.</p></blockquote></li>
+</ol>
+
+
+<h3>Changing state</h3>
+
+<ol>
+<li>class name
+
+<blockquote><p>A class name change happens with JavaScript. Via some
+interaction, be it moving the mouse around, hitting
+something on the keyboard, or some other event occur-ring. An element gets a new class applied and then the
+visual appearance changes.</p></blockquote></li>
+<li>pseudo-class
+
+<blockquote><p>A pseudo-class change is done via any number of pseudo-classes, and there are a lot. In these cases, we no longer have to rely on JavaScript to describe the state change. Pseudo-classes are still limited in that we can
+only style changes to elements that are descendants or siblings of the element in which the pseudo-class ap-plies. Otherwise, we are back to using JavaScript.</p></blockquote></li>
+<li>media query
+
+<blockquote><p>media queriesdescribe how things should by styled under defined criteria, such as different viewport sizes.</p></blockquote></li>
+</ol>
+
+
+<h3>Depth of Applicability</h3>
+
+<h4>Why?</h4>
+
+<ol>
+<li>HTML is like a tree structure of parents and children.
+The depth of applicability is the number of generations
+that are affected by a given rule.</li>
+<li>The problem with such a depth is that it enforces a
+much greater dependency on a particular HTML struc-ture.</li>
+</ol>
+
+
+<h3>Selector Performance</h3>
+
+<h4>Do u know?</h4>
+
+<p>1.The style of an element is evaluated on  element creation
+2.CSS gets evaluated from right to left.</p>
+
+<h3>Constrain yourself, don’t choke yourself</h3>
+
+<h4>How?</h4>
+
+<ol>
+<li>Use child selectors</li>
+<li>Avoid tag selectors for common elements</li>
+<li>Use class names as the right-most selector</li>
+</ol>
+
+
+<h3>HTML5 and SMACSS</h3>
+
+<h4>Why?</h4>
+
+<ol>
+<li>Increase the semantic value of a section of HTML and content</li>
+<li>Decrease the expectation of a specific HTML structure</li>
+</ol>
+
+
+<h3>Prototyping</h3>
+
+<ol>
+<li>Bootstrap(for a variety of site components)</li>
+<li>960.gs (for layout grids)</li>
+<li>mustache template for render template</li>
+<li>MailChimp a php tool used to build protype easily
+
+<h4>why?</h4></li>
+<li>show states</li>
+<li>review localization</li>
+<li>isolate dependencies</li>
+</ol>
+
+
+<h3>Preprocessors</h3>
+
+<h4>why?</h4>
+
+<blockquote><p>As great as CSS is, it is still missing features that many
+designers and developers would like it to have. To help
+fill this void—and to help speed up development—tools
+have been created to make our lives easier.
+* Variables
+* Operations
+* Mixins
+* Nesting
+* Functions
+* Interpolation
+* File importing
+* Extending</p></blockquote>
+
+<h4>What?</h4>
+
+<blockquote><p>A CSS preprocessor allows you to use a special syntax in
+your CSS that is then compiled within your project.
+Some preprocessors try and stick as closely as possible
+to actual CSS syntax, whereas others try to simplify
+things as much as possible.</p></blockquote>
+
+<h4>how?</h4>
+
+<ol>
+<li>Stylus</li>
+<li>Sass</li>
+<li>Less</li>
+</ol>
+
+
+<h4>Problem?</h4>
+
+<ol>
+<li>Deep Nesting  State-based Media Queries with Nesting</li>
+<li>Unnecessary extending</li>
+<li>Overused Mixins</li>
+</ol>
+
+
+<h4>Organizing Your Files</h4>
+
+<ul>
+<li>Place all Base rules into their own file.</li>
+<li>Depending on the type of layouts you have,
+either place all of them into a single file or major
+layouts into separate files.</li>
+<li>Put each module into its own file.</li>
+<li>Depending on size of project, place sub-modules
+into their own file.</li>
+<li>Place global states into their own file.</li>
+<li>Place layout and module states, including media
+queries that affect those layouts and modules,
+into the module files.</li>
+</ul>
+
+
+<blockquote><p>A sample directory structure<br/>
++-layout/<br/>
+| +-grid.scss <br/>
+| +-alternate.scss<br/>
++-module/<br/>
+| +-callout.scss<br/>
+| +-bookmarks.scss<br/>
+| +-btn.scss<br/>
+| +-btn-compose.scss<br/>
++-base.scss<br/>
++-states.scss<br/>
++-site-settings.scss<br/>
++-mixins.scss</p></blockquote>
+
+<h3>Drop the Base</h3>
+
+<h4>why?</h4>
+
+<ol>
+<li>There are some elements—not many, but a few that aren&#8217;t used very often</li>
+<li>Some elements like button,table, and input sometimes changes
+
+<h4>How to do without base?</h4></li>
+<li>make a module</li>
+<li>used less CSS</li>
+</ol>
+
+
+<h3>The Icon Module</h3>
+
+<h4>why?</h4>
+
+<ul>
+<li>We became reliant on a very specific HTML
+structure: the list item.</li>
+<li>Sprites had to be redefined to be used in other
+modules.</li>
+<li>Positioning within the element was very fragile:
+bumping up font size could reveal other parts of
+the sprite.</li>
+<li>Handling right-to-left interfaces was more
+difficult since we could only use horizontal
+sprites and fix the x position to 0.</li>
+</ul>
+
+
+<h4>How ?</h4>
+
+<blockquote><p>the icon module<br/>
+Restructuring the HTML to create the icon module
+<li><i class="ico ico-16 ico-inbox"></i> Inbox</li></p></blockquote>
+
+<h3>Complicated Inheritance</h3>
+
+<h4>inheritance can wreak some havoc on our well-laid plans</h4>
+
+<h4>Minimizing the number of situations like these</h4>
+
+<h3>Formatting Code</h3>
+
+<h4>Why mutiple line</h4>
+
+<ol>
+<li>properties assigned to a rule set were quite small</li>
+<li>could find the selector I wanted and all of the properties would be visible on the screen</li>
+<li>CSS3 vender-specific prefixes that come with it can get out of hand quickly</li>
+<li>easier for everybody to have each property/value pair on its own line
+
+<h4>Grouping Properties</h4></li>
+<li>Box display,float,position,left,top,height,width</li>
+<li>Border border-im-age, andborder-radius</li>
+<li>Background CSS3</li>
+<li>Text font-family,font-size,text-transform,letter-spacing</li>
+<li>Other
+
+<h4>Colour Declarations</h4></li>
+<li>hex Shorter than keywords,rgb,hsl. hex as the first choice</li>
+<li>use rgba and hsla for opacity</li>
+</ol>
+
+
+<h3>Resources</h3>
+
+<h4>CSS Preprocessors</h4>
+
+<h5><a href="http://lesscss.org">Less</a></h5>
+
+<h5><a href="http://sass-lang.com">Sass</a></h5>
+
+<h4>Component-based Frameworks/Methodologies</h4>
+
+<ul>
+<li><a href="http://oocss.org">Object-Oriented CSS (OOCSS)</a>
+
+<blockquote><p>OOCSS for JavaScript Pirates Slides<br/>
+MailChimp UI Library based on OOCSS</p></blockquote></li>
+<li><a href="http://github.com/bem">BEM</a></li>
+</ul>
+
+
+<h4>Other Frameworks</h4>
+
+<ul>
+<li><a href="http://html5boileplate.com">HTML5 Boilerplate</a></li>
+<li><a href="http://github.com/necolas/normalize.css">normalize.css</a></li>
+<li><a href="http://twitter.github.com/bootstrap">Bootstrap</a></li>
+<li><a href="http://960.gs">960.gs</a></li>
+<li><a href="http://meyerweb.com/eric/tools/css/reset">Eric Meyer CSS Reset</a></li>
+</ul>
+
+
+<h4>Documentation</h4>
+
+<ul>
+<li><a href="http://24ways.org/2011/front-end-style-guides">Front-end Style Guides</a></li>
+<li><a href="http://warpspire.com/posts/kss">Knyle Style Sheets</a></li>
+</ul>
+
+
+<h4>Other Resources</h4>
+
+<ul>
+<li><a href="http://mustache.github.com">mustache</a> is a logic-less template language. It&#8217;s the format we chose at Yahoo!.</li>
+<li><a href="https://github.com/adactio/pattern-primer">Pattern Primeris</a> a PHP script that lets you preview your snippets of HTML all on one page.</li>
+<li><a href="http://www.terrifically.org">Terrifically</a> is a JavaScript/jQuery framework for work-ing with OOCSS</li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">zjhiphop</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-02T17:04:00+08:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/reuseable-and-scaleable-html-css/'>Reuseable and Scaleable HTML&CSS</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://zjhiphop.github.com/blog/2012/06/02/smacss/" data-via="" data-counturl="http://zjhiphop.github.com/blog/2012/06/02/smacss/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/06/02/thinking-in-css/" title="Previous Post: thinking in CSS">&laquo; thinking in CSS</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/06/02/js-saving-byte-tec/" title="next Post: JavaScript Byte-saving Technique">JavaScript Byte-saving Technique &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/18/software-architect/">Software Architect</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/08/how-to-be-an-excellent-programmer-for-many-years/">How to be an Excellent Programmer for Many Years</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/21/some-valueable-links/">Some Valueable Links</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/22/async-javascript/">async javascript</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/07/10-small-habits-of-less-stressed-people/">轻松生活的十个小习惯</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - zjhiphop -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

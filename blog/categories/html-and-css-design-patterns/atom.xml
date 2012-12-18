@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: HTML and CSS Design Patterns | Jade's fantastic Blog]]></title>
+  <link href="http://zjhiphop.github.com/blog/categories/html-and-css-design-patterns/atom.xml" rel="self"/>
+  <link href="http://zjhiphop.github.com/"/>
+  <updated>2012-12-18T11:35:41+08:00</updated>
+  <id>http://zjhiphop.github.com/</id>
+  <author>
+    <name><![CDATA[zjhiphop]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Callouts and Quotes]]></title>
+    <link href="http://zjhiphop.github.com/blog/2012/06/05/callouts-and-quotes/"/>
+    <updated>2012-06-05T15:33:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2012/06/05/callouts-and-quotes</id>
+    <content type="html"><![CDATA[<div><ul>
+<li><strong>Left Floating Callout</strong> shows how to create a callout and float it to the left.</li>
+<li><strong>Right Floating Callout</strong> shows how to create a callout and float it to the right.</li>
+<li><strong>Center Callout</strong> shows how to create a callout and center it.</li>
+<li><strong>Left Marginal Callout</strong> shows how to create a callout in the left margin using the
+left marginal design pattern.</li>
+<li><strong>Right Marginal Callout</strong> shows how to create a callout in the right margin using
+the right marginal design pattern.</li>
+<li><strong>Block Quote</strong> shows how to create a block quote with a citation that is
+automatically centered and styled with graphical background quotes.</li>
+<li><strong>Inline Block Quote</strong> shows how to render an inline quote as a block quote.</li>
+<li><strong>Inline Quote</strong> shows how to create an inline quote with a citation.</li>
+</ul></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Alerts]]></title>
+    <link href="http://zjhiphop.github.com/blog/2012/06/05/alerts/"/>
+    <updated>2012-06-05T15:33:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2012/06/05/alerts</id>
+    <content type="html"><![CDATA[<div><ul>
+<li><strong>JavaScript Alert</strong> shows how to dynamically pop up an alert based on an event.</li>
+<li><strong>Tooltip= Alert</strong> shows how to create a tooltip to show the user extra information.</li>
+<li><strong>Pop-Up Alert</strong> shows how to pop up an alert to show the user extra information.</li>
+<li><strong>Alert shows</strong> the basic HTML structure of an alert.</li>
+<li><strong>Inline Alert</strong> shows how to make an alert using an inline element.</li>
+<li><strong>Hanging Alert</strong> shows how to move the alert’s heading to the left side and the
+content to the right side by using a hanging indent that does not require extra
+markup.</li>
+<li><strong>Graphical Alert</strong> shows how to move the alert’s heading to the left side and the
+content to the right side and replace the heading with an image.</li>
+<li><strong>Run-In Alert</strong> shows how to run the alert’s heading into the first line of the
+content.</li>
+<li><strong>Floating Alert</strong> shows how to float an alert to the left or the right of the content
+with its heading on the left and its content on the right.</li>
+<li><strong>Left Marginal Alert</strong> shows how to move an alert into the left margin using
+absolute positioning.</li>
+<li><strong>Right Marginal Alert</strong> shows how to move an alert into the right margin using
+absolute positioning.</li>
+<li><strong>Form Validation</strong> shows how to natively validate HTML5 forms and alert the user
+for wrong input.</li>
+</ul></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tables]]></title>
+    <link href="http://zjhiphop.github.com/blog/2012/06/05/tables/"/>
+    <updated>2012-06-05T15:32:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2012/06/05/tables</id>
+    <content type="html"><![CDATA[<div><h2>Tables</h2>
+
+<ul>
+<li><strong>Table shows</strong> how to create and style the fundamental structure of a table.</li>
+<li><strong>Row and Column Groups</strong> shows how to create and style row headers, row
+footers, row groups, column groups, and columns.</li>
+<li><strong>Table Selectors</strong> shows how to select cells from columns, rows, and row groups.</li>
+<li><strong>Separated Borders</strong> shows how to separate table borders from cell borders.</li>
+<li><strong>Collapsed Borders</strong> shows how to combine table and cell borders.</li>
+<li><strong>Styled Collapsed Borders</strong> shows how to style collapsed borders.</li>
+<li><strong>Hidden and Removed Cells</strong> shows how to hide or remove cells.</li>
+<li><strong>Removed and Hidden Rows and Columns</strong> shows how to remove or hide rows,
+row groups, and columns of cells.</li>
+<li><strong>Vertical-Aligned Data</strong> shows how to vertically align data to the top, middle,
+bottom, or baseline of a cell.</li>
+<li><strong>Striped Tables</strong> shows how to assign alternating backgrounds to rows.</li>
+<li><strong>Accessible Tables</strong> shows how to create a table that is friendly to nonsighted users.</li>
+<li><strong>Tabled, Rowed, and Celled</strong> shows how to turn any element into a table, row, or
+cell.</li>
+<li><p><strong>Table Layout</strong> shows how to create the four types of tables: shrinkwrapped, sized,
+stretched, and fixed.</p>
+
+<h2>Table Column Layout</h2></li>
+<li><p><strong>Column Width</strong> shows how a browser calculates the column width when cells in
+the same column in different rows have different widths, different types of widths,
+different minimum content widths, and different maximum content widths. This
+pattern applies to shrinkwrapped, sized, and stretched tables.</p></li>
+<li><strong>Shrinkwrapped Columns</strong> shows how to shrinkwrap columns to fit the width of
+their content. This pattern applies to shrinkwrapped tables.</li>
+<li><strong>Sized Columns</strong> shows how to assign fixed widths to columns while keeping the
+table’s width within a minimum or maximum value. This pattern applies to
+shrinkwrapped or fixed tables.</li>
+<li><strong>Content-Proportioned Columns</strong> shows how to automatically distribute a table’s
+width among its columns proportionally to the width of the content in each
+column. Columns with wider content are assigned to a wider width than columns
+with narrower content. This pattern applies to sized and stretched tables. It also
+applies to shrinkwrapped tables when their content stretches them to the width of
+their containers.</li>
+<li><strong>Size-Proportioned Columns</strong> shows how to automatically distribute a table’s
+width among its columns proportionally to the width assigned to each column. In
+this design pattern, a browser does not necessarily render a column at its assigned
+width. Instead, it renders a column proportionally to the widths assigned to other
+columns. This pattern applies to sized, stretched, and fixed tables. It also appliesto shrinkwrapped tables when assigned cell widths stretch them to the width of
+their containers.</li>
+<li><strong>Percentage-Proportioned Columns</strong> shows how to distribute a table’s width
+among its columns proportionally to the percentage assigned to the width of each
+column. In this design pattern, a browser does not necessarily render a column at
+its assigned percentage of the table’s width. Instead, it renders a column
+proportionally to the percentages assigned to other columns. This pattern applies
+to sized, stretched, and fixed tables.</li>
+<li><strong>Inverse-Proportioned Columns</strong> shows how to size columns in proportion to
+their content. For example, a cell can be sized to be double the width of its
+content. This pattern applies to shrinkwrapped tables.</li>
+<li><strong>Equal Content-Sized Columns</strong> shows how to automatically shrink a table to its
+smallest possible width while sizing all columns equally. In other words, it sets all
+columns to the same width while using the smallest possible width that will
+display each cell’s content. It creates compact tables with uniform columns. It
+works best with tables containing numbers and short text. This pattern applies to
+shrinkwrapped tables.</li>
+<li><strong>Equal-Sized Columns</strong> shows how to automatically divide a table’s width into
+equal proportions for each cell. This pattern applies to sized, stretched, and fixed
+tables.</li>
+<li><strong>Undersized Columns</strong> shows how to create columns that are narrower than their content. This pattern applies to fixed tables.</li>
+<li><strong>Flex Columns</strong> shows how to create dynamically sized columns alongside fixedwidth or percentage-width  columns. These columns fill in the space not taken by sized or percentage cells. As a table’s container grows or shrinks, so do flex columns. This pattern is most useful when applied to stretched and fixed tables,
+but also applies to sized tables.</li>
+<li><strong>Mixed Column Layouts</strong> shows how to combine fixed-width, percentage-width,and auto-width columns to create additional layouts. It shows how browsers assign different priorities to fixed-width, percentage-width, and auto-width columns depending on whether a table is shrinkwrapped, sized, stretched, or fixed.</li>
+</ul></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Layouts]]></title>
+    <link href="http://zjhiphop.github.com/blog/2012/06/05/layouts/"/>
+    <updated>2012-06-05T15:32:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2012/06/05/layouts</id>
+    <content type="html"><![CDATA[<div><ul>
+<li><strong>Fluid Layout </strong> Overview explores problems and solutions in creating fluid layouts.</li>
+<li><strong>Outside-in Box</strong> shows how to size the outer width of a box instead of the inner
+width.</li>
+<li><strong>Floating Section </strong> shows how to render sections in columns using a fluid layout.</li>
+<li><strong>Float Divider</strong> shows how to separate and integrate floats and content predictably.</li>
+<li><strong>Fluid Layout </strong> shows how to create layouts that automatically adapt to any display.</li>
+<li><strong>Opposing Floats</strong> shows how to move content to opposite sides of its container.</li>
+<li><strong>Event Styling </strong> shows how to assign events to elements without putting code in
+your document. It shows how events can modify classes to change how elements
+are styled.</li>
+<li><strong>Rollup </strong> shows how to collapse and open sections with a mouse click.</li>
+<li><strong>Tab Menu </strong> shows how to create a tabbed interface that loads new pages when
+clicked.</li>
+<li><strong>Tabs </strong> shows how to create a tabbed interface that dynamically switches content in
+and out of the display when the user clicks a tab—without loading a new page.</li>
+<li><strong>Flyout Menu </strong> shows how to create a menu that opens when clicked or hovered
+over.</li>
+<li><strong>Button </strong> shows how to create buttons and process their events using JavaScript.</li>
+<li><strong>Layout Links </strong> shows how to use links as part of the layout, such as breadcrumbs.</li>
+<li><strong>Multi-column </strong> shows how to distribute content over multiple columns.</li>
+</ul></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Images]]></title>
+    <link href="http://zjhiphop.github.com/blog/2012/06/05/images/"/>
+    <updated>2012-06-05T15:32:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2012/06/05/images</id>
+    <content type="html"><![CDATA[<div><ul>
+<li><strong>Image</strong> shows how to use the <img> element. It also contrasts the advantages and
+disadvantages of the GIF, JPG, and PNG image formats.</li>
+<li><strong>Image Map</strong> shows how to overlay an image with clickable areas that link to other
+pages.</li>
+<li><strong>Fade-Out</strong> shows how to use gradient images to add subtle shading behind
+content. It also shows how to create chameleon gradients that adapt to the current
+background.</li>
+<li><strong>Semi-transparent</strong> shows how to put a partially transparent background behind
+an element so that it stands out from the background below it without obscuring
+it.</li>
+<li><strong>Replaced Text</strong> shows how to replace text with an image while remaining
+accessible to nonsighted users. This technique also shows the text when the image
+is unavailable.</li>
+<li><strong>Content over</strong> Image shows how to overlay text and other images on top of an
+image.</li>
+<li><strong>Content over Background</strong> Image shows how to overlay text and other images on
+top of a background image.</li>
+<li><strong>CSS Sprite</strong> shows how to embed multiple images into one file and display them
+independently as the background of different elements of a document.</li>
+<li><strong>Basic Shadowed Image</strong> shows how to create and apply a simple shadow to an
+image without modifying the image itself.</li>
+<li><strong>Shadowed Image</strong> shows a generic way of applying a shadow to an image of any
+size.</li>
+<li><strong>Rounded Corners</strong> shows how to round the corners of an element’s borders and
+how to create custom borders of any style imaginable.</li>
+<li><strong>Image Example</strong> showcases these patterns in one document.</li>
+</ul></div>
+
+]]></content>
+  </entry>
+  
+</feed>

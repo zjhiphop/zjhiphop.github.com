@@ -1,0 +1,1928 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Jade's fantastic Blog</title>
+  <meta name="author" content="zjhiphop">
+
+  
+  <meta name="description" content="Aligned Drop Cap shows how to create a simple drop cap by enlarging it and
+vertically aligning it.
+First-letter Drop Cap shows how to create a drop &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://zjhiphop.github.com/blog/page/2">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Jade's fantastic Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Jade's fantastic Blog</a></h1>
+  
+    <h2>Make a difference.Where amazing happens!</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:zjhiphop.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About </a></li> 
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/05/drop-caps/">Drop Caps</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-05T15:32:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div><ul>
+<li><strong>Aligned Drop Cap</strong> shows how to create a simple drop cap by enlarging it and
+vertically aligning it.</li>
+<li><strong>First-letter Drop Cap</strong> shows how to create a drop cap without inserting extra
+markup.</li>
+<li><strong>Hanging Drop Cap</strong> shows how to use a hanging indent to create a drop cap.</li>
+<li><strong>Padded Graphical Drop Cap</strong> shows how to add left padding to the drop cap to
+make room for a background image showing a banner, a grabber, or a decoration.</li>
+<li><strong>Floating Drop Cap</strong> shows how to float the drop cap to the left so that text below
+the drop cap wraps back under the drop cap.</li>
+<li><strong>Floating Graphical Drop Cap</strong> shows how to display a graphic on top of the
+dropcap text. It works great for screen readers, and it shows a styled text version of
+the drop cap when the image is unavailable. This is the best Graphical Drop Cap
+design pattern for allowing text below the drop cap to wrap back under the drop
+cap.</li>
+<li><strong>Marginal Drop Cap</strong> shows how to use absolute positioning to move the drop cap
+into the left margin of a block. All lines of the block are indented.</li>
+<li><strong>Marginal Graphical Drop Cap</strong> shows how to display a graphic on top of the
+dropcap text. It works great for screen readers, and it shows a styled text version of
+the drop cap when the image is unavailable. This is the best Graphical Drop Cap
+design pattern for preventing text below the drop cap from wrapping back under
+the drop cap.</li>
+</ul></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/05/styling-text/">Styling Text</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-05T15:31:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div><ul>
+<li><strong>Font</strong> shows how to style text using fonts.</li>
+<li><strong>Highlight</strong> shows how to highlight text using color and tiled background images.</li>
+<li><strong>Text Decoration</strong> shows how to create custom styles for underlines, overlines, and line-throughs.</li>
+<li><strong>Text Shadow</strong> shows how to automatically generate shadows behind text in Internet Explorer 6 and Safari.</li>
+<li><strong>Text Replacement with Image</strong> shows how to replace text with an image. The text is readable by screen readers and degrades nicely when the image is unavailable.
+This is an essential tool for making sites beautiful and accessible.</li>
+<li><strong>Text Replacement with canvas and VML (Vector Markup Language)</strong> consists of two separate parts: a font generator, which converts fonts to a proprietary format using VML, and a rendering engine. An advantage of this technique is that users can select and copy the text, whereas this is impossible with the imagereplacement method.</li>
+<li><strong>Font Embedding</strong> is a CSS3 alternative to the text-replacement techniques, which uses the @font-face attribute to directly download a font file from the server before applying it to an element.</li>
+<li><strong>Invisible Text</strong> shows how to hide text without adding markup. It isn’t as useful as Text Replacement but requires no additional markup.</li>
+<li><strong>Screenreader-only</strong> shows how to make text readable by screen readers while completely hiding it from sighted users. This is an essential tool for making sites accessible for nonsighted users while keeping them uncluttered for sighted users.</li>
+</ul></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/05/spacing-content-and-aliging-content/">Spacing Content and Aliging Content</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-05T15:31:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div><ul>
+<li><strong>Spacing</strong> shows how to space text and content. It simply groups together the many properties built into CSS that put space around and between blocks, text, and content.</li>
+<li><strong>Blocked</strong> shows how to render an inline element as a block element. This is a very important design pattern that is often combined with other patterns.</li>
+<li><strong>Nowrap</strong> shows how to prevent the browser from wrapping text across lines.</li>
+<li>**Preserved shows how to render whitespace in a document instead of collapsing it.</li>
+<li><strong>Code</strong> shows how to mark up computer code, render it inline, display it as a block,preserve whitespace, and prevent it from being wrapped across lines.</li>
+<li><strong>Padded Content</strong> shows how to put space around inline content to emphasize it.</li>
+<li><strong>Inline Spacer</strong> shows how to insert a horizontal spacer into a line to put a precise amount of distance between content.</li>
+<li><strong>Inline Decoration</strong> shows how to insert a decoration into a line. A decoration is style—not content. It lets you insert a colored background, a textured background, or a background image into the flow. You can put borders around it. You can use it to push content apart, to overlap prior content, and to underlap following content.</li>
+<li><strong>Line Break</strong> shows how to insert four different types of line breaks into your document that can add extra space between lines or shrink the distance between lines.</li>
+<li><strong>Inline Horizontal Rule</strong> shows how to insert a horizontal rule using an inline element. You can style the horizontal rule with images, borders, margins, and so on. This allows you to put extra space between lines, to overlap prior lines, and to underlap following lines. An inline horizontal rule is particularly useful because you can use an inline element anywhere. HTML’s horizontal rule is a block element and has limited styling options.</li>
+</ul></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/05/blocks/">Blocks</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-05T15:31:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div><h2>Blocks</h2>
+
+<ul>
+<li><strong>Structural Meaning</strong> shows how blocks create hierarchical and sequential
+structure.</li>
+<li><strong>Visual Structure</strong> shows how to style blocks to bring out the document structure.</li>
+<li><strong>Section</strong> shows how to organize your document into sections for easy styling and
+for better structural meaning for search engines and document processors.</li>
+<li><strong>Lists</strong> shows many ways to create lists and list markers.</li>
+<li><strong>Background Bulleted</strong> shows how to add bullets to a list using background images.</li>
+<li><strong>Inlined</strong> shows how to render a block element as if it were an inline element. This
+allows blocks to be rendered from left to right and to wrap across lines.</li>
+<li><strong>Collapsed</strong> Margins shows how to collapse and uncollapse vertical margins
+between block elements.</li>
+<li><strong>Run-In</strong> shows how to run a block into the following sibling block as if it were an
+inline element within the following block. Run-in headings save space and are
+very attractive.</li>
+<li><strong>Horizontal</strong> Rule shows how to use and style a horizontal rule in spite of the
+problems caused by Internet Explorer 7, which refuses to remove its built-in styles
+from &lt; hr /&gt;.</li>
+<li><strong>Block Spacer</strong> shows how to insert a precise amount of vertical space between
+selective blocks without having to adjust margins individually.</li>
+<li><strong>Block Space</strong> Remover shows how to remove a precise amount of vertical space
+between selective blocks without having to adjust margins individually.</li>
+<li><strong>Left Marginal</strong> shows how to extract headings, notes, alerts, and images from the
+normal flow and move them into a wide left margin.</li>
+<li><strong>Right Marginal</strong> works like Left Marginal except items are moved to the right.</li>
+</ul></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/05/positioning-models/">Positioning Models</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-05T15:30:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div><h3>Positioning Models</h3>
+
+<ul>
+<li><strong>Positioning Models</strong> introduces and demonstrates the six positioning models.</li>
+<li><strong>Positioned</strong> explains, demonstrates, and contrasts the four values of the position
+property: static, absolute, fixed, and relative.</li>
+<li><strong>Closest Positioned Ancestor</strong> shows how absolute boxes can be positioned
+relative to any ancestor element rather than just the element’s parent.</li>
+<li><strong>Stacking Context</strong> shows how positioned boxes can be stacked behind or in front
+of static elements and each other.</li>
+<li><strong>Atomic explains</strong> how to render inline content in a block rather than on a block.</li>
+<li>**Static explains the basics of normal flow.</li>
+<li><strong>Absolute</strong> shows how to remove any element from the normal flow and position it
+absolutely with respect to the inside of the border of its closest positioned ancestor.</li>
+<li><strong>Fixed</strong> shows how to remove any element from the normal flow and position it
+absolutely with respect to the viewport.</li>
+<li><strong>Relative</strong> shows how to use relative positioning to control stacking order, or offset
+an element without affecting its shape or the position of other elements.</li>
+<li><strong>Float and Clear</strong> shows how you can remove an element from the normal flow and
+float it to the left or right side of its parent. It also shows how to clear elements so
+that they’re positioned below floats on the left, right, or both sides.</li>
+<li><strong>Relative Float</strong> shows how you can relatively position a float.
+
+<h3>Positioning: Indented, Offset, and Aligned</h3></li>
+<li><strong>Indented</strong> shows how to indent an element from the sides of its container.</li>
+<li><strong>Offset Static</strong> shows how to offset an element from surrounding elements.</li>
+<li><strong>Offset or Indented Static Table</strong> shows how to offset a table from its container.</li>
+<li><strong>Offset Float</strong> shows how to offset a float from surrounding floats and content.</li>
+<li><strong>Offset Absolute and Offset Fixed</strong> shows how to offset an absolute element from
+the position it would have had in the normal flow.</li>
+<li><strong>Offset Relative</strong> shows how to offset any element without affecting other elements.</li>
+<li><strong>Aligned Static Inline</strong> shows how to align inline elements horizontally and
+vertically.</li>
+<li><strong>Aligned and Offset Static Block</strong> shows how to align and offset static block
+elements.</li>
+<li><strong>Aligned and Offset Static Table</strong> shows how to align and offset tables.</li>
+<li><strong>Aligned and Offset Absolute</strong> shows how to align and offset absolute elements.</li>
+<li><strong>Aligned-center Absolute</strong> shows how to center absolute elements.</li>
+<li><strong>Aligned Outside</strong> shows how to align elements to the outside of their container.
+
+<h3>Positioning: Advanced</h3></li>
+<li><strong>Left Aligned </strong> shows how to align an element to the left side of its container.</li>
+<li><strong>Left Offset </strong> shows how to offset a left-aligned element.</li>
+<li><strong>Right Aligned </strong> shows how to align an element to the right side of its container.</li>
+<li><strong>Right Offset </strong> shows how to offset a right-aligned element.</li>
+<li><strong>Center Aligned </strong> shows how to align an element to the center of its container.</li>
+<li>**Center Offset shows how to offset a center-aligned element.</li>
+<li><strong>Top Aligned </strong> shows how to align an element to the top of its container.</li>
+<li><strong>Top Offset </strong> shows how to offset a top-aligned element.</li>
+<li><strong>Bottom Aligned </strong> shows how to align an element to the bottom of its container.</li>
+<li><strong>Bottom Offset </strong> shows how to offset a bottom-aligned element.</li>
+<li><strong>Middle Aligned </strong> shows how to align an element to the middle of its container.</li>
+<li><strong>Middle Offset </strong> shows how to offset a middle-aligned element.</li>
+</ul></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/05/html-design-patterns/">HTML Design Patterns</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-05T15:30:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div><ul>
+<li><strong>HTML Structure</strong> shows how HTML elements work together to create a document.</li>
+<li><strong>XHTML</strong> shows how to mark up a document with valid XHTML. It also points out
+why using valid XHTML makes styling with CSS more reliable.</li>
+<li><strong>DOCTYPE</strong> shows how to use document types to validate the way documents are
+coded, and it explores what document types work best for CSS and HTML.</li>
+<li><strong>Header Elements</strong> shows how to create metadata about a document and how to
+link a document to supporting documents and related documents.</li>
+<li><strong>Conditional Style Sheet</strong> shows how to load a style sheet to fix problems unique to
+Internet Explorer.</li>
+<li><strong>Structural Block Elements</strong> shows how to create structural meaning in a
+document.</li>
+<li><strong>Terminal Block Elements</strong> shows how certain blocks have semantic meaning
+because they contain content instead of other blocks.</li>
+<li><strong>Multi-purpose Block Elements</strong> shows how certain elements can be used for
+block structure and semantic meaning.</li>
+<li><strong>Inline Elements</strong> shows how styles can bring out the meaning of semantic
+markup.</li>
+<li><strong>Class and ID Attributes</strong> shows how CSS relies on class and id attributes to select
+elements. It also shows how the class attribute can add meaning to an element.</li>
+<li><strong>HTML Whitespace</strong> shows how to make whitespace work for you instead of
+against you.</li>
+</ul></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/05/css-selectors-and-inheritance/">CSS Selectors and Inheritance</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-05T15:30:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div><ul>
+<li><strong>Type, Class, and ID Selectors</strong> shows how to select elements by tag, class, and ID.</li>
+<li><strong>Position and Group Selectors</strong> shows how to select elements by how they are
+nested in the document. It also shows how to apply multiple selectors to the same
+set of rules.</li>
+<li><strong>Attribute Selectors</strong> shows how to select elements based on their attributes.</li>
+<li><strong>Pseudo-element Selectors</strong> shows how to select the first letter or first line of
+terminal block elements.</li>
+<li><strong>Pseudo-class Selectors</strong> shows how to style a hyperlink when it is unvisited,
+visited, being hovered over by the mouse, or has the focus because the user
+tabbed to it or clicked it with the mouse.</li>
+<li><strong>Subclass Selector</strong> shows how to apply multiple styles to the same element using
+classes and subclasses.</li>
+<li><strong>Inheritance</strong> shows how to style elements through rules assigned to their
+ancestors.</li>
+<li><strong>Visual Inheritance</strong> shows how elements visually inherit their parent’s
+background.</li>
+</ul></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/05/box-models/">Box Models</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-05T15:30:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div><h2>Box Models</h2>
+
+<h3>Problem</h3>
+
+<p>   You want to style the box of an element.</p>
+
+<h3>Solution</h3>
+
+<ul>
+<li>The Box Model design pattern is built into CSS. This model defines the relationship between
+the following properties: display, width, height, padding, border, margin, background,
+overflow, and visibility.</li>
+<li><strong>width</strong> normally sets the width of an element’s inner box.</li>
+<li><strong>height</strong> normally sets the height of an element’s inner box.</li>
+<li><strong>padding</strong> sets the size of the padding surrounding the inner box. The padding is transparent
+to the element’s background.</li>
+<li><strong>border</strong> sets the size, pattern, and color of the border surrounding the padding.</li>
+<li><strong>margin</strong> sets the size of the margin surrounding the border. The margin is transparent to the
+background of the element’s parent. The outside of the margin is the element’s outer box.</li>
+<li><strong>background</strong> assigns the padding area inside the box to a background color and/or image.</li>
+<li><strong>overflow</strong> determines what happens when an element’s content is larger than its inner box.<br>
+The default is to show the overflowing content.</li>
+<li><strong>visibility</strong> can make the element visible or hidden.
+
+<h3>Pattern</h3>
+
+<pre><code>      SELECTOR { display:CONSTANT;
+      overflow:VALUE;
+      visibility:VALUE;
+      width:+VALUE;
+      height:+VALUE;
+      padding:+VALUE;
+      border:+WIDTH STYLE COLOR;
+      margin:±VALUE;
+      background:VALUES; }  
+</code></pre>
+
+<h3>Location</h3>
+
+This design pattern applies to all elements.
+
+<h3>Example</h3>
+
+The example contains additional HTML markup and CSS rules that are not shown. This
+extra code renders a label over each part of the box and draws the outer box and inner box
+borders.
+
+<h3>Notes</h3>
+
+CSS defines six main types of boxes: inline, inline-block, block, table, absolute, and floated.
+The type of box is determined by the combination of the following properties: display,
+position, and float. Box Model properties work differently and produce different layouts
+depending on the type of box. Certain types of boxes have additional functionality provided
+by additional properties, such as line-height, border-collapse, and table-layout.
+
+<h3>Related to</h3>
+
+All Box Model design patterns
+
+<h2>Box Model Extents</h2></li>
+<li><strong>Width</strong> contrasts how width can size, shrinkwrap, or stretch each type of box.</li>
+<li><strong>Height</strong> contrasts how height can size, shrinkwrap, or stretch each type of box.</li>
+<li><strong>Sized</strong> shows how to set the height or width of an element. An element is sized
+when you manually assign it a height and/or a width. For example, you can use
+height:50% to size an element’s height to 50% of the height of its container.</li>
+<li><strong>Shrinkwrapped</strong> shows how to shrink the width or height of an element to the size
+of its content. For example, height:auto causes the height of a static block
+element to expand automatically to fit the total height of its lines, and width:auto
+causes the width of an absolute element to shrink to fit to the width of its widest
+line.</li>
+<li><strong>Stretched</strong> shows how to stretch the width or height of an element to the sides of
+its container. For example, width:auto causes the width of a static block element
+to expand automatically to fit the width of its container. For example, top:0,
+bottom:0, and height:auto cause an absolute element to expand automatically to
+fit the height of its container. A stretched element’s left side aligns to the left side
+of its container, and its right side aligns to the right side of the container. Similarly,
+its top and bottom sides align to the top and bottom sides of its container.
+
+<h2>Box Model Properties</h2></li>
+<li><strong>Margin</strong> contrasts how margins work differently for different types of boxes. It
+shows how margins change the position of an element in relation to its container
+and siblings.</li>
+<li><strong>Border</strong> contrasts how borders work differently for different types of boxes. It
+shows how borders change the position of an element in ways similar to margins,
+and in some ways different from margins.</li>
+<li><strong>Padding</strong> contrasts how padding works differently for different types of boxes. It
+shows how padding works almost identically to borders and margins.</li>
+<li><strong>Background</strong> shows how to assign a color to the background of an element. It also
+shows how to use a tiled image for the background. You can tile the image across
+and down, across only, or down only, or show the image only once. You can
+position the image at a specific location in the background. You can also direct
+whether the image scrolls with the content or remains in a fixed location.</li>
+<li><strong>Overflow</strong> shows how to hide overflowing content, display it, or display scrollbars.</li>
+<li><strong>Visibility</strong> shows how to hide an element while leaving a placeholder for it in the
+flow.</li>
+<li><strong>Page Break</strong> shows how to insert a page break into your document before</li>
+</ul></div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/03/beat-win7-64bit-blue-screen/">Beat Win7 64bit Blue Screen</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-03T16:18:00+08:00" pubdate data-updated="true">Jun 3<span>rd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>这两天被折腾的够惨的，因为蓝屏总是时刻伴随着我，猝不及防，我了个丫的，我今天非把你给解决掉！
+蓝屏代码：Stop: 0x000000C5</p>
+
+<blockquote><p>0X000000C5错误几乎总是由已损坏系统的驱动程序造成的，一般都是一些驱动程序出现故障，所以请尝试到计算机制造商下载安装最新版本的驱动程序安装更新。</p></blockquote>
+
+<p>现象：<br/>
+1. 当我尝试运行迅雷7进行网络监测时直接进入蓝屏<br/>
+2. 当我运行酷狗音乐盒一段时间后，然后让电脑睡眠，过一段时间接着回到运行界面，后面你懂得</p>
+
+<p>排错过程： <br/>
+1. 首先我的机器是全新的，排除硬件问题 <br/>
+2. 那一定就是软件的驱动问题 <br/>
+3. 根据现象一，起初我认为是迅雷导致，于是我把迅雷卸载掉，情况依旧 <br/>
+4. 情况不容乐观，看来不能只看表面现象，于是我请来了windows的<a href="http://msdn.microsoft.com/en-us/windows/hardware/gg463009">debugger tool</a>和<a href="http://http//msdn.microsoft.com/en-us/windows/hardware/gg463028">symbol库</a><br/>
+5. 使用tool来分析问题，win->windbg 运行tool<br/>
+6. 导入symbol库，“File→Symbol Search Path”，输入 &#8220;SRV<em>c:\sytemp</em>http://msdl.microsoft.com/download/symbols&#8221;。<br/>
+7. 导入.dmp文件(windows的crash记录文件)，一般位于C:\Windows\MEMORY.DMP 或 C:\Windows\Minidup文件夹中，“File（文件）”－“Open Crash Dump（打开内存转储文件）”，然后选择路径就可以了<br/>
+内容如下：</p>
+
+<pre><code>~ Microsoft (R) Windows Debugger Version 6.2.8400.0 AMD64  
+Copyright (c) Microsoft Corporation. All rights reserved.  
+Loading Dump File [C:\Windows\Minidump\060312-17050-01.dmp]  
+Mini Kernel Dump File: Only registers and stack trace are available  
+Symbol search path is: D:\Symbols  
+Executable search path is:   
+Unable to load image \SystemRoot\system32\ntoskrnl.exe, Win32 error 0n2  
+*** WARNING: Unable to verify timestamp for ntoskrnl.exe  
+*** ERROR: Module load completed but symbols could not be loaded for ntoskrnl.exe  
+Windows 7 Kernel Version 7601 (Service Pack 1) MP (8 procs) Free x64  
+Product: WinNt, suite: TerminalServer SingleUserTS  
+Built by: 7601.17640.amd64fre.win7sp1_gdr.110622-1506  
+Machine Name:  
+Kernel base = 0xfffff800`04067000 PsLoadedModuleList = 0xfffff800`042ac670  
+Debug session time: Sun Jun  3 11:07:51.221 2012 (UTC + 8:00)  
+System Uptime: 0 days 0:02:42.080  
+Unable to load image \SystemRoot\system32\ntoskrnl.exe, Win32 error 0n2...  ~    
+</code></pre>
+
+<ul>
+<li>发现<a href="http://baike.baidu.com/view/449849.htm">ntoskrnl.exe</a>加载错误,这个错误一般是在系统启动加载阶段导致</li>
+<li><p>由于信息不够，需要进一步查询：使用 “!analyze -v ”命令继续查找，信息如下：</p>
+
+<p>  DRIVER_CORRUPTED_EXPOOL (c5)
+  An attempt was made to access a pageable (or completely invalid) address at an
+  interrupt request level (IRQL) that is too high.  This is
+  caused by drivers that have corrupted the system pool.  Run the driver
+  verifier against any new (or suspect) drivers, and if that doesn&#8217;t turn up
+  the culprit, then use gflags to enable special pool.
+  Arguments:
+  Arg1: 0000000000002f2c, memory referenced
+  Arg2: 0000000000000002, IRQL
+  Arg3: 0000000000000000, value 0 = read operation, 1 = write operation
+  Arg4: fffff80004212dd3, address which referenced memory
+  Debugging Details:</p>
+
+<p>  <strong><em> WARNING: Unable to verify timestamp for VBoxNetFlt.sys
+  </em></strong> ERROR: Module load completed but symbols could not be loaded for VBoxNetFlt.sys
+  &#8230; &#8230;
+  FOLLOWUP_IP:
+  VBoxNetFlt+3aca
+  fffff880`059bfaca ??              ???
+  SYMBOL_STACK_INDEX:  5
+  SYMBOL_NAME:  VBoxNetFlt+3aca
+  FOLLOWUP_NAME:  MachineOwner
+  MODULE_NAME: VBoxNetFlt
+  IMAGE_NAME:  VBoxNetFlt.sys
+  DEBUG_FLR_IMAGE_TIMESTAMP:  4f86ff00
+  FAILURE_BUCKET_ID:  X64_0xC5_2_VBoxNetFlt+3aca
+  BUCKET_ID:  X64_0xC5_2_VBoxNetFlt+3aca
+  Followup: MachineOwner</p></li>
+<li><p>这下豁然开朗了，原来是VBoxNetFlt.sys导致问题，想起前段时间确实更新了一次Virtual Box，于是果断卸载virtual box，这下天下太平了！阿门！</p></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/03/how-to-build-a-framework/">How to Build a Framework</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-03T15:40:00+08:00" pubdate data-updated="true">Jun 3<span>rd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If let u to build a javascript framework,how will you do?<br/>
+对比几个比较流行的jQuery等框架，不难发现，有以下几个基础部分：<br/>
+* 浏览器的兼容性检测<br/>
+* 干净，可重用的API设计<br/>
+* 有统一的基准和性能<br/>
+* 编写有好的轻量的javascript<br/>
+* 使用Github</p>
+
+<h2>为了便于合作，我们必须订立好项目的目标和开发的风格,以下是一种尝试：</h2>
+
+<blockquote><p>复杂性Verbose: 变量和方法名必须是有意义的，易懂和易理解<br/>
+移植性Portable: 浏览器和控制台<br/>
+显式的Explicit: 代码应该是可以快速理解的<br/>
+注释Comments: 注释需要简洁明了的。TODO 和 FIXME 可以详细一点.<br/>
+简单Simple:   保持代码简单<br/>
+缩进Indentation: 两个空格<br/>
+分号Semicolons:  添加分号以便人们可以方便压缩<br/>
+质量Quality: JsLint和读者留言!<br/>
+测试Testing: 在浏览器和控制台中都要测试<br/>
+版本控制Versioning: 使用GitHub</p></blockquote>
+
+<h2>高级框架结构</h2>
+
+<ul>
+<li>prototype</li>
+<li>namespace</li>
+<li>traits</li>
+<li>CommonJS</li>
+</ul>
+
+
+<h3>Helper Methods</h3>
+
+<p>为什么?</p>
+
+<blockquote><p>reduce the effort required to call commonly used functions<br/>
+how?<br/>
+should be succinct but clear</p></blockquote>
+
+<h3>初始化</h3>
+
+<ul>
+<li>version</li>
+<li>metadata</li>
+</ul>
+
+
+<h3>模块和插件</h3>
+
+<ul>
+<li>define your own global namespace,like jQuery,Mooltools etc.</li>
+</ul>
+
+
+<h3>选择测试框架</h3>
+
+<ul>
+<li>riot.js</li>
+<li>jasmine</li>
+</ul>
+
+
+<h2>面向对象的javascript</h2>
+
+<p>为什么？<br/>
+1. 便于管理自己的代码<br/>
+2. 对于Java或Ruby程序员来说很习惯这种方式</p>
+
+<h3>原型vs类继承</h3>
+
+<h4>原型的优点：</h4>
+
+<ol>
+<li>it’s useful to abstract it</li>
+<li>offer extra features beyond what JavaScript has as standard</li>
+</ol>
+
+
+<h4>类继承</h4>
+
+<p>优点：
+1. keeps code simpler
+2. it easer for people to navigate your code.</p>
+
+<p>缺点：<br/>
+1. 创建对象需要用一个包装器，如：Class.create</p>
+
+<h3>创建自己的继承方法：</h3>
+
+<ol>
+<li>The ability to extend classes with new methods by copying them</li>
+<li>Class creation: use of apply and prototype.constructor to run the constructors</li>
+<li>The ability to determine if a parent class is being passed for inheritance</li>
+<li>Mixins</li>
+</ol>
+
+
+<h3>继承：</h3>
+
+<pre><code>for (var property in source )
+    destination [property ] = source [property ];
+</code></pre>
+
+<h3>创建类：</h3>
+
+<pre><code>// This would be defined in our "oo" namespace
+create : function (methods ) {
+    var klass = function () { this.initialize .apply (this, arguments ); };
+    // Copy the passed in methods
+    extend (klass .prototype , methods );
+    // Set the constructor
+    klass .prototype .constructor = klass ;
+    // If there's no initialize method, set an empty one
+    if (!klass .prototype .initialize )
+    klass .prototype .initialize = function (){};
+    return klass ;
+}
+</code></pre>
+
+<h3>更深层次的类：</h3>
+
+<p>initialize 方法是我们的构造函数。使用Class.create的方法来创建新类。</p>
+
+<h3>语法糖</h3>
+
+<p>Extend === Mixin ?</p>
+
+<p>Mixin是通过简单的规则将对象的属性进行组合：    Methods should be included from the specified classes    The initialize method should not be overwritten    Multiple includes should be possible</p>
+
+<pre><code>var MixinUser = Root.Class ({
+    include : User,
+    initialize : function (log) {
+        this.log = log;
+    }
+});
+</code></pre>
+
+<p>Super</p>
+
+<pre><code>var SuperUser = Root.Class(User, {
+    initialize : function () {
+        this.$super('initialize' , arguments );
+    },
+    toString : function () {
+        return "SuperUser: " + this.$super ('toString' );
+    }
+});
+</code></pre>
+
+<h2>函数式编程：</h2>
+
+<p>why?<br/>
+1. use ideas from functional programming to simplify common programming tasks<br/>
+2. we need define our own method like iterator to cause the browser support is inconsistent<br/>
+what?   Describing problems rather than focusing on the mechanics of their solution    Treating functions as first class citizens, and manipulating them like variables   Avoiding state and mutable data</p>
+
+<h3>迭代器Iterators</h3>
+
+<blockquote><p>Enumerable uses each to create lots of other methods that are inspired by functional languages. Any collection-style object can mixin Enumerable to get all those methods for free.</p></blockquote>
+
+<p>Underscore&#8217;s each</p>
+
+<pre><code>// The cornerstone, an each implementation.
+// Handles objects implementing forEach, arrays, and raw objects.
+// Delegates to JavaScript 1.6's native forEach if available.
+var each = _.forEach = function (obj, iterator , context ) {
+try {
+if (nativeForEach &amp;&amp; obj.forEach === nativeForEach ) {
+    obj.forEach (iterator , context );
+} else if (_.isNumber (obj.length )) {
+    for (var i = 0, l = obj.length ; i &lt; l; i++) iterator .call(context , obj[i], i, obj);
+} else {
+    for (var key in obj) {
+        if (hasOwnProperty .call(obj, key)) iterator .call(context , obj[key], key, obj);
+    }
+}
+} catch (e) {
+    if (e != breaker ) throw e;
+}
+    return obj;
+};
+</code></pre>
+
+<h3>基准Benchmarks</h3>
+
+<blockquote><p>The native method performs very well than defined by yourself</p></blockquote>
+
+<h3>API设计</h3>
+
+<p>why?<br/>
+* easy to use<br/>
+* avoid conflict with third party libs <br/>
+* safely namespacing</p>
+
+<h3>为each定义更多函数方法</h3>
+
+<p>Filter<br/>
+1. Check if there’s a native filter method and use it if possible<br/>
+2. Else use Root.enumerable.each<br/>
+3. Filter objects into multi-dimensional arrays if required<br/>
+Detect</p>
+
+<blockquote><p>Detect simply uses each with the user-supplied callback, until a truthy value is returned. Then it throws a Break.<br/>
+Chaining<br/>
+Chained functions are possible when each function returns an object that can be used to call the next one.<br/>
+1. Store temporary values<br/>
+2. Runs appropriate methods from Root.enumerable by mapping the temporary value into the first argument<br/>
+3. After running the method, return this so the chain can continue</p></blockquote>
+
+<h3>实现：</h3>
+
+<pre><code>// store temporary values in this.results
+Root.enumerable .Chainer = Root.Class ({
+    initialize : function (values ) {
+    this.results = values ;
+    },
+    values : function () {
+    return this.results ;
+    }
+});
+// Map selected methods by wrapping them in a closure that returns this each time
+Root.enumerable .each(['map' , 'detect' , 'filter' ], function (methodName ) {
+    var method = Root.enumerable [methodName ];
+    Root.enumerable .Chainer .prototype [methodName ] = function () {
+        var args = Array .prototype .slice .call(arguments );
+        args.unshift (this.results );
+        this.results = method .apply (this, args);
+        return this;
+    }
+});
+</code></pre>
+
+<h2>选择器和引擎(Selector and Selector Engines)</h2>
+
+<ol>
+<li>XPath</li>
+<li>CSS</li>
+</ol>
+
+
+<h3>浏览器支持</h3>
+
+<p>Sizzle的做法：</p>
+
+<blockquote><p>It creates a fake element to probe browser behaviour. Supporting browsers is a black art beyond the patience of most well-meaning JavaScript hackers.</p>
+
+<pre><code>// Check to see if the browser returns elements by name when
+// querying by getElementById (and provide a workaround)
+(function (){
+    // We're going to inject a fake input element with a specified name
+    var form = document .createElement ("div" ),
+    id = "script" + (new Date()).getTime ();
+    form.innerHTML = "&lt;a name='" + id + "'/&gt;" ;
+    // Inject it into the root element, check its status, and remove it quickly
+    var root = document .documentElement ;
+    root.insertBefore ( form, root.firstChild );
+</code></pre></blockquote>
+
+<h3>性能</h3>
+
+<ol>
+<li>缓存
+2，使用native的方法，如：querySelectorAll</li>
+</ol>
+
+
+<h3>tools</h3>
+
+<ol>
+<li><a href="http://mootools.net/slickspeed/">slickspeed</a></li>
+</ol>
+
+
+<h3>选择器引擎</h3>
+
+<ol>
+<li><a href="http://jamesdonaghue.com/static/peppy/docs/">Peppy</a></li>
+<li><a href="http://digitarald.de/journal/89737433/rolling-out-sly-the-javascript-selector-engine/">sly</a></li>
+<li><a href="http://sizzlejs.com/">Sizzle</a></li>
+</ol>
+
+
+<h3>API 设计</h3>
+
+<ol>
+<li>使用函数包装器，链式调用</li>
+<li>返回并扩展选择的元素，如prototype使用$()使用getElementById.$$()使用CSS或XPath</li>
+</ol>
+
+
+<h3>目标</h3>
+
+<ol>
+<li>CSS selectors only (XPath could be a future upgrade or plugin)</li>
+<li>Limited pseudo-selectors. Implementing one or two would be nice just to establish the API for them</li>
+<li>Defer to native methods as quickly as possible</li>
+<li>Cache for performance</li>
+<li>Expose the parsing results like Sly does</li>
+<li>Reuse the wisdom of existing selector engines for patching browser nightmares</li>
+</ol>
+
+
+<h3>CSS 选择器</h3>
+
+<blockquote><p><a href="http://www.w3.org/TR/CSS2/selector.html">CSS2 selectors</a>,<a href="http://www.w3.org/TR/CSS21/grammar.html">CSS2 grammer</a><br/>
+1. E – Matches any element named E<br/>
+2. E F – Matches any element F that descends from E<br/>
+3. .class – Matches any element with the class class<br/>
+4. E.class – Matches any element named E with the class class<br/>
+5. #id – Matches any element with the id id<br/>
+6. E#id – Matches any element named E with the id id</p></blockquote>
+
+<h3>CSS的解析规则</h3>
+
+<ol>
+<li>ID Rules</li>
+<li>Class Rules</li>
+<li>Tag Rules</li>
+<li><p>Universal Rules<br/>
+<a href="https://developer.mozilla.org/en/Writing_Efficient_CSS">Writing_Efficient_CSS</a></p></li>
+<li><p>Avoid universal rules</p></li>
+<li>Don’t qualify ID rules with tag names or classes
+
+<blockquote><p>BAD
+ button#backButton {…}<br/>
+ BAD<br/>
+ .menu-left#newMenuIcon {…}<br/>
+ GOOD<br/>
+ #backButton {…}<br/>
+ GOOD<br/>
+ #newMenuIcon {…}</p></blockquote></li>
+<li>Don’t qualify class rules with tag names
+
+<blockquote><p>BAD<br/>
+ treecell.indented {…}<br/>
+ GOOD<br/>
+ .treecell-indented {…}<br/>
+ BEST<br/>
+ .hierarchy-deep {…}</p></blockquote></li>
+<li>Use the most specific category possible
+
+<blockquote><p>BAD<br/>
+ treecell.indented {…}<br/>
+ GOOD<br/>
+ .treecell-indented {…}<br/>
+ BEST<br/>
+ .hierarchy-deep {…}</p></blockquote></li>
+<li>Avoid the descendant selector
+
+<blockquote><p>BAD<br/>
+ treehead treerow treecell {…}<br/>
+ BETTER, BUT STILL BAD (see next guideline)  <br/>
+ treehead > treerow > treecell {…}</p></blockquote></li>
+<li>Tag category rules should never contain a child selector
+
+<blockquote><p>BAD<br/>
+ treehead > treerow > treecell {…}<br/>
+ GOOD<br/>
+ .treecell-header {…}</p></blockquote></li>
+<li>Question all usages of the child selector
+
+<blockquote><p>BAD<br/>
+ treeitem[IsImapServer=&#8221;true&#8221;] > treerow > .tree-folderpane-icon {…}<br/>
+ GOOD<br/>
+ .tree-folderpane-icon[IsImapServer=&#8221;true&#8221;] {…}</p></blockquote></li>
+<li>Rely on inheritance
+
+<blockquote><p>BAD<br/>
+ #bookmarkMenuItem > .menu-left { list-style-image: url(blah) }<br/>
+ GOOD<br/>
+ #bookmarkMenuItem { list-style-image: url(blah) }</p></blockquote></li>
+<li>Use -moz-image-region for ff!</li>
+<li>Use <a href="http://updates.html5rocks.com/2012/03/A-New-Experimental-Feature-style-scoped">scoped stylesheets</a> to reduce inefficiency of universal rules and child selectors</li>
+</ol>
+
+
+<h3>分词器(Tokenizer)</h3>
+
+<h3>给你一个selector，我们需要做：</h3>
+
+<ol>
+<li>去掉额外的空格</li>
+<li>用某种方法处理并转化为一系列的指令解析器处理</li>
+<li><p>Run the tokens through the parser against the DOM</p>
+
+<p> function Token (identity , finder ) {</p>
+
+<pre><code> this.identity = identity ;
+ this.finder = finder ;
+</code></pre>
+
+ }
+ Token .prototype .toString = function () {
+
+<pre><code> return 'identity: ' + this.identity + ', finder: ' + this.finder ;
+</code></pre>
+
+ };
+ //The finder property is one of those keys in findMap. The identity is the original rule from the selector.
+
+<h3>扫描器(Scanner)</h3>
+
+<blockquote><p>CSS grammer specification
+ macros = {</p>
+
+<pre><code> 'nl': '\n|\r\n|\r|\f' ,
+ 'nonascii' : '[^\0-\177]' ,
+ 'unicode' : '\\[0-9A-Fa-f]{1,6}(\r\n|[\s\n\r\t\f])?'
+ 'escape' : '#{unicode}|\\[^\n\r\f0-9A-Fa-f]' ,
+ 'nmchar' : '[_A-Za-z0-9-]|#{nonascii}|#{escape}'
+ 'nmstart' : '[_A-Za-z]|#{nonascii}|#{escape}' ,
+ 'ident' : '[-@]?(#{nmstart})(#{nmchar})*' ,
+ 'name' : '(#{nmchar})+'
+</code></pre>
+
+<p> };
+ rules = {</p>
+
+<pre><code> 'id and name' : '(#{ident}##{ident})' ,
+ 'id': '(##{ident})' ,
+ 'class' : '(\\.#{ident})' ,
+ 'name and class' : '(#{ident}\\.#{ident})' ,
+ 'element' : '(#{ident})' ,
+ 'pseudo class' : '(:#{ident})'
+</code></pre>
+
+<p> };</p></blockquote></li>
+</ol>
+
+
+<h3>扫描器将做以下事情：</h3>
+
+<ul>
+<li>Expanding #{} in the macros</li>
+<li>Expanding #{} in the rules based on the expanded macros</li>
+<li>Escaping the backslashes</li>
+<li>Joining each of the patterns with |</li>
+<li>Building a global regular expression with the RegExp class</li>
+</ul>
+
+
+<h3>搜索器(Searcher)</h3>
+
+<p>搜索器使用分词器的处理结果来搜索dom。初始化时需要指定搜索的root元素和一个token数组。</p>
+
+<pre><code>find = {
+byId: function (root, id) {
+    return [root.getElementById (id)];
+},
+byNodeName : function (root, tagName ) {
+    var i, results = [], nodes = root.getElementsByTagName (tagName );
+    for (i = 0; i &lt; nodes .length ; i++) {
+        results .push(nodes [i]);
+    }
+    return results ;
+},
+byClassName : function (root, className ) {
+    var i, results = [], nodes = root.getElementsByTagName ('*');
+    for (i = 0; i &lt; nodes .length ; i++) {
+        if (nodes [i].className .match ('\\b' + className + '\\b' )) {
+            results .push(nodes [i]);
+        }
+    }
+    return results ;
+}
+};
+findMap = {
+'id': function (root, selector ) {
+    selector = selector .split ('#')[1];
+    return find.byId(root, selector );
+},
+'name and id' : function (root, selector ) {
+    var matches = selector .split ('#'), name, id;
+    name = matches [0];
+    id = matches [1];
+    return filter .byAttr (find.byId(root, id), 'nodeName' , name.toUpperCase ());
+}
+// ...
+};
+</code></pre>
+
+<h2>Events</h2>
+
+<h3>基本的事件绑定方式</h3>
+
+<ol>
+<li>inline</li>
+<li>element.onXXX
+
+<h3>访问事件</h3>
+
+<p>event或者window.event，虽然直接访问window.event有潜在的危险，因为window.event是保存在上一次的事件对象，但javascript是单线程的，所以他是安全的。<br/>
+中断事件(Stopping Events)</p></li>
+<li>return false
+
+<h3>事件捕获和冒泡</h3>
+
+<p>why？</p></li>
+<li>同时绑定给两个父子级元素绑定click事件，很难确定事件的执行顺序</li>
+<li>不同的浏览器有不同的处理方法<br/>
+How？<br/>
+ function handler (event ) {
+
+<pre><code> if (!event ) var event = window .event ;
+ event .cancelBubble = true;
+ if (event .stopPropagation ) event .stopPropagation ();
+</code></pre>
+
+ }
+
+<h3>多个事件处理器</h3>
+
+<p>eg：
+ element .onclick = function () { alert (&#8216;Hello World!&#8217; ); return false ; };
+ element .onclick = function () { alert (&#8216;This was the best example I could think of&#8217;); return false;}
+ //这里第二个事件会将第一个事件覆盖</p></li>
+</ol>
+
+
+<h3>事件api的定义</h3>
+
+<ol>
+<li>Normalise event names, so onClick becomes click</li>
+<li>Easy event registration and removal</li>
+<li>Simple cross-browser access to the event object in handlers</li>
+<li>Mask the complexities of event bubbling</li>
+<li>Provide cross-browser access to keyboard and mouse interaction</li>
+<li>Patch browser incompetency like IE memory leaks<br/>
+jQuery的做法
+
+<blockquote><p>$(&#8216;a&#8217;).click (function (event ) {<br/>
+alert (&#8216;A link has been clicked&#8217; );<br/>
+});<br/>
+The Event’s element is in event.target<br/>
+The current event within the bubbling phase is in event.currentTarget — also found in the
+this object in the function  <br/>
+The default action can be prevented with event.preventDefault()<br/>
+Bubbling can be stopped with event.stopPropagation();<br/>
+Events can be removed with $(&#8216;a&#8217;).unbind(&#8216;click&#8217;);<br/>
+Events can be fired with $(&#8216;a&#8217;).trigger(&#8216;click&#8217;);</p></blockquote></li>
+</ol>
+
+
+<p>Prototype的做法</p>
+
+<blockquote><p>$(&#8216;id&#8217;).observe (&#8216;click&#8217; , function (event ) {<br/>
+var element = Event .element (event );<br/>
+});<br/>
+The Event’s element can be accessed with Event.element(event) or event.element();<br/>
+Events are stopped with Event.stop()<br/>
+Events can be removed with Event.stopObserving(element, eventName, handler);<br/>
+Events can be fired with Event.fire(element)</p></blockquote>
+
+<p>Glow的做法</p>
+
+<blockquote><p>glow.events .addListener (&#8216;a&#8217;, &#8216;click&#8217; , function (event ) {  <br/>
+alert (&#8216;Hello World!&#8217; );<br/>
+});<br/>
+The Event’s element is in event.source<br/>
+The default action can be prevented by returning false<br/>
+Events can be removed with glow.events.removeListener(handler) where handler is<br/>
+the returned value from glow.events.addListener<br/>
+Events can be fired with glow.events.fire()</p></blockquote>
+
+<p>Dojo的做法</p>
+
+<blockquote><p>dojo.connect (dojo.byId(&#8216;a#hello&#8217; ), &#8216;onclick&#8217; , function (event ) {</p>
+
+<pre><code>alert ('Hello World!' );  
+</code></pre>
+
+<p>});<br/>
+Notice that the event names aren’t mapped. Like the other frameworks, the event object is normalised.<br/>
+The Event’s element is in event.target<br/>
+The current event within the bubbling phase is in event.currentTarget — this is also this in
+the function<br/>
+The default action can be prevented with event.preventDefault()<br/>
+Bubbling can be stopped with event.stopPropagation();<br/>
+Events can be removed with dojo.disconnect()</p></blockquote>
+
+<h3>总结</h3>
+
+<p>在以上的framework中，jquery的event handler是最具有魅力的，首先，它统一使用W3C的事件系统在各个浏览器中，较好的名称空间，完全解决了事件冒泡问题，这主要是由于Micorosoft的API在冒泡时的问题。</p>
+
+<h3>实现</h3>
+
+<ol>
+<li>event.srcElement , event.target</li>
+<li>事件绑定  attachEvent,addEventlistener</li>
+<li>验证元素是否有效，确保元素非文本和注释节点</li>
+<li>阻止默认和冒泡事件</li>
+<li>其他的浏览器修复</li>
+<li>NodeList</li>
+<li>事件代理<br/>
+ //Safari’s handling of text nodes<br/>
+ //Missing values for event.pageX/Y<br/>
+ //Key events get event.which and event.metaKey is corrected<br/>
+ //event.which is also added for mouse button index
+ function stop(event ) {
+
+<pre><code> event .preventDefault (event );
+ event .stopPropagation (event );
+</code></pre>
+
+ }
+ function fix(event , element ) {
+
+<pre><code> if (!event ) var event = window .event ;
+     event .stop = function () { stop(event ); };
+ if (typeof event .target === 'undefined' )
+     event .target = event .srcElement || element ;
+ if (!event .preventDefault )
+     event .preventDefault = function () { event .returnValue = false ; };
+ if (!event .stopPropagation )
+     event .stopPropagation = function () { event .cancelBubble = true; };
+ return event ;
+</code></pre>
+
+ }
+ var _isButton ;
+ if (Prototype .Browser .IE) {
+
+<pre><code> // IE doesn't map left/right/middle the same way.
+ var buttonMap = { 0: 1, 1: 4, 2: 2 };
+ _isButton = function (event , code) {
+ return event .button === buttonMap [code];
+</code></pre>
+
+ } else if (Prototype .Browser .WebKit ) {
+
+<pre><code> // In Safari we have to account for when the user holds down
+ // the "meta" key.
+ _isButton = function (event , code) {
+ switch (code) {
+     case 0: return event .which == 1 &amp;&amp; !event .metaKey ;
+     case 1: return event .which == 1 &amp;&amp; event .metaKey ;
+     default : return false ;
+ }
+</code></pre>
+
+ } else {
+
+<pre><code> _isButton = function (event , code) {
+ return event .which ? (event .which === code + 1) : (event .button === code);
+</code></pre>
+
+<p> }</p></li>
+</ol>
+
+
+<h2>Ajax</h2>
+
+<p><a href="http://www.w3.org/TR/XMLHttpRequest/">XMLHttpRequest</a></p>
+
+<h3>how to cross domain ?</h3>
+
+<ol>
+<li>use flash or Silverlight</li>
+<li>use XMLHttpRequest Level2 withCredentials attribute</li>
+<li>using dynamically inserted script tags, image tags, and iframes.</li>
+<li>JSONP</li>
+<li>Cross-origin resource sharing ,eg: Access-Control-Allow-Origin: *</li>
+<li>use XDomain object for IE</li>
+</ol>
+
+
+<h3>创建兼容的XMLHttpRequest对象</h3>
+
+<ol>
+<li>Differences between Microsoft’s implementation and W3C have to be dealt with</li>
+<li>Request headers must be set for the type of data and HTTP methpd</li>
+<li>State changes must be handled through callbacks</li>
+<li><p>Browser bugs must be compensated for</p>
+
+<p> function xhr() {
+ if (typeof XMLHttpRequest !== &#8216;undefined&#8217; &amp;&amp; (window .location .protocol !== &#8216;file:&#8217; || !window.ActiveXObject)){
+ return new XMLHttpRequest ();
+ } else {
+ try {
+ return new ActiveXObject (&#8216;Msxml2.XMLHTTP.6.0&#8217; );
+ } catch (e) { }
+ try {
+ return new ActiveXObject (&#8216;Msxml2.XMLHTTP.3.0&#8217; );
+ } catch (e) { }
+ try {
+ return new ActiveXObject (&#8216;Msxml2.XMLHTTP&#8217; );
+ } catch (e) { }
+ }
+ return false ;
+ }</p></li>
+</ol>
+
+
+<h3>发送请求</h3>
+
+<ol>
+<li>Set a callback for onreadystatechange</li>
+<li>Call open on the request object</li>
+<li>Set the request headers</li>
+<li>Call send on the object</li>
+</ol>
+
+
+<blockquote><p>readystate
+0: Uninitialized: open has not been called
+1: Loading: send has not been called
+2: Loaded: send has been called, headers and status are available
+3: Interactive: Downloading, responseText holds the partial data
+4: Completed: Request finishe</p></blockquote>
+
+<h3>ajax API设计</h3>
+
+<p>jQuery</p>
+
+<pre><code>$.ajax({
+url: url,
+data: data,
+success : success ,
+dataType : dataType
+});
+</code></pre>
+
+<p>Prototype</p>
+
+<pre><code>new Ajax.Request ('/your/url' , {
+    onSuccess : function (response ) {
+    // Handle the response content...
+    }
+});
+</code></pre>
+
+<p>Glow</p>
+
+<pre><code>if (response .wasSuccessful ) {
+    events .fire(request , "load" , response );
+} else {
+    events .fire(request , "error" , response );
+}
+</code></pre>
+
+<h2>动画(Animations)</h2>
+
+<h3>JavaScript动画</h3>
+
+<p>Methods to work with CSS properties and animate them<br/>
+A queuing system, for scheduling animations, and animating each “frame” CSS colour parsing<br/>
+Helpers that make common web effects easy to use alongside events</p>
+
+<h3>动画框架</h3>
+
+<ol>
+<li>最流行的框架<a href="http://madrobby.github.com/scriptaculous/combination-effects-demo/">aculo</a></li>
+<li>Mootools <a href="http://mootools.net/docs/core/Fx/Fx">FX</a></li>
+<li>jQuery <a href="http://api.jquery.com/animate/">animate</a></li>
+<li>Glow <a href="http://www.bbc.co.uk/glow/docs/1.7/api/glow.anim.animation.shtml">animation</a>
+
+<h3>动画队列</h3>
+
+setInterval 和 clearInterval 来处理事件序列 <br/>
+Easing function
+
+<blockquote><p>“Ease-in” and “ease-out” in digital animation typically refer to a mechanism for defining the
+‘physics’ of the transition between two animation states, eg. the linearity of a tween.</p></blockquote></li>
+</ol>
+
+
+<h3>编写 easing 函数</h3>
+
+<pre><code>var easing = {};
+easing .linear = function (position ) {
+    return position ;
+};
+easing .sine = function (position ) {
+    return (-Math.cos(position * Math.PI) / 2) + 0.5;
+};
+easing .sine = function (position ) {
+    return (-Math.cos(position * Math.PI) / 2) + 0.5;
+};
+</code></pre>
+
+<h3>动画helper函数 &#8211; 一些比较常用的特效的封装</h3>
+
+<ul>
+<li>Fade — fade an element by changing its opacity</li>
+<li>Highlight — rapidly change an element’s background colour to draw attention to it</li>
+<li>Movement — move an element<br/>
+  root.anim.fade(element , duration , { &#8216;from&#8217; : &#8216;8em&#8217; , &#8216;to&#8217;: &#8216;100px&#8217; , &#8216;easing&#8217; : easing });
+  anim.fadeIn = function (element , duration , options ) {
+
+<pre><code>                  options = options || {};
+                  options .from = options .from || 0.0;
+                  options .to = options .to || 1.0;
+                  return anim.fade(element , duration , options );
+              };
+</code></pre>
+
+  anim.fadeOut = function (element , duration , options ) {
+
+<pre><code>                  var from;
+                  options = options || {};
+                  options .from = options .from || 1.0;
+                  options .to = options .to || 0.0;
+                  // Swap from and to
+                  from = options .from;
+                  options .from = options .to;
+                  options .to = from;
+                  // This easing function reverses the position value and adds from
+                  options .easing = function (p) { return (1.0 - p) + options .from; };
+                  return anim.fade(element , duration , options , { 'easing' : options .easing });
+              };
+</code></pre>
+
+<h3>使用CSS3</h3>
+
+<blockquote><p>CSS Transitions Module Level 3<br/>
+CSS 2D Transforms Module Level 3<br/>
+CSS 3D Transforms Module Level 3<br/>
+CSS Animations Module Level 3</p></blockquote>
+
+  .example {
+
+<pre><code>  -webkit -transition : all 1s ease-in-out;
+  -moz-transition : all 1s ease-in-out;
+  -o-transition : all 1s ease-in-out;
+  -webkit -transition : all 1s ease-in-out;
+  transition : all 1s ease-in-out;
+</code></pre>
+
+<p>  }</p></li>
+</ul>
+
+
+<p>CSS3 动画<br/>
+use keyframe</p>
+
+<pre><code>@keyframes 'wobble' {
+0% {
+left: 100px;
+}
+40% {
+left: 150px;
+}
+60% {
+left: 75px;
+}
+100% {
+left: 100px;
+}
+}
+</code></pre>
+
+<h3>动画性能</h3>
+
+<ol>
+<li>Animating margin, padding, background, outline, and border will all result in relatively
+slow animations.</li>
+<li>Hardware Acceleration
+
+<h3>特性检测</h3>
+
+是否支持硬件加速 <br/>
+ function isHWAcceleratedSafari () {
+
+<pre><code> var ua = navigator .userAgent , av = navigator .appVersion ;
+ return (!ua.include ('Chrome' ) &amp;&amp; av.include ('10_6' )) ||
+ Prototype .Browser .MobileSafari ;
+</code></pre>
+
+<p> }
+是否支持WebKitTransitionEvent 或 MozTransition</p>
+
+<p>  var div = document .createElement (&#8216;div&#8217; );
+  try {</p>
+
+<pre><code>  document .createEvent ("WebKitTransitionEvent" );
+  supported = true;
+  hardwareAccelerationSupported = isHWAcceleratedSafari ();
+</code></pre>
+
+  } catch (e) {
+  if (typeof div.style .MozTransition !== &#8216;undefined&#8217; ) {
+
+<pre><code>  supported = true;
+</code></pre>
+
+  }
+  }
+  div = null;
+查询浏览器厂商支持
+  // CSS3 vendor detection
+  vendors = {
+  // Opera Presto 2.3
+  &#8216;opera&#8217; : {
+
+<pre><code>  'prefix' : '-o-' ,
+  'detector' : function () {
+      try {
+          document .createEvent ('OTransitionEvent' );
+          return true;
+      } catch (e) {
+          return false ;
+      }
+  }
+</code></pre>
+
+  },
+  // Chrome 5, Safari 4
+  &#8216;webkit&#8217; : {
+
+<pre><code>  'prefix' : '-webkit-' ,
+  'detector' : function () {
+      try {
+          document .createEvent ('WebKitTransitionEvent' );
+          return true;
+      } catch (e) {
+          return false ;
+      }
+  }
+</code></pre>
+
+  },
+  // Firefox 4
+  &#8216;firefox&#8217; : {
+
+<pre><code>  'prefix' : '-moz-' ,
+  'detector' : function () {
+      var div = document .createElement ('div' ),
+      supported = false ;
+      if (typeof div.style .MozTransition !== 'undefined' ) {
+          supported = true;
+      }
+          div = null;
+          return supported ;
+      }
+  }
+</code></pre>
+
+  };
+  function findCSS3VendorPrefix () {
+
+<pre><code>  for (var detector in vendors ) {
+      detector = vendors [detector ];
+      if (detector ['detector' ]()) {
+          return detector ['prefix' ];
+      }
+  }
+</code></pre>
+
+  }
+
+<h3>移动动画的实现</h3>
+
+<p>Detect when a CSS property is being used to move an element<br/>
+Get the vendor prefix<br/>
+Set up CSS3 style properties instead of using JS animation engine</p></li>
+</ol>
+
+
+<h2>支持TouchScreen</h2>
+
+<h3>目前支持的framework：</h3>
+
+<ol>
+<li><a href="http://www.jqtouch.com/">jQTouch</a> : iPhone, iPad and Android phones</li>
+<li>Sencha Touch</li>
+</ol>
+
+
+<h3>Debugging Touch</h3>
+
+<ol>
+<li><a href="http://developer.android.com/guide/developing/tools/adb.html">Android Debug Bridge</a></li>
+<li>Iphone debug console</li>
+<li><a href="http://people.apache.org/~pmuellr/weinre/docs/latest/">Weinre</a></li>
+</ol>
+
+
+<h3>旋转  Orientation Property</h3>
+
+<pre><code>root.touch.orientation = function () {
+    var orientation = window .orientation ,
+    orientationString = '';
+    switch (orientation ) {
+        case 0:
+        orientationString += 'portrait' ;
+        break ;
+        case -90:
+        orientationString += 'landscape right' ;
+        break ;
+        case 90:
+        orientationString += 'landscape left' ;
+        break ;
+        case 180:
+        orientationString += 'portrait upside-down'
+        break ;
+    }
+    return [orientation , orientationString ];
+};
+</code></pre>
+
+<p>Touch Events<br/>
+touchstart<br/>
+touchmove<br/>
+touchend<br/>
+touchcancel</p>
+
+<h3>Touch 事件对象</h3>
+
+<p>event.touches: All touches on the page<br/>
+event.targetTouches: Touches for the target element<br/>
+event.changedTouches: Changed touches for this event</p>
+
+<h3>Touch state</h3>
+
+<p>If there’s just one event and the position hasn’t changed, it’s a tap event<br/>
+If touchmove fired, work out the distance of the movement and how long it took for a swipe</p>
+
+<h2>链式调用API</h2>
+
+<p><a href="http://code.google.com/p/fakequery/">fakeQuery</a></p>
+
+<h3>总结</h3>
+
+<p>A “container function” is used to create new objects without having to type new<br/>
+It returns objects based on a CSS selector<br/>
+A class is created and copied so usage of methods like find can be called in a chain</p>
+
+<h3>Event Handler Shortcuts and Loop Scoping</h3>
+
+<pre><code>events .addDOMethods = function () {
+    if (typeof root .domChain === 'undefined' ) return ;
+    root .domChain .bind = function (type, handler ) {
+    var element = this.first ();
+    if (element ) {
+        root .events .add(element , type, handler );
+        return this;
+    }
+};
+var chainedAliases = ('click dblclick mouseover mouseout mousemove ' +
+'mousedown mouseup blur focus change keydown ' +
+'keypress keyup resize scroll' ).split (' ');
+    for (var i = 0; i &lt; chainedAliases .length ; i++) {
+        (function (name) {
+        root .domChain [name] = function (handler ) {
+        return this.bind(name, handler );
+        };
+        })(chainedAliases [i]);
+    }
+};
+</code></pre>
+
+<h2>特性检测  eg：querySelectorAll</h2>
+
+<h3>实现</h3>
+
+<pre><code>var testCache = {},
+detectionTests = {};
+root.addDetectionTest = function (name, fn) {
+    if (!detectionTests [name])
+    detectionTests [name] = fn;
+    };
+    root.detect = function (testName ) {
+    if (typeof testCache [testCache ] === 'undefined' ) {
+    testCache [testName ] = detectionTests [testName ]();
+    }
+    return testCache [testName ];
+};
+//检测querySelectorAll
+turing .addDetectionTest ('querySelectorAll' , function () {
+    var div = document .createElement ('div' );
+    div.innerHTML = '&lt;p class="TEST"&gt;&lt;/p&gt;' ;
+    // Some versions of Safari can't handle uppercase in quirks mode
+    if (div.querySelectorAll ) {
+        if (div.querySelectorAll ('.TEST' ).length === 0) return false ;
+        return true;
+    }
+    // Helps IE release memory associated with the div
+    div = null;
+    return false ;
+});
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/3/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/18/software-architect/">Software Architect</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/08/how-to-be-an-excellent-programmer-for-many-years/">How to be an Excellent Programmer for Many Years</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/21/some-valueable-links/">Some Valueable Links</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/22/async-javascript/">async javascript</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/07/10-small-habits-of-less-stressed-people/">轻松生活的十个小习惯</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - zjhiphop -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
