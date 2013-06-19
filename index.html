@@ -4453,7 +4453,33 @@ over.</li>
 </div>
 <aside class="sidebar">
   
-    <!-- Duoshuo Comment BEGIN -->
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/05/03/cubieboard-a-nice-subminiature-computer/">Cubieboard &#8211; A nice subminiature computer</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/18/software-architect/">Software Architect</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/08/how-to-be-an-excellent-programmer-for-many-years/">How to be an Excellent Programmer for Many Years</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/21/some-valueable-links/">Some Valueable Links</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/22/async-javascript/">async javascript</a>
+      </li>
+    
+  </ul>
+</section>
+<!-- Duoshuo Comment BEGIN -->
 <div class="ds-thread"></div>
 <script type="text/javascript">
     var duoshuoQuery = {short_name:"zjhiphop"};
@@ -4467,6 +4493,65 @@ over.</li>
     })();
 </script>
 <!-- Duoshuo Comment END -->
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/zjhiphop">@zjhiphop</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'zjhiphop',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("zjhiphop", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/zjhiphop" class="twitter-follow-button" data-show-count="false">Follow @zjhiphop</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/113502249283430246336?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+<iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=cn&width=0&height=550&fansRow=2&ptype=0&speed=0&skin=10&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=1679875247&verifier=3817f6ea&dpc=1"></iframe>
   
 </aside>
 
