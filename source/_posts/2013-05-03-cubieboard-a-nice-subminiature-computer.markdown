@@ -49,4 +49,4 @@ categories:
 * 超频                         
 
 ### How?  
-<embed width="700px" height="500px" src="http://cloud.video.taobao.com/video/play/sid/10224964/uid/xanD%2B7Kusq4yMTE%3D/v/2001/f/video.swf" quality="high" width="100%" height="100%" align="middle" allowScriptAccess="never" allowFullScreen="true" type="application/x-shockwave-flash"></embed>
+<embed width="700px" height="500px" src="http://vodcdn.video.taobao.com/player/ugc/tb_ugc_pieces_core_player_loader.swf?version=1.0.20130618&vid=10224964&uid=xanD%2B7Kusq4yMTE%3D&p=0&t=1&rid=&random=6666" quality="high" width="100%" height="100%" align="middle" allowScriptAccess="never" allowFullScreen="true" play="false" flashvars="play=false" type="application/x-shockwave-flash"></embed> 
