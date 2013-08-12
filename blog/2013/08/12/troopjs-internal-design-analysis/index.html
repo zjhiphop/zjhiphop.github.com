@@ -5,11 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>JS Web Applications - Jade's fantastic Blog</title>
+  <title>Troopjs internal design analysis - Jade's fantastic Blog</title>
   <meta name="author" content="zjhiphop">
 
   
-  <meta name="description" content="Anything that can go right will go right. &#8211;反墨菲定律 MVC and Classes Events and Observing Models and Data Controllers and State The Real-Time Web &hellip;">
+  <meta name="description" content="Which problems does this framework try to solve ? Front-end developers should know as little as possible
+about back-end as possible
+UI is client &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://zjhiphop.github.com/blog/2012/06/03/js-web-applications">
+  <link rel="canonical" href="http://zjhiphop.github.com/blog/2013/08/12/troopjs-internal-design-analysis">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -82,7 +84,7 @@
   
   <header>
     
-      <h1 class="entry-title">JS Web Applications</h1>
+      <h1 class="entry-title">Troopjs Internal Design Analysis</h1>
     
     
       <p class="meta">
@@ -98,7 +100,7 @@
   
 
 
-<time datetime="2012-06-03T15:22:00+08:00" pubdate data-updated="true">Jun 3<span>rd</span>, 2012</time>
+<time datetime="2013-08-12T13:52:00+08:00" pubdate data-updated="true">Aug 12<span>th</span>, 2013</time>
         
         
       </p>
@@ -106,25 +108,47 @@
   </header>
 
 
-<div class="entry-content"><p>Anything that can go right will go right. &#8211;反墨菲定律</p>
+<div class="entry-content"><h3>Which problems does this framework try to solve ?</h3>
 
-<p>MVC and Classes</p>
+<ul>
+<li>Front-end developers should know as little as possible
+about back-end as possible</li>
+<li>UI is client specific, keep it there</li>
+<li>Code that accomplishes a single task should live all
+live together in one place</li>
+<li>Modifying a component should not affect the whole
+application</li>
+<li>Avoid boilerplate code</li>
+<li>Stay DRY</li>
+</ul>
 
-<p>Events and Observing</p>
 
-<p>Models and Data</p>
+<h3>Which solutions does this framework can give ?</h3>
 
-<p>Controllers and State</p>
+<ul>
+<li>Back-end should be a service provider shared
+among all clients</li>
+<li>Generate your UI on the client, but separate
+from logic (MVC)</li>
+<li>Write components, not snippets (AMD)</li>
+<li>Connect components (PubSub)</li>
+<li>Convention over configuration</li>
+<li>Pick framework(s) (but KISS)</li>
+</ul>
 
-<p>The Real-Time Web</p>
 
-<p>Testing and Debugging</p>
+<h3>Whcih Libs does this framework use?</h3>
 
-<p>The Spine Library</p>
+<ul>
+<li><a href="https://github.com/jrburke/requirejs" title="RequireJS">RequireJS</a></li>
+<li><a href="https://github.com/kriszyp/compose" title="ComposeJS">ComposeJS</a></li>
+<li><a href="https://github.com/jquery/jquery" title="jQuery">jQuery</a></li>
+<li><a href="https://github.com/jburke/r.js" title="R.js">R.js</a></li>
+<li><a href="https://github.com/cowboy/grunt" title="Grunt">Grunt</a></li>
+<li><a href="https://github.com/cujojs/when" title="When.js">When.js</a></li>
+<li><a href="https://github.com/cujojs/poly" title="poly.js">poly.js</a></li>
+</ul>
 
-<p>The Backbone Library</p>
-
-<p>The JavascriptMVC Library</p>
 </div>
 
 
@@ -147,12 +171,12 @@
   
 
 
-<time datetime="2012-06-03T15:22:00+08:00" pubdate data-updated="true">Jun 3<span>rd</span>, 2012</time>
+<time datetime="2013-08-12T13:52:00+08:00" pubdate data-updated="true">Aug 12<span>th</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/thinking-in-js/'>thinking in JS</a>
+    <a class='category' href='/blog/categories/decouple-troopjs/'>Decouple TroopJS</a>
   
 </span>
 
@@ -168,13 +192,13 @@
     height="16" 
     frameborder="0" 
     src=
-      "http://hits.sinajs.cn/A1/weiboshare.html?url=http://zjhiphop.github.com/blog/2012/06/03/js-web-applications/&type=6&ralateUid=1679875247&language=zh_cn" allowtransparency="true">
+      "http://hits.sinajs.cn/A1/weiboshare.html?url=http://zjhiphop.github.com/blog/2013/08/12/troopjs-internal-design-analysis/&type=6&ralateUid=1679875247&language=zh_cn" allowtransparency="true">
   </iframe>
   </span>
   
 
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://zjhiphop.github.com/blog/2012/06/03/js-web-applications/" data-via="zjhiphop" data-counturl="http://zjhiphop.github.com/blog/2012/06/03/js-web-applications/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://zjhiphop.github.com/blog/2013/08/12/troopjs-internal-design-analysis/" data-via="zjhiphop" data-counturl="http://zjhiphop.github.com/blog/2013/08/12/troopjs-internal-design-analysis/" >Tweet</a>
   
 
   
@@ -189,10 +213,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/06/02/js-saving-byte-tec/" title="Previous Post: JavaScript Byte-saving Technique">&laquo; JavaScript Byte-saving Technique</a>
+        <a class="basic-alignment left" href="/blog/2013/08/12/troopjs-introduce/" title="Previous Post: Troopjs Introduce">&laquo; Troopjs Introduce</a>
       
       
-        <a class="basic-alignment right" href="/blog/2012/06/03/how-to-build-a-framework/" title="next Post: How to build a framework">How to build a framework &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2013/08/12/troopjs-architecture-analysis/" title="next Post: Troopjs Architecture Analysis">Troopjs Architecture Analysis &raquo;</a>
       
     </p>
   </footer>

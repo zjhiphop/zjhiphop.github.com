@@ -4,7 +4,7 @@
   <title><![CDATA[Jade's fantastic Blog]]></title>
   <link href="http://zjhiphop.github.com/atom.xml" rel="self"/>
   <link href="http://zjhiphop.github.com/"/>
-  <updated>2013-06-19T12:10:33+08:00</updated>
+  <updated>2013-08-12T18:23:51+08:00</updated>
   <id>http://zjhiphop.github.com/</id>
   <author>
     <name><![CDATA[zjhiphop]]></name>
@@ -12,6 +12,142 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[My dot files]]></title>
+    <link href="http://zjhiphop.github.com/blog/2013/08/12/my-dot-files/"/>
+    <updated>2013-08-12T17:37:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2013/08/12/my-dot-files</id>
+    <content type="html"><![CDATA[<h3>What&#8217;s the <a href="http://dotfiles.org/">dotfiles</a>?</h3>
+
+<ul>
+<li>A dot-file is generally any file whose name begins with a full stop.</li>
+</ul>
+
+
+<h3>Why we should use dot file?</h3>
+
+<ul>
+<li>Keep environment consistensy</li>
+<li>Own settings, configurations, or themes</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Troopjs Architecture Analysis]]></title>
+    <link href="http://zjhiphop.github.com/blog/2013/08/12/troopjs-architecture-analysis/"/>
+    <updated>2013-08-12T17:17:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2013/08/12/troopjs-architecture-analysis</id>
+    <content type="html"><![CDATA[<h3>Troopjs framework is seperated by 6 different parts:</h3>
+
+<ul>
+<li><a href="https://github.com/troopjs/troopjs-core.git">troopjs-core</a></li>
+<li><a href="https://github.com/troopjs/troopjs-jquery.git">troopjs-jquery</a></li>
+<li><a href="https://github.com/troopjs/troopjs-requirejs.git">troopjs-requirejs</a></li>
+<li><a href="https://github.com/troopjs/troopjs-utils.git">troopjs-utils</a></li>
+<li><a href="https://github.com/troopjs/troopjs-browser.git">troopjs-browser</a></li>
+<li><a href="https://github.com/troopjs/troopjs-data.git">troopjs-data</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Troopjs internal design analysis]]></title>
+    <link href="http://zjhiphop.github.com/blog/2013/08/12/troopjs-internal-design-analysis/"/>
+    <updated>2013-08-12T13:52:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2013/08/12/troopjs-internal-design-analysis</id>
+    <content type="html"><![CDATA[<h3>Which problems does this framework try to solve ?</h3>
+
+<ul>
+<li>Front-end developers should know as little as possible
+about back-end as possible</li>
+<li>UI is client specific, keep it there</li>
+<li>Code that accomplishes a single task should live all
+live together in one place</li>
+<li>Modifying a component should not affect the whole
+application</li>
+<li>Avoid boilerplate code</li>
+<li>Stay DRY</li>
+</ul>
+
+
+<h3>Which solutions does this framework can give ?</h3>
+
+<ul>
+<li>Back-end should be a service provider shared
+among all clients</li>
+<li>Generate your UI on the client, but separate
+from logic (MVC)</li>
+<li>Write components, not snippets (AMD)</li>
+<li>Connect components (PubSub)</li>
+<li>Convention over configuration</li>
+<li>Pick framework(s) (but KISS)</li>
+</ul>
+
+
+<h3>Whcih Libs does this framework use?</h3>
+
+<ul>
+<li><a href="https://github.com/jrburke/requirejs" title="RequireJS">RequireJS</a></li>
+<li><a href="https://github.com/kriszyp/compose" title="ComposeJS">ComposeJS</a></li>
+<li><a href="https://github.com/jquery/jquery" title="jQuery">jQuery</a></li>
+<li><a href="https://github.com/jburke/r.js" title="R.js">R.js</a></li>
+<li><a href="https://github.com/cowboy/grunt" title="Grunt">Grunt</a></li>
+<li><a href="https://github.com/cujojs/when" title="When.js">When.js</a></li>
+<li><a href="https://github.com/cujojs/poly" title="poly.js">poly.js</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Troopjs Introduce]]></title>
+    <link href="http://zjhiphop.github.com/blog/2013/08/12/troopjs-introduce/"/>
+    <updated>2013-08-12T11:49:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2013/08/12/troopjs-introduce</id>
+    <content type="html"><![CDATA[<pre><code>The **more** you write, the **uglier** it gets. -Mikael
+</code></pre>
+
+<h3>What&#8217;s that?</h3>
+
+<ul>
+<li>Troopjs is a javascript framework, based on Mix-in and Compose patterns.</li>
+</ul>
+
+
+<h3>Why we should use it?</h3>
+
+<ul>
+<li>It&#8217;s intuitive and strightforward</li>
+<li>It&#8217;s very easy and powerful</li>
+</ul>
+
+
+<h3>Pros ?</h3>
+
+<ul>
+<li>Object-oriented</li>
+<li>Internal template engine</li>
+<li>Logic simple</li>
+<li>Consist Async operation</li>
+<li>Life cycle management system</li>
+</ul>
+
+
+<h3>Cons ?</h3>
+
+<ul>
+<li>Don&#8217;t have a model abstraction, it&#8217;s data model is controlled by service</li>
+<li>Document is less</li>
+</ul>
+
+
+<h3><a href="https://github.com/troopjs" title="TroopJS">Project address</a></h3>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Cubieboard -- A nice subminiature computer]]></title>
@@ -4298,252 +4434,6 @@ elements.</li>
 <li><strong>Middle Aligned </strong> shows how to align an element to the middle of its container.</li>
 <li><strong>Middle Offset </strong> shows how to offset a middle-aligned element.</li>
 </ul></div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[HTML Design Patterns]]></title>
-    <link href="http://zjhiphop.github.com/blog/2012/06/05/html-design-patterns/"/>
-    <updated>2012-06-05T15:30:00+08:00</updated>
-    <id>http://zjhiphop.github.com/blog/2012/06/05/html-design-patterns</id>
-    <content type="html"><![CDATA[<div><ul>
-<li><strong>HTML Structure</strong> shows how HTML elements work together to create a document.</li>
-<li><strong>XHTML</strong> shows how to mark up a document with valid XHTML. It also points out
-why using valid XHTML makes styling with CSS more reliable.</li>
-<li><strong>DOCTYPE</strong> shows how to use document types to validate the way documents are
-coded, and it explores what document types work best for CSS and HTML.</li>
-<li><strong>Header Elements</strong> shows how to create metadata about a document and how to
-link a document to supporting documents and related documents.</li>
-<li><strong>Conditional Style Sheet</strong> shows how to load a style sheet to fix problems unique to
-Internet Explorer.</li>
-<li><strong>Structural Block Elements</strong> shows how to create structural meaning in a
-document.</li>
-<li><strong>Terminal Block Elements</strong> shows how certain blocks have semantic meaning
-because they contain content instead of other blocks.</li>
-<li><strong>Multi-purpose Block Elements</strong> shows how certain elements can be used for
-block structure and semantic meaning.</li>
-<li><strong>Inline Elements</strong> shows how styles can bring out the meaning of semantic
-markup.</li>
-<li><strong>Class and ID Attributes</strong> shows how CSS relies on class and id attributes to select
-elements. It also shows how the class attribute can add meaning to an element.</li>
-<li><strong>HTML Whitespace</strong> shows how to make whitespace work for you instead of
-against you.</li>
-</ul></div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[CSS Selectors and Inheritance]]></title>
-    <link href="http://zjhiphop.github.com/blog/2012/06/05/css-selectors-and-inheritance/"/>
-    <updated>2012-06-05T15:30:00+08:00</updated>
-    <id>http://zjhiphop.github.com/blog/2012/06/05/css-selectors-and-inheritance</id>
-    <content type="html"><![CDATA[<div><ul>
-<li><strong>Type, Class, and ID Selectors</strong> shows how to select elements by tag, class, and ID.</li>
-<li><strong>Position and Group Selectors</strong> shows how to select elements by how they are
-nested in the document. It also shows how to apply multiple selectors to the same
-set of rules.</li>
-<li><strong>Attribute Selectors</strong> shows how to select elements based on their attributes.</li>
-<li><strong>Pseudo-element Selectors</strong> shows how to select the first letter or first line of
-terminal block elements.</li>
-<li><strong>Pseudo-class Selectors</strong> shows how to style a hyperlink when it is unvisited,
-visited, being hovered over by the mouse, or has the focus because the user
-tabbed to it or clicked it with the mouse.</li>
-<li><strong>Subclass Selector</strong> shows how to apply multiple styles to the same element using
-classes and subclasses.</li>
-<li><strong>Inheritance</strong> shows how to style elements through rules assigned to their
-ancestors.</li>
-<li><strong>Visual Inheritance</strong> shows how elements visually inherit their parent’s
-background.</li>
-</ul></div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Box Models]]></title>
-    <link href="http://zjhiphop.github.com/blog/2012/06/05/box-models/"/>
-    <updated>2012-06-05T15:30:00+08:00</updated>
-    <id>http://zjhiphop.github.com/blog/2012/06/05/box-models</id>
-    <content type="html"><![CDATA[<div><h2>Box Models</h2>
-
-<h3>Problem</h3>
-
-<p>   You want to style the box of an element.</p>
-
-<h3>Solution</h3>
-
-<ul>
-<li>The Box Model design pattern is built into CSS. This model defines the relationship between
-the following properties: display, width, height, padding, border, margin, background,
-overflow, and visibility.</li>
-<li><strong>width</strong> normally sets the width of an element’s inner box.</li>
-<li><strong>height</strong> normally sets the height of an element’s inner box.</li>
-<li><strong>padding</strong> sets the size of the padding surrounding the inner box. The padding is transparent
-to the element’s background.</li>
-<li><strong>border</strong> sets the size, pattern, and color of the border surrounding the padding.</li>
-<li><strong>margin</strong> sets the size of the margin surrounding the border. The margin is transparent to the
-background of the element’s parent. The outside of the margin is the element’s outer box.</li>
-<li><strong>background</strong> assigns the padding area inside the box to a background color and/or image.</li>
-<li><strong>overflow</strong> determines what happens when an element’s content is larger than its inner box.<br>
-The default is to show the overflowing content.</li>
-<li><strong>visibility</strong> can make the element visible or hidden.
-
-<h3>Pattern</h3>
-
-<pre><code>      SELECTOR { display:CONSTANT;
-      overflow:VALUE;
-      visibility:VALUE;
-      width:+VALUE;
-      height:+VALUE;
-      padding:+VALUE;
-      border:+WIDTH STYLE COLOR;
-      margin:±VALUE;
-      background:VALUES; }  
-</code></pre>
-
-<h3>Location</h3>
-
-This design pattern applies to all elements.
-
-<h3>Example</h3>
-
-The example contains additional HTML markup and CSS rules that are not shown. This
-extra code renders a label over each part of the box and draws the outer box and inner box
-borders.
-
-<h3>Notes</h3>
-
-CSS defines six main types of boxes: inline, inline-block, block, table, absolute, and floated.
-The type of box is determined by the combination of the following properties: display,
-position, and float. Box Model properties work differently and produce different layouts
-depending on the type of box. Certain types of boxes have additional functionality provided
-by additional properties, such as line-height, border-collapse, and table-layout.
-
-<h3>Related to</h3>
-
-All Box Model design patterns
-
-<h2>Box Model Extents</h2></li>
-<li><strong>Width</strong> contrasts how width can size, shrinkwrap, or stretch each type of box.</li>
-<li><strong>Height</strong> contrasts how height can size, shrinkwrap, or stretch each type of box.</li>
-<li><strong>Sized</strong> shows how to set the height or width of an element. An element is sized
-when you manually assign it a height and/or a width. For example, you can use
-height:50% to size an element’s height to 50% of the height of its container.</li>
-<li><strong>Shrinkwrapped</strong> shows how to shrink the width or height of an element to the size
-of its content. For example, height:auto causes the height of a static block
-element to expand automatically to fit the total height of its lines, and width:auto
-causes the width of an absolute element to shrink to fit to the width of its widest
-line.</li>
-<li><strong>Stretched</strong> shows how to stretch the width or height of an element to the sides of
-its container. For example, width:auto causes the width of a static block element
-to expand automatically to fit the width of its container. For example, top:0,
-bottom:0, and height:auto cause an absolute element to expand automatically to
-fit the height of its container. A stretched element’s left side aligns to the left side
-of its container, and its right side aligns to the right side of the container. Similarly,
-its top and bottom sides align to the top and bottom sides of its container.
-
-<h2>Box Model Properties</h2></li>
-<li><strong>Margin</strong> contrasts how margins work differently for different types of boxes. It
-shows how margins change the position of an element in relation to its container
-and siblings.</li>
-<li><strong>Border</strong> contrasts how borders work differently for different types of boxes. It
-shows how borders change the position of an element in ways similar to margins,
-and in some ways different from margins.</li>
-<li><strong>Padding</strong> contrasts how padding works differently for different types of boxes. It
-shows how padding works almost identically to borders and margins.</li>
-<li><strong>Background</strong> shows how to assign a color to the background of an element. It also
-shows how to use a tiled image for the background. You can tile the image across
-and down, across only, or down only, or show the image only once. You can
-position the image at a specific location in the background. You can also direct
-whether the image scrolls with the content or remains in a fixed location.</li>
-<li><strong>Overflow</strong> shows how to hide overflowing content, display it, or display scrollbars.</li>
-<li><strong>Visibility</strong> shows how to hide an element while leaving a placeholder for it in the
-flow.</li>
-<li><strong>Page Break</strong> shows how to insert a page break into your document before</li>
-</ul></div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Beat Win7 64bit Blue Screen]]></title>
-    <link href="http://zjhiphop.github.com/blog/2012/06/03/beat-win7-64bit-blue-screen/"/>
-    <updated>2012-06-03T16:18:00+08:00</updated>
-    <id>http://zjhiphop.github.com/blog/2012/06/03/beat-win7-64bit-blue-screen</id>
-    <content type="html"><![CDATA[<p>这两天被折腾的够惨的，因为蓝屏总是时刻伴随着我，猝不及防，我了个丫的，我今天非把你给解决掉！
-蓝屏代码：Stop: 0x000000C5</p>
-
-<blockquote><p>0X000000C5错误几乎总是由已损坏系统的驱动程序造成的，一般都是一些驱动程序出现故障，所以请尝试到计算机制造商下载安装最新版本的驱动程序安装更新。</p></blockquote>
-
-<p>现象：<br/>
-1. 当我尝试运行迅雷7进行网络监测时直接进入蓝屏<br/>
-2. 当我运行酷狗音乐盒一段时间后，然后让电脑睡眠，过一段时间接着回到运行界面，后面你懂得</p>
-
-<p>排错过程： <br/>
-1. 首先我的机器是全新的，排除硬件问题 <br/>
-2. 那一定就是软件的驱动问题 <br/>
-3. 根据现象一，起初我认为是迅雷导致，于是我把迅雷卸载掉，情况依旧 <br/>
-4. 情况不容乐观，看来不能只看表面现象，于是我请来了windows的<a href="http://msdn.microsoft.com/en-us/windows/hardware/gg463009">debugger tool</a>和<a href="http://http//msdn.microsoft.com/en-us/windows/hardware/gg463028">symbol库</a><br/>
-5. 使用tool来分析问题，win->windbg 运行tool<br/>
-6. 导入symbol库，“File→Symbol Search Path”，输入 &#8220;SRV<em>c:\sytemp</em>http://msdl.microsoft.com/download/symbols&#8221;。<br/>
-7. 导入.dmp文件(windows的crash记录文件)，一般位于C:\Windows\MEMORY.DMP 或 C:\Windows\Minidup文件夹中，“File（文件）”－“Open Crash Dump（打开内存转储文件）”，然后选择路径就可以了<br/>
-内容如下：</p>
-
-<pre><code>~ Microsoft (R) Windows Debugger Version 6.2.8400.0 AMD64  
-Copyright (c) Microsoft Corporation. All rights reserved.  
-Loading Dump File [C:\Windows\Minidump\060312-17050-01.dmp]  
-Mini Kernel Dump File: Only registers and stack trace are available  
-Symbol search path is: D:\Symbols  
-Executable search path is:   
-Unable to load image \SystemRoot\system32\ntoskrnl.exe, Win32 error 0n2  
-*** WARNING: Unable to verify timestamp for ntoskrnl.exe  
-*** ERROR: Module load completed but symbols could not be loaded for ntoskrnl.exe  
-Windows 7 Kernel Version 7601 (Service Pack 1) MP (8 procs) Free x64  
-Product: WinNt, suite: TerminalServer SingleUserTS  
-Built by: 7601.17640.amd64fre.win7sp1_gdr.110622-1506  
-Machine Name:  
-Kernel base = 0xfffff800`04067000 PsLoadedModuleList = 0xfffff800`042ac670  
-Debug session time: Sun Jun  3 11:07:51.221 2012 (UTC + 8:00)  
-System Uptime: 0 days 0:02:42.080  
-Unable to load image \SystemRoot\system32\ntoskrnl.exe, Win32 error 0n2...  ~    
-</code></pre>
-
-<ul>
-<li>发现<a href="http://baike.baidu.com/view/449849.htm">ntoskrnl.exe</a>加载错误,这个错误一般是在系统启动加载阶段导致</li>
-<li><p>由于信息不够，需要进一步查询：使用 “!analyze -v ”命令继续查找，信息如下：</p>
-
-<p>  DRIVER_CORRUPTED_EXPOOL (c5)
-  An attempt was made to access a pageable (or completely invalid) address at an
-  interrupt request level (IRQL) that is too high.  This is
-  caused by drivers that have corrupted the system pool.  Run the driver
-  verifier against any new (or suspect) drivers, and if that doesn&#8217;t turn up
-  the culprit, then use gflags to enable special pool.
-  Arguments:
-  Arg1: 0000000000002f2c, memory referenced
-  Arg2: 0000000000000002, IRQL
-  Arg3: 0000000000000000, value 0 = read operation, 1 = write operation
-  Arg4: fffff80004212dd3, address which referenced memory
-  Debugging Details:</p>
-
-<p>  <strong><em> WARNING: Unable to verify timestamp for VBoxNetFlt.sys
-  </em></strong> ERROR: Module load completed but symbols could not be loaded for VBoxNetFlt.sys
-  &#8230; &#8230;
-  FOLLOWUP_IP:
-  VBoxNetFlt+3aca
-  fffff880`059bfaca ??              ???
-  SYMBOL_STACK_INDEX:  5
-  SYMBOL_NAME:  VBoxNetFlt+3aca
-  FOLLOWUP_NAME:  MachineOwner
-  MODULE_NAME: VBoxNetFlt
-  IMAGE_NAME:  VBoxNetFlt.sys
-  DEBUG_FLR_IMAGE_TIMESTAMP:  4f86ff00
-  FAILURE_BUCKET_ID:  X64_0xC5_2_VBoxNetFlt+3aca
-  BUCKET_ID:  X64_0xC5_2_VBoxNetFlt+3aca
-  Followup: MachineOwner</p></li>
-<li><p>这下豁然开朗了，原来是VBoxNetFlt.sys导致问题，想起前段时间确实更新了一次Virtual Box，于是果断卸载virtual box，这下天下太平了！阿门！</p></li>
-</ul>
 
 ]]></content>
   </entry>

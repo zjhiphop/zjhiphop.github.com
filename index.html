@@ -9,12 +9,7 @@
   <meta name="author" content="zjhiphop">
 
   
-  <meta name="description" content="最近有点迷恋超小型电脑， 是时候给生活增添点乐趣了！ What is a subminiature computer? WIKI Why? 因为他可以做如此多的有趣的事情: Web 服务器
-家庭自动化
-BitTorrent 服务器
-Web Cam 服务器
-天气预报站
-BitCoin Wallet &hellip;">
+  <meta name="description" content="What&#8217;s the dotfiles? A dot-file is generally any file whose name begins with a full stop. Why we should use dot file? Keep environment &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,6 +79,254 @@ BitCoin Wallet &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/12/my-dot-files/">My Dot Files</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-12T17:37:00+08:00" pubdate data-updated="true">Aug 12<span>th</span>, 2013</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>What&#8217;s the <a href="http://dotfiles.org/">dotfiles</a>?</h3>
+
+<ul>
+<li>A dot-file is generally any file whose name begins with a full stop.</li>
+</ul>
+
+
+<h3>Why we should use dot file?</h3>
+
+<ul>
+<li>Keep environment consistensy</li>
+<li>Own settings, configurations, or themes</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/12/troopjs-architecture-analysis/">Troopjs Architecture Analysis</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-12T17:17:00+08:00" pubdate data-updated="true">Aug 12<span>th</span>, 2013</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>Troopjs framework is seperated by 6 different parts:</h3>
+
+<ul>
+<li><a href="https://github.com/troopjs/troopjs-core.git">troopjs-core</a></li>
+<li><a href="https://github.com/troopjs/troopjs-jquery.git">troopjs-jquery</a></li>
+<li><a href="https://github.com/troopjs/troopjs-requirejs.git">troopjs-requirejs</a></li>
+<li><a href="https://github.com/troopjs/troopjs-utils.git">troopjs-utils</a></li>
+<li><a href="https://github.com/troopjs/troopjs-browser.git">troopjs-browser</a></li>
+<li><a href="https://github.com/troopjs/troopjs-data.git">troopjs-data</a></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/12/troopjs-internal-design-analysis/">Troopjs Internal Design Analysis</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-12T13:52:00+08:00" pubdate data-updated="true">Aug 12<span>th</span>, 2013</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>Which problems does this framework try to solve ?</h3>
+
+<ul>
+<li>Front-end developers should know as little as possible
+about back-end as possible</li>
+<li>UI is client specific, keep it there</li>
+<li>Code that accomplishes a single task should live all
+live together in one place</li>
+<li>Modifying a component should not affect the whole
+application</li>
+<li>Avoid boilerplate code</li>
+<li>Stay DRY</li>
+</ul>
+
+
+<h3>Which solutions does this framework can give ?</h3>
+
+<ul>
+<li>Back-end should be a service provider shared
+among all clients</li>
+<li>Generate your UI on the client, but separate
+from logic (MVC)</li>
+<li>Write components, not snippets (AMD)</li>
+<li>Connect components (PubSub)</li>
+<li>Convention over configuration</li>
+<li>Pick framework(s) (but KISS)</li>
+</ul>
+
+
+<h3>Whcih Libs does this framework use?</h3>
+
+<ul>
+<li><a href="https://github.com/jrburke/requirejs" title="RequireJS">RequireJS</a></li>
+<li><a href="https://github.com/kriszyp/compose" title="ComposeJS">ComposeJS</a></li>
+<li><a href="https://github.com/jquery/jquery" title="jQuery">jQuery</a></li>
+<li><a href="https://github.com/jburke/r.js" title="R.js">R.js</a></li>
+<li><a href="https://github.com/cowboy/grunt" title="Grunt">Grunt</a></li>
+<li><a href="https://github.com/cujojs/when" title="When.js">When.js</a></li>
+<li><a href="https://github.com/cujojs/poly" title="poly.js">poly.js</a></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/12/troopjs-introduce/">Troopjs Introduce</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-12T11:49:00+08:00" pubdate data-updated="true">Aug 12<span>th</span>, 2013</time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre><code>The **more** you write, the **uglier** it gets. -Mikael
+</code></pre>
+
+<h3>What&#8217;s that?</h3>
+
+<ul>
+<li>Troopjs is a javascript framework, based on Mix-in and Compose patterns.</li>
+</ul>
+
+
+<h3>Why we should use it?</h3>
+
+<ul>
+<li>It&#8217;s intuitive and strightforward</li>
+<li>It&#8217;s very easy and powerful</li>
+</ul>
+
+
+<h3>Pros ?</h3>
+
+<ul>
+<li>Object-oriented</li>
+<li>Internal template engine</li>
+<li>Logic simple</li>
+<li>Consist Async operation</li>
+<li>Life cycle management system</li>
+</ul>
+
+
+<h3>Cons ?</h3>
+
+<ul>
+<li>Don&#8217;t have a model abstraction, it&#8217;s data model is controlled by service</li>
+<li>Document is less</li>
+</ul>
+
+
+<h3><a href="https://github.com/troopjs" title="TroopJS">Project address</a></h3>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -4171,278 +4414,6 @@ As long as state is stored rationally, you have unlimited flexibility. Now the o
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/06/05/callouts-and-quotes/">Callouts and Quotes</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-05T15:33:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div><ul>
-<li><strong>Left Floating Callout</strong> shows how to create a callout and float it to the left.</li>
-<li><strong>Right Floating Callout</strong> shows how to create a callout and float it to the right.</li>
-<li><strong>Center Callout</strong> shows how to create a callout and center it.</li>
-<li><strong>Left Marginal Callout</strong> shows how to create a callout in the left margin using the
-left marginal design pattern.</li>
-<li><strong>Right Marginal Callout</strong> shows how to create a callout in the right margin using
-the right marginal design pattern.</li>
-<li><strong>Block Quote</strong> shows how to create a block quote with a citation that is
-automatically centered and styled with graphical background quotes.</li>
-<li><strong>Inline Block Quote</strong> shows how to render an inline quote as a block quote.</li>
-<li><strong>Inline Quote</strong> shows how to create an inline quote with a citation.</li>
-</ul></div>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/06/05/alerts/">Alerts</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-05T15:33:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div><ul>
-<li><strong>JavaScript Alert</strong> shows how to dynamically pop up an alert based on an event.</li>
-<li><strong>Tooltip= Alert</strong> shows how to create a tooltip to show the user extra information.</li>
-<li><strong>Pop-Up Alert</strong> shows how to pop up an alert to show the user extra information.</li>
-<li><strong>Alert shows</strong> the basic HTML structure of an alert.</li>
-<li><strong>Inline Alert</strong> shows how to make an alert using an inline element.</li>
-<li><strong>Hanging Alert</strong> shows how to move the alert’s heading to the left side and the
-content to the right side by using a hanging indent that does not require extra
-markup.</li>
-<li><strong>Graphical Alert</strong> shows how to move the alert’s heading to the left side and the
-content to the right side and replace the heading with an image.</li>
-<li><strong>Run-In Alert</strong> shows how to run the alert’s heading into the first line of the
-content.</li>
-<li><strong>Floating Alert</strong> shows how to float an alert to the left or the right of the content
-with its heading on the left and its content on the right.</li>
-<li><strong>Left Marginal Alert</strong> shows how to move an alert into the left margin using
-absolute positioning.</li>
-<li><strong>Right Marginal Alert</strong> shows how to move an alert into the right margin using
-absolute positioning.</li>
-<li><strong>Form Validation</strong> shows how to natively validate HTML5 forms and alert the user
-for wrong input.</li>
-</ul></div>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/06/05/tables/">Tables</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-05T15:32:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div><h2>Tables</h2>
-
-<ul>
-<li><strong>Table shows</strong> how to create and style the fundamental structure of a table.</li>
-<li><strong>Row and Column Groups</strong> shows how to create and style row headers, row
-footers, row groups, column groups, and columns.</li>
-<li><strong>Table Selectors</strong> shows how to select cells from columns, rows, and row groups.</li>
-<li><strong>Separated Borders</strong> shows how to separate table borders from cell borders.</li>
-<li><strong>Collapsed Borders</strong> shows how to combine table and cell borders.</li>
-<li><strong>Styled Collapsed Borders</strong> shows how to style collapsed borders.</li>
-<li><strong>Hidden and Removed Cells</strong> shows how to hide or remove cells.</li>
-<li><strong>Removed and Hidden Rows and Columns</strong> shows how to remove or hide rows,
-row groups, and columns of cells.</li>
-<li><strong>Vertical-Aligned Data</strong> shows how to vertically align data to the top, middle,
-bottom, or baseline of a cell.</li>
-<li><strong>Striped Tables</strong> shows how to assign alternating backgrounds to rows.</li>
-<li><strong>Accessible Tables</strong> shows how to create a table that is friendly to nonsighted users.</li>
-<li><strong>Tabled, Rowed, and Celled</strong> shows how to turn any element into a table, row, or
-cell.</li>
-<li><p><strong>Table Layout</strong> shows how to create the four types of tables: shrinkwrapped, sized,
-stretched, and fixed.</p>
-
-<h2>Table Column Layout</h2></li>
-<li><p><strong>Column Width</strong> shows how a browser calculates the column width when cells in
-the same column in different rows have different widths, different types of widths,
-different minimum content widths, and different maximum content widths. This
-pattern applies to shrinkwrapped, sized, and stretched tables.</p></li>
-<li><strong>Shrinkwrapped Columns</strong> shows how to shrinkwrap columns to fit the width of
-their content. This pattern applies to shrinkwrapped tables.</li>
-<li><strong>Sized Columns</strong> shows how to assign fixed widths to columns while keeping the
-table’s width within a minimum or maximum value. This pattern applies to
-shrinkwrapped or fixed tables.</li>
-<li><strong>Content-Proportioned Columns</strong> shows how to automatically distribute a table’s
-width among its columns proportionally to the width of the content in each
-column. Columns with wider content are assigned to a wider width than columns
-with narrower content. This pattern applies to sized and stretched tables. It also
-applies to shrinkwrapped tables when their content stretches them to the width of
-their containers.</li>
-<li><strong>Size-Proportioned Columns</strong> shows how to automatically distribute a table’s
-width among its columns proportionally to the width assigned to each column. In
-this design pattern, a browser does not necessarily render a column at its assigned
-width. Instead, it renders a column proportionally to the widths assigned to other
-columns. This pattern applies to sized, stretched, and fixed tables. It also appliesto shrinkwrapped tables when assigned cell widths stretch them to the width of
-their containers.</li>
-<li><strong>Percentage-Proportioned Columns</strong> shows how to distribute a table’s width
-among its columns proportionally to the percentage assigned to the width of each
-column. In this design pattern, a browser does not necessarily render a column at
-its assigned percentage of the table’s width. Instead, it renders a column
-proportionally to the percentages assigned to other columns. This pattern applies
-to sized, stretched, and fixed tables.</li>
-<li><strong>Inverse-Proportioned Columns</strong> shows how to size columns in proportion to
-their content. For example, a cell can be sized to be double the width of its
-content. This pattern applies to shrinkwrapped tables.</li>
-<li><strong>Equal Content-Sized Columns</strong> shows how to automatically shrink a table to its
-smallest possible width while sizing all columns equally. In other words, it sets all
-columns to the same width while using the smallest possible width that will
-display each cell’s content. It creates compact tables with uniform columns. It
-works best with tables containing numbers and short text. This pattern applies to
-shrinkwrapped tables.</li>
-<li><strong>Equal-Sized Columns</strong> shows how to automatically divide a table’s width into
-equal proportions for each cell. This pattern applies to sized, stretched, and fixed
-tables.</li>
-<li><strong>Undersized Columns</strong> shows how to create columns that are narrower than their content. This pattern applies to fixed tables.</li>
-<li><strong>Flex Columns</strong> shows how to create dynamically sized columns alongside fixedwidth or percentage-width  columns. These columns fill in the space not taken by sized or percentage cells. As a table’s container grows or shrinks, so do flex columns. This pattern is most useful when applied to stretched and fixed tables,
-but also applies to sized tables.</li>
-<li><strong>Mixed Column Layouts</strong> shows how to combine fixed-width, percentage-width,and auto-width columns to create additional layouts. It shows how browsers assign different priorities to fixed-width, percentage-width, and auto-width columns depending on whether a table is shrinkwrapped, sized, stretched, or fixed.</li>
-</ul></div>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/06/05/layouts/">Layouts</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-05T15:32:00+08:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
-        
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div><ul>
-<li><strong>Fluid Layout </strong> Overview explores problems and solutions in creating fluid layouts.</li>
-<li><strong>Outside-in Box</strong> shows how to size the outer width of a box instead of the inner
-width.</li>
-<li><strong>Floating Section </strong> shows how to render sections in columns using a fluid layout.</li>
-<li><strong>Float Divider</strong> shows how to separate and integrate floats and content predictably.</li>
-<li><strong>Fluid Layout </strong> shows how to create layouts that automatically adapt to any display.</li>
-<li><strong>Opposing Floats</strong> shows how to move content to opposite sides of its container.</li>
-<li><strong>Event Styling </strong> shows how to assign events to elements without putting code in
-your document. It shows how events can modify classes to change how elements
-are styled.</li>
-<li><strong>Rollup </strong> shows how to collapse and open sections with a mouse click.</li>
-<li><strong>Tab Menu </strong> shows how to create a tabbed interface that loads new pages when
-clicked.</li>
-<li><strong>Tabs </strong> shows how to create a tabbed interface that dynamically switches content in
-and out of the display when the user clicks a tab—without loading a new page.</li>
-<li><strong>Flyout Menu </strong> shows how to create a menu that opens when clicked or hovered
-over.</li>
-<li><strong>Button </strong> shows how to create buttons and process their events using JavaScript.</li>
-<li><strong>Layout Links </strong> shows how to use links as part of the layout, such as breadcrumbs.</li>
-<li><strong>Multi-column </strong> shows how to distribute content over multiple columns.</li>
-</ul></div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -4458,23 +4429,23 @@ over.</li>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/08/12/my-dot-files/">My dot files</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/12/troopjs-architecture-analysis/">Troopjs Architecture Analysis</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/12/troopjs-internal-design-analysis/">Troopjs internal design analysis</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/12/troopjs-introduce/">Troopjs Introduce</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/05/03/cubieboard-a-nice-subminiature-computer/">Cubieboard &#8211; A nice subminiature computer</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/12/18/software-architect/">Software Architect</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/11/08/how-to-be-an-excellent-programmer-for-many-years/">How to be an Excellent Programmer for Many Years</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/07/21/some-valueable-links/">Some Valueable Links</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/06/22/async-javascript/">async javascript</a>
       </li>
     
   </ul>

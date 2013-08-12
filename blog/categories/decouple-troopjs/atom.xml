@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Decouple TroopJS | Jade's fantastic Blog]]></title>
+  <link href="http://zjhiphop.github.com/blog/categories/decouple-troopjs/atom.xml" rel="self"/>
+  <link href="http://zjhiphop.github.com/"/>
+  <updated>2013-08-12T18:23:51+08:00</updated>
+  <id>http://zjhiphop.github.com/</id>
+  <author>
+    <name><![CDATA[zjhiphop]]></name>
+    <email><![CDATA[zjhiphop@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Troopjs Architecture Analysis]]></title>
+    <link href="http://zjhiphop.github.com/blog/2013/08/12/troopjs-architecture-analysis/"/>
+    <updated>2013-08-12T17:17:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2013/08/12/troopjs-architecture-analysis</id>
+    <content type="html"><![CDATA[<h3>Troopjs framework is seperated by 6 different parts:</h3>
+
+<ul>
+<li><a href="https://github.com/troopjs/troopjs-core.git">troopjs-core</a></li>
+<li><a href="https://github.com/troopjs/troopjs-jquery.git">troopjs-jquery</a></li>
+<li><a href="https://github.com/troopjs/troopjs-requirejs.git">troopjs-requirejs</a></li>
+<li><a href="https://github.com/troopjs/troopjs-utils.git">troopjs-utils</a></li>
+<li><a href="https://github.com/troopjs/troopjs-browser.git">troopjs-browser</a></li>
+<li><a href="https://github.com/troopjs/troopjs-data.git">troopjs-data</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Troopjs internal design analysis]]></title>
+    <link href="http://zjhiphop.github.com/blog/2013/08/12/troopjs-internal-design-analysis/"/>
+    <updated>2013-08-12T13:52:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2013/08/12/troopjs-internal-design-analysis</id>
+    <content type="html"><![CDATA[<h3>Which problems does this framework try to solve ?</h3>
+
+<ul>
+<li>Front-end developers should know as little as possible
+about back-end as possible</li>
+<li>UI is client specific, keep it there</li>
+<li>Code that accomplishes a single task should live all
+live together in one place</li>
+<li>Modifying a component should not affect the whole
+application</li>
+<li>Avoid boilerplate code</li>
+<li>Stay DRY</li>
+</ul>
+
+
+<h3>Which solutions does this framework can give ?</h3>
+
+<ul>
+<li>Back-end should be a service provider shared
+among all clients</li>
+<li>Generate your UI on the client, but separate
+from logic (MVC)</li>
+<li>Write components, not snippets (AMD)</li>
+<li>Connect components (PubSub)</li>
+<li>Convention over configuration</li>
+<li>Pick framework(s) (but KISS)</li>
+</ul>
+
+
+<h3>Whcih Libs does this framework use?</h3>
+
+<ul>
+<li><a href="https://github.com/jrburke/requirejs" title="RequireJS">RequireJS</a></li>
+<li><a href="https://github.com/kriszyp/compose" title="ComposeJS">ComposeJS</a></li>
+<li><a href="https://github.com/jquery/jquery" title="jQuery">jQuery</a></li>
+<li><a href="https://github.com/jburke/r.js" title="R.js">R.js</a></li>
+<li><a href="https://github.com/cowboy/grunt" title="Grunt">Grunt</a></li>
+<li><a href="https://github.com/cujojs/when" title="When.js">When.js</a></li>
+<li><a href="https://github.com/cujojs/poly" title="poly.js">poly.js</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Troopjs Introduce]]></title>
+    <link href="http://zjhiphop.github.com/blog/2013/08/12/troopjs-introduce/"/>
+    <updated>2013-08-12T11:49:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2013/08/12/troopjs-introduce</id>
+    <content type="html"><![CDATA[<pre><code>The **more** you write, the **uglier** it gets. -Mikael
+</code></pre>
+
+<h3>What's that?</h3>
+
+<ul>
+<li>Troopjs is a javascript framework, based on Mix-in and Compose patterns.</li>
+</ul>
+
+
+<h3>Why we should use it?</h3>
+
+<ul>
+<li>It's intuitive and strightforward</li>
+<li>It's very easy and powerful</li>
+</ul>
+
+
+<h3>Pros ?</h3>
+
+<ul>
+<li>Object-oriented</li>
+<li>Internal template engine</li>
+<li>Logic simple</li>
+<li>Consist Async operation</li>
+<li>Life cycle management system</li>
+</ul>
+
+
+<h3>Cons ?</h3>
+
+<ul>
+<li>Don't have a model abstraction, it's data model is controlled by service</li>
+<li>Document is less</li>
+</ul>
+
+
+<h3><a href="https://github.com/troopjs" title="TroopJS">Project address</a></h3>
+]]></content>
+  </entry>
+  
+</feed>
