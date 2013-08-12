@@ -17,3 +17,7 @@ But you are not me,i'm not you
 I am me  
 Use HTML5/JS/CSS3,to build new creative products one by one  
 I'm front-end developer.  
+[My OSRC][1]
+
+
+[1]: http://osrc.dfm.io/zjhiphop
