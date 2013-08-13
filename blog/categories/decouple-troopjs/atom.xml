@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Decouple TroopJS | Jade's fantastic Blog]]></title>
   <link href="http://zjhiphop.github.com/blog/categories/decouple-troopjs/atom.xml" rel="self"/>
   <link href="http://zjhiphop.github.com/"/>
-  <updated>2013-08-12T18:23:51+08:00</updated>
+  <updated>2013-08-13T12:08:57+08:00</updated>
   <id>http://zjhiphop.github.com/</id>
   <author>
     <name><![CDATA[zjhiphop]]></name>
@@ -21,12 +21,194 @@
     <content type="html"><![CDATA[<h3>Troopjs framework is seperated by 6 different parts:</h3>
 
 <ul>
-<li><a href="https://github.com/troopjs/troopjs-core.git">troopjs-core</a></li>
-<li><a href="https://github.com/troopjs/troopjs-jquery.git">troopjs-jquery</a></li>
-<li><a href="https://github.com/troopjs/troopjs-requirejs.git">troopjs-requirejs</a></li>
-<li><a href="https://github.com/troopjs/troopjs-utils.git">troopjs-utils</a></li>
-<li><a href="https://github.com/troopjs/troopjs-browser.git">troopjs-browser</a></li>
-<li><a href="https://github.com/troopjs/troopjs-data.git">troopjs-data</a></li>
+<li><a href="https://github.com/troopjs/troopjs-core.git">troopjs-core</a> is the basic frastrate modules
+
+<ul>
+<li>component
+
+<ul>
+<li><strong>factory</strong> is the most basic
+widget factory based on poly.js</li>
+<li><strong>base</strong> is the most common widget which used to manage life-cycle and task.</li>
+<li><strong>gadget</strong> is a observable <strong>base</strong> widget</li>
+<li><strong>service</strong> is most common service lift-cycle mamager</li>
+</ul>
+</li>
+<li>event
+
+<ul>
+<li><strong>emitter</strong> is a NodeJS style event manager, the event will be excuted by sequence</li>
+</ul>
+</li>
+<li>logger
+
+<ul>
+<li><strong>console</strong> is a system <strong>Console</strong> wrapper</li>
+<li><strong>pubsub</strong> is a hub wapper for logger topic</li>
+<li><strong>service</strong> is a log service which used to wrapper message and output data to different <strong>appender</strong></li>
+</ul>
+</li>
+<li>pubsub
+
+<ul>
+<li><strong>hub</strong> is a wrapper of event emitter</li>
+<li>proxy
+
+<ul>
+<li><strong>to1x</strong> is troop 1.0 hub proxy</li>
+<li><strong>to2x</strong> is troop 2.0 hub proxy</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>resistry
+
+<ul>
+<li><strong>service</strong> is a action service manager</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><a href="https://github.com/troopjs/troopjs-jquery.git">troopjs-jquery</a>
+
+<ul>
+<li><strong>destory</strong> is a jquery plugin used to handle dom destroy special event</li>
+<li><strong>dimensions</strong> is a jquery plugin used to handle widget resize when parent resized</li>
+<li><strong>hashchange</strong> is a jquery plugin used to handle has changed event and support mutiple browsers</li>
+<li><strong>loom</strong> is weave function wrapper and weave css expression extender</li>
+<li><strong>noconflict</strong> is jQuery noconflict wrapper</li>
+<li><strong>resize</strong> is a window resize event wrapper</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><a href="https://github.com/troopjs/troopjs-requirejs.git">troopjs-requirejs</a>
+
+<ul>
+<li><strong>multiversion</strong> is used to support require multiple context widget</li>
+<li><strong>shadow</strong> is used to load different version of widget at the same time</li>
+<li><strong>template</strong> is troop template engine which use function context</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><a href="https://github.com/troopjs/troopjs-utils.git">troopjs-utils</a>
+
+<ul>
+<li><strong>getargs</strong>  ?????(todo: find use case)</li>
+<li><strong>merge</strong> is a deep merge util method</li>
+<li><strong>unique</strong> is used to filter duplicted data and consist comparator</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><a href="https://github.com/troopjs/troopjs-browser.git">troopjs-browser</a>
+
+<ul>
+<li>ajax
+
+<ul>
+<li><strong>service</strong> is a ajax request handler</li>
+</ul>
+</li>
+<li>application
+
+<ul>
+<li><strong>widget</strong> is a base browser application life-cycle manager</li>
+</ul>
+</li>
+<li>component
+
+<ul>
+<li><strong>widget</strong> is a base dom component widget life-cycle manager</li>
+</ul>
+</li>
+<li>dimensions
+
+<ul>
+<li><strong>widget</strong> is a dom demensions life-cycle manager</li>
+</ul>
+</li>
+<li>loom
+
+<ul>
+<li><strong>config</strong> is used to config indicator for weave related stuff</li>
+<li><strong>unweave</strong> is unweave promise manager</li>
+<li><strong>weave</strong> is weave promise manager</li>
+<li><strong>woven</strong> is woven promise manager</li>
+</ul>
+</li>
+<li>route
+
+<ul>
+<li><strong>uri</strong> is base url factory widget</li>
+<li><strong>widget</strong> is listened to "hashchange" event, and manage route life-cycle</li>
+</ul>
+</li>
+<li>store
+
+<ul>
+<li><strong>base</strong> is a common storage wrapper</li>
+<li><strong>local</strong> is a localStorage wrapper</li>
+<li><strong>session</strong> is a seesionStorage wrapper</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><a href="https://github.com/troopjs/troopjs-data.git">troopjs-data</a>
+
+<ul>
+<li>cache
+
+<ul>
+<li><strong>component</strong> is cache life-cycle manager</li>
+</ul>
+</li>
+<li>component
+
+<ul>
+<li><strong>widget</strong> is a common query widget wrapper</li>
+</ul>
+</li>
+<li>query
+
+<ul>
+<li><strong>component</strong> is a cache manager to support mutiple cache process stuff</li>
+<li><strong>service</strong> is a batch query service life-cycle manager</li>
+</ul>
+</li>
+<li>store
+
+<ul>
+<li><strong>component</strong> is storage util wrapper used to process different storage stuff</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
 ]]></content>
