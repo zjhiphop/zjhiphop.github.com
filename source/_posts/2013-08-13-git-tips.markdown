@@ -1,0 +1,12 @@
+---
+layout: post
+title: "git tips"
+date: 2013-08-13 23:35
+comments: true
+categories: 
+---
+
+### When remote system password, but you stored it in local credential, you should earse local cache first.
+
+	git credential-osxkeychain erase
+

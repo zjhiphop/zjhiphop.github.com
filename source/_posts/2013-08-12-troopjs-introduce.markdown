@@ -16,7 +16,7 @@ categories: [Decouple TroopJS]
 
 ### Pros ?  
 
-* Object-oriented 
+* Object-Based Inheritance For ECMAScript 5
 * Internal template engine
 * Logic simple 
 * Consist Async operation
