@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: think in life | Jade's fantastic Blog]]></title>
+  <link href="http://zjhiphop.github.com/blog/categories/think-in-life/atom.xml" rel="self"/>
+  <link href="http://zjhiphop.github.com/"/>
+  <updated>2013-08-14T20:29:21+08:00</updated>
+  <id>http://zjhiphop.github.com/</id>
+  <author>
+    <name><![CDATA[zjhiphop]]></name>
+    <email><![CDATA[zjhiphop@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[git tips]]></title>
+    <link href="http://zjhiphop.github.com/blog/2013/08/13/git-tips/"/>
+    <updated>2013-08-13T23:35:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2013/08/13/git-tips</id>
+    <content type="html"><![CDATA[<ul>
+<li>Git basic
+  <pre><code>
+  man git-<command>-<name>
+  </code></pre></li>
+<li>When remote system password, but you stored it in local credential, you should earse local cache first.
+  <pre><code>
+  git credential-osxkeychain erase
+  </code></pre></li>
+<li>You can not create a branch with a relationship of contains
+  <pre><code>
+  # disable
+  git checkout -b branchA
+  git checkout -b branchA/branchB
+  # enable
+  # git checkout -b branchA
+  git checkout -b branchA/branchB
+  </code></pre></li>
+<li>Stage changes in Hunks
+  <pre><code>
+  git add -p <FILE>
+  </code></pre></li>
+<li>Checkout Your Last Branch
+  <pre><code>
+  git checkout -
+  </code></pre></li>
+<li>Show Which Branches are Merged
+  <pre><code>
+  git branch --merged
+  git branch --no-merged
+  git branch --merged | xargs git branch -d
+  </code></pre></li>
+<li>Auto-Completion
+
+<ul>
+<li>Base dir : contrib/completion</li>
+<li>How:
+  <pre><code>
+  # in .bashrc
+  source ~/.git-completion.bash
+  # or copy to specific dir
+  cp ~/.git-completion.bash /opt/local/etc/bash_completion.d
+  cp ~/.git-completion.bash /etc/bash_completion.d/
+  </code></pre></li>
+</ul>
+</li>
+<li>Grab a File from Another Branch without Switching Branches
+  <pre><code>
+  git checkout <BRANCH> -- path/to/file.rb
+  </code></pre></li>
+<li>Git Branches Sorted by Last Commit
+  <pre><code>
+  git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'
+  # add a alias
+  git config --global alias.latest "for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'"
+  </code></pre></li>
+<li>Git Aliases
+  <pre><code>
+  git config --global alias.co checkout
+  git config --global alias.ds 'diff --staged'
+  git config --global alias.st 'status -sb'
+  git config --global alias.amend 'commit --amend -C HEAD'
+  git config --global alias.undo 'reset --soft HEAD<sup>'</sup>
+  git config --global alias.br branch
+  git config --global alias.ci commit
+  git config --global alias.st status
+  git config --global alias.ls 'log --pretty=format:"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]" --decorate --date=short'
+  git config --global alias.unstage 'reset HEAD --'
+  git config --global alias.visual '!gitk'
+  git config --global alias.standup 'log --since '1 day ago' --oneline --author <strong><YOUREMAIL></strong>'
+  git config --global alias.graph 'log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset''
+  </code></pre></li>
+<li>Git blame
+  <pre><code>
+  git blame -w  # ignores white space
+  git blame -M  # ignores moving text
+  git blame -C  # ignores moving text into other files
+  </code></pre></li>
+<li><p>Good Resource:</p>
+
+<ul>
+<li><a href="http://gitready.com/">git ready</a></li>
+<li><a href="http://mislav.uniqpath.com/2010/07/git-tips/">A few git tips you didn't know about</a></li>
+<li><a href="https://git.wiki.kernel.org/index.php/GitTips">git tip wiki</a></li>
+<li><a href="http://net.tutsplus.com/tutorials/tools-and-tips/git-tips-from-the-pros/">Git tips from the pros</a></li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

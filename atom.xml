@@ -4,7 +4,7 @@
   <title><![CDATA[Jade's fantastic Blog]]></title>
   <link href="http://zjhiphop.github.com/atom.xml" rel="self"/>
   <link href="http://zjhiphop.github.com/"/>
-  <updated>2013-08-13T12:08:57+08:00</updated>
+  <updated>2013-08-14T20:29:21+08:00</updated>
   <id>http://zjhiphop.github.com/</id>
   <author>
     <name><![CDATA[zjhiphop]]></name>
@@ -12,6 +12,280 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[git tips]]></title>
+    <link href="http://zjhiphop.github.com/blog/2013/08/13/git-tips/"/>
+    <updated>2013-08-13T23:35:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2013/08/13/git-tips</id>
+    <content type="html"><![CDATA[<ul>
+<li>Git basic
+  <pre><code>
+  man git-<command>-<name>
+  </code></pre></li>
+<li>When remote system password, but you stored it in local credential, you should earse local cache first.
+  <pre><code>
+  git credential-osxkeychain erase
+  </code></pre></li>
+<li>You can not create a branch with a relationship of contains
+  <pre><code>
+  # disable
+  git checkout -b branchA
+  git checkout -b branchA/branchB
+  # enable
+  # git checkout -b branchA
+  git checkout -b branchA/branchB
+  </code></pre></li>
+<li>Stage changes in Hunks
+  <pre><code>
+  git add -p <FILE>
+  </code></pre></li>
+<li>Checkout Your Last Branch
+  <pre><code>
+  git checkout -
+  </code></pre></li>
+<li>Show Which Branches are Merged
+  <pre><code>
+  git branch --merged
+  git branch --no-merged
+  git branch --merged | xargs git branch -d
+  </code></pre></li>
+<li>Auto-Completion
+
+<ul>
+<li>Base dir : contrib/completion</li>
+<li>How:
+  <pre><code>
+  # in .bashrc
+  source ~/.git-completion.bash
+  # or copy to specific dir
+  cp ~/.git-completion.bash /opt/local/etc/bash_completion.d
+  cp ~/.git-completion.bash /etc/bash_completion.d/
+  </code></pre></li>
+</ul>
+</li>
+<li>Grab a File from Another Branch without Switching Branches
+  <pre><code>
+  git checkout <BRANCH> -- path/to/file.rb
+  </code></pre></li>
+<li>Git Branches Sorted by Last Commit
+  <pre><code>
+  git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'
+  # add a alias
+  git config --global alias.latest "for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'"
+  </code></pre></li>
+<li>Git Aliases
+  <pre><code>
+  git config --global alias.co checkout
+  git config --global alias.ds 'diff --staged'
+  git config --global alias.st 'status -sb'
+  git config --global alias.amend 'commit --amend -C HEAD'
+  git config --global alias.undo 'reset --soft HEAD<sup>'</sup>
+  git config --global alias.br branch
+  git config --global alias.ci commit
+  git config --global alias.st status
+  git config --global alias.ls 'log --pretty=format:"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]" --decorate --date=short'
+  git config --global alias.unstage 'reset HEAD --'
+  git config --global alias.visual '!gitk'
+  git config --global alias.standup 'log --since '1 day ago' --oneline --author <strong><YOUREMAIL></strong>'
+  git config --global alias.graph 'log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset''
+  </code></pre></li>
+<li>Git blame
+  <pre><code>
+  git blame -w  # ignores white space
+  git blame -M  # ignores moving text
+  git blame -C  # ignores moving text into other files
+  </code></pre></li>
+<li><p>Good Resource:</p>
+
+<ul>
+<li><a href="http://gitready.com/">git ready</a></li>
+<li><a href="http://mislav.uniqpath.com/2010/07/git-tips/">A few git tips you didn&#8217;t know about</a></li>
+<li><a href="https://git.wiki.kernel.org/index.php/GitTips">git tip wiki</a></li>
+<li><a href="http://net.tutsplus.com/tutorials/tools-and-tips/git-tips-from-the-pros/">Git tips from the pros</a></li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Troopjs code analysis of Factory]]></title>
+    <link href="http://zjhiphop.github.com/blog/2013/08/13/troopjs-code-analysis-of-factory/"/>
+    <updated>2013-08-13T13:26:00+08:00</updated>
+    <id>http://zjhiphop.github.com/blog/2013/08/13/troopjs-code-analysis-of-factory</id>
+    <content type="html"><![CDATA[<blockquote><p>The factory method pattern is an object-oriented creational design pattern to implement the concept of factories and deals with the problem of creating objects (products) without specifying the exact class of object that will be created.</p></blockquote>
+
+<h3>The <a href="https://github.com/troopjs/troopjs-core/blob/develop/component/factory.js">factory</a> of troopjs actually is a basic widget <strong>composer</strong>, it is a <strong>decorator</strong> at the same time. It&#8217;s based on ECMA Script 5 <strong>Object</strong> which enable you todo following staff:</h3>
+
+<ul>
+<li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create?redirectlocale=en-US&amp;redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FObject%2Fcreate">Object.Create</a></strong> Creates a new object with the specified prototype object and properties.</li>
+<li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty?redirectlocale=en-US&amp;redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FObject%2FdefineProperty">Object.defineProperty</a></strong> Defines a new property directly on an object, or modifies an existing property on an object, and returns the object.
+
+<ul>
+<li>configurable</li>
+<li>enumerable</li>
+<li>value</li>
+<li>writable</li>
+<li>get</li>
+<li>set</li>
+</ul>
+</li>
+<li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties?redirectlocale=en-US&amp;redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FObject%2FdefineProperties">Object.defineProperties</a></strong> Defines new or modifies existing properties directly on an object, returning the object.</li>
+<li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable?redirectlocale=en-US&amp;redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FObject%2FpropertyIsEnumerable">propertyIsEnumerable</a></strong></li>
+<li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys?redirectlocale=en-US&amp;redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FObject%2Fkeys">Object.keys</a></strong> Returns an array of a given object&#8217;s own enumerable properties, in the same order as that provided by a for-in loop (the difference being that a for-in loop enumerates properties in the prototype chain as well).</li>
+<li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames">Object.getOwnPropertyNames</a></strong> Returns an array of all properties (enumerable or not) found directly upon a given object.</li>
+<li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor">Object.getOwnPropertyDescriptor</a></strong></li>
+<li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze">Object.freeze</a></strong> Freezes an object: that is, prevents new properties from being added to it; prevents existing properties from being removed; and prevents existing properties, or their enumerability, configurability, or writability, from being changed. In essence the object is made effectively immutable. The method returns the object being frozen.</li>
+<li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf">Object.getPrototypeOf</a></strong> Returns the prototype (i.e. the internal [[Prototype]]) of the specified object.</li>
+<li><p><strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions">Object.preventExtensions</a></strong> Prevents new properties from ever being added to an object (i.e. prevents future extensions to the object).</p></li>
+<li><p>But how to does Object-base Inheritance works? See <a href="http://uxebu.com/blog/2011/02/23/object-based-inheritance-for-ecmascript-5/">example</a>.</p></li>
+</ul>
+
+
+<h3>Decouple Factory</h3>
+
+<ul>
+<li>Decorate
+
+<ul>
+<li><strong>Before</strong> is excuted before origin function</li>
+<li><strong>After</strong> is excuted after origin function</li>
+<li><strong>Around</strong> is mixed with origin function</li>
+</ul>
+</li>
+<li>Inheritance
+
+<ul>
+<li><strong>create</strong> is used to create a component</li>
+<li><strong>extend</strong> is used to extend a component</li>
+<li><strong>constructors</strong> are from function arguments passed to factory</li>
+</ul>
+</li>
+<li>Detail explain
+
+<ul>
+<li><strong>special</strong> is used to handle event like: &#8220;dom/[data-action=&#8217;test&#8217;]/click.dbclick&#8221; from property
+<code>
+/^(\w+)(?::(.+?))?\/([-_./\d\w\s]+)$/
+</code></li>
+<li><p>factory descriptors</p>
+
+<ul>
+<li>create</li>
+<li>before</li>
+<li>after</li>
+<li>around</li>
+</ul>
+</li>
+<li><p>constructor descriptors</p>
+
+<ul>
+<li>protype</li>
+<li>constructors
+
+<ul>
+<li>default is
+
+<ul>
+<li>&#8220;enumerable&#8221; : true,</li>
+<li>&#8220;configurable&#8221; : true,</li>
+<li>&#8220;writable&#8221; : true</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>specials</li>
+<li>tostring</li>
+<li>extend</li>
+<li>create</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>It&#8217;s a good pattern to create Mix-in component. Use case:</h3>
+
+<pre><code>
+    // component/base.js
+    return Factory(
+    /**
+     * Creates a new component
+     * @constructor
+     */
+    function Component() {
+        var me = this;
+
+        // Update instance count
+        me[INSTANCE_COUNT] = ++INSTANCE_COUNTER;
+
+        // Set configuration
+        me[CONFIGURATION] = {};
+    }, {
+        "instanceCount" : INSTANCE_COUNTER,
+
+        "displayName" : "core/component/base",
+
+        /**
+         * Configures component
+         * @returns {Object} Updated configuration
+         */
+        "configure" : function configure() {
+            return merge.apply(this[CONFIGURATION], arguments);
+        },
+
+        /**
+         * Signals the component
+         * @param _signal {String} Signal
+         * @return {*}
+         */
+        "signal" : function onSignal(_signal) {
+            ...
+        },
+
+        /**
+         * Start the component
+         * @return {*}
+         */
+        "start" : function start() {
+            ...
+        },
+
+        /**
+         * Stops the component
+         * @return {*}
+         */
+        "stop" : function stop() {
+            ...
+        },
+
+        /**
+         * Creates new task
+         * @param {Function} resolver
+         * @param {String} [name]
+         * @returns {Promise}
+         */
+        "task" : function task(resolver, name) {
+            ...
+        },
+
+        /**
+         * Generates string representation of this object
+         * @returns {string} displayName and instanceCount
+         */
+        "toString" : function _toString() {
+            ...
+        }
+    });
+</code></pre>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[My dot files]]></title>
@@ -684,7 +958,7 @@ from logic (MVC)</li>
 <h3>Pros ?</h3>
 
 <ul>
-<li>Object-oriented</li>
+<li>Object-Based Inheritance For ECMAScript 5</li>
 <li>Internal template engine</li>
 <li>Logic simple</li>
 <li>Consist Async operation</li>
@@ -4888,106 +5162,6 @@ This is an essential tool for making sites beautiful and accessible.</li>
 <li><strong>Inline Decoration</strong> shows how to insert a decoration into a line. A decoration is style—not content. It lets you insert a colored background, a textured background, or a background image into the flow. You can put borders around it. You can use it to push content apart, to overlap prior content, and to underlap following content.</li>
 <li><strong>Line Break</strong> shows how to insert four different types of line breaks into your document that can add extra space between lines or shrink the distance between lines.</li>
 <li><strong>Inline Horizontal Rule</strong> shows how to insert a horizontal rule using an inline element. You can style the horizontal rule with images, borders, margins, and so on. This allows you to put extra space between lines, to overlap prior lines, and to underlap following lines. An inline horizontal rule is particularly useful because you can use an inline element anywhere. HTML’s horizontal rule is a block element and has limited styling options.</li>
-</ul></div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Blocks]]></title>
-    <link href="http://zjhiphop.github.com/blog/2012/06/05/blocks/"/>
-    <updated>2012-06-05T15:31:00+08:00</updated>
-    <id>http://zjhiphop.github.com/blog/2012/06/05/blocks</id>
-    <content type="html"><![CDATA[<div><h2>Blocks</h2>
-
-<ul>
-<li><strong>Structural Meaning</strong> shows how blocks create hierarchical and sequential
-structure.</li>
-<li><strong>Visual Structure</strong> shows how to style blocks to bring out the document structure.</li>
-<li><strong>Section</strong> shows how to organize your document into sections for easy styling and
-for better structural meaning for search engines and document processors.</li>
-<li><strong>Lists</strong> shows many ways to create lists and list markers.</li>
-<li><strong>Background Bulleted</strong> shows how to add bullets to a list using background images.</li>
-<li><strong>Inlined</strong> shows how to render a block element as if it were an inline element. This
-allows blocks to be rendered from left to right and to wrap across lines.</li>
-<li><strong>Collapsed</strong> Margins shows how to collapse and uncollapse vertical margins
-between block elements.</li>
-<li><strong>Run-In</strong> shows how to run a block into the following sibling block as if it were an
-inline element within the following block. Run-in headings save space and are
-very attractive.</li>
-<li><strong>Horizontal</strong> Rule shows how to use and style a horizontal rule in spite of the
-problems caused by Internet Explorer 7, which refuses to remove its built-in styles
-from &lt; hr /&gt;.</li>
-<li><strong>Block Spacer</strong> shows how to insert a precise amount of vertical space between
-selective blocks without having to adjust margins individually.</li>
-<li><strong>Block Space</strong> Remover shows how to remove a precise amount of vertical space
-between selective blocks without having to adjust margins individually.</li>
-<li><strong>Left Marginal</strong> shows how to extract headings, notes, alerts, and images from the
-normal flow and move them into a wide left margin.</li>
-<li><strong>Right Marginal</strong> works like Left Marginal except items are moved to the right.</li>
-</ul></div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Positioning Models]]></title>
-    <link href="http://zjhiphop.github.com/blog/2012/06/05/positioning-models/"/>
-    <updated>2012-06-05T15:30:00+08:00</updated>
-    <id>http://zjhiphop.github.com/blog/2012/06/05/positioning-models</id>
-    <content type="html"><![CDATA[<div><h3>Positioning Models</h3>
-
-<ul>
-<li><strong>Positioning Models</strong> introduces and demonstrates the six positioning models.</li>
-<li><strong>Positioned</strong> explains, demonstrates, and contrasts the four values of the position
-property: static, absolute, fixed, and relative.</li>
-<li><strong>Closest Positioned Ancestor</strong> shows how absolute boxes can be positioned
-relative to any ancestor element rather than just the element’s parent.</li>
-<li><strong>Stacking Context</strong> shows how positioned boxes can be stacked behind or in front
-of static elements and each other.</li>
-<li><strong>Atomic explains</strong> how to render inline content in a block rather than on a block.</li>
-<li>**Static explains the basics of normal flow.</li>
-<li><strong>Absolute</strong> shows how to remove any element from the normal flow and position it
-absolutely with respect to the inside of the border of its closest positioned ancestor.</li>
-<li><strong>Fixed</strong> shows how to remove any element from the normal flow and position it
-absolutely with respect to the viewport.</li>
-<li><strong>Relative</strong> shows how to use relative positioning to control stacking order, or offset
-an element without affecting its shape or the position of other elements.</li>
-<li><strong>Float and Clear</strong> shows how you can remove an element from the normal flow and
-float it to the left or right side of its parent. It also shows how to clear elements so
-that they’re positioned below floats on the left, right, or both sides.</li>
-<li><strong>Relative Float</strong> shows how you can relatively position a float.
-
-<h3>Positioning: Indented, Offset, and Aligned</h3></li>
-<li><strong>Indented</strong> shows how to indent an element from the sides of its container.</li>
-<li><strong>Offset Static</strong> shows how to offset an element from surrounding elements.</li>
-<li><strong>Offset or Indented Static Table</strong> shows how to offset a table from its container.</li>
-<li><strong>Offset Float</strong> shows how to offset a float from surrounding floats and content.</li>
-<li><strong>Offset Absolute and Offset Fixed</strong> shows how to offset an absolute element from
-the position it would have had in the normal flow.</li>
-<li><strong>Offset Relative</strong> shows how to offset any element without affecting other elements.</li>
-<li><strong>Aligned Static Inline</strong> shows how to align inline elements horizontally and
-vertically.</li>
-<li><strong>Aligned and Offset Static Block</strong> shows how to align and offset static block
-elements.</li>
-<li><strong>Aligned and Offset Static Table</strong> shows how to align and offset tables.</li>
-<li><strong>Aligned and Offset Absolute</strong> shows how to align and offset absolute elements.</li>
-<li><strong>Aligned-center Absolute</strong> shows how to center absolute elements.</li>
-<li><strong>Aligned Outside</strong> shows how to align elements to the outside of their container.
-
-<h3>Positioning: Advanced</h3></li>
-<li><strong>Left Aligned </strong> shows how to align an element to the left side of its container.</li>
-<li><strong>Left Offset </strong> shows how to offset a left-aligned element.</li>
-<li><strong>Right Aligned </strong> shows how to align an element to the right side of its container.</li>
-<li><strong>Right Offset </strong> shows how to offset a right-aligned element.</li>
-<li><strong>Center Aligned </strong> shows how to align an element to the center of its container.</li>
-<li>**Center Offset shows how to offset a center-aligned element.</li>
-<li><strong>Top Aligned </strong> shows how to align an element to the top of its container.</li>
-<li><strong>Top Offset </strong> shows how to offset a top-aligned element.</li>
-<li><strong>Bottom Aligned </strong> shows how to align an element to the bottom of its container.</li>
-<li><strong>Bottom Offset </strong> shows how to offset a bottom-aligned element.</li>
-<li><strong>Middle Aligned </strong> shows how to align an element to the middle of its container.</li>
-<li><strong>Middle Offset </strong> shows how to offset a middle-aligned element.</li>
 </ul></div>
 
 ]]></content>

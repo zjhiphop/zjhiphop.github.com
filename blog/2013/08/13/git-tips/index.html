@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>thinking in CSS - Jade's fantastic Blog</title>
+  <title>git tips - Jade's fantastic Blog</title>
   <meta name="author" content="zjhiphop">
 
   
-  <meta name="description" content="What is CSS? Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation semantics (the look and formatting) of a &hellip;">
+  <meta name="description" content="Git basic man git-- When remote system password, but you stored it in local credential, you should earse local cache first. git credential- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://zjhiphop.github.com/blog/2012/06/02/thinking-in-css">
+  <link rel="canonical" href="http://zjhiphop.github.com/blog/2013/08/13/git-tips">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -82,7 +82,7 @@
   
   <header>
     
-      <h1 class="entry-title">Thinking in CSS</h1>
+      <h1 class="entry-title">Git Tips</h1>
     
     
       <p class="meta">
@@ -98,7 +98,7 @@
   
 
 
-<time datetime="2012-06-02T14:54:00+08:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2012</time>
+<time datetime="2013-08-13T23:35:00+08:00" pubdate data-updated="true">Aug 13<span>th</span>, 2013</time>
         
         
       </p>
@@ -106,27 +106,94 @@
   </header>
 
 
-<div class="entry-content"><h4>What is CSS?</h4>
+<div class="entry-content"><ul>
+<li>Git basic
+  <pre><code>
+  man git-<command>-<name>
+  </code></pre></li>
+<li>When remote system password, but you stored it in local credential, you should earse local cache first.
+  <pre><code>
+  git credential-osxkeychain erase
+  </code></pre></li>
+<li>You can not create a branch with a relationship of contains
+  <pre><code>
+  # disable
+  git checkout -b branchA
+  git checkout -b branchA/branchB
+  # enable
+  # git checkout -b branchA
+  git checkout -b branchA/branchB
+  </code></pre></li>
+<li>Stage changes in Hunks
+  <pre><code>
+  git add -p <FILE>
+  </code></pre></li>
+<li>Checkout Your Last Branch
+  <pre><code>
+  git checkout -
+  </code></pre></li>
+<li>Show Which Branches are Merged
+  <pre><code>
+  git branch --merged
+  git branch --no-merged
+  git branch --merged | xargs git branch -d
+  </code></pre></li>
+<li>Auto-Completion
 
-<blockquote><p> Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation semantics (the look and formatting) of a document written in a markup language. Its most common application is to style web pages written in HTML and XHTML, but the language can also be applied to any kind of XML document, including plain XML, SVG and XUL.</p></blockquote>
+<ul>
+<li>Base dir : contrib/completion</li>
+<li>How:
+  <pre><code>
+  # in .bashrc
+  source ~/.git-completion.bash
+  # or copy to specific dir
+  cp ~/.git-completion.bash /opt/local/etc/bash_completion.d
+  cp ~/.git-completion.bash /etc/bash_completion.d/
+  </code></pre></li>
+</ul>
+</li>
+<li>Grab a File from Another Branch without Switching Branches
+  <pre><code>
+  git checkout <BRANCH> -- path/to/file.rb
+  </code></pre></li>
+<li>Git Branches Sorted by Last Commit
+  <pre><code>
+  git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'
+  # add a alias
+  git config --global alias.latest "for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'"
+  </code></pre></li>
+<li>Git Aliases
+  <pre><code>
+  git config --global alias.co checkout
+  git config --global alias.ds 'diff --staged'
+  git config --global alias.st 'status -sb'
+  git config --global alias.amend 'commit --amend -C HEAD'
+  git config --global alias.undo 'reset --soft HEAD<sup>'</sup>
+  git config --global alias.br branch
+  git config --global alias.ci commit
+  git config --global alias.st status
+  git config --global alias.ls 'log --pretty=format:"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]" --decorate --date=short'
+  git config --global alias.unstage 'reset HEAD --'
+  git config --global alias.visual '!gitk'
+  git config --global alias.standup 'log --since '1 day ago' --oneline --author <strong><YOUREMAIL></strong>'
+  git config --global alias.graph 'log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset''
+  </code></pre></li>
+<li>Git blame
+  <pre><code>
+  git blame -w  # ignores white space
+  git blame -M  # ignores moving text
+  git blame -C  # ignores moving text into other files
+  </code></pre></li>
+<li><p>Good Resource:</p>
 
-<h4>CSS is very important for front-end develope,but it&#8217;s also very hard to do maintenance.</h4>
-
-<ol>
-<li>Selectors have many priority levels which always confuse</li>
-<li>The different browsers have different render method</li>
-<li>Many many repeated code is very offen to see</li>
-</ol>
-
-
-<h4>We need to find some good ways to make the code is easy to scales,mantains,modules.</h4>
-
-<ol>
-<li>We must know the HTML/CSS design patterns</li>
-<li>We must define our own patterns to make css more loose coupled</li>
-<li>We must find some easy way to build css basic on some tools</li>
-<li>We must build basic reuseable libry to cross bworser</li>
-</ol>
+<ul>
+<li><a href="http://gitready.com/">git ready</a></li>
+<li><a href="http://mislav.uniqpath.com/2010/07/git-tips/">A few git tips you didn&#8217;t know about</a></li>
+<li><a href="https://git.wiki.kernel.org/index.php/GitTips">git tip wiki</a></li>
+<li><a href="http://net.tutsplus.com/tutorials/tools-and-tips/git-tips-from-the-pros/">Git tips from the pros</a></li>
+</ul>
+</li>
+</ul>
 
 </div>
 
@@ -150,12 +217,12 @@
   
 
 
-<time datetime="2012-06-02T14:54:00+08:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2012</time>
+<time datetime="2013-08-13T23:35:00+08:00" pubdate data-updated="true">Aug 13<span>th</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/reuseable-and-scaleable-html-css/'>Reuseable and Scaleable HTML&CSS</a>
+    <a class='category' href='/blog/categories/think-in-life/'>think in life</a>
   
 </span>
 
@@ -171,13 +238,13 @@
     height="16" 
     frameborder="0" 
     src=
-      "http://hits.sinajs.cn/A1/weiboshare.html?url=http://zjhiphop.github.com/blog/2012/06/02/thinking-in-css/&type=6&ralateUid=1679875247&language=zh_cn" allowtransparency="true">
+      "http://hits.sinajs.cn/A1/weiboshare.html?url=http://zjhiphop.github.com/blog/2013/08/13/git-tips/&type=6&ralateUid=1679875247&language=zh_cn" allowtransparency="true">
   </iframe>
   </span>
   
 
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://zjhiphop.github.com/blog/2012/06/02/thinking-in-css/" data-via="zjhiphop" data-counturl="http://zjhiphop.github.com/blog/2012/06/02/thinking-in-css/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://zjhiphop.github.com/blog/2013/08/13/git-tips/" data-via="zjhiphop" data-counturl="http://zjhiphop.github.com/blog/2013/08/13/git-tips/" >Tweet</a>
   
 
   
@@ -192,10 +259,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/04/16/my-opensource-projects/" title="Previous Post: My Opensource Projects">&laquo; My Opensource Projects</a>
+        <a class="basic-alignment left" href="/blog/2013/08/13/troopjs-code-analysis-of-factory/" title="Previous Post: Troopjs code analysis of Factory">&laquo; Troopjs code analysis of Factory</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/06/02/smacss/" title="next Post: SMACSS">SMACSS &raquo;</a>
       
     </p>
   </footer>
