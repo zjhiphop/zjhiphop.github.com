@@ -3,10 +3,91 @@ layout: post
 title: "git tips"
 date: 2013-08-13 23:35
 comments: true
-categories: 
+categories: [think in life]
 ---
 
-### When remote system password, but you stored it in local credential, you should earse local cache first.
-
+* Git basic 
+    <pre><code>
+    man git-<command>-<name>
+    </code></pre>
+* When remote system password, but you stored it in local credential, you should earse local cache first.
+    <pre><code>
 	git credential-osxkeychain erase
+    </code></pre>
+* You can not create a branch with a relationship of contains
+    <pre><code>
+    # disable 
+    git checkout -b branchA
+    git checkout -b branchA/branchB
+    # enable
+    # git checkout -b branchA
+    git checkout -b branchA/branchB
+    </code></pre>
+* Stage changes in Hunks
+    <pre><code>
+    git add -p <FILE>
+    </code></pre>
+* Checkout Your Last Branch
+    <pre><code>
+    git checkout -
+    </code></pre>
+* Show Which Branches are Merged
+    <pre><code>
+    git branch --merged
+    git branch --no-merged
+    git branch --merged | xargs git branch -d
+    </code></pre>
+* Auto-Completion 
+    * Base dir : contrib/completion
+    * How: 
+        <pre><code>
+        # in .bashrc
+        source ~/.git-completion.bash 
+        # or copy to specific dir
+        cp ~/.git-completion.bash /opt/local/etc/bash_completion.d
+        cp ~/.git-completion.bash /etc/bash_completion.d/
+        </code></pre>
+* Grab a File from Another Branch without Switching Branches
+    <pre><code>
+    git checkout <BRANCH> -- path/to/file.rb
+    </code></pre>
+* Git Branches Sorted by Last Commit
+    <pre><code>
+    git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'
+    # add a alias 
+    git config --global alias.latest "for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'"
+    </code></pre>
+* Git Aliases
+    <pre><code>
+    git config --global alias.co checkout
+    git config --global alias.ds 'diff --staged'
+    git config --global alias.st 'status -sb'
+    git config --global alias.amend 'commit --amend -C HEAD'
+    git config --global alias.undo 'reset --soft HEAD^'
+    git config --global alias.br branch
+    git config --global alias.ci commit
+    git config --global alias.st status
+    git config --global alias.ls 'log --pretty=format:"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]" --decorate --date=short'
+    git config --global alias.unstage 'reset HEAD --'
+    git config --global alias.visual '!gitk'
+    git config --global alias.standup 'log --since '1 day ago' --oneline --author **<YOUREMAIL>**'
+    git config --global alias.graph 'log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset''
+    </code></pre>
+* Git blame 
+    <pre><code>
+    git blame -w  # ignores white space
+    git blame -M  # ignores moving text
+    git blame -C  # ignores moving text into other files
+    </code></pre>
+* Good Resource:
 
+    * [git ready][1]
+    * [A few git tips you didn't know about][2]
+    * [git tip wiki][3]
+    * [Git tips from the pros][4]
+
+
+[1]: http://gitready.com/
+[2]: http://mislav.uniqpath.com/2010/07/git-tips/
+[3]: https://git.wiki.kernel.org/index.php/GitTips
+[4]: http://net.tutsplus.com/tutorials/tools-and-tips/git-tips-from-the-pros/
