@@ -181,12 +181,32 @@
   git config --global alias.standup 'log --since '1 day ago' --oneline --author <strong><YOUREMAIL></strong>'
   git config --global alias.graph 'log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset''
   </code></pre></li>
-<li>Git blame
+<li><p>Git blame
   <pre><code>
   git blame -w  # ignores white space
   git blame -M  # ignores moving text
   git blame -C  # ignores moving text into other files
-  </code></pre></li>
+  </code></pre></p></li>
+<li><p>Git Attribute file to avoid in-consistent EOL
+  <pre><code>
+  # These files are text and should be normalized (convert crlf => lf)
+  <em>.cs      text diff=csharp
+  </em>.xaml    text
+  <em>.csproj  text
+  </em>.sln     text
+  <em>.tt      text
+  </em>.ps1     text
+  <em>.cmd     text
+  </em>.msbuild text
+  *.md      text</p>
+
+<p>  # Images should be treated as binary
+  # (binary is a macro for -text -diff)
+  <em>.png     binary
+  </em>.jepg    binary</p>
+
+<p>  *.sdf     binary
+  </code></pre></p></li>
 <li><p>Good Resource:</p>
 
 <ul>
@@ -194,6 +214,7 @@
 <li><a href="http://mislav.uniqpath.com/2010/07/git-tips/">A few git tips you didn&#8217;t know about</a></li>
 <li><a href="https://git.wiki.kernel.org/index.php/GitTips">git tip wiki</a></li>
 <li><a href="http://net.tutsplus.com/tutorials/tools-and-tips/git-tips-from-the-pros/">Git tips from the pros</a></li>
+<li><a href="http://timclem.wordpress.com/2012/03/01/mind-the-end-of-your-line/">Mind your EOL</a></li>
 </ul>
 </li>
 </ul>
