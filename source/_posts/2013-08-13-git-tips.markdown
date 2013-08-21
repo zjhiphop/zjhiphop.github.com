@@ -79,15 +79,38 @@ categories: [think in life]
     git blame -M  # ignores moving text
     git blame -C  # ignores moving text into other files
     </code></pre>
+
+* Git Attribute file to avoid in-consistent EOL
+    <pre><code>
+    # These files are text and should be normalized (convert crlf => lf)
+    *.cs      text diff=csharp
+    *.xaml    text
+    *.csproj  text
+    *.sln     text
+    *.tt      text
+    *.ps1     text
+    *.cmd     text
+    *.msbuild text
+    *.md      text
+
+    # Images should be treated as binary
+    # (binary is a macro for -text -diff)
+    *.png     binary
+    *.jepg    binary
+
+    *.sdf     binary
+    </code></pre>
+
 * Good Resource:
 
     * [git ready][1]
     * [A few git tips you didn't know about][2]
     * [git tip wiki][3]
     * [Git tips from the pros][4]
-
+    * [Mind your EOL][5]
 
 [1]: http://gitready.com/
 [2]: http://mislav.uniqpath.com/2010/07/git-tips/
 [3]: https://git.wiki.kernel.org/index.php/GitTips
 [4]: http://net.tutsplus.com/tutorials/tools-and-tips/git-tips-from-the-pros/
+[5]: http://timclem.wordpress.com/2012/03/01/mind-the-end-of-your-line/
