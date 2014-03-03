@@ -34,6 +34,11 @@ plugins: plugins
 code_dir: downloads/code
 category_dir: blog/categories
 markdown: rdiscount
+rdiscount:
+  extensions:
+    - autolink
+    - footnotes
+    - smart
 pygments: false # default python pygments have been replaced by pygments.rb
 
 paginate: 10          # Posts per page on the blog index
@@ -63,6 +68,7 @@ github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
+twitter_user:
 twitter_user: zjhiphop
 twitter_tweet_count: 4
 twitter_show_replies: false
@@ -88,11 +94,11 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name: 
+disqus_short_name: zjhiphop
 disqus_show_comment_count: false
 
 # duoshuo
-duoshuo_comments: true
+duoshuo_comments: false
 duoshuo_short_name: zjhiphop
 duoshuo_asides_num: 10      # 侧边栏评论显示条目数
 duoshuo_asides_avatars: 0   # 侧边栏评论是否显示头像

@@ -30,14 +30,6 @@ layout: default
     <div id="disqus_thread" aria-live="polite">{% include post/disqus_thread.html %}</div>
   </section>
 {% endif %}
-
-{% if site.duoshuo_short_name and site.duoshuo_comments == true and page.comments == true %}
-  <section>
-    <h1>Comments</h1>
-    <div id="comments" aria-live="polite">{% include post/duoshuo.html %}</div>
-  </section>
-{% endif %}
-
 </div>
 {% unless page.sidebar == false %}
 <aside class="sidebar">
@@ -46,6 +38,5 @@ layout: default
   {% else %}
     {% include_array default_asides %}
   {% endif %}
-  <div class="setapp_widget" data-user-id="zhang_jade"><a href="http://setapp.me/users/zhang_jade" target="_blank">zjhiphop's Setapp</a></div>
 </aside>
 {% endunless %}
