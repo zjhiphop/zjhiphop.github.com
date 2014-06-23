@@ -258,7 +258,7 @@ Web Component的概念已经提出来有段时间了， 但是还没有完全兼
 ## 开源社区
 我对开源一直持有开放的态度， 希望极可能加入到开源项目中，我觉得这会是程序员的附加价值，不仅丰富生活，还可以和全世界各地的开发者一起共事，想想就很amazing。所以我觉得每个程序员都应该选择一个自己感兴趣的领域多做共享，实现自己更高的价值。
 
-来自开源社区共享者[turingou][3]的分享：
+来自开源社区贡献者[turingou][3]的分享：
 
 * 垂直领域 `Express-scaffold`, `Theme`, `Mails`
 * 有趣的  `Douban.fm`, `candy`, `o3o`
@@ -268,11 +268,10 @@ Web Component的概念已经提出来有段时间了， 但是还没有完全兼
 
 结论
 ===
-前端开发变得原来越庞大，复杂，每天都会有新技术涌现出来，我们必须时刻准备好迎接新的挑战，多关注开源项目，平衡好工作和生活。总之一句话， 未来属于前端Full Developer的！
+前端开发变得原来越庞大，复杂，每天都会有新技术涌现出来，我们必须时刻准备好迎接新的挑战，多关注开源项目，平衡好工作和生活。总之一句话， 未来属于前端Full Stack Developer的！
 
 
-[1]:
-http://ued.taobao.org/blog/tag/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/
+[1]:http://ued.taobao.org/blog/tag/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/
 [2]: http://www.allmobilize.com/
 [3]:https://github.com/turingou
 [4]:http://www.polymer-project.org
