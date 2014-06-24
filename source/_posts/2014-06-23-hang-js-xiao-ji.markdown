@@ -3,9 +3,10 @@ layout: post
 title: "杭JS 小记"
 date: 2014-06-23 16:28:17 +0800
 comments: true
-categories: ['thinking in life']
+categories: "thinking in life"
 ---
 
+![hang js][6]
 提要
 ====
    今年已经是第三届China JS峰会了， 前两次分别在北京和上海举办，今年移步到杭州举办，票价也是一年接一年的飙升，哥今年花了500大洋参加，不过总体来说还是值得的， 有学到新的方法， 技术， 认识新的朋友， 扩大了知识面。主要可以分为以下几部分： 
@@ -276,6 +277,7 @@ Web Component的概念已经提出来有段时间了， 但是还没有完全兼
 [3]:https://github.com/turingou
 [4]:http://www.polymer-project.org
 [5]:http://x-tag.org
+[6]:http://jsconfcn.qiniudn.com/img.png
 
 
 

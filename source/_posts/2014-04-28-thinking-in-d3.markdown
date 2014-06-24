@@ -3,7 +3,7 @@ layout: post
 title: "thinking in d3"
 date: 2014-04-28 15:04:06 +0800
 comments: true
-categories: ["d3" "thinking deeply"]
+categories: ["d3", "thinking deeply"]
 ---
 ![d3][1]
 
