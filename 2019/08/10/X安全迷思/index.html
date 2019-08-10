@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="安全,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="一直对物联网安全很感兴趣， 很想从事安全方向的职业， 机缘巧合， 去年加入了一家做业务安全的公司。 安全行业 网络安全是指网络系统的硬件、软件及其系统中的数据受到保护，不因偶然的或者恶意的原因而遭受到破坏、更改、泄露，系统连续可靠正常地运行，网络服务不中断    业务安全是指保护业务系统免受安全威胁的措施或手段。广义的业务安全应包括业务运行的软硬件平台（操作系统、数据库等）、业务系统自身（软件或设">
+<meta name="keywords" content="安全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="X安全迷思">
+<meta property="og:url" content="http://yoursite.com/2019/08/10/X安全迷思/index.html">
+<meta property="og:site_name" content="Jade&#39;s Fantastic Blog">
+<meta property="og:description" content="一直对物联网安全很感兴趣， 很想从事安全方向的职业， 机缘巧合， 去年加入了一家做业务安全的公司。 安全行业 网络安全是指网络系统的硬件、软件及其系统中的数据受到保护，不因偶然的或者恶意的原因而遭受到破坏、更改、泄露，系统连续可靠正常地运行，网络服务不中断    业务安全是指保护业务系统免受安全威胁的措施或手段。广义的业务安全应包括业务运行的软硬件平台（操作系统、数据库等）、业务系统自身（软件或设">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-10T08:26:29.077Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="X安全迷思">
+<meta name="twitter:description" content="一直对物联网安全很感兴趣， 很想从事安全方向的职业， 机缘巧合， 去年加入了一家做业务安全的公司。 安全行业 网络安全是指网络系统的硬件、软件及其系统中的数据受到保护，不因偶然的或者恶意的原因而遭受到破坏、更改、泄露，系统连续可靠正常地运行，网络服务不中断    业务安全是指保护业务系统免受安全威胁的措施或手段。广义的业务安全应包括业务运行的软硬件平台（操作系统、数据库等）、业务系统自身（软件或设">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/10/X安全迷思/">
+
+
+
+
+
+  <title>X安全迷思 | Jade's Fantastic Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jade's Fantastic Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/10/X安全迷思/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jade Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jade's Fantastic Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">X安全迷思</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-10T14:55:36+08:00">
+                2019-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/10/X安全迷思/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/10/X安全迷思/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>一直对物联网安全很感兴趣， 很想从事安全方向的职业， 机缘巧合， 去年加入了一家做业务安全的公司。</p>
+<h4 id="安全行业"><a href="#安全行业" class="headerlink" title="安全行业"></a>安全行业</h4><blockquote>
+<p><strong>网络安全</strong>是指网络系统的硬件、软件及其系统中的数据受到保护，不因偶然的或者恶意的原因而遭受到破坏、更改、泄露，系统连续可靠正常地运行，网络服务不中断 </p>
+</blockquote>
+<blockquote>
+<p><strong>业务安全</strong>是指保护业务系统免受安全威胁的措施或手段。广义的业务安全应包括业务运行的软硬件平台（操作系统、数据库等）、业务系统自身（软件或设备）、业务所提供的服务的安全；狭义的业务安全指业务系统自有的软件与服务的安全。 </p>
+</blockquote>
+<p>业务安全的本质是为客户省钱， 那么省钱的方式有哪些？哪些客户需要？</p>
+<p>先来看看客户的痛点有哪些：</p>
+<ol>
+<li>营销活动没有吸收到新的用户，反而被黄牛党大把大把的薅羊毛</li>
+<li>刷量刷单现象严重，严重扰乱市场正常竞争</li>
+<li>公司内部敏感信息泄漏，被放到暗网上销售，例如公司商业机密数据，联系方式等</li>
+<li>二三类银行卡被用于洗钱，赌博，贷款诈骗等</li>
+<li>业务流程存在漏洞， 例如通过修改正常的订单价格和数量来达到非法获利的目的</li>
+</ol>
+<p>从以上的痛点来看，如果能够做到在以上行为发生的早期发现并预警，那么就可以为客户减少很多不必要的损失。例如去年发生的PDD被一晚上薅羊毛200亿的事件</p>
+<h4 id="X公司的业务模式"><a href="#X公司的业务模式" class="headerlink" title="X公司的业务模式"></a>X公司的业务模式</h4><p>通过收集事件上下游的数据，来做到事前阻断，事中止损， 事后追查， 主要通过以下渠道：</p>
+<ul>
+<li>收码平台<ul>
+<li>通过收码平台打码信息，可以知道黑灰产人员最近在注册/关注/提现等行为，然后通过提取出产品名称并且和客户做关联</li>
+</ul>
+</li>
+<li>信息交流论坛： 如卡农社区，脉脉<ul>
+<li>通过论坛贴吧知乎等渠道的沟通交流， 可以获知黑灰产人员将来或者正在对哪些产品采取非法的行动</li>
+</ul>
+</li>
+<li>聊天工具：QQ，TG等<ul>
+<li>通过获取群聊的消息，提取聊天关键字来发现潜在的恶意行为</li>
+</ul>
+</li>
+<li>售卖平台：淘宝，京东，暗网<ul>
+<li>通过对销售渠道监控，获取哪些服务被售卖和销赃</li>
+</ul>
+</li>
+</ul>
+<h4 id="X公司的技术架构"><a href="#X公司的技术架构" class="headerlink" title="X公司的技术架构"></a>X公司的技术架构</h4><p>业务模式和场景决定架构选择，架构的本质是降低复杂性， 降低成本，增加效益。业务层面主要面临的挑战：</p>
+<ol>
+<li>数据渠道众多， 需要实现不同的爬虫程序来获取数据</li>
+<li>数据量大，不同数据渠道来源的数据汇总之后每天有几十G</li>
+<li>带宽有限， 在有限的时间传输大量的数据很快会因为带宽沾满问题导致不能及时回传</li>
+<li>下游消费能力有限， 未优化前每秒只能处理几百条数据</li>
+<li>数据应用T+1延迟， 当天的数据不能及时获取， 一般会有半天到一天的延迟，在某些场景下是对业务来说是致命的</li>
+</ol>
+<p>针对以上问题， 我一起参与了公司的架构实现：</p>
+<ol>
+<li>针对多渠道的数据定义统一的数据接口， 这样在预处理的时候可以统一处理，不需要按渠道分别处理</li>
+<li>通过队列和缓冲，先将数据缓存到Kafka队列里， 然后通过下游多个消费者消费， 并且可以用于实时计算， 大大减少数据的延迟</li>
+<li>数据采集层通过增加redis集群， 采用分布式爬虫协同获取数据，利用多节点带宽减少对单机节点的压力， 同时提高了爬虫的效率</li>
+</ol>
+<h4 id="生活像巧克力，你永远不知道下一颗是什么颜色"><a href="#生活像巧克力，你永远不知道下一颗是什么颜色" class="headerlink" title="生活像巧克力，你永远不知道下一颗是什么颜色"></a>生活像巧克力，你永远不知道下一颗是什么颜色</h4><p>在技术架构稳定， 产品输出正常的状态下， 公司内部资金链出现了断裂， 导致业务开展困难。 创业公司所面临的处境你永远不要高估，能活下去是第一要务， 其他的都是华而不实的外衣， X公司所遇到的处境着实令人可惜， 也许只要再多努力一把， 就可以起死回生。连续经历了两家失败的创业公司， 深有感触，都说成功不可复制， 但是失败一定是可以学习的， 今天我想再总结下失败的原因：</p>
+<ol>
+<li>业务模式线太多，不够专注</li>
+<li>无论什么样的业务都需要合法合规， 否则得不偿失</li>
+<li>人员管理有些松散，一切以业务驱动的方式快跑， 但是没有考虑到内部的效率和费用的优化</li>
+</ol>
+<h4 id="Anyway，又失业了"><a href="#Anyway，又失业了" class="headerlink" title="Anyway，又失业了"></a>Anyway，又失业了</h4><p>一直希望自己在一家创业公司发挥自己最大的价值，做成功一件事情， 走向财务自由。 但是随着年龄越来越大， 似乎也变得有点越来越惶恐， 是继续放手一博继续创业， 做自己喜欢的事情， 追求自己的梦想？ 还是进入一家稳定的大公司， 对自己的妻子和孩子负责， 有更多的时间可以陪家人？如果选择一个安稳的工作，可能会逐渐失去创业的动力， 一切求稳，人生会变得非常简单和无趣。 如果选择继续冒险创业， 有99%的概率失败，一无所有，风险会比较大。What do you think?</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/安全/" rel="tag"># 安全</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/18/Think-in-startup/" rel="next" title="Think in startup">
+                <i class="fa fa-chevron-left"></i> Think in startup
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Jade Zhang">
+          <p class="site-author-name" itemprop="name">Jade Zhang</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zjhiphop" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zjhiphop" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      ZhiHu
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安全行业"><span class="nav-number">1.</span> <span class="nav-text">安全行业</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#X公司的业务模式"><span class="nav-number">2.</span> <span class="nav-text">X公司的业务模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#X公司的技术架构"><span class="nav-number">3.</span> <span class="nav-text">X公司的技术架构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生活像巧克力，你永远不知道下一颗是什么颜色"><span class="nav-number">4.</span> <span class="nav-text">生活像巧克力，你永远不知道下一颗是什么颜色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Anyway，又失业了"><span class="nav-number">5.</span> <span class="nav-text">Anyway，又失业了</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jade Zhang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://zjhiphop.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/08/10/X安全迷思/';
+          this.page.identifier = '2019/08/10/X安全迷思/';
+          this.page.title = 'X安全迷思';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zjhiphop.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="什么是Glyph？ A glyph /ˈɡlɪf/ is an element of writing: An individual mark on a written medium that contributes to the meaning of what is written.字形－一个可以辨认的抽象的图形符号，它不依赖于任何特定的设计  为什么要用Glyph ICON？ 扁平化设计 响应">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to build Glyph icons fonts">
+<meta property="og:url" content="http://yoursite.com/2014/03/12/how-to-build-glyph-icons/index.html">
+<meta property="og:site_name" content="Jade&#39;s Fantastic Blog">
+<meta property="og:description" content="什么是Glyph？ A glyph /ˈɡlɪf/ is an element of writing: An individual mark on a written medium that contributes to the meaning of what is written.字形－一个可以辨认的抽象的图形符号，它不依赖于任何特定的设计  为什么要用Glyph ICON？ 扁平化设计 响应">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://dribbble.s3.amazonaws.com/users/2804/screenshots/641668/jrf-icons-dribbble.png">
+<meta property="og:image" content="http://glyphrstudio.com/resources/linked_shapes.png">
+<meta property="og:updated_time" content="2019-08-10T02:35:43.800Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to build Glyph icons fonts">
+<meta name="twitter:description" content="什么是Glyph？ A glyph /ˈɡlɪf/ is an element of writing: An individual mark on a written medium that contributes to the meaning of what is written.字形－一个可以辨认的抽象的图形符号，它不依赖于任何特定的设计  为什么要用Glyph ICON？ 扁平化设计 响应">
+<meta name="twitter:image" content="http://dribbble.s3.amazonaws.com/users/2804/screenshots/641668/jrf-icons-dribbble.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2014/03/12/how-to-build-glyph-icons/">
+
+
+
+
+
+  <title>How to build Glyph icons fonts | Jade's Fantastic Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jade's Fantastic Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/03/12/how-to-build-glyph-icons/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jade Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jade's Fantastic Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">How to build Glyph icons fonts</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-03-12T14:25:05+08:00">
+                2014-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/think-in-life/" itemprop="url" rel="index">
+                    <span itemprop="name">think in life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2014/03/12/how-to-build-glyph-icons/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/03/12/how-to-build-glyph-icons/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://dribbble.s3.amazonaws.com/users/2804/screenshots/641668/jrf-icons-dribbble.png" alt="Glyph ICON Fonts"></p>
+<h2 id="什么是Glyph？"><a href="#什么是Glyph？" class="headerlink" title="什么是Glyph？"></a>什么是Glyph？</h2><blockquote>
+<p>A glyph /ˈɡlɪf/ is an element of writing: An individual mark on a written medium that contributes to the meaning of what is written.<br>字形－一个可以辨认的抽象的图形符号，它不依赖于任何特定的设计</p>
+</blockquote>
+<h2 id="为什么要用Glyph-ICON？"><a href="#为什么要用Glyph-ICON？" class="headerlink" title="为什么要用Glyph ICON？"></a>为什么要用Glyph ICON？</h2><ul>
+<li>扁平化设计</li>
+<li>响应性设计</li>
+<li>更灵活的调整元素的各种属性但不失真（大小，颜色）</li>
+</ul>
+<p>简言之， Glyph ICon font就是一种用font的方式来设计web元素的背景。</p>
+<h2 id="有什么神器可以用？"><a href="#有什么神器可以用？" class="headerlink" title="有什么神器可以用？"></a>有什么神器可以用？</h2><ul>
+<li><a href="http://icomoon.io/" target="_blank" rel="noopener">Iconmoon</a> <em>一款非常实用的在线工具,但前提是你要准备好SVG</em></li>
+<li><a href="http://www.glyphsapp.com/" target="_blank" rel="noopener">Glyphsapp</a><em>一款非常强大的编辑器，项目化整个ICON制作流程, 但不是免费的</em></li>
+<li><a href="http://glyphrstudio.com/" target="_blank" rel="noopener">GlyphStudio</a> <em>一个免费的基于HTML5的字体编辑器</em></li>
+</ul>
+<h2 id="Glyph-Studio"><a href="#Glyph-Studio" class="headerlink" title="Glyph Studio"></a>Glyph Studio</h2><p><img src="http://glyphrstudio.com/resources/linked_shapes.png" alt="Glyph Studio"> </p>
+<ul>
+<li>可以在线或者离线方式访问</li>
+<li>可以创建或者导入项目， 基于文件存贮</li>
+<li>自由定制</li>
+</ul>
+<h2 id="使用Glyph-Studio制作字体的完整流程"><a href="#使用Glyph-Studio制作字体的完整流程" class="headerlink" title="使用Glyph Studio制作字体的完整流程"></a>使用Glyph Studio制作字体的完整流程</h2><ul>
+<li>访问<a href="http://glyphrstudio.com/download/Glyphr_Studio_Beta_3.2.html" target="_blank" rel="noopener">Glyphr_Studio_Beta_3.2</a>后者直接将页面存贮到本地</li>
+<li>拖拽项目文件到页面，或者点击“Start a new font from scratch”创建一个新的项目</li>
+<li>设计，修改字符集（拉丁字符）</li>
+<li>完成后，选择“export font”-&gt;”Generate TTX XML File”,之后会生成一个以项目名命名TTX的文件</li>
+<li>访问<a href="http://www.glyphrstudio.com/ttx/" target="_blank" rel="noopener">TTX</a>安装相应软件(Windows和Mac平台均支持)</li>
+<li>TTX 是一个可以从XML转换OpenType或TrueType字体，或者将字体转换成XML文件 <code>ttx [options] inputfile1 [... inputfileN]</code></li>
+<li>运行<code>ttx [project-name].ttx</code>会生成ttf字体文件</li>
+<li>访问<a href="http://www.font2web.com/" target="_blank" rel="noopener">font-to-web</a>导出所有格式的字体文件（.ttf, .otf, .eot, .woff and .svg）</li>
+</ul>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ul>
+<li>Mac上安装TTX时候需要提升权限 sudo</li>
+<li>为了方便只用TTX， 最好在你的命令行中配置: <code>alias ttx=/Library/Frameworks/Python.framework/Versions/2.7/bin/ttx</code>,这样你就可以直接使用ttx来操作了</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/03/03/emoji-in-web/" rel="next" title="emoji in web">
+                <i class="fa fa-chevron-left"></i> emoji in web
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/04/12/use-opentag-management-system/" rel="prev" title="Use OpenTag Management system">
+                Use OpenTag Management system <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Jade Zhang">
+          <p class="site-author-name" itemprop="name">Jade Zhang</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zjhiphop" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zjhiphop" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      ZhiHu
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Glyph？"><span class="nav-number">1.</span> <span class="nav-text">什么是Glyph？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要用Glyph-ICON？"><span class="nav-number">2.</span> <span class="nav-text">为什么要用Glyph ICON？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有什么神器可以用？"><span class="nav-number">3.</span> <span class="nav-text">有什么神器可以用？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Glyph-Studio"><span class="nav-number">4.</span> <span class="nav-text">Glyph Studio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Glyph-Studio制作字体的完整流程"><span class="nav-number">5.</span> <span class="nav-text">使用Glyph Studio制作字体的完整流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes"><span class="nav-number">6.</span> <span class="nav-text">Notes</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jade Zhang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://zjhiphop.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2014/03/12/how-to-build-glyph-icons/';
+          this.page.identifier = '2014/03/12/how-to-build-glyph-icons/';
+          this.page.title = 'How to build Glyph icons fonts';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zjhiphop.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

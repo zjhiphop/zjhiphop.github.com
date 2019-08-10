@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="提要   今年已经是第三届China JS峰会了， 前两次分别在北京和上海举办，今年移步到杭州举办，票价也是一年接一年的飙升，哥今年花了500大洋参加，不过总体来说还是值得的， 有学到新的方法， 技术， 认识新的朋友， 扩大了知识面。主要可以分为以下几部分：   Library &amp;amp; Framework 流程改善 工具 大数据 性能优化 架构设计 嵌入式NodeJS： EdgeJS -&amp;g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="杭JS 小记">
+<meta property="og:url" content="http://yoursite.com/2014/06/23/hang-js-xiao-ji/index.html">
+<meta property="og:site_name" content="Jade&#39;s Fantastic Blog">
+<meta property="og:description" content="提要   今年已经是第三届China JS峰会了， 前两次分别在北京和上海举办，今年移步到杭州举办，票价也是一年接一年的飙升，哥今年花了500大洋参加，不过总体来说还是值得的， 有学到新的方法， 技术， 认识新的朋友， 扩大了知识面。主要可以分为以下几部分：   Library &amp;amp; Framework 流程改善 工具 大数据 性能优化 架构设计 嵌入式NodeJS： EdgeJS -&amp;g">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://jsconfcn.qiniudn.com/img.png">
+<meta property="og:updated_time" content="2019-08-10T02:35:43.800Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="杭JS 小记">
+<meta name="twitter:description" content="提要   今年已经是第三届China JS峰会了， 前两次分别在北京和上海举办，今年移步到杭州举办，票价也是一年接一年的飙升，哥今年花了500大洋参加，不过总体来说还是值得的， 有学到新的方法， 技术， 认识新的朋友， 扩大了知识面。主要可以分为以下几部分：   Library &amp;amp; Framework 流程改善 工具 大数据 性能优化 架构设计 嵌入式NodeJS： EdgeJS -&amp;g">
+<meta name="twitter:image" content="http://jsconfcn.qiniudn.com/img.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2014/06/23/hang-js-xiao-ji/">
+
+
+
+
+
+  <title>杭JS 小记 | Jade's Fantastic Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jade's Fantastic Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/06/23/hang-js-xiao-ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jade Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jade's Fantastic Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">杭JS 小记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-06-23T16:28:17+08:00">
+                2014-06-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/thinking-in-life/" itemprop="url" rel="index">
+                    <span itemprop="name">thinking in life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2014/06/23/hang-js-xiao-ji/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/06/23/hang-js-xiao-ji/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://jsconfcn.qiniudn.com/img.png" alt="hang js"></p>
+<h1 id="提要"><a href="#提要" class="headerlink" title="提要"></a>提要</h1><p>   今年已经是第三届China JS峰会了， 前两次分别在北京和上海举办，今年移步到杭州举办，票价也是一年接一年的飙升，哥今年花了500大洋参加，不过总体来说还是值得的， 有学到新的方法， 技术， 认识新的朋友， 扩大了知识面。主要可以分为以下几部分： </p>
+<ul>
+<li>Library &amp; Framework</li>
+<li>流程改善</li>
+<li>工具</li>
+<li>大数据</li>
+<li>性能优化</li>
+<li>架构设计</li>
+<li>嵌入式NodeJS： EdgeJS -&gt; CLR＋V8</li>
+<li>移动设备传感器</li>
+<li>Hybird API</li>
+<li>离奇的idea： Node OS</li>
+<li>开源社区</li>
+<li>程序员软实力： 时间管理</li>
+<li>JS 编译器 （不知道应用场景）</li>
+</ul>
+<h2 id="Library-amp-Framework"><a href="#Library-amp-Framework" class="headerlink" title="Library &amp; Framework"></a>Library &amp; Framework</h2><h4 id="Then-JS"><a href="#Then-JS" class="headerlink" title="Then.JS"></a>Then.JS</h4><p>   这部分最精彩的莫过于<code>then.js</code>的分享，<code>then.js</code>是一个用来处理移步请求的库，据作者所说本来打算直接用<code>AsyncJS</code>， 但由于<code>AsyncJS</code>不支持链式调用，于是就整了这么一个库。从bench mark来看<code>then.js</code>确实有很大优势，主要有以下特点：  </p>
+<ul>
+<li>体积小</li>
+<li>速度快</li>
+<li>使用<code>thunk</code>函数而不是用<code>promise</code>实现，不会出现栈溢出错误    </li>
+</ul>
+<h4 id="TroopJS"><a href="#TroopJS" class="headerlink" title="TroopJS"></a>TroopJS</h4><p>其次， 我不得不提<code>TroopJS</code>，这是一个非常好用的framework。目前已经到3.0版本，主要特点有：</p>
+<ul>
+<li>推崇异步编程方式</li>
+<li>使用声明式事件绑定</li>
+<li>使用<code>Mixin</code>的方式继承</li>
+<li>完善的组件生命周期管理机制</li>
+<li>3.0 会支持<code>Web Component</code></li>
+</ul>
+<h4 id="Rabbit-js"><a href="#Rabbit-js" class="headerlink" title="Rabbit.js"></a>Rabbit.js</h4><p><code>Rabbit.JS</code> 是一个非常早期的Node MVC框架，主要目标是简化配置，实现快速开发。</p>
+<h4 id="Edge-js"><a href="#Edge-js" class="headerlink" title="Edge.js"></a>Edge.js</h4><p><code>Edge.JS</code> 是由微软开发的一个用来填平CLR和NodeJS之间的沟壑的库。个人不太喜欢， 不解释。</p>
+<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><h4 id="淘宝的前后端分离"><a href="#淘宝的前后端分离" class="headerlink" title="淘宝的前后端分离"></a>淘宝的前后端分离</h4><p>流程一直是小公司不太注意的问题， 尤其是创业公司，追求速度而忽略了流程的构建， 造成资源浪费，效率低下。淘宝的前后端有严重的耦合，经常是前段开发好HTML分发给后端，后端还要进行处理，甚至也要写前段代码。于是淘宝加了一个中间层NodeJS来进行解藕，主要做了以下改变：   </p>
+<ul>
+<li>使用NodeJS产生静态页面到CDN</li>
+<li>前后端路由共享</li>
+<li>接口服务化</li>
+<li>模块化Everything</li>
+<li>组件化 （多环境）</li>
+<li><a href="http://ued.taobao.org/blog/tag/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/" target="_blank" rel="noopener">框架化</a></li>
+</ul>
+<h4 id="点对点的协作-Peer-to-peer-collaborate"><a href="#点对点的协作-Peer-to-peer-collaborate" class="headerlink" title="点对点的协作 (Peer to peer collaborate)"></a>点对点的协作 (Peer to peer collaborate)</h4><p>点对点的协作是由NodeJS社区大神<code>SubStack</code>提出的，主要用于开源社区中和成千上万的<code>npm package</code>开发者协作，核心思想是:</p>
+<ul>
+<li>功能最小化模块</li>
+<li>不重复造轮子</li>
+</ul>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><h4 id="Atom-编辑器"><a href="#Atom-编辑器" class="headerlink" title="Atom 编辑器"></a>Atom 编辑器</h4><p><code>Atom</code>编辑器是由Github引领的一款转为Web Developer打造的开源编辑器，深度定制Chromium底层和NodeJS结合，程序员可以通过NodeJS来对编辑器进行自定制，相信未来应该是前段开发利器。</p>
+<h4 id="NodeJS-命令行工具"><a href="#NodeJS-命令行工具" class="headerlink" title="NodeJS 命令行工具"></a>NodeJS 命令行工具</h4><p>随着NodeJS越来越普及，可以用NodeJS做的事情也越来越多了，比如各种小工具。做一个小工具是如此的easy。下面的作品是来自new relic的大神 <a href="mailto:`Jacob@newrelic.com" target="_blank" rel="noopener">`Jacob@newrelic.com</a> `的作品：</p>
+<ul>
+<li><code>jscurl</code> 一个建议的类curl工具</li>
+<li><code>node-nsh</code>一个类bash shell命令行</li>
+<li><code>node-wssh</code> 一个类ssh的实现， 可同时用于服务器和客户端</li>
+<li><code>node-os</code> 一个使用nodejs编写的操作系统，<a href="http://node-os.com" target="_blank" rel="noopener">http://node-os.com</a> </li>
+</ul>
+<p>实现一个npm package是非常的easy:</p>
+<ul>
+<li>Run <code>npm init</code> </li>
+<li>Add a new file with node env put on the top</li>
+<li>Write your function</li>
+<li>Add bin config point to the file.  e.g.: {<code>package name</code>: “target js file”}</li>
+<li>Run <code>npm link</code> and test with <code>package name</code></li>
+</ul>
+<h2 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h2><p>大数据是近两年流行起来的一个词， 各种大数据技术层出不穷，其中以Google （Big Table）， Facebook （Hadoop）牵头， twitter （Storm）随后跟上。</p>
+<h4 id="Google-Big-Query"><a href="#Google-Big-Query" class="headerlink" title="Google Big Query"></a>Google Big Query</h4><p>BigQuery是一个海量数据管理工具， 可以用来查询海量数据， 目前查询免费， 操作新表会收费。目前已经有NodeJS BigQuery模块。有兴趣的朋友可以搜索BigQuery了解。</p>
+<h4 id="Twitter-Storm"><a href="#Twitter-Storm" class="headerlink" title="Twitter Storm"></a>Twitter Storm</h4><p>来自twitter的一位后端女工程师带来了storm的分享，看起来很牛叉，原理类似map -&gt; reduce, 现在也已经有NodeJS模块可以使用， 有兴趣的可以查询了解。</p>
+<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p>性能优化似乎是永久不变的话题， 这也是更好的用户体验使然。Angular近年来非常的火， 但众所周知， angular使用的dirty check非常的吃性能， 这就不得不对大型的angular进行优化。</p>
+<h4 id="Angular-JS-优化"><a href="#Angular-JS-优化" class="headerlink" title="Angular JS 优化"></a>Angular JS 优化</h4><p>以下是一位讲师的经验所得：</p>
+<ul>
+<li>代码组织<ul>
+<li>angular seed</li>
+<li>数据共享 （Event ／ Service） </li>
+<li>共享template (directive)</li>
+</ul>
+</li>
+<li>性能监测<ul>
+<li>bindonce</li>
+<li>limitTo</li>
+<li>Batarang</li>
+<li>分页</li>
+</ul>
+</li>
+<li>缓存HTTP请求</li>
+<li>实时数据绑定 （feed ／ Firebase ／ cloda）</li>
+<li>SEO<ul>
+<li>#!/url/path =&gt; /?_escape_fragment_=/url/path</li>
+<li>HTML5 meta fragment</li>
+</ul>
+</li>
+</ul>
+<h2 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a>架构设计</h2><p>架构设计还是属EF Lab‘s Mikael带来的演讲非常精彩。随着前端越来越可以胜任大规模的复杂的业务逻辑， 架构设计也变得越来越重要。</p>
+<p>Mikael的架构哲学：</p>
+<ul>
+<li><p>模块化 (Code , template, styles , data)  </p>
+</li>
+<li><p>开发小的模块 (easy to read, maintain , use)  -&gt; 分离注点</p>
+</li>
+<li><p>部署 bigish </p>
+<ul>
+<li>合并可重用的代码，函数和小的应用程序</li>
+</ul>
+<ul>
+<li>移动设备上有一个文件</li>
+</ul>
+</li>
+<li><p>解藕</p>
+<ul>
+<li><p>向后端开发者学习</p>
+<ul>
+<li>事件总线:  EIP, ESB, micro services</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>前端 ?</p>
+<ul>
+<li>连接components</li>
+</ul>
+</li>
+<li><p>集成 </p>
+<ul>
+<li>订阅改变而不影响整个应用程序</li>
+<li>使用假的component进行快速开发</li>
+</ul>
+</li>
+<li><p>程序异步化？ why？</p>
+<ul>
+<li>连接速度</li>
+<li>连接的可用性</li>
+</ul>
+</li>
+<li><p>变得事件驱动化</p>
+<ul>
+<li>Nodejs emitter</li>
+<li>Dom event</li>
+<li>web sockets</li>
+<li>akka <a href="http://akka.io/" target="_blank" rel="noopener">http://akka.io/</a></li>
+<li>erlang  - event driven languages</li>
+</ul>
+</li>
+<li><p>使程序自表达，自解释, 并且保持不重复</p>
+<ul>
+<li>自表达 - 方法名，链式操作， URL的结构</li>
+<li>自声明 - what do we want to do instead of how do we want to do</li>
+<li>DRY - not repeat yourself</li>
+<li>congnitive load （直觉加载， 一种方法学） ?? </li>
+</ul>
+</li>
+<li><p>AKA - one application to rule them all ? ［一个java后台框架］</p>
+</li>
+</ul>
+<h2 id="移动设备传感器"><a href="#移动设备传感器" class="headerlink" title="移动设备传感器"></a>移动设备传感器</h2><p>传感器绝对使整个大会的一个亮点， 我们每天都在用HTML5，每天都在用Mobile，但是我看没有多少人真正在意各种奇妙的传感器。未来这个技术一定会越来越火， 建议每个前端开发人员都要了解传感器的概念。</p>
+<h4 id="Hybrid-API-传感器"><a href="#Hybrid-API-传感器" class="headerlink" title="Hybrid API 传感器"></a>Hybrid API 传感器</h4><ul>
+<li><p>动作 </p>
+<ul>
+<li><p>陀螺仪</p>
+<ul>
+<li>水平仪</li>
+</ul>
+</li>
+<li><p>加速计 －&gt; acceleration or accelerationWithGravity</p>
+<ul>
+<li>小猫快跑</li>
+</ul>
+</li>
+<li><p>距离传感</p>
+<ul>
+<li>锁屏</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>环境</p>
+<ul>
+<li>指南针</li>
+<li>GPS ＋ 磁力计</li>
+<li><p>智能感光 </p>
+<ul>
+<li>Css light-level : normal …</li>
+</ul>
+</li>
+<li><p>其他</p>
+<ul>
+<li>气压 － 海拔</li>
+<li>温度， 湿度</li>
+<li><p>音频 </p>
+<ul>
+<li>呐喊</li>
+<li>支付宝 修修修</li>
+<li>语音识别 SIRI</li>
+</ul>
+</li>
+<li><p>视频</p>
+<ul>
+<li>试衣间 ？</li>
+<li>试戴</li>
+<li>肤色识别</li>
+<li>虚拟现实 VR？ 沉浸式技术联盟 （ITA）</li>
+<li>增强现实 AR</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>目标</p>
+<ul>
+<li>功能封装</li>
+<li>跨平台使用</li>
+</ul>
+</li>
+<li><p>W3C device API</p>
+</li>
+</ul>
+<h2 id="Web-Component-web开发的未来"><a href="#Web-Component-web开发的未来" class="headerlink" title="Web Component  -  web开发的未来"></a>Web Component  -  web开发的未来</h2><p>Web Component的概念已经提出来有段时间了， 但是还没有完全兼容，它主要用来组件化各个功能Dom模块，使开发效率变高，维护成本变低。目前IE全员不支持，Ya的， 不解释。</p>
+<ul>
+<li>新增的template元素<ul>
+<li>内容被解析， 但是不显示  </li>
+<li>图片不会下载</li>
+<li>脚本不会下载</li>
+</ul>
+</li>
+<li><code>document.registerElement(‘element name’, {prototype: “prototype object”})</code></li>
+<li><code>shadow dom</code></li>
+<li><p>import 引用 <code>&lt;link rel=“import” href=“target.html”&gt;</code></p>
+</li>
+<li><p>polyfill</p>
+<ul>
+<li><a href="http://www.polymer-project.org" target="_blank" rel="noopener">polymer</a></li>
+<li><a href="http://x-tag.org" target="_blank" rel="noopener">x-tag</a></li>
+<li>Amaze UI</li>
+</ul>
+</li>
+</ul>
+<h2 id="程序员的软实力"><a href="#程序员的软实力" class="headerlink" title="程序员的软实力"></a>程序员的软实力</h2><p>程序员可能天天与新技术和代码打交道，实际上我们做这一切都是未来生活， 如何平衡好生活和工作的关系对于程序员的身心健康也是非常的重要。我推荐大家多了解：</p>
+<ul>
+<li>时间管理</li>
+<li>人际关系拓展</li>
+<li>关于生活的书： 《生存之道》《高效程序员习惯》</li>
+<li>TED： 《幸福的定义》</li>
+</ul>
+<h2 id="开源社区"><a href="#开源社区" class="headerlink" title="开源社区"></a>开源社区</h2><p>我对开源一直持有开放的态度， 希望极可能加入到开源项目中，我觉得这会是程序员的附加价值，不仅丰富生活，还可以和全世界各地的开发者一起共事，想想就很amazing。所以我觉得每个程序员都应该选择一个自己感兴趣的领域多做共享，实现自己更高的价值。</p>
+<p>来自开源社区贡献者<a href="https://github.com/turingou" target="_blank" rel="noopener">turingou</a>的分享：</p>
+<ul>
+<li>垂直领域 <code>Express-scaffold</code>, <code>Theme</code>, <code>Mails</code></li>
+<li>有趣的  <code>Douban.fm</code>, <code>candy</code>, <code>o3o</code></li>
+<li>有成长的 <code>NodeJS &amp; NPM</code>, <code>Koa</code>, <code>Smart Hardware</code></li>
+<li>爆发性的 <code>swift</code> <code>bitcoin</code></li>
+</ul>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>前端开发变得原来越庞大，复杂，每天都会有新技术涌现出来，我们必须时刻准备好迎接新的挑战，多关注开源项目，平衡好工作和生活。总之一句话， 未来属于前端Full Stack Developer的！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/04/28/thinking-in-d3/" rel="next" title="thinking in d3">
+                <i class="fa fa-chevron-left"></i> thinking in d3
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/28/thinking-in-driving-tranining/" rel="prev" title="驾照记">
+                驾照记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Jade Zhang">
+          <p class="site-author-name" itemprop="name">Jade Zhang</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zjhiphop" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zjhiphop" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      ZhiHu
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#提要"><span class="nav-number">1.</span> <span class="nav-text">提要</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Library-amp-Framework"><span class="nav-number">1.1.</span> <span class="nav-text">Library &amp; Framework</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Then-JS"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">Then.JS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TroopJS"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">TroopJS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Rabbit-js"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">Rabbit.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Edge-js"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">Edge.js</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程"><span class="nav-number">1.2.</span> <span class="nav-text">流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#淘宝的前后端分离"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">淘宝的前后端分离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#点对点的协作-Peer-to-peer-collaborate"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">点对点的协作 (Peer to peer collaborate)</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#工具"><span class="nav-number">1.3.</span> <span class="nav-text">工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Atom-编辑器"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">Atom 编辑器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NodeJS-命令行工具"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">NodeJS 命令行工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大数据"><span class="nav-number">1.4.</span> <span class="nav-text">大数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Google-Big-Query"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">Google Big Query</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Twitter-Storm"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">Twitter Storm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能优化"><span class="nav-number">1.5.</span> <span class="nav-text">性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Angular-JS-优化"><span class="nav-number">1.5.0.1.</span> <span class="nav-text">Angular JS 优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#架构设计"><span class="nav-number">1.6.</span> <span class="nav-text">架构设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动设备传感器"><span class="nav-number">1.7.</span> <span class="nav-text">移动设备传感器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hybrid-API-传感器"><span class="nav-number">1.7.0.1.</span> <span class="nav-text">Hybrid API 传感器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web-Component-web开发的未来"><span class="nav-number">1.8.</span> <span class="nav-text">Web Component  -  web开发的未来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序员的软实力"><span class="nav-number">1.9.</span> <span class="nav-text">程序员的软实力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开源社区"><span class="nav-number">1.10.</span> <span class="nav-text">开源社区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结论"><span class="nav-number">2.</span> <span class="nav-text">结论</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jade Zhang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://zjhiphop.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2014/06/23/hang-js-xiao-ji/';
+          this.page.identifier = '2014/06/23/hang-js-xiao-ji/';
+          this.page.title = '杭JS 小记';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zjhiphop.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

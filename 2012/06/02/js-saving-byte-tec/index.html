@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="Byte-saving Technique下面展示的是一系列javascript魔法，它可以剥掉一层你的JS代码！这些技术参考自”140bytes”，一下所说明的技术会帮助你减少JS的代码量，但是在性能方面还有很多方面有待考究！ Arguments使用按字母排序的一个字母一个位置的参数我们总是希望参数越短越好，这样可以在生命周期中尽可能的重用他们。最佳的处理方法是仅仅将他们用作一个占位符而不是总是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript Byte-saving Technique">
+<meta property="og:url" content="http://yoursite.com/2012/06/02/js-saving-byte-tec/index.html">
+<meta property="og:site_name" content="Jade&#39;s Fantastic Blog">
+<meta property="og:description" content="Byte-saving Technique下面展示的是一系列javascript魔法，它可以剥掉一层你的JS代码！这些技术参考自”140bytes”，一下所说明的技术会帮助你减少JS的代码量，但是在性能方面还有很多方面有待考究！ Arguments使用按字母排序的一个字母一个位置的参数我们总是希望参数越短越好，这样可以在生命周期中尽可能的重用他们。最佳的处理方法是仅仅将他们用作一个占位符而不是总是">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-10T02:35:43.784Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript Byte-saving Technique">
+<meta name="twitter:description" content="Byte-saving Technique下面展示的是一系列javascript魔法，它可以剥掉一层你的JS代码！这些技术参考自”140bytes”，一下所说明的技术会帮助你减少JS的代码量，但是在性能方面还有很多方面有待考究！ Arguments使用按字母排序的一个字母一个位置的参数我们总是希望参数越短越好，这样可以在生命周期中尽可能的重用他们。最佳的处理方法是仅仅将他们用作一个占位符而不是总是">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2012/06/02/js-saving-byte-tec/">
+
+
+
+
+
+  <title>JavaScript Byte-saving Technique | Jade's Fantastic Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jade's Fantastic Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2012/06/02/js-saving-byte-tec/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jade Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jade's Fantastic Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript Byte-saving Technique</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-06-02T22:21:00+08:00">
+                2012-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/thinking-in-JS/" itemprop="url" rel="index">
+                    <span itemprop="name">thinking in JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2012/06/02/js-saving-byte-tec/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2012/06/02/js-saving-byte-tec/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Byte-saving-Technique"><a href="#Byte-saving-Technique" class="headerlink" title="Byte-saving Technique"></a>Byte-saving Technique</h3><p>下面展示的是一系列javascript魔法，它可以剥掉一层你的JS代码！这些技术参考自”140bytes”，一下所说明的技术会帮助你减少JS的代码量，但是在性能方面还有很多方面有待考究！</p>
+<h3 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h3><p>使用按字母排序的一个字母一个位置的参数<br>我们总是希望参数越短越好，这样可以在生命周期中尽可能的重用他们。最佳的处理方法是仅仅将他们用作一个占位符而不是总是尝试给予一个变量有意义的名字。同时使用一个字母命名法会稍微改变在单独函数中的可读性，保持一致的做法会对函数交互时的可读性有帮助！</p>
+<pre><code>function(t,d,v,i,f){...} // before  
+function(a,b,c,d,e){...} // after  
+</code></pre><p>不要使用arguments.length去判断参数是否存在，使用in去检查是否有参数被传递  </p>
+<pre><code>arguments.length&gt;1||(cb=alert) // before  
+1 in arguments||(cb=alert)     // after  
+</code></pre><h3 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h3><p>使用占位符取代var<br>通过在函数arguments声明取代var使用来节省字节  </p>
+<pre><code>function(a){var b=1;...} // before  
+function(a,b){b=1;...}   // after  
+</code></pre><p>尽可能的重用变量<br>谨慎使用那些不再使用的变量来节省字节   </p>
+<pre><code>setTimeout(function(){for(var i=10;i--;)... }, a) // before  
+setTimeout(function(){for(a=10;a--;)... }, a)     // after  
+</code></pre><p>无论何处，尽可能的赋值<br>因为分配变量会返回被赋得值，同时进行赋值和判断会节省一些字节。有一个很好的例子：JSONP函数，其中script是在createElement方法中被赋值的！  </p>
+<pre><code>a=this.localStorage;if(a){...} // before  
+if(a=this.localStorage){...}   // after  
+</code></pre><p>使用数组交换变量<br>数组可以用来临时保存数据占位，这样可以避免声明另一个变量！ </p>
+<pre><code>var a=1,b=2,c;c=a;a=b;b=c // before  
+var a=1,b=2;a=[b,b=a][0]  // after  
+</code></pre><p>强制原则使用开拓<br>JS强制原则是精华也是糟粕，但是有时相当有用。pubsub函数减少了负面的变量，然后使用一个字符串将结果连接起来，最终结果类似somestring-123，这个字符串会在后续处理中使用连字符“-”来还原为原始的字符串！（也许你可以看看）</p>
+<h3 id="Loops"><a href="#Loops" class="headerlink" title="Loops"></a>Loops</h3><p>忽略循环体<br>如果你能在循环条件中执行所有的逻辑，那么你就不需要循环体。示例：timeAgo使用for而不是while for和while需要相同的字节空间，但是for会给予你更多的赋值机会。  </p>
+<pre><code>while(i--){...} // before  
+for(;i--;){...} // after  
+i=10;while(i--){...} // before  
+for(i=10;i--;){...}  // after  
+</code></pre><p>使用存在的缩索引去迭代数组中的真实元素<br>当你迭代一组真实存在的数组对象时，缩短循环对象的回路将会减少很多字节。  </p>
+<pre><code>for(a=[1,2,3,4,5],l=a.length,i=0;i&lt;l;i++){b=a[i];...}  
+for(a=[1,2,3,4,5],i=0;b=a[i++];){...}  
+</code></pre><p>使用for..in来分配并且获得一个对象的keys  </p>
+<pre><code>a=[];for(b in window)a.push(window[b]) // before  
+a=[];i=0;for(a[i++]in window);        // after  
+</code></pre><h3 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h3><p>理解操作符优先级<br>This Mozilla page是一个非常好的页面让你去开始学习。<br>理解位操作运算hacks<br>使用’~‘配合indexof来测试<br>Use ~ with indexOf to test presence  </p>
+<pre><code>hasAnF=&quot;This sentence has an f.&quot;.indexOf(&quot;f&quot;)&gt;=0 // before  
+hasAnF=~&quot;This sentence has an f.&quot;.indexOf(&quot;f&quot;)   // after  
+~-1  
+0  
+~1  
+-2  
+~-2  
+1  
+~0  
+-1  
+</code></pre><p>使用’,’来在同一行串联表达式  </p>
+<pre><code>with(document){open();write(&quot;hello&quot;);close()}  
+with(document)open(),write(&quot;hello&quot;),close()  
+</code></pre><p>使用’[].<em>’取代’void 0’，’undefined’(“”.</em> ，1.._和0[0]也会起作用，但是会更慢)<br>去除操作符之后的不必要的空格，操作符之后的空格不总是必须的，有时是可以忽略的！  </p>
+<pre><code>typeof [] // before  
+typeof[]  // after  
+</code></pre><h3 id="Numbers"><a href="#Numbers" class="headerlink" title="Numbers"></a>Numbers</h3><p>使用’~~’和’0|’取代Math.floor<br>以上这两种组合将会对数字取整(注意:~比|的优先级别低，除此之外没什么区别)  </p>
+<pre><code>rand10=Math.floor(Math.random()*10) // before  
+rand10=0|Math.random()*10           // after  
+</code></pre><p>使用AeB的格式书写大的十进制的数字<br>这种写法等价于A*Math.pow(10,B).  </p>
+<pre><code>million=1000000 // before  
+million=1e6     // after  
+</code></pre><p>使用A&lt;&lt;B的格式来书写一个大的二进制数据<br>这种写法等价于A*Math.pow(2,B). 示例：rgb2hex  </p>
+<pre><code>color=0x100000 // before  
+color=1&lt;&lt;20    // after  
+</code></pre><p>使用1/0来取代无穷(Infinity)<br>这种做法会更加简短。除此之外，division by zero gets you free internet points.  </p>
+<pre><code>[Infinity,-Infinity] // before  
+[1/0,-1/0]           // after  
+</code></pre><p>挖掘出0作为假(Exploit the “falsiness” of 0)<br>当比较几个数字时，通常将值转化为对0进行比较以达到是代码精简的目的！  </p>
+<pre><code>a==1||console.log(&quot;not one&quot;) // before  
+!~-a||console.log(&quot;not one&quot;)  // after  
+</code></pre><h3 id="Strings"><a href="#Strings" class="headerlink" title="Strings"></a>Strings</h3><p>使用0来分隔字符串<br>使用0作为分隔符将会节省两个byte，示例：timeAgo  </p>
+<pre><code>&quot;alpha,bravo,charlie&quot;.split(&quot;,&quot;) // before  
+&quot;alpha0bravo0charlie&quot;.split(0)   // after  
+</code></pre><p>使用很少被知道的’.link’方法<br>Strings有一个内建的方法’link’,用来创建一个html link element。你可以查看示例： linkify 函数.  </p>
+<pre><code>html=&quot;&lt;a href=&quot;&quot;+url+&quot;&quot; mce_href=&quot;&quot;+url+&quot;&quot;&gt;&quot;+text+&quot;&lt;/a&gt;&quot; // before  
+html=text.link(url)                   // after  
+</code></pre><p>使用’replace’来创建强力的字符串迭代<br>因为 ‘replace’方法可以使用function作为第二个参数，它可以用来捕获大量的迭代’账簿’。你可以查看示例：templates and UUID functions.<br>使用数组来重复字符串  </p>
+<pre><code>for(a=&quot;&quot;,i=32;i--;)a+=0 // before  
+a=Array(33).join(0)     // after  
+</code></pre><h3 id="Conditionals"><a href="#Conditionals" class="headerlink" title="Conditionals"></a>Conditionals</h3><p>尽可能的使用&amp;&amp;和||在所有的地方  </p>
+<pre><code>if(a)if(b)return c // before  
+return a&amp;&amp;b&amp;&amp;c     // after  
+if(!a)a=Infinity // before  
+a||(a=Infinity)  // after  
+</code></pre><h3 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h3><p>Use elision<br>Array elision 在某些特定的场景可以节省字节空间！查看示例： router API for a real-world example.  </p>
+<pre><code>[undefined,undefined,2] // before  
+[,,2]                   // after  
+// Note: Be mindful of elided elements at the end of the element list  
+[2,undefined,undefined] // before length is 3  
+[2,,]                   // after length is 2  
+</code></pre><h3 id="Regular-Expressions"><a href="#Regular-Expressions" class="headerlink" title="Regular Expressions"></a>Regular Expressions</h3><p>非规范化的缩减<br>//d{2}/比较灵活, //d/d/ 更加简短.<br>eval解析正则表达式比直接使用RegExp()更简短  </p>
+<pre><code>r=new RegExp(&quot;{&quot;+p+&quot;}&quot;,&quot;g&quot;) // before  
+r=eval(&quot;/{&quot;+p+&quot;}/g&quot;)    // after  
+</code></pre><h3 id="Booleans"><a href="#Booleans" class="headerlink" title="Booleans"></a>Booleans</h3><p>使用’!’来创建boolean<br>true 和 false 可以用’!’联合数字使用达到相同的效果  </p>
+<pre><code>[true,false] // before  
+[!0,!1]      // after  
+</code></pre><h3 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h3><p>使用命名的函数进行递归<br>递归通常比循环更加简洁，因为递归会卸载掉栈调用的列表簿。查看示例：walk function.<br>使用命名的函数来保存状态<br>如果状态需要在函数调用的时候进行保存，那么使用命名的函数并且将他作容器使用。示例：JSONP function.</p>
+<pre><code>function(i){return function(){console.log(&quot;called &quot;+(++i)+&quot; times&quot;)}}(0) // before  
+(function a(){console.log(&quot;called &quot;+(a.i=a.i+1||1)+&quot; times&quot;)})           // after  
+0,function a(){console.log(&quot;called &quot;+(a.i=a.i+1||1)+&quot; times&quot;)}           // another alternative  
+</code></pre><p>忽略”()”当使用不带参数的new创建新的对象时<br>“new Object” 等价于 new Object()  </p>
+<pre><code>now = +new Date() // before  
+now = +new Date   // after  
+</code></pre><p>reutrn语句<br>当返回任何数据除了变量，不需要在return之后加空格return ：  </p>
+<pre><code>[&apos;foo&apos;,42,&apos;bar&apos;]; // before  
+return[&apos;foo&apos;,42,&apos;bar&apos;];  // after  
+return {x:42,y:417}; // before  
+return{x:42,y:417};  // after  
+return .01; // before  
+return.01;  // after  
+</code></pre><p>正确的使用函数闭包 Use the right closure for the job<br>如果你需要立即执行函数，请使用最适当的闭包.  </p>
+<pre><code>;(function(){...})() // before  
+new function(){...}  // after, if you plan on returning an object and can use `this`  
+!function(){...}()   // after, if you don&apos;t need to return anything  
+</code></pre><h3 id="In-the-browser"><a href="#In-the-browser" class="headerlink" title="In the browser"></a>In the browser</h3><p>使用浏览器对象避免额外的逻辑<br>你可以使用浏览器anchor elements去解析URLs取代自己写的逻辑。示例：parseURL, 将文本转化为html：escapeHTML.<br>Use global scope<br>因为window在浏览器中是一个全局对象，你可以直接引用它的任何属性。比如说document和location，除此之外还有其他比较有用的属性，像：innerWidth，查看示例： screensaver.</p>
+<h3 id="APIs"><a href="#APIs" class="headerlink" title="APIs"></a>APIs</h3><p>尽可能的对每个参数传递静态的数据<br>使用额外的字节去提供默认值<br>只做一件事并做到最好  </p>
+<p>###Other resources<br>Ben Alman’s explanation of his <a href="http://benalman.com/news/2010/08/organ1k-js1k-contest-entry/" target="_blank" rel="noopener">JS1K entry</a><br>Marijn Haverbeke’s explanation of his <a href="http://benalman.com/news/2010/08/organ1k-js1k-contest-entry/" target="_blank" rel="noopener">JS1K entry</a><br><a href="http://code.google.com/p/closure-compiler/issues/detail?id=36" target="_blank" rel="noopener">Suggested Closure Compiler optimizations</a><br>Angus Croll’s <a href="http://javascriptweblog.wordpress.com/" target="_blank" rel="noopener">blog</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2012/06/02/smacss/" rel="next" title="SMACSS">
+                <i class="fa fa-chevron-left"></i> SMACSS
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2012/06/03/js-web-applications/" rel="prev" title="JS Web Applications">
+                JS Web Applications <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Jade Zhang">
+          <p class="site-author-name" itemprop="name">Jade Zhang</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zjhiphop" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zjhiphop" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      ZhiHu
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Byte-saving-Technique"><span class="nav-number">1.</span> <span class="nav-text">Byte-saving Technique</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arguments"><span class="nav-number">2.</span> <span class="nav-text">Arguments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Variables"><span class="nav-number">3.</span> <span class="nav-text">Variables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Loops"><span class="nav-number">4.</span> <span class="nav-text">Loops</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operators"><span class="nav-number">5.</span> <span class="nav-text">Operators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Numbers"><span class="nav-number">6.</span> <span class="nav-text">Numbers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Strings"><span class="nav-number">7.</span> <span class="nav-text">Strings</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conditionals"><span class="nav-number">8.</span> <span class="nav-text">Conditionals</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays"><span class="nav-number">9.</span> <span class="nav-text">Arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Regular-Expressions"><span class="nav-number">10.</span> <span class="nav-text">Regular Expressions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Booleans"><span class="nav-number">11.</span> <span class="nav-text">Booleans</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Functions"><span class="nav-number">12.</span> <span class="nav-text">Functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#In-the-browser"><span class="nav-number">13.</span> <span class="nav-text">In the browser</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#APIs"><span class="nav-number">14.</span> <span class="nav-text">APIs</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jade Zhang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://zjhiphop.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2012/06/02/js-saving-byte-tec/';
+          this.page.identifier = '2012/06/02/js-saving-byte-tec/';
+          this.page.title = 'JavaScript Byte-saving Technique';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zjhiphop.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

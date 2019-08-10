@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="If let u to build a javascript framework,how will you do?对比几个比较流行的jQuery等框架，不难发现，有以下几个基础部分：    浏览器的兼容性检测   干净，可重用的API设计   有统一的基准和性能   编写有好的轻量的javascript   使用Github    ##为了便于合作，我们必须订立好项目的目标和开发的风格,以下是一种">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to build a framework">
+<meta property="og:url" content="http://yoursite.com/2012/06/03/how-to-build-a-framework/index.html">
+<meta property="og:site_name" content="Jade&#39;s Fantastic Blog">
+<meta property="og:description" content="If let u to build a javascript framework,how will you do?对比几个比较流行的jQuery等框架，不难发现，有以下几个基础部分：    浏览器的兼容性检测   干净，可重用的API设计   有统一的基准和性能   编写有好的轻量的javascript   使用Github    ##为了便于合作，我们必须订立好项目的目标和开发的风格,以下是一种">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-10T02:35:43.785Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to build a framework">
+<meta name="twitter:description" content="If let u to build a javascript framework,how will you do?对比几个比较流行的jQuery等框架，不难发现，有以下几个基础部分：    浏览器的兼容性检测   干净，可重用的API设计   有统一的基准和性能   编写有好的轻量的javascript   使用Github    ##为了便于合作，我们必须订立好项目的目标和开发的风格,以下是一种">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2012/06/03/how-to-build-a-framework/">
+
+
+
+
+
+  <title>How to build a framework | Jade's Fantastic Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jade's Fantastic Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2012/06/03/how-to-build-a-framework/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jade Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jade's Fantastic Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">How to build a framework</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-06-03T15:40:00+08:00">
+                2012-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/thinking-in-JS/" itemprop="url" rel="index">
+                    <span itemprop="name">thinking in JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2012/06/03/how-to-build-a-framework/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2012/06/03/how-to-build-a-framework/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>If let u to build a javascript framework,how will you do?<br>对比几个比较流行的jQuery等框架，不难发现，有以下几个基础部分：  </p>
+<ul>
+<li>浏览器的兼容性检测  </li>
+<li>干净，可重用的API设计  </li>
+<li>有统一的基准和性能  </li>
+<li>编写有好的轻量的javascript  </li>
+<li>使用Github  </li>
+</ul>
+<p>##为了便于合作，我们必须订立好项目的目标和开发的风格,以下是一种尝试：</p>
+<blockquote>
+</blockquote>
+<p>复杂性Verbose: 变量和方法名必须是有意义的，易懂和易理解<br>移植性Portable: 浏览器和控制台<br>显式的Explicit: 代码应该是可以快速理解的<br>注释Comments: 注释需要简洁明了的。TODO 和 FIXME 可以详细一点.<br>简单Simple:   保持代码简单<br>缩进Indentation: 两个空格<br>分号Semicolons:  添加分号以便人们可以方便压缩<br>质量Quality: JsLint和读者留言!<br>测试Testing: 在浏览器和控制台中都要测试<br>版本控制Versioning: 使用GitHub  </p>
+<p>##高级框架结构  </p>
+<ul>
+<li>prototype  </li>
+<li>namespace  </li>
+<li>traits  </li>
+<li>CommonJS    </li>
+</ul>
+<p>###Helper Methods<br>为什么?  </p>
+<blockquote>
+<p>reduce the effort required to call commonly used functions<br>how?<br>should be succinct but clear  </p>
+</blockquote>
+<p>###初始化</p>
+<ul>
+<li>version  </li>
+<li>metadata  </li>
+</ul>
+<p>###模块和插件</p>
+<ul>
+<li>define your own global namespace,like jQuery,Mooltools etc.  </li>
+</ul>
+<p>###选择测试框架  </p>
+<ul>
+<li>riot.js  </li>
+<li>jasmine  </li>
+</ul>
+<p>##面向对象的javascript<br>为什么？  </p>
+<ol>
+<li>便于管理自己的代码  </li>
+<li>对于Java或Ruby程序员来说很习惯这种方式  </li>
+</ol>
+<p>###原型vs类继承  </p>
+<p>####原型的优点：  </p>
+<ol>
+<li>it’s useful to abstract it  </li>
+<li>offer extra features beyond what JavaScript has as standard</li>
+</ol>
+<p>####类继承  </p>
+<p>优点： </p>
+<ol>
+<li>keeps code simpler</li>
+<li>it easer for people to navigate your code.</li>
+</ol>
+<p>缺点：  </p>
+<ol>
+<li>创建对象需要用一个包装器，如：Class.create  </li>
+</ol>
+<p>###创建自己的继承方法：  </p>
+<ol>
+<li>The ability to extend classes with new methods by copying them  </li>
+<li>Class creation: use of apply and prototype.constructor to run the constructors  </li>
+<li>The ability to determine if a parent class is being passed for inheritance  </li>
+<li>Mixins  </li>
+</ol>
+<p>###继承：<br>    for (var property in source )<br>        destination [property ] = source [property ];</p>
+<p>###创建类：<br>    // This would be defined in our “oo” namespace<br>    create : function (methods ) {<br>        var klass = function () { this.initialize .apply (this, arguments ); };<br>        // Copy the passed in methods<br>        extend (klass .prototype , methods );<br>        // Set the constructor<br>        klass .prototype .constructor = klass ;<br>        // If there’s no initialize method, set an empty one<br>        if (!klass .prototype .initialize )<br>        klass .prototype .initialize = function (){};<br>        return klass ;<br>    }</p>
+<p>###更深层次的类：<br>initialize 方法是我们的构造函数。使用Class.create的方法来创建新类。  </p>
+<p>###语法糖<br>Extend === Mixin ?  </p>
+<p>Mixin是通过简单的规则将对象的属性进行组合：    Methods should be included from the specified classes    The initialize method should not be overwritten    Multiple includes should be possible  </p>
+<pre><code>var MixinUser = Root.Class ({
+    include : User,
+    initialize : function (log) {
+        this.log = log;
+    }
+});
+</code></pre><p>Super<br>    var SuperUser = Root.Class(User, {<br>        initialize : function () {<br>            this.$super(‘initialize’ , arguments );<br>        },<br>        toString : function () {<br>            return “SuperUser: “ + this.$super (‘toString’ );<br>        }<br>    });</p>
+<p>##函数式编程：<br>why?  </p>
+<ol>
+<li>use ideas from functional programming to simplify common programming tasks  </li>
+<li>we need define our own method like iterator to cause the browser support is inconsistent<br>what?   Describing problems rather than focusing on the mechanics of their solution    Treating functions as first class citizens, and manipulating them like variables   Avoiding state and mutable data   </li>
+</ol>
+<p>###迭代器Iterators  </p>
+<blockquote>
+<p>Enumerable uses each to create lots of other methods that are inspired by functional languages. Any collection-style object can mixin Enumerable to get all those methods for free.  </p>
+</blockquote>
+<p>Underscore’s each<br>    // The cornerstone, an each implementation.<br>    // Handles objects implementing forEach, arrays, and raw objects.<br>    // Delegates to JavaScript 1.6’s native forEach if available.<br>    var each = <em>.forEach = function (obj, iterator , context ) {<br>    try {<br>    if (nativeForEach &amp;&amp; obj.forEach === nativeForEach ) {<br>        obj.forEach (iterator , context );<br>    } else if (</em>.isNumber (obj.length )) {<br>        for (var i = 0, l = obj.length ; i &lt; l; i++) iterator .call(context , obj[i], i, obj);<br>    } else {<br>        for (var key in obj) {<br>            if (hasOwnProperty .call(obj, key)) iterator .call(context , obj[key], key, obj);<br>        }<br>    }<br>    } catch (e) {<br>        if (e != breaker ) throw e;<br>    }<br>        return obj;<br>    };</p>
+<p>###基准Benchmarks  </p>
+<blockquote>
+<p>The native method performs very well than defined by yourself  </p>
+</blockquote>
+<p>###API设计<br>why?  </p>
+<ul>
+<li>easy to use  </li>
+<li>avoid conflict with third party libs   </li>
+<li>safely namespacing  </li>
+</ul>
+<p>###为each定义更多函数方法<br>Filter  </p>
+<ol>
+<li>Check if there’s a native filter method and use it if possible  </li>
+<li>Else use Root.enumerable.each  </li>
+<li>Filter objects into multi-dimensional arrays if required<br>Detect  <blockquote>
+<p>Detect simply uses each with the user-supplied callback, until a truthy value is returned. Then it throws a Break.<br>Chaining<br>Chained functions are possible when each function returns an object that can be used to call the next one.  </p>
+</blockquote>
+</li>
+<li>Store temporary values  </li>
+<li>Runs appropriate methods from Root.enumerable by mapping the temporary value into the first argument  </li>
+<li>After running the method, return this so the chain can continue  </li>
+</ol>
+<p>###实现：<br>    // store temporary values in this.results<br>    Root.enumerable .Chainer = Root.Class ({<br>        initialize : function (values ) {<br>        this.results = values ;<br>        },<br>        values : function () {<br>        return this.results ;<br>        }<br>    });<br>    // Map selected methods by wrapping them in a closure that returns this each time<br>    Root.enumerable .each([‘map’ , ‘detect’ , ‘filter’ ], function (methodName ) {<br>        var method = Root.enumerable [methodName ];<br>        Root.enumerable .Chainer .prototype [methodName ] = function () {<br>            var args = Array .prototype .slice .call(arguments );<br>            args.unshift (this.results );<br>            this.results = method .apply (this, args);<br>            return this;<br>        }<br>    });</p>
+<p>##选择器和引擎(Selector and Selector Engines)  </p>
+<ol>
+<li>XPath  </li>
+<li>CSS  </li>
+</ol>
+<p>###浏览器支持<br>Sizzle的做法：  </p>
+<blockquote>
+<p>It creates a fake element to probe browser behaviour. Supporting browsers is a black art beyond the patience of most well-meaning JavaScript hackers.<br>    // Check to see if the browser returns elements by name when<br>    // querying by getElementById (and provide a workaround)<br>    (function (){<br>        // We’re going to inject a fake input element with a specified name<br>        var form = document .createElement (“div” ),<br>        id = “script” + (new Date()).getTime ();<br>        form.innerHTML = “<a name + id "">“ ;<br>        // Inject it into the root element, check its status, and remove it quickly<br>        var root = document .documentElement ;<br>        root.insertBefore ( form, root.firstChild );</a></p>
+</blockquote>
+<p>###性能  </p>
+<ol>
+<li>缓存<br>2，使用native的方法，如：querySelectorAll</li>
+</ol>
+<p>###tools  </p>
+<ol>
+<li><a href="http://mootools.net/slickspeed/" target="_blank" rel="noopener">slickspeed</a></li>
+</ol>
+<p>###选择器引擎  </p>
+<ol>
+<li><a href="http://jamesdonaghue.com/static/peppy/docs/" target="_blank" rel="noopener">Peppy</a>  </li>
+<li><a href="http://digitarald.de/journal/89737433/rolling-out-sly-the-javascript-selector-engine/" target="_blank" rel="noopener">sly</a>  </li>
+<li><a href="http://sizzlejs.com/" target="_blank" rel="noopener">Sizzle</a>  </li>
+</ol>
+<p>###API 设计  </p>
+<ol>
+<li>使用函数包装器，链式调用</li>
+<li>返回并扩展选择的元素，如prototype使用$()使用getElementById.$$()使用CSS或XPath</li>
+</ol>
+<p>###目标  </p>
+<ol>
+<li>CSS selectors only (XPath could be a future upgrade or plugin)  </li>
+<li>Limited pseudo-selectors. Implementing one or two would be nice just to establish the API for them   </li>
+<li>Defer to native methods as quickly as possible   </li>
+<li>Cache for performance   </li>
+<li>Expose the parsing results like Sly does  </li>
+<li>Reuse the wisdom of existing selector engines for patching browser nightmares   </li>
+</ol>
+<p>###CSS 选择器  </p>
+<blockquote>
+<p><a href="http://www.w3.org/TR/CSS2/selector.html" target="_blank" rel="noopener">CSS2 selectors</a>,<a href="http://www.w3.org/TR/CSS21/grammar.html" target="_blank" rel="noopener">CSS2 grammer</a>  </p>
+<ol>
+<li>E – Matches any element named E  </li>
+<li>E F – Matches any element F that descends from E  </li>
+<li>.class – Matches any element with the class class  </li>
+<li>E.class – Matches any element named E with the class class  </li>
+<li>#id – Matches any element with the id id  </li>
+<li>E#id – Matches any element named E with the id id  </li>
+</ol>
+</blockquote>
+<p>###CSS的解析规则 </p>
+<ol>
+<li>ID Rules  </li>
+<li>Class Rules  </li>
+<li>Tag Rules  </li>
+<li><p>Universal Rules<br><a href="https://developer.mozilla.org/en/Writing_Efficient_CSS" target="_blank" rel="noopener">Writing_Efficient_CSS</a>  </p>
+</li>
+<li><p>Avoid universal rules  </p>
+</li>
+<li>Don’t qualify ID rules with tag names or classes   <blockquote>
+<p>BAD<br> button#backButton {…}<br> BAD<br> .menu-left#newMenuIcon {…}<br> GOOD  </p>
+</blockquote>
+ #backButton {…}<br> GOOD<br> #newMenuIcon {…}   </li>
+<li>Don’t qualify class rules with tag names  <blockquote>
+<p>BAD<br> treecell.indented {…}<br> GOOD<br> .treecell-indented {…}<br> BEST<br> .hierarchy-deep {…}  </p>
+</blockquote>
+</li>
+<li>Use the most specific category possible  <blockquote>
+<p>BAD<br> treecell.indented {…}<br> GOOD<br> .treecell-indented {…}<br> BEST<br> .hierarchy-deep {…}  </p>
+</blockquote>
+</li>
+<li>Avoid the descendant selector  <blockquote>
+<p>BAD<br> treehead treerow treecell {…}<br> BETTER, BUT STILL BAD (see next guideline)<br> treehead &gt; treerow &gt; treecell {…}  </p>
+</blockquote>
+</li>
+<li>Tag category rules should never contain a child selector  <blockquote>
+<p>BAD<br> treehead &gt; treerow &gt; treecell {…}<br> GOOD<br> .treecell-header {…}  </p>
+</blockquote>
+</li>
+<li>Question all usages of the child selector  <blockquote>
+<p>BAD<br> treeitem[IsImapServer=”true”] &gt; treerow &gt; .tree-folderpane-icon {…}<br> GOOD<br> .tree-folderpane-icon[IsImapServer=”true”] {…}      </p>
+</blockquote>
+</li>
+<li>Rely on inheritance  <blockquote>
+<p>BAD  </p>
+</blockquote>
+ #bookmarkMenuItem &gt; .menu-left { list-style-image: url(blah) }<br> GOOD<br> #bookmarkMenuItem { list-style-image: url(blah) }    </li>
+<li>Use -moz-image-region for ff!  </li>
+<li>Use <a href="http://updates.html5rocks.com/2012/03/A-New-Experimental-Feature-style-scoped" target="_blank" rel="noopener">scoped stylesheets</a> to reduce inefficiency of universal rules and child selectors  </li>
+</ol>
+<p>###分词器(Tokenizer)  </p>
+<p>###给你一个selector，我们需要做：  </p>
+<ol>
+<li>去掉额外的空格  </li>
+<li>用某种方法处理并转化为一系列的指令解析器处理  </li>
+<li><p>Run the tokens through the parser against the DOM  </p>
+<p> function Token (identity , finder ) {</p>
+<pre><code>this.identity = identity ;
+this.finder = finder ;
+</code></pre><p> }<br> Token .prototype .toString = function () {</p>
+<pre><code>return &apos;identity: &apos; + this.identity + &apos;, finder: &apos; + this.finder ;
+</code></pre><p> };<br> //The finder property is one of those keys in findMap. The identity is the original rule from the selector.<br>###扫描器(Scanner)  </p>
+<blockquote>
+<p>CSS grammer specification<br> macros = {</p>
+<pre><code>&apos;nl&apos;: &apos;\n|\r\n|\r|\f&apos; ,
+&apos;nonascii&apos; : &apos;[^\0-\177]&apos; ,
+&apos;unicode&apos; : &apos;\\[0-9A-Fa-f]{1,6}(\r\n|[\s\n\r\t\f])?&apos;
+&apos;escape&apos; : &apos;#{unicode}|\\[^\n\r\f0-9A-Fa-f]&apos; ,
+&apos;nmchar&apos; : &apos;[_A-Za-z0-9-]|#{nonascii}|#{escape}&apos;
+&apos;nmstart&apos; : &apos;[_A-Za-z]|#{nonascii}|#{escape}&apos; ,
+&apos;ident&apos; : &apos;[-@]?(#{nmstart})(#{nmchar})*&apos; ,
+&apos;name&apos; : &apos;(#{nmchar})+&apos;
+</code></pre><p> };<br> rules = {</p>
+<pre><code>&apos;id and name&apos; : &apos;(#{ident}##{ident})&apos; ,
+&apos;id&apos;: &apos;(##{ident})&apos; ,
+&apos;class&apos; : &apos;(\\.#{ident})&apos; ,
+&apos;name and class&apos; : &apos;(#{ident}\\.#{ident})&apos; ,
+&apos;element&apos; : &apos;(#{ident})&apos; ,
+&apos;pseudo class&apos; : &apos;(:#{ident})&apos;
+</code></pre><p> };</p>
+</blockquote>
+</li>
+</ol>
+<p>###扫描器将做以下事情：</p>
+<ul>
+<li>Expanding #{} in the macros  </li>
+<li>Expanding #{} in the rules based on the expanded macros  </li>
+<li>Escaping the backslashes  </li>
+<li>Joining each of the patterns with |  </li>
+<li>Building a global regular expression with the RegExp class  </li>
+</ul>
+<p>###搜索器(Searcher)<br>搜索器使用分词器的处理结果来搜索dom。初始化时需要指定搜索的root元素和一个token数组。<br>    find = {<br>    byId: function (root, id) {<br>        return [root.getElementById (id)];<br>    },<br>    byNodeName : function (root, tagName ) {<br>        var i, results = [], nodes = root.getElementsByTagName (tagName );<br>        for (i = 0; i &lt; nodes .length ; i++) {<br>            results .push(nodes [i]);<br>        }<br>        return results ;<br>    },<br>    byClassName : function (root, className ) {<br>        var i, results = [], nodes = root.getElementsByTagName (‘*’);<br>        for (i = 0; i &lt; nodes .length ; i++) {<br>            if (nodes [i].className .match (‘\b’ + className + ‘\b’ )) {<br>                results .push(nodes [i]);<br>            }<br>        }<br>        return results ;<br>    }<br>    };<br>    findMap = {<br>    ‘id’: function (root, selector ) {<br>        selector = selector .split (‘#’)[1];<br>        return find.byId(root, selector );<br>    },<br>    ‘name and id’ : function (root, selector ) {<br>        var matches = selector .split (‘#’), name, id;<br>        name = matches [0];<br>        id = matches [1];<br>        return filter .byAttr (find.byId(root, id), ‘nodeName’ , name.toUpperCase ());<br>    }<br>    // …<br>    };</p>
+<p>##Events</p>
+<p>###基本的事件绑定方式  </p>
+<ol>
+<li>inline  </li>
+<li>element.onXXX<br>###访问事件<br>event或者window.event，虽然直接访问window.event有潜在的危险，因为window.event是保存在上一次的事件对象，但javascript是单线程的，所以他是安全的。<br>中断事件(Stopping Events)  </li>
+<li>return false<br>###事件捕获和冒泡<br>why？  </li>
+<li>同时绑定给两个父子级元素绑定click事件，很难确定事件的执行顺序  </li>
+<li>不同的浏览器有不同的处理方法<br>How？<br> function handler (event ) {<pre><code>if (!event ) var event = window .event ;
+event .cancelBubble = true;
+if (event .stopPropagation ) event .stopPropagation ();
+</code></pre> }<br>###多个事件处理器<br>eg：<br> element .onclick = function () { alert (‘Hello World!’ ); return false ; };<br> element .onclick = function () { alert (‘This was the best example I could think of’); return false;}<br> //这里第二个事件会将第一个事件覆盖</li>
+</ol>
+<p>###事件api的定义</p>
+<ol>
+<li>Normalise event names, so onClick becomes click  </li>
+<li>Easy event registration and removal  </li>
+<li>Simple cross-browser access to the event object in handlers  </li>
+<li>Mask the complexities of event bubbling  </li>
+<li>Provide cross-browser access to keyboard and mouse interaction  </li>
+<li>Patch browser incompetency like IE memory leaks<br>jQuery的做法   <blockquote>
+<p>$(‘a’).click (function (event ) {<br>alert (‘A link has been clicked’ );<br>});<br>The Event’s element is in event.target<br>The current event within the bubbling phase is in event.currentTarget — also found in the<br>this object in the function<br>The default action can be prevented with event.preventDefault()<br>Bubbling can be stopped with event.stopPropagation();<br>Events can be removed with $(‘a’).unbind(‘click’);<br>Events can be fired with $(‘a’).trigger(‘click’);  </p>
+</blockquote>
+</li>
+</ol>
+<p>Prototype的做法  </p>
+<blockquote>
+<p>$(‘id’).observe (‘click’ , function (event ) {<br>var element = Event .element (event );<br>});<br>The Event’s element can be accessed with Event.element(event) or event.element();<br>Events are stopped with Event.stop()<br>Events can be removed with Event.stopObserving(element, eventName, handler);<br>Events can be fired with Event.fire(element)  </p>
+</blockquote>
+<p>Glow的做法    </p>
+<blockquote>
+<p>glow.events .addListener (‘a’, ‘click’ , function (event ) {<br>alert (‘Hello World!’ );<br>});<br>The Event’s element is in event.source<br>The default action can be prevented by returning false<br>Events can be removed with glow.events.removeListener(handler) where handler is<br>the returned value from glow.events.addListener<br>Events can be fired with glow.events.fire()  </p>
+</blockquote>
+<p>Dojo的做法  </p>
+<blockquote>
+<p>dojo.connect (dojo.byId(‘a#hello’ ), ‘onclick’ , function (event ) {<br>    alert (‘Hello World!’ );<br>});<br>Notice that the event names aren’t mapped. Like the other frameworks, the event object is normalised.<br>The Event’s element is in event.target<br>The current event within the bubbling phase is in event.currentTarget — this is also this in<br>the function<br>The default action can be prevented with event.preventDefault()<br>Bubbling can be stopped with event.stopPropagation();<br>Events can be removed with dojo.disconnect()   </p>
+</blockquote>
+<p>###总结<br>在以上的framework中，jquery的event handler是最具有魅力的，首先，它统一使用W3C的事件系统在各个浏览器中，较好的名称空间，完全解决了事件冒泡问题，这主要是由于Micorosoft的API在冒泡时的问题。</p>
+<p>###实现   </p>
+<ol>
+<li>event.srcElement , event.target  </li>
+<li>事件绑定  attachEvent,addEventlistener  </li>
+<li>验证元素是否有效，确保元素非文本和注释节点    </li>
+<li>阻止默认和冒泡事件  </li>
+<li>其他的浏览器修复  </li>
+<li>NodeList</li>
+<li>事件代理<br> //Safari’s handling of text nodes<br> //Missing values for event.pageX/Y<br> //Key events get event.which and event.metaKey is corrected<br> //event.which is also added for mouse button index<br> function stop(event ) {<pre><code>event .preventDefault (event );
+event .stopPropagation (event );
+</code></pre> }<br> function fix(event , element ) {<pre><code>if (!event ) var event = window .event ;
+    event .stop = function () { stop(event ); };
+if (typeof event .target === &apos;undefined&apos; )
+    event .target = event .srcElement || element ;
+if (!event .preventDefault )
+    event .preventDefault = function () { event .returnValue = false ; };
+if (!event .stopPropagation )
+    event .stopPropagation = function () { event .cancelBubble = true; };
+return event ;
+</code></pre> }<br> var _isButton ;<br> if (Prototype .Browser .IE) {<pre><code>// IE doesn&apos;t map left/right/middle the same way.
+var buttonMap = { 0: 1, 1: 4, 2: 2 };
+_isButton = function (event , code) {
+return event .button === buttonMap [code];
+</code></pre> } else if (Prototype .Browser .WebKit ) {<pre><code>// In Safari we have to account for when the user holds down
+// the &quot;meta&quot; key.
+_isButton = function (event , code) {
+switch (code) {
+    case 0: return event .which == 1 &amp;&amp; !event .metaKey ;
+    case 1: return event .which == 1 &amp;&amp; event .metaKey ;
+    default : return false ;
+}
+</code></pre> } else {<pre><code>_isButton = function (event , code) {
+return event .which ? (event .which === code + 1) : (event .button === code);
+</code></pre> }</li>
+</ol>
+<p>##Ajax  </p>
+<p><a href="http://www.w3.org/TR/XMLHttpRequest/" target="_blank" rel="noopener">XMLHttpRequest</a>  </p>
+<p>###how to cross domain ?  </p>
+<ol>
+<li>use flash or Silverlight  </li>
+<li>use XMLHttpRequest Level2 withCredentials attribute  </li>
+<li>using dynamically inserted script tags, image tags, and iframes.  </li>
+<li>JSONP  </li>
+<li>Cross-origin resource sharing ,eg: Access-Control-Allow-Origin: *  </li>
+<li>use XDomain object for IE  </li>
+</ol>
+<p>###创建兼容的XMLHttpRequest对象  </p>
+<ol>
+<li>Differences between Microsoft’s implementation and W3C have to be dealt with  </li>
+<li>Request headers must be set for the type of data and HTTP methpd  </li>
+<li>State changes must be handled through callbacks  </li>
+<li><p>Browser bugs must be compensated for  </p>
+<p> function xhr() {<br> if (typeof XMLHttpRequest !== ‘undefined’ &amp;&amp; (window .location .protocol !== ‘file:’ || !window.ActiveXObject)){<br> return new XMLHttpRequest ();<br> } else {<br> try {<br> return new ActiveXObject (‘Msxml2.XMLHTTP.6.0’ );<br> } catch (e) { }<br> try {<br> return new ActiveXObject (‘Msxml2.XMLHTTP.3.0’ );<br> } catch (e) { }<br> try {<br> return new ActiveXObject (‘Msxml2.XMLHTTP’ );<br> } catch (e) { }<br> }<br> return false ;<br> }</p>
+</li>
+</ol>
+<p>###发送请求  </p>
+<ol>
+<li>Set a callback for onreadystatechange  </li>
+<li>Call open on the request object  </li>
+<li>Set the request headers  </li>
+<li>Call send on the object  </li>
+</ol>
+<blockquote>
+<p>readystate<br>0: Uninitialized: open has not been called<br>1: Loading: send has not been called<br>2: Loaded: send has been called, headers and status are available<br>3: Interactive: Downloading, responseText holds the partial data<br>4: Completed: Request finishe </p>
+</blockquote>
+<p>###ajax API设计<br>jQuery<br>    $.ajax({<br>    url: url,<br>    data: data,<br>    success : success ,<br>    dataType : dataType<br>    });<br>Prototype<br>    new Ajax.Request (‘/your/url’ , {<br>        onSuccess : function (response ) {<br>        // Handle the response content…<br>        }<br>    });<br>Glow<br>    if (response .wasSuccessful ) {<br>        events .fire(request , “load” , response );<br>    } else {<br>        events .fire(request , “error” , response );<br>    }</p>
+<p>##动画(Animations)  </p>
+<p>###JavaScript动画<br>Methods to work with CSS properties and animate them<br>A queuing system, for scheduling animations, and animating each “frame” CSS colour parsing<br>Helpers that make common web effects easy to use alongside events  </p>
+<p>###动画框架  </p>
+<ol>
+<li>最流行的框架<a href="http://madrobby.github.com/scriptaculous/combination-effects-demo/" target="_blank" rel="noopener">aculo</a>  </li>
+<li>Mootools <a href="http://mootools.net/docs/core/Fx/Fx" target="_blank" rel="noopener">FX</a>   </li>
+<li>jQuery <a href="http://api.jquery.com/animate/" target="_blank" rel="noopener">animate</a>  </li>
+<li>Glow <a href="http://www.bbc.co.uk/glow/docs/1.7/api/glow.anim.animation.shtml" target="_blank" rel="noopener">animation</a><br>###动画队列<br>setInterval 和 clearInterval 来处理事件序列<br>Easing function  <blockquote>
+<p>“Ease-in” and “ease-out” in digital animation typically refer to a mechanism for defining the<br>‘physics’ of the transition between two animation states, eg. the linearity of a tween.  </p>
+</blockquote>
+</li>
+</ol>
+<p>###编写 easing 函数<br>    var easing = {};<br>    easing .linear = function (position ) {<br>        return position ;<br>    };<br>    easing .sine = function (position ) {<br>        return (-Math.cos(position <em> Math.PI) / 2) + 0.5;<br>    };<br>    easing .sine = function (position ) {<br>        return (-Math.cos(position </em> Math.PI) / 2) + 0.5;<br>    };</p>
+<p>###动画helper函数 – 一些比较常用的特效的封装  </p>
+<ul>
+<li>Fade — fade an element by changing its opacity  </li>
+<li>Highlight — rapidly change an element’s background colour to draw attention to it  </li>
+<li><p>Movement — move an element<br>  root.anim.fade(element , duration , { ‘from’ : ‘8em’ , ‘to’: ‘100px’ , ‘easing’ : easing });<br>  anim.fadeIn = function (element , duration , options ) {</p>
+<pre><code>    options = options || {};
+    options .from = options .from || 0.0;
+    options .to = options .to || 1.0;
+    return anim.fade(element , duration , options );
+};
+</code></pre><p>  anim.fadeOut = function (element , duration , options ) {</p>
+<pre><code>    var from;
+    options = options || {};
+    options .from = options .from || 1.0;
+    options .to = options .to || 0.0;
+    // Swap from and to
+    from = options .from;
+    options .from = options .to;
+    options .to = from;
+    // This easing function reverses the position value and adds from
+    options .easing = function (p) { return (1.0 - p) + options .from; };
+    return anim.fade(element , duration , options , { &apos;easing&apos; : options .easing });
+};
+</code></pre><p>###使用CSS3</p>
+<blockquote>
+</blockquote>
+<p>CSS Transitions Module Level 3<br>CSS 2D Transforms Module Level 3<br>CSS 3D Transforms Module Level 3<br>CSS Animations Module Level 3  </p>
+<p>  .example {</p>
+<pre><code>-webkit -transition : all 1s ease-in-out;
+-moz-transition : all 1s ease-in-out;
+-o-transition : all 1s ease-in-out;
+-webkit -transition : all 1s ease-in-out;
+transition : all 1s ease-in-out;
+</code></pre><p>  }  </p>
+</li>
+</ul>
+<p>CSS3 动画<br>use keyframe<br>    @keyframes ‘wobble’ {<br>    0% {<br>    left: 100px;<br>    }<br>    40% {<br>    left: 150px;<br>    }<br>    60% {<br>    left: 75px;<br>    }<br>    100% {<br>    left: 100px;<br>    }<br>    }</p>
+<p>###动画性能  </p>
+<ol>
+<li>Animating margin, padding, background, outline, and border will all result in relatively<br>slow animations.  </li>
+<li><p>Hardware Acceleration<br>###特性检测<br>是否支持硬件加速<br> function isHWAcceleratedSafari () {</p>
+<pre><code>var ua = navigator .userAgent , av = navigator .appVersion ;
+return (!ua.include (&apos;Chrome&apos; ) &amp;&amp; av.include (&apos;10_6&apos; )) ||
+Prototype .Browser .MobileSafari ;
+</code></pre><p> }<br>是否支持WebKitTransitionEvent 或 MozTransition  </p>
+<p> var div = document .createElement (‘div’ );<br> try {</p>
+<pre><code>document .createEvent (&quot;WebKitTransitionEvent&quot; );
+supported = true;
+hardwareAccelerationSupported = isHWAcceleratedSafari ();
+</code></pre><p> } catch (e) {<br> if (typeof div.style .MozTransition !== ‘undefined’ ) {</p>
+<pre><code>supported = true;
+</code></pre><p> }<br> }<br> div = null;<br>查询浏览器厂商支持<br> // CSS3 vendor detection<br> vendors = {<br> // Opera Presto 2.3<br> ‘opera’ : {</p>
+<pre><code>&apos;prefix&apos; : &apos;-o-&apos; ,
+&apos;detector&apos; : function () {
+    try {
+        document .createEvent (&apos;OTransitionEvent&apos; );
+        return true;
+    } catch (e) {
+        return false ;
+    }
+}
+</code></pre><p> },<br> // Chrome 5, Safari 4<br> ‘webkit’ : {</p>
+<pre><code>&apos;prefix&apos; : &apos;-webkit-&apos; ,
+&apos;detector&apos; : function () {
+    try {
+        document .createEvent (&apos;WebKitTransitionEvent&apos; );
+        return true;
+    } catch (e) {
+        return false ;
+    }
+}
+</code></pre><p> },<br> // Firefox 4<br> ‘firefox’ : {</p>
+<pre><code>&apos;prefix&apos; : &apos;-moz-&apos; ,
+&apos;detector&apos; : function () {
+    var div = document .createElement (&apos;div&apos; ),
+    supported = false ;
+    if (typeof div.style .MozTransition !== &apos;undefined&apos; ) {
+        supported = true;
+    }
+        div = null;
+        return supported ;
+    }
+}
+</code></pre><p> };<br> function findCSS3VendorPrefix () {</p>
+<pre><code>for (var detector in vendors ) {
+    detector = vendors [detector ];
+    if (detector [&apos;detector&apos; ]()) {
+        return detector [&apos;prefix&apos; ];
+    }
+}
+</code></pre><p> }<br>###移动动画的实现<br>Detect when a CSS property is being used to move an element<br>Get the vendor prefix<br>Set up CSS3 style properties instead of using JS animation engine  </p>
+</li>
+</ol>
+<p>##支持TouchScreen  </p>
+<p>###目前支持的framework：</p>
+<ol>
+<li><a href="http://www.jqtouch.com/" target="_blank" rel="noopener">jQTouch</a> : iPhone, iPad and Android phones  </li>
+<li>Sencha Touch  </li>
+</ol>
+<p>###Debugging Touch</p>
+<ol>
+<li><a href="http://developer.android.com/guide/developing/tools/adb.html" target="_blank" rel="noopener">Android Debug Bridge</a>   </li>
+<li>Iphone debug console  </li>
+<li><a href="http://people.apache.org/~pmuellr/weinre/docs/latest/" target="_blank" rel="noopener">Weinre</a>  </li>
+</ol>
+<p>###旋转  Orientation Property<br>    root.touch.orientation = function () {<br>        var orientation = window .orientation ,<br>        orientationString = ‘’;<br>        switch (orientation ) {<br>            case 0:<br>            orientationString += ‘portrait’ ;<br>            break ;<br>            case -90:<br>            orientationString += ‘landscape right’ ;<br>            break ;<br>            case 90:<br>            orientationString += ‘landscape left’ ;<br>            break ;<br>            case 180:<br>            orientationString += ‘portrait upside-down’<br>            break ;<br>        }<br>        return [orientation , orientationString ];<br>    };<br>Touch Events<br>touchstart<br>touchmove<br>touchend<br>touchcancel   </p>
+<p>###Touch 事件对象<br>event.touches: All touches on the page<br>event.targetTouches: Touches for the target element<br>event.changedTouches: Changed touches for this event  </p>
+<p>###Touch state<br>If there’s just one event and the position hasn’t changed, it’s a tap event<br>If touchmove fired, work out the distance of the movement and how long it took for a swipe  </p>
+<p>##链式调用API<br><a href="http://code.google.com/p/fakequery/" target="_blank" rel="noopener">fakeQuery</a>  </p>
+<p>###总结<br>A “container function” is used to create new objects without having to type new<br>It returns objects based on a CSS selector<br>A class is created and copied so usage of methods like find can be called in a chain  </p>
+<p>###Event Handler Shortcuts and Loop Scoping</p>
+<pre><code>events .addDOMethods = function () {
+    if (typeof root .domChain === &apos;undefined&apos; ) return ;
+    root .domChain .bind = function (type, handler ) {
+    var element = this.first ();
+    if (element ) {
+        root .events .add(element , type, handler );
+        return this;
+    }
+};
+var chainedAliases = (&apos;click dblclick mouseover mouseout mousemove &apos; +
+&apos;mousedown mouseup blur focus change keydown &apos; +
+&apos;keypress keyup resize scroll&apos; ).split (&apos; &apos;);
+    for (var i = 0; i &lt; chainedAliases .length ; i++) {
+        (function (name) {
+        root .domChain [name] = function (handler ) {
+        return this.bind(name, handler );
+        };
+        })(chainedAliases [i]);
+    }
+};
+</code></pre><p>##特性检测  eg：querySelectorAll    </p>
+<p>###实现<br>    var testCache = {},<br>    detectionTests = {};<br>    root.addDetectionTest = function (name, fn) {<br>        if (!detectionTests [name])<br>        detectionTests [name] = fn;<br>        };<br>        root.detect = function (testName ) {<br>        if (typeof testCache [testCache ] === ‘undefined’ ) {<br>        testCache [testName ] = detectionTests <a href>testName </a>;<br>        }<br>        return testCache [testName ];<br>    };<br>    //检测querySelectorAll<br>    turing .addDetectionTest (‘querySelectorAll’ , function () {<br>        var div = document .createElement (‘div’ );<br>        div.innerHTML = ‘</p><p class="TEST"></p>‘ ;<br>        // Some versions of Safari can’t handle uppercase in quirks mode<br>        if (div.querySelectorAll ) {<br>            if (div.querySelectorAll (‘.TEST’ ).length === 0) return false ;<br>            return true;<br>        }<br>        // Helps IE release memory associated with the div<br>        div = null;<br>        return false ;<br>    });<p></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2012/06/03/js-web-applications/" rel="next" title="JS Web Applications">
+                <i class="fa fa-chevron-left"></i> JS Web Applications
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2012/06/03/beat-win7-64bit-blue-screen/" rel="prev" title="Beat Win7 64bit Blue Screen">
+                Beat Win7 64bit Blue Screen <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Jade Zhang">
+          <p class="site-author-name" itemprop="name">Jade Zhang</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zjhiphop" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zjhiphop" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      ZhiHu
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jade Zhang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://zjhiphop.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2012/06/03/how-to-build-a-framework/';
+          this.page.identifier = '2012/06/03/how-to-build-a-framework/';
+          this.page.title = 'How to build a framework';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zjhiphop.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
