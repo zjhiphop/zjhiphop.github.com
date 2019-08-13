@@ -260,6 +260,283 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/12/linkedlist/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jade Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jade's Fantastic Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/12/linkedlist/" itemprop="url">Linkedlist</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-12T14:36:03+08:00">
+                2019-08-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/12/linkedlist/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/12/linkedlist/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="实现链表的基本数据结构"><a href="#实现链表的基本数据结构" class="headerlink" title="实现链表的基本数据结构"></a>实现链表的基本数据结构</h3><ul>
+<li>链表的基本数据结构的实现</li>
+<li>插入，删除， 更新</li>
+</ul>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>链表是包含头节点指针和数据节点指针的数据表， 查询复杂度为O(n)</p>
+<h3 id="实现目标"><a href="#实现目标" class="headerlink" title="实现目标"></a>实现目标</h3><ul>
+<li>使用Go语言实现基本的链表数据结构</li>
+<li>通过Go实现链表的基本操作</li>
+</ul>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> linkedlist</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"github.com/pkg/errors"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Node <span class="keyword">struct</span> &#123;</span><br><span class="line">	next *Node</span><br><span class="line">	data <span class="keyword">interface</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> LinkedList <span class="keyword">struct</span> &#123;</span><br><span class="line">	head *Node</span><br><span class="line">	length <span class="keyword">uint</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewNode</span><span class="params">(value <span class="keyword">interface</span>&#123;&#125;)</span> *<span class="title">Node</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> &amp;Node&#123;<span class="literal">nil</span>, value&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewLinkedList</span><span class="params">()</span> *<span class="title">LinkedList</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> &amp;LinkedList&#123;NewNode(<span class="number">0</span>), <span class="number">0</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(self *Node)</span> <span class="title">GetNext</span><span class="params">(node *Node)</span> *<span class="title">Node</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="literal">nil</span> == node &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> node.next</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(self *Node)</span> <span class="title">GetValue</span><span class="params">(node *Node)</span> <span class="title">interface</span></span>&#123;&#125; &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="literal">nil</span> == node &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> node.data</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// insert new node after specific node</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(self *LinkedList)</span> <span class="title">InsertBefore</span><span class="params">(node *Node, v <span class="keyword">interface</span>&#123;&#125;)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="literal">nil</span> == node &#123;</span><br><span class="line">		<span class="keyword">return</span> errors.New(<span class="string">"Try to insert before a empty node"</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	newNode := NewNode(v)</span><br><span class="line">	curr := self.head.next</span><br><span class="line">	pre := self.head</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> <span class="literal">nil</span> != curr &#123;</span><br><span class="line">		<span class="keyword">if</span> curr == node &#123;</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		pre = curr</span><br><span class="line">		curr = curr.next</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> <span class="literal">nil</span> == curr &#123;</span><br><span class="line">		<span class="keyword">return</span> errors.New(<span class="string">"Can not find node to insert"</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	pre.next = newNode</span><br><span class="line">	newNode.next = curr</span><br><span class="line"></span><br><span class="line">	self.length++</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(self *LinkedList)</span> <span class="title">InsertAfter</span><span class="params">(node *Node, v <span class="keyword">interface</span>&#123;&#125;)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="literal">nil</span> == node &#123;</span><br><span class="line">		<span class="keyword">return</span> errors.New(<span class="string">"Try to insert after a empty node"</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	curr := self.head</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> <span class="literal">nil</span> != curr &#123;</span><br><span class="line">		<span class="keyword">if</span> curr == node &#123;</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		curr = curr.next</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> curr == <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> errors.New(<span class="string">"Can not find node to insert"</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	newNode := NewNode(v)</span><br><span class="line">	nextNode := curr.next</span><br><span class="line">	curr.next = newNode</span><br><span class="line">	newNode.next = nextNode</span><br><span class="line"></span><br><span class="line">	self.length++</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(self *LinkedList)</span> <span class="title">Prepend</span><span class="params">(v <span class="keyword">interface</span>&#123;&#125;)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> self.InsertAfter(self.head, v)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(self *LinkedList)</span> <span class="title">Append</span><span class="params">(v <span class="keyword">interface</span>&#123;&#125;)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">	newNode := NewNode(v)</span><br><span class="line"></span><br><span class="line">	head := self.head</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> <span class="literal">nil</span> == head.next &#123;</span><br><span class="line"></span><br><span class="line">		head.next = newNode</span><br><span class="line"></span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">		curr := head</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> <span class="literal">nil</span> != curr.next &#123;</span><br><span class="line">			curr = curr.next</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		curr.next = newNode</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	self.length++</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// find</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(self *LinkedList)</span> <span class="title">FindByIndex</span><span class="params">(index <span class="keyword">uint</span>)</span> <span class="params">(*Node, error)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> index &gt; self.length &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span>, errors.New(<span class="string">"Find out of range"</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	curr := self.head</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="keyword">uint</span>(<span class="number">0</span>); i&lt; index; i++ &#123;</span><br><span class="line">		curr = curr.next</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> curr, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(self *LinkedList)</span> <span class="title">FindByData</span><span class="params">(data <span class="keyword">interface</span>&#123;&#125;)</span> <span class="params">(*Node, error)</span></span> &#123;</span><br><span class="line">	curr := self.head</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> <span class="literal">nil</span> != curr &#123;</span><br><span class="line">		curr = curr.next</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> curr, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(self *LinkedList)</span> <span class="title">DelNode</span><span class="params">(node *Node)</span> <span class="params">(<span class="keyword">bool</span>, error)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="literal">nil</span> == node &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>, errors.New(<span class="string">"Try to delete empty node"</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	curr := self.head</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> <span class="literal">nil</span> != curr &#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(curr.next == node) &#123;</span><br><span class="line">			curr.next = curr.next.next</span><br><span class="line"></span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>, <span class="literal">nil</span></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		curr = curr.next</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(self *LinkedList)</span> <span class="title">Print</span><span class="params">()</span></span> &#123;</span><br><span class="line">	curr := self.head</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> formatStr <span class="keyword">string</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> <span class="literal">nil</span> != curr.next &#123;</span><br><span class="line">		curr = curr.next</span><br><span class="line"></span><br><span class="line">		formatStr += fmt.Sprintf(<span class="string">"|%+v"</span>, curr.data)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Println(formatStr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/12/数组/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jade Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jade's Fantastic Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/12/数组/" itemprop="url">数组</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-12T09:57:40+08:00">
+                2019-08-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/12/数组/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/12/数组/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="实现数组的基本数据结构"><a href="#实现数组的基本数据结构" class="headerlink" title="实现数组的基本数据结构"></a>实现数组的基本数据结构</h3><ul>
+<li>数组的基本数据结构的实现</li>
+<li>插入，删除， 更新</li>
+</ul>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>数组是一系列连续的数据集合，有固定的长度和下标，根据下标访问查找时间复杂度O(1)，删除时间复杂度也是O(1)。</p>
+<h3 id="实现目标"><a href="#实现目标" class="headerlink" title="实现目标"></a>实现目标</h3><ul>
+<li>使用Go语言实现基本的数组数据结构</li>
+<li>通过Go实现数组的基本操作</li>
+</ul>
+<h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> array</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"errors"</span></span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Array <span class="keyword">struct</span> &#123;</span><br><span class="line">	data []<span class="keyword">int</span></span><br><span class="line">	length <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewArray</span><span class="params">(capcity <span class="keyword">int</span>)</span> *<span class="title">Array</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> capcity &lt;= <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> &amp;Array&#123;</span><br><span class="line">		data: <span class="built_in">make</span>([]<span class="keyword">int</span>, capcity, capcity),</span><br><span class="line">		length: <span class="number">0</span>,</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(self *Array)</span> <span class="title">IsOutOfRange</span><span class="params">(index <span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> index &lt; <span class="number">0</span>  || index &gt;= <span class="built_in">cap</span>(self.data) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(self *Array)</span> <span class="title">Len</span><span class="params">()</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> self.length</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// find specfic data index value</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(self *Array)</span> <span class="title">FindIndexByData</span><span class="params">(data <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> index, value := <span class="keyword">range</span> self.data &#123;</span><br><span class="line">		<span class="keyword">if</span> value == data &#123;</span><br><span class="line">			<span class="keyword">return</span> index</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(self *Array)</span> <span class="title">FindDataByIndex</span><span class="params">(index <span class="keyword">int</span>)</span> <span class="params">(<span class="keyword">int</span>, error)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> self.IsOutOfRange(index) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>, errors.New(<span class="string">"Out of range when find"</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> self.data[index], <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Delete elements  by sepecific value</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(self *Array)</span> <span class="title">Delete</span><span class="params">(index <span class="keyword">int</span>)</span> <span class="params">(<span class="keyword">int</span>, error)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> self.IsOutOfRange(index) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>, errors.New(<span class="string">"Out of range when delete!"</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	v := self.data[index]</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i:=index; i&lt; self.Len() - <span class="number">1</span>; i++ &#123;</span><br><span class="line">		self.data[i] = self.data[i] + <span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	self.length--</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> v, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(self *Array)</span> <span class="title">Insert</span><span class="params">(index <span class="keyword">int</span>, data <span class="keyword">int</span>)</span> <span class="params">(<span class="keyword">bool</span>, error)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> self.IsOutOfRange(index) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>, errors.New(<span class="string">"Out of range when insert"</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> self.Len() == <span class="built_in">cap</span>(self.data) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>, errors.New(<span class="string">"Capcity is full when insert"</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := self.length<span class="number">-1</span>; i &gt;= index ; i-- &#123;</span><br><span class="line">		fmt.Println(<span class="string">"Insert: "</span>, self.data, i, index)</span><br><span class="line"></span><br><span class="line">		self.data[i] = self.data[i<span class="number">-1</span>]</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	self.data[index] = data</span><br><span class="line"></span><br><span class="line">	self.length++</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(self *Array)</span> <span class="title">Append</span><span class="params">(data <span class="keyword">int</span>)</span> <span class="params">(<span class="keyword">bool</span>, error)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> self.Len() == <span class="built_in">cap</span>(self.data) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>, errors.New(<span class="string">"Capcity is full when insert"</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> self.Insert(self.length, data)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(self *Array)</span> <span class="title">Prepend</span><span class="params">(data <span class="keyword">int</span>)</span> <span class="params">(<span class="keyword">bool</span>, error)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> self.Len() == <span class="built_in">cap</span>(self.data) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>, errors.New(<span class="string">"Capcity is full when insert"</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> self.Insert(<span class="number">0</span>, data)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(self *Array)</span> <span class="title">Print</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> formatString <span class="keyword">string</span></span><br><span class="line">	<span class="keyword">for</span> i :=<span class="number">0</span>; i &lt; self.length; i++ &#123;</span><br><span class="line">		formatString += fmt.Sprintf(<span class="string">"|%+v"</span>, self.data[i])</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Println(formatString)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/10/算法之乐/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1994,376 +2271,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/03/12/how-to-build-glyph-icons/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jade Zhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jade's Fantastic Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2014/03/12/how-to-build-glyph-icons/" itemprop="url">How to build Glyph icons fonts</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-03-12T14:25:05+08:00">
-                2014-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/think-in-life/" itemprop="url" rel="index">
-                    <span itemprop="name">think in life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2014/03/12/how-to-build-glyph-icons/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/03/12/how-to-build-glyph-icons/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="http://dribbble.s3.amazonaws.com/users/2804/screenshots/641668/jrf-icons-dribbble.png" alt="Glyph ICON Fonts"></p>
-<h2 id="什么是Glyph？"><a href="#什么是Glyph？" class="headerlink" title="什么是Glyph？"></a>什么是Glyph？</h2><blockquote>
-<p>A glyph /ˈɡlɪf/ is an element of writing: An individual mark on a written medium that contributes to the meaning of what is written.<br>字形－一个可以辨认的抽象的图形符号，它不依赖于任何特定的设计</p>
-</blockquote>
-<h2 id="为什么要用Glyph-ICON？"><a href="#为什么要用Glyph-ICON？" class="headerlink" title="为什么要用Glyph ICON？"></a>为什么要用Glyph ICON？</h2><ul>
-<li>扁平化设计</li>
-<li>响应性设计</li>
-<li>更灵活的调整元素的各种属性但不失真（大小，颜色）</li>
-</ul>
-<p>简言之， Glyph ICon font就是一种用font的方式来设计web元素的背景。</p>
-<h2 id="有什么神器可以用？"><a href="#有什么神器可以用？" class="headerlink" title="有什么神器可以用？"></a>有什么神器可以用？</h2><ul>
-<li><a href="http://icomoon.io/" target="_blank" rel="noopener">Iconmoon</a> <em>一款非常实用的在线工具,但前提是你要准备好SVG</em></li>
-<li><a href="http://www.glyphsapp.com/" target="_blank" rel="noopener">Glyphsapp</a><em>一款非常强大的编辑器，项目化整个ICON制作流程, 但不是免费的</em></li>
-<li><a href="http://glyphrstudio.com/" target="_blank" rel="noopener">GlyphStudio</a> <em>一个免费的基于HTML5的字体编辑器</em></li>
-</ul>
-<h2 id="Glyph-Studio"><a href="#Glyph-Studio" class="headerlink" title="Glyph Studio"></a>Glyph Studio</h2><p><img src="http://glyphrstudio.com/resources/linked_shapes.png" alt="Glyph Studio"> </p>
-<ul>
-<li>可以在线或者离线方式访问</li>
-<li>可以创建或者导入项目， 基于文件存贮</li>
-<li>自由定制</li>
-</ul>
-<h2 id="使用Glyph-Studio制作字体的完整流程"><a href="#使用Glyph-Studio制作字体的完整流程" class="headerlink" title="使用Glyph Studio制作字体的完整流程"></a>使用Glyph Studio制作字体的完整流程</h2><ul>
-<li>访问<a href="http://glyphrstudio.com/download/Glyphr_Studio_Beta_3.2.html" target="_blank" rel="noopener">Glyphr_Studio_Beta_3.2</a>后者直接将页面存贮到本地</li>
-<li>拖拽项目文件到页面，或者点击“Start a new font from scratch”创建一个新的项目</li>
-<li>设计，修改字符集（拉丁字符）</li>
-<li>完成后，选择“export font”-&gt;”Generate TTX XML File”,之后会生成一个以项目名命名TTX的文件</li>
-<li>访问<a href="http://www.glyphrstudio.com/ttx/" target="_blank" rel="noopener">TTX</a>安装相应软件(Windows和Mac平台均支持)</li>
-<li>TTX 是一个可以从XML转换OpenType或TrueType字体，或者将字体转换成XML文件 <code>ttx [options] inputfile1 [... inputfileN]</code></li>
-<li>运行<code>ttx [project-name].ttx</code>会生成ttf字体文件</li>
-<li>访问<a href="http://www.font2web.com/" target="_blank" rel="noopener">font-to-web</a>导出所有格式的字体文件（.ttf, .otf, .eot, .woff and .svg）</li>
-</ul>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ul>
-<li>Mac上安装TTX时候需要提升权限 sudo</li>
-<li>为了方便只用TTX， 最好在你的命令行中配置: <code>alias ttx=/Library/Frameworks/Python.framework/Versions/2.7/bin/ttx</code>,这样你就可以直接使用ttx来操作了</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/03/03/emoji-in-web/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jade Zhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jade's Fantastic Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2014/03/03/emoji-in-web/" itemprop="url">emoji in web</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-03-03T11:17:00+08:00">
-                2014-03-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/thinking-in-life/" itemprop="url" rel="index">
-                    <span itemprop="name">thinking in life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2014/03/03/emoji-in-web/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/03/03/emoji-in-web/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="http://static.brit.co.s3.amazonaws.com/wp-content/uploads/2013/11/8-Emoji-645x644.jpg" alt="Emoji"></p>
-<h3 id="什么是Emoji？"><a href="#什么是Emoji？" class="headerlink" title="什么是Emoji？"></a>什么是Emoji？</h3><hr>
-<blockquote>
-<p>emoji就是表情符号，在外国的手机短信里面已经是很流行使用的一种表情。这些符号可以让您的消息变得更有趣味并为您的生活增添亮点，在您添加Emoji键盘之后，点击空格键左边的“Globe”按钮来转换键盘，在短消息、电子邮件、注释、联系人和日程表中使用独特的Emoji图标——在使用键盘的iPhone或iPod touch的任何应用中都可以使用。</p>
-</blockquote>
-<h3 id="Web-Emoji"><a href="#Web-Emoji" class="headerlink" title="Web Emoji"></a>Web Emoji</h3><p>Web Emoji指的是在web网页中实现和手机Message相同功能的emoji功能。</p>
-<h3 id="Web友好的Emoji编辑器"><a href="#Web友好的Emoji编辑器" class="headerlink" title="Web友好的Emoji编辑器"></a>Web友好的Emoji编辑器</h3><p><img src="http://www.diariocambio.com.mx/2014/media/k2/items/cache/92fd807de68e4e398db43705165d2815_XL.jpg" alt="Gmail Emoji Editor"></p>
-<p>单纯的emoji的显示还是听简单的，但是如果放到编辑器中还是有很多挑战的：  </p>
-<ol>
-<li>编辑器中显示emoji</li>
-<li>emoji和文本同时显示</li>
-<li>emoji插入到光标的位置</li>
-<li>删除光标位置的emoji</li>
-<li>各个系统的emoji准确的显示</li>
-</ol>
-<h3 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h3><ol>
-<li>使用contenteditable实现简易的web编辑器</li>
-<li>动态检测鼠标位置并进行记录， 在需要插入emoji的时候，插入到保存的鼠标位置。</li>
-<li>将各个系统发送的emoji进行unicode转义，然后映射到指定的图片</li>
-</ol>
-<p>看起来很美，但是其中有些部分很难实现：  </p>
-<ol>
-<li>获取emoji在编辑器中的位置和文本可以用相同的方法吗？</li>
-<li>emoji unicode图片都一一进行单独制作吗？</li>
-<li>插入emoji到指定的光标位置可以正确的工作吗？</li>
-</ol>
-<p>经过多种方法尝试，发现浏览器在获取emoji和文本光标位置的时候，用业界流行的方法无法正确获取， 这样就导致插入或者删除emoji并不是我们所期望位置的。例如连续插入多个emoji，会发现后插入的emoji竟然显示到了之前插入的emoji之前。大概看了一下gmail的源码，也找不错特别的端倪，于是只好采用比较ugly的方式：  </p>
-<ul>
-<li>在每个emoji之后默认加入一个空格符（如： &amp;nbsp；）， 这样浏览器就可以正确到emoji的位置，但是问题是加入本来内容就是空格的情况将不适用</li>
-<li>每次插入emoji的时候，记录所插入的emoji dom元素的位置，这样在连续插入emoji的时候可以使用原生的dom api插入新的节点到后面，这样做的好处是没有多余的空格的元素</li>
-<li>对于转义各个系统的emoji到unicode的问题，参考了<a href="http://www.cnblogs.com/ecalf/archive/2012/09/04/unicode.html" target="_blank" rel="noopener">字符编码 unicode 及其在javascript 中的使用</a>和<a href="http://apps.timwhitlock.info/emoji/tables/unicode" target="_blank" rel="noopener">Emoji Unicode Tables</a>。解决方法是：首先遍历editor内容，找出所有超出正常字符（中英文，标点符号等）显示范围的特殊字符，然后统转义到unicode 16，然后从emoji unicode table中引用对应的图片，完美解决，具体实现是：<img src="https://www.diigo.com/item/p/qsobdaszcaqapqapezbddpsccq" alt="Implement Code"></li>
-</ul>
-<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>对于如何正确找出emoji所在editor的位置，始终没有找到好的办法，目前只是处于能用的程度，未来计划有时间深入研究一下<a href="http://jsfiddle.net/zjhiphop/wFx9k/" target="_blank" rel="noopener">Dom Mutation Observer</a>看看能不能有新的突破，欢迎大家留言讨论。对于性能问题也有过对比新浪和QQ的策略，最终觉得使用<a href="http://jsfiddle.net/8r2b7/" target="_blank" rel="noopener">Emoji Sprite</a>比较合适，这个也是需要改进的一个地方。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2412,7 +2319,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2434,7 +2341,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
