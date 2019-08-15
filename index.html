@@ -260,6 +260,157 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/排序算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jade Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jade's Fantastic Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/15/排序算法/" itemprop="url">排序算法（上）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-15T09:51:49+08:00">
+                2019-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/15/排序算法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/15/排序算法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><em>本文讨论关于数组排序算法的实现， 给定一个整形数组，按从小到大排列</em></p>
+<p>常见的排序算法有：插入排序， 选择排序，冒泡排序，快速排序，归并排序等</p>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><blockquote>
+<p>两种实现方案，第一种方法是新建一个数组并按序排列，遍历原始数组复制元素到新的数组， 时间复杂度为 O(n <em> n), 空间复杂度为O(n)， 同时为不稳定的排序; 另一种方式是在原地选择和排序，数组分为两部分，左边是已排序的部分，右边是带排序的部分，初始状态左侧为数组第一个元素，右侧为第二个元素之后的元素，从数组中第二个元素开始遍历， 依次插入左侧并排序， 时间复杂度为 O(n </em> n), 稳定排序</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> sort</span><br><span class="line"></span><br><span class="line"><span class="comment">// 插入排序</span></span><br><span class="line"><span class="comment">// v1: time O(n * n) space O(n)</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">InsertSortArray1</span> <span class="params">(array []<span class="keyword">int</span>, length <span class="keyword">int</span>)</span> []<span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="comment">// 1. 创建一个新的数组</span></span><br><span class="line">	<span class="comment">// 2. 循环旧的数组数据并复制到插入到新数组的指定位置</span></span><br><span class="line">	<span class="keyword">if</span> length &lt;= <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> array</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	times := <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	newArray := <span class="built_in">make</span>([]<span class="keyword">int</span>, length, length)</span><br><span class="line"></span><br><span class="line">	newArray[<span class="number">0</span>] = array[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt; length; i++ &#123;</span><br><span class="line">		index := <span class="number">0</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> j := i<span class="number">-1</span>; j &gt;=<span class="number">0</span> ; j-- &#123;</span><br><span class="line"></span><br><span class="line">			times++</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> array[i] &gt;= newArray[j] &#123;</span><br><span class="line">				index = j + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> index &lt; i &#123;</span><br><span class="line">			<span class="keyword">for</span> k:=i<span class="number">-1</span>; k&gt;=index; k-- &#123;</span><br><span class="line">				times++</span><br><span class="line"></span><br><span class="line">				newArray[k + <span class="number">1</span>] = newArray[k]</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		newArray[index] = array[i]</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">println</span>(<span class="string">"time O("</span>, times, <span class="string">")"</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> newArray</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// v2 time o(n * n) space O(0)</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">InsertSortArray2</span> <span class="params">( array []<span class="keyword">int</span>, <span class="built_in">len</span> <span class="keyword">int</span>)</span> []<span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="comment">// 原地交换数据</span></span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span> &lt;= <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> array</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	times := <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i&lt; <span class="built_in">len</span>; i++ &#123;</span><br><span class="line">		curr := array[i]</span><br><span class="line">		j := i<span class="number">-1</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> ; j&gt;=<span class="number">0</span>; j-- &#123;</span><br><span class="line">			times++</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> array[j] &gt; curr &#123;</span><br><span class="line">				array[j+<span class="number">1</span>] = array[j]</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		array[j+<span class="number">1</span>] = curr</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">println</span>(<span class="string">"time O("</span>, times, <span class="string">")"</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> array</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><blockquote>
+<p>遍历数组， 每次取剩下的元素中的最小的元素的下标， 如果找到了就和已排序的元素进行交换， 时间复杂度 O(n * n)</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> sort</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SelectionSort1</span><span class="params">(arr []<span class="keyword">int</span>, <span class="built_in">len</span> <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span> &lt;=<span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	times := <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">0</span>; i&lt; <span class="built_in">len</span>; i++ &#123;</span><br><span class="line">		minIndex := i</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> j:= i+<span class="number">1</span>; j &lt; <span class="built_in">len</span>; j++ &#123;</span><br><span class="line"></span><br><span class="line">			times++</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> arr[j] &lt; arr[minIndex] &#123;</span><br><span class="line">				minIndex = j</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		arr[i], arr[minIndex] = arr[minIndex], arr[i]</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">println</span>(times)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><blockquote>
+<p>比较相邻的数字，将大数字后移， 遍历完一轮右侧是最大的数字，然后在比较第0个元素到第n-1个元素，直到n=1, 时间复杂度： O(n * n)</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> sort</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">BubleSort</span><span class="params">(arr []<span class="keyword">int</span>, <span class="built_in">len</span> <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span> &lt;=<span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	flag := <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">	times := <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i :=<span class="number">0</span>; i&lt; <span class="built_in">len</span>; i++ &#123;</span><br><span class="line">		<span class="keyword">for</span> j :=<span class="number">0</span>; j&lt; <span class="built_in">len</span>-i<span class="number">-1</span>; j++ &#123;</span><br><span class="line"></span><br><span class="line">			times++</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> arr[j] &gt; arr[j+<span class="number">1</span>] &#123;</span><br><span class="line">				arr[j], arr[j+<span class="number">1</span>] = arr[j+<span class="number">1</span>], arr[j]</span><br><span class="line"></span><br><span class="line">				flag = <span class="literal">true</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> !flag &#123;</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">println</span>(<span class="string">"time:"</span>, times)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><blockquote>
+<p>首先选择一个pivot, 一般选最后一个元素， 然后便利数据从start和end， 如果小于pivot， 那么交换正在比较的两个数据， 第一次对比完成后，pivot所在的索引左边都是小于pivot的数据，右侧都是大于pivot的数据， 然后分别对左侧和右侧数据进行排序， 直到start&gt;=end. 时间复杂度O(logN)</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> sort</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">排序过程：</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">j=0, 1, i=0 1</span></span><br><span class="line"><span class="comment">1      111 23 31 43  54 45</span></span><br><span class="line"><span class="comment">&gt; i=1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">j=1 111, i=1 1111</span></span><br><span class="line"><span class="comment">1      111    23 31 43  54 45</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">j=2 23, i=1 111</span></span><br><span class="line"><span class="comment">1      23    111 31 43  54 45</span></span><br><span class="line"><span class="comment">&gt; i=2 111</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">j = 3   31</span></span><br><span class="line"><span class="comment">1      23   31 111 43  54 45</span></span><br><span class="line"><span class="comment">&gt; i = 3 111</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">j = 4, 43</span></span><br><span class="line"><span class="comment">1      23   31 43 111  54 45</span></span><br><span class="line"><span class="comment">&gt; i = 4 111</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">j = 5, 54</span></span><br><span class="line"><span class="comment">1      23   31 43 111  54 45</span></span><br><span class="line"><span class="comment">&gt; i=4 111</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">1      23   31 43 45  54 111</span></span><br><span class="line"><span class="comment">&gt; i =4, j =5</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">QuickSort</span><span class="params">(arr []<span class="keyword">int</span>, <span class="built_in">len</span> <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	separate(arr, <span class="number">0</span>, <span class="built_in">len</span><span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line">	<span class="built_in">println</span>(<span class="string">"time O("</span>, times, <span class="string">")"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">separate</span><span class="params">(arr []<span class="keyword">int</span>, start,end <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> start &gt;= end &#123;</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	i := partition(start, end, arr)</span><br><span class="line"></span><br><span class="line">	separate(arr, start, i<span class="number">-1</span>)</span><br><span class="line">	separate(arr, i+<span class="number">1</span>, end)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> times <span class="keyword">int</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">partition</span><span class="params">(start <span class="keyword">int</span>, end <span class="keyword">int</span>, arr []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	pivot := arr[end]</span><br><span class="line"></span><br><span class="line">	i := start</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> j :=start; j&lt; end; j++ &#123;</span><br><span class="line">		times++</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> arr[j] &lt; pivot &#123;</span><br><span class="line">			<span class="keyword">if</span> i != j &#123;</span><br><span class="line">				arr[i], arr[j] = arr[j], arr[i]</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			i++</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	arr[i], arr[end] = arr[end], arr[i]</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> i</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><blockquote>
+<p>将数据分成相等两部分（length / 2 = mid）， 分别对start到mid和mid到end进行排序， 然后在进行合并， 知道start&gt;=end结束遍历， 时间复杂度O(logN), 空间复杂度O(N)</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> sort</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> exetimes <span class="keyword">int</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">MergeSort</span><span class="params">(arr []<span class="keyword">int</span>, <span class="built_in">len</span> <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span> &lt;=<span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	sort(arr, <span class="number">0</span>, <span class="built_in">len</span><span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line">	<span class="built_in">println</span>(<span class="string">"tims O("</span>, exetimes, <span class="string">")"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sort</span><span class="params">(arr []<span class="keyword">int</span>, start, end <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> start &gt;=end &#123;</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	mid := (start + end) /<span class="number">2</span></span><br><span class="line"></span><br><span class="line">	sort(arr, start, mid)</span><br><span class="line">	sort(arr, mid+<span class="number">1</span>, end)</span><br><span class="line">	merge(arr, start, mid, end)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">merge</span><span class="params">(arr []<span class="keyword">int</span>, start, mid, end <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	temp := <span class="built_in">make</span>([]<span class="keyword">int</span>, end - start + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">	i := start</span><br><span class="line">	j :=mid+<span class="number">1</span></span><br><span class="line">	k := <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> ; i&lt;=mid &amp;&amp; j&lt;= end; k++ &#123;</span><br><span class="line">		exetimes++</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> arr[i] &gt; arr[j] &#123;</span><br><span class="line">			temp[k] = arr[j]</span><br><span class="line">			j++</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			temp[k] = arr[i]</span><br><span class="line">			i++</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> ;i&lt;=mid;i++ &#123;</span><br><span class="line">		exetimes++</span><br><span class="line"></span><br><span class="line">		temp[k] = arr[i]</span><br><span class="line">		k++</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> ;j&lt;=end;j++ &#123;</span><br><span class="line">		exetimes++</span><br><span class="line">		temp[k] = arr[j]</span><br><span class="line">		k++</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">copy</span>(arr[start:end+<span class="number">1</span>], temp)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/12/linkedlist/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2085,192 +2236,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/04/12/use-opentag-management-system/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jade Zhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jade's Fantastic Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2014/04/12/use-opentag-management-system/" itemprop="url">Use OpenTag Management system</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-04-12T10:24:01+08:00">
-                2014-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/think-in-life/" itemprop="url" rel="index">
-                    <span itemprop="name">think in life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2014/04/12/use-opentag-management-system/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/04/12/use-opentag-management-system/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="https://www.diigo.com/item/p/qsobdaszcaqaoaaoczbddpqpbo" alt="Qubit OpenTags"></p>
-<h3 id="什么是Tag管理？"><a href="#什么是Tag管理？" class="headerlink" title="什么是Tag管理？"></a>什么是Tag管理？</h3><hr>
-<p>这里的Tag指的是第三方的JavaScript tags，这些tag你可以用来增强网站功能，比如说Google Analytics。国内的某些大型网站可能会使用成千上万的tag，这样就需要一个中心化的Tag管理系统来统一管理一个或多个网站的tags。</p>
-<h3 id="为什么需要管理tags？"><a href="#为什么需要管理tags？" class="headerlink" title="为什么需要管理tags？"></a>为什么需要管理tags？</h3><ol>
-<li>统一跟踪管理</li>
-<li>随时更新版本</li>
-<li>全局性的添加，删除</li>
-<li>高可用性</li>
-</ol>
-<h3 id="使用Qubit-tag管理系统"><a href="#使用Qubit-tag管理系统" class="headerlink" title="使用Qubit tag管理系统"></a>使用<a href="http://www.qubitproducts.com/tag-management" target="_blank" rel="noopener">Qubit tag管理系统</a></h3><blockquote>
-<p>Qubit Opentag is available as a self-service or managed tag manager, tailored to your business needs.</p>
-</blockquote>
-<ul>
-<li>完全免费</li>
-<li>允许百万PV每月</li>
-<li>友好的UI配置管理</li>
-<li>使用简单</li>
-<li>服务背后使用AWS，高可用性</li>
-</ul>
-<p>Qubit允许你使用一系列加载规则加载不同的tag应用于不同的网站， 并且你只需要在你的网站中引用一个可以从CDN加载的JavaScript文件就可以了。</p>
-<h3 id="使用步骤："><a href="#使用步骤：" class="headerlink" title="使用步骤："></a>使用步骤：</h3><ol>
-<li>首先你需要<a href="http://penguininitiatives.com/register/qubit" target="_blank" rel="noopener">注册</a>一个免费的账户</li>
-<li>创建一个tag<a href="http://support.qubitproducts.com/customer/portal/articles/1115790-what-is-a-container-" target="_blank" rel="noopener">容器</a>, 一个容器可以管理多个tag <img src="https://www.diigo.com/item/p/qsobdaszcaqaobsrbzbddprpep" alt="Qubit容器"></li>
-<li>设置tag加载规则，Qubit有许多默认的模版供你使用，同时你也可以自定制加载脚本。<ul>
-<li><strong>AB &amp; Muti-Variate Tesing</strong><br><img src="https://www.diigo.com/item/p/qsobdaszcaqaocdqszbddprpqb" alt="A/B Testing"></li>
-<li><strong>Custom Script</strong><br><img src="https://www.diigo.com/item/p/qsobdaszcaqaocerbzbddprprb" alt="Custom Script"></li>
-</ul>
-</li>
-<li>配置加载规则 <a href="https://www.diigo.com/item/p/qsobdaszcaqaocqadzbddprpsp" target="_blank" rel="noopener">Filters</a></li>
-<li>删除你当前使用的Tag脚本</li>
-<li>添加Qubic生成的脚本到head标签中 <img src="https://www.diigo.com/item/p/qsobdaszcaqaocssqzbddprqbe" alt="Qubit Track"></li>
-<li>重新测试网站，确保一切都可以正常工作</li>
-<li>Done！</li>
-</ol>
-<p>更多细节，可以访问：<a href="https://opentag.qubitproducts.com/QDashboard/" target="_blank" rel="noopener">Qubit Opentag DashBoard</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2319,7 +2284,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
