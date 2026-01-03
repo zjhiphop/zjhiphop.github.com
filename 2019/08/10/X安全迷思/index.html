@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zjhihpop.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="一直对物联网安全很感兴趣， 很想从事安全方向的职业， 机缘巧合， 去年加入了一家做业务安全的公司。 安全行业 网络安全是指网络系统的硬件、软件及其系统中的数据受到保护，不因偶然的或者恶意的原因而遭受到破坏、更改、泄露，系统连续可靠正常地运行，网络服务不中断    业务安全是指保护业务系统免受安全威胁的措施或手段。广义的业务安全应包括业务运行的软硬件平台（操作系统、数据库等）、业务系统自身（软件或设">
+<meta property="og:type" content="article">
+<meta property="og:title" content="X安全迷思">
+<meta property="og:url" content="http://zjhihpop.github.io/2019/08/10/X%E5%AE%89%E5%85%A8%E8%BF%B7%E6%80%9D/index.html">
+<meta property="og:site_name" content="Jade&#39;s Fantastic Blog">
+<meta property="og:description" content="一直对物联网安全很感兴趣， 很想从事安全方向的职业， 机缘巧合， 去年加入了一家做业务安全的公司。 安全行业 网络安全是指网络系统的硬件、软件及其系统中的数据受到保护，不因偶然的或者恶意的原因而遭受到破坏、更改、泄露，系统连续可靠正常地运行，网络服务不中断    业务安全是指保护业务系统免受安全威胁的措施或手段。广义的业务安全应包括业务运行的软硬件平台（操作系统、数据库等）、业务系统自身（软件或设">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-08-10T06:55:36.000Z">
+<meta property="article:modified_time" content="2023-01-05T04:51:05.000Z">
+<meta property="article:author" content="Jade Zhang">
+<meta property="article:tag" content="安全">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://zjhihpop.github.io/2019/08/10/X%E5%AE%89%E5%85%A8%E8%BF%B7%E6%80%9D/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://zjhihpop.github.io/2019/08/10/X%E5%AE%89%E5%85%A8%E8%BF%B7%E6%80%9D/","path":"2019/08/10/X安全迷思/","title":"X安全迷思"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>X安全迷思 | Jade's Fantastic Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jade's Fantastic Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E8%A1%8C%E4%B8%9A"><span class="nav-number">1.</span> <span class="nav-text">安全行业</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#X%E5%85%AC%E5%8F%B8%E7%9A%84%E4%B8%9A%E5%8A%A1%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">X公司的业务模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#X%E5%85%AC%E5%8F%B8%E7%9A%84%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">X公司的技术架构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%B4%BB%E5%83%8F%E5%B7%A7%E5%85%8B%E5%8A%9B%EF%BC%8C%E4%BD%A0%E6%B0%B8%E8%BF%9C%E4%B8%8D%E7%9F%A5%E9%81%93%E4%B8%8B%E4%B8%80%E9%A2%97%E6%98%AF%E4%BB%80%E4%B9%88%E9%A2%9C%E8%89%B2"><span class="nav-number">4.</span> <span class="nav-text">生活像巧克力，你永远不知道下一颗是什么颜色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Anyway%EF%BC%8C%E5%8F%88%E5%A4%B1%E4%B8%9A%E4%BA%86"><span class="nav-number">5.</span> <span class="nav-text">Anyway，又失业了</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jade Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://zjhihpop.github.io/2019/08/10/X%E5%AE%89%E5%85%A8%E8%BF%B7%E6%80%9D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jade Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jade's Fantastic Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="X安全迷思 | Jade's Fantastic Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          X安全迷思
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-08-10 14:55:36" itemprop="dateCreated datePublished" datetime="2019-08-10T14:55:36+08:00">2019-08-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-05 12:51:05" itemprop="dateModified" datetime="2023-01-05T12:51:05+08:00">2023-01-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>一直对物联网安全很感兴趣， 很想从事安全方向的职业， 机缘巧合， 去年加入了一家做业务安全的公司。</p>
+<h4 id="安全行业"><a href="#安全行业" class="headerlink" title="安全行业"></a>安全行业</h4><blockquote>
+<p><strong>网络安全</strong>是指网络系统的硬件、软件及其系统中的数据受到保护，不因偶然的或者恶意的原因而遭受到破坏、更改、泄露，系统连续可靠正常地运行，网络服务不中断 </p>
+</blockquote>
+<blockquote>
+<p><strong>业务安全</strong>是指保护业务系统免受安全威胁的措施或手段。广义的业务安全应包括业务运行的软硬件平台（操作系统、数据库等）、业务系统自身（软件或设备）、业务所提供的服务的安全；狭义的业务安全指业务系统自有的软件与服务的安全。 </p>
+</blockquote>
+<p>业务安全的本质是为客户省钱， 那么省钱的方式有哪些？哪些客户需要？</p>
+<p>先来看看客户的痛点有哪些：</p>
+<ol>
+<li>营销活动没有吸收到新的用户，反而被黄牛党大把大把的薅羊毛</li>
+<li>刷量刷单现象严重，严重扰乱市场正常竞争</li>
+<li>公司内部敏感信息泄漏，被放到暗网上销售，例如公司商业机密数据，联系方式等</li>
+<li>二三类银行卡被用于洗钱，赌博，贷款诈骗等</li>
+<li>业务流程存在漏洞， 例如通过修改正常的订单价格和数量来达到非法获利的目的</li>
+</ol>
+<p>从以上的痛点来看，如果能够做到在以上行为发生的早期发现并预警，那么就可以为客户减少很多不必要的损失。例如去年发生的PDD被一晚上薅羊毛200亿的事件</p>
+<h4 id="X公司的业务模式"><a href="#X公司的业务模式" class="headerlink" title="X公司的业务模式"></a>X公司的业务模式</h4><p>通过收集事件上下游的数据，来做到事前阻断，事中止损， 事后追查， 主要通过以下渠道：</p>
+<ul>
+<li>收码平台<ul>
+<li>通过收码平台打码信息，可以知道黑灰产人员最近在注册&#x2F;关注&#x2F;提现等行为，然后通过提取出产品名称并且和客户做关联</li>
+</ul>
+</li>
+<li>信息交流论坛： 如卡农社区，脉脉<ul>
+<li>通过论坛贴吧知乎等渠道的沟通交流， 可以获知黑灰产人员将来或者正在对哪些产品采取非法的行动</li>
+</ul>
+</li>
+<li>聊天工具：QQ，TG等<ul>
+<li>通过获取群聊的消息，提取聊天关键字来发现潜在的恶意行为</li>
+</ul>
+</li>
+<li>售卖平台：淘宝，京东，暗网<ul>
+<li>通过对销售渠道监控，获取哪些服务被售卖和销赃</li>
+</ul>
+</li>
+</ul>
+<h4 id="X公司的技术架构"><a href="#X公司的技术架构" class="headerlink" title="X公司的技术架构"></a>X公司的技术架构</h4><p>业务模式和场景决定架构选择，架构的本质是降低复杂性， 降低成本，增加效益。业务层面主要面临的挑战：</p>
+<ol>
+<li>数据渠道众多， 需要实现不同的爬虫程序来获取数据</li>
+<li>数据量大，不同数据渠道来源的数据汇总之后每天有几十G</li>
+<li>带宽有限， 在有限的时间传输大量的数据很快会因为带宽沾满问题导致不能及时回传</li>
+<li>下游消费能力有限， 未优化前每秒只能处理几百条数据</li>
+<li>数据应用T+1延迟， 当天的数据不能及时获取， 一般会有半天到一天的延迟，在某些场景下是对业务来说是致命的</li>
+</ol>
+<p>针对以上问题， 我一起参与了公司的架构实现：</p>
+<ol>
+<li>针对多渠道的数据定义统一的数据接口， 这样在预处理的时候可以统一处理，不需要按渠道分别处理</li>
+<li>通过队列和缓冲，先将数据缓存到Kafka队列里， 然后通过下游多个消费者消费， 并且可以用于实时计算， 大大减少数据的延迟</li>
+<li>数据采集层通过增加redis集群， 采用分布式爬虫协同获取数据，利用多节点带宽减少对单机节点的压力， 同时提高了爬虫的效率</li>
+</ol>
+<h4 id="生活像巧克力，你永远不知道下一颗是什么颜色"><a href="#生活像巧克力，你永远不知道下一颗是什么颜色" class="headerlink" title="生活像巧克力，你永远不知道下一颗是什么颜色"></a>生活像巧克力，你永远不知道下一颗是什么颜色</h4><p>在技术架构稳定， 产品输出正常的状态下， 公司内部资金链出现了断裂， 导致业务开展困难。 创业公司所面临的处境你永远不要高估，能活下去是第一要务， 其他的都是华而不实的外衣， X公司所遇到的处境着实令人可惜， 也许只要再多努力一把， 就可以起死回生。连续经历了两家失败的创业公司， 深有感触，都说成功不可复制， 但是失败一定是可以学习的， 今天我想再总结下失败的原因：</p>
+<ol>
+<li>业务模式线太多，不够专注</li>
+<li>无论什么样的业务都需要合法合规， 否则得不偿失</li>
+<li>人员管理有些松散，一切以业务驱动的方式快跑， 但是没有考虑到内部的效率和费用的优化</li>
+</ol>
+<h4 id="Anyway，又失业了"><a href="#Anyway，又失业了" class="headerlink" title="Anyway，又失业了"></a>Anyway，又失业了</h4><p>一直希望自己在一家创业公司发挥自己最大的价值，做成功一件事情， 走向财务自由。 但是随着年龄越来越大， 似乎也变得有点越来越惶恐， 是继续放手一博继续创业， 做自己喜欢的事情， 追求自己的梦想？ 还是进入一家稳定的大公司， 对自己的妻子和孩子负责， 有更多的时间可以陪家人？如果选择一个安稳的工作，可能会逐渐失去创业的动力， 一切求稳，人生会变得非常简单和无趣。 如果选择继续冒险创业， 有99%的概率失败，一无所有，风险会比较大。What do you think?</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AE%89%E5%85%A8/" rel="tag"># 安全</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/06/18/Think-in-startup/" rel="prev" title="Think in startup">
+                  <i class="fa fa-angle-left"></i> Think in startup
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/08/10/%E7%AE%97%E6%B3%95%E4%B9%8B%E4%B9%90/" rel="next" title="算法之乐">
+                  算法之乐 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Jade Zhang</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

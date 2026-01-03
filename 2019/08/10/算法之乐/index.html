@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zjhihpop.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="契机最近参加了一轮大厂的面试， 直接手撕算法和数据结构， 感觉到很是挺生疏的， 简单的算法也不能很快写出来。 因此， 决定个人博客开立算法板块， 一方面重学数据结构和算法， 一方面将自己的心得记录下来。 最终目标， 可以手写常见的算法和数据结构实现，同时兼顾时间复杂度和空间复杂度， 每周至少学习一个算法。 计划 基础部分  数组：  查询， 插入， 删除 链表：  单链表&#x2F;循环链表， 插">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法之乐">
+<meta property="og:url" content="http://zjhihpop.github.io/2019/08/10/%E7%AE%97%E6%B3%95%E4%B9%8B%E4%B9%90/index.html">
+<meta property="og:site_name" content="Jade&#39;s Fantastic Blog">
+<meta property="og:description" content="契机最近参加了一轮大厂的面试， 直接手撕算法和数据结构， 感觉到很是挺生疏的， 简单的算法也不能很快写出来。 因此， 决定个人博客开立算法板块， 一方面重学数据结构和算法， 一方面将自己的心得记录下来。 最终目标， 可以手写常见的算法和数据结构实现，同时兼顾时间复杂度和空间复杂度， 每周至少学习一个算法。 计划 基础部分  数组：  查询， 插入， 删除 链表：  单链表&#x2F;循环链表， 插">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-08-10T08:33:01.000Z">
+<meta property="article:modified_time" content="2023-01-05T04:51:05.000Z">
+<meta property="article:author" content="Jade Zhang">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="Algorithm">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://zjhihpop.github.io/2019/08/10/%E7%AE%97%E6%B3%95%E4%B9%8B%E4%B9%90/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://zjhihpop.github.io/2019/08/10/%E7%AE%97%E6%B3%95%E4%B9%8B%E4%B9%90/","path":"2019/08/10/算法之乐/","title":"算法之乐"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法之乐 | Jade's Fantastic Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jade's Fantastic Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A5%91%E6%9C%BA"><span class="nav-number">1.</span> <span class="nav-text">契机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A1%E5%88%92"><span class="nav-number">2.</span> <span class="nav-text">计划</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E9%A6%88%E6%9C%BA%E5%88%B6"><span class="nav-number">3.</span> <span class="nav-text">反馈机制</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jade Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://zjhihpop.github.io/2019/08/10/%E7%AE%97%E6%B3%95%E4%B9%8B%E4%B9%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jade Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jade's Fantastic Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法之乐 | Jade's Fantastic Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法之乐
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-08-10 16:33:01" itemprop="dateCreated datePublished" datetime="2019-08-10T16:33:01+08:00">2019-08-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-05 12:51:05" itemprop="dateModified" datetime="2023-01-05T12:51:05+08:00">2023-01-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h4 id="契机"><a href="#契机" class="headerlink" title="契机"></a>契机</h4><p>最近参加了一轮大厂的面试， 直接手撕算法和数据结构， 感觉到很是挺生疏的， 简单的算法也不能很快写出来。 因此， 决定个人博客开立算法板块， 一方面重学数据结构和算法， 一方面将自己的心得记录下来。 最终目标， 可以手写常见的算法和数据结构实现，同时兼顾时间复杂度和空间复杂度， 每周至少学习一个算法。</p>
+<h4 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h4><ul>
+<li><p>基础部分</p>
+<ul>
+<li>数组：  查询， 插入， 删除</li>
+<li>链表：  单链表&#x2F;循环链表， 插入，删除</li>
+<li>栈：    入栈，出栈， 查找</li>
+<li>队列    入队，出队，循环队列， 查找</li>
+<li>二叉树   查找（前中后序）， 删除， 添加节点</li>
+<li>堆      搜索， 删除， 添加</li>
+<li>HashTable  查找，添加，删除</li>
+<li>图  插入，删除，查找最短路径</li>
+</ul>
+</li>
+<li><p>中等</p>
+<ul>
+<li>红黑树&#x2F;B+树</li>
+<li>字符串匹配算法</li>
+<li>动态规划</li>
+<li>回溯算法</li>
+<li>贪心算法</li>
+</ul>
+</li>
+<li><p>实用案例分析</p>
+<ul>
+<li>数据库索引算法</li>
+<li>实现正则表达式的匹配算法</li>
+<li>实时统计TOP N的信息</li>
+<li>推荐算法</li>
+<li>机器学习算法原理</li>
+<li>分布式算法</li>
+</ul>
+</li>
+<li><p>实践</p>
+<ul>
+<li>topcoder刷题</li>
+<li>letcode刷题</li>
+</ul>
+</li>
+</ul>
+<h4 id="反馈机制"><a href="#反馈机制" class="headerlink" title="反馈机制"></a>反馈机制</h4><ol>
+<li>每个课题手写完整的代码， 必须没有语法错误， 边界检查</li>
+<li>验证时间复杂度和空间复杂度， 持续优化找出不足之处该进</li>
+<li>到topcoder或者letcode上找一个相关的案例提交解题答案</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/08/10/X%E5%AE%89%E5%85%A8%E8%BF%B7%E6%80%9D/" rel="prev" title="X安全迷思">
+                  <i class="fa fa-angle-left"></i> X安全迷思
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/08/12/%E6%95%B0%E7%BB%84/" rel="next" title="数组">
+                  数组 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Jade Zhang</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

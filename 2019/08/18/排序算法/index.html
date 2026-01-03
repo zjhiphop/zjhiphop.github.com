@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zjhihpop.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="本文讨论关于数组排序算法的实现， 给定一个整形数组，按从小到大排列 本节主要实现的排序算法有：希尔排序，计数排序，基数排序，桶排序，堆排序 希尔排序 希尔排序，也称递减增量排序算法，是插入排序的一种更高效的改进版本。希尔排序是非稳定排序算法。 希尔排序是基于插入排序的以下两点性质而提出改进方法的： 1. 插入排序在对几乎已经排好序的数据操作时，效率高，即可以达到线性排序的效率 2. 但插入排序一般">
+<meta property="og:type" content="article">
+<meta property="og:title" content="排序算法（下）">
+<meta property="og:url" content="http://zjhihpop.github.io/2019/08/18/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="Jade&#39;s Fantastic Blog">
+<meta property="og:description" content="本文讨论关于数组排序算法的实现， 给定一个整形数组，按从小到大排列 本节主要实现的排序算法有：希尔排序，计数排序，基数排序，桶排序，堆排序 希尔排序 希尔排序，也称递减增量排序算法，是插入排序的一种更高效的改进版本。希尔排序是非稳定排序算法。 希尔排序是基于插入排序的以下两点性质而提出改进方法的： 1. 插入排序在对几乎已经排好序的数据操作时，效率高，即可以达到线性排序的效率 2. 但插入排序一般">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-08-18T09:14:42.000Z">
+<meta property="article:modified_time" content="2023-01-05T04:51:05.000Z">
+<meta property="article:author" content="Jade Zhang">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="Algorithm">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://zjhihpop.github.io/2019/08/18/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://zjhihpop.github.io/2019/08/18/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/","path":"2019/08/18/排序算法/","title":"排序算法（下）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>排序算法（下） | Jade's Fantastic Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jade's Fantastic Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">希尔排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F"><span class="nav-number">2.</span> <span class="nav-text">计数排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F"><span class="nav-number">3.</span> <span class="nav-text">基数排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A1%B6%E6%8E%92%E5%BA%8F"><span class="nav-number">4.</span> <span class="nav-text">桶排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A0%86%E6%8E%92%E5%BA%8F"><span class="nav-number">5.</span> <span class="nav-text">堆排序</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jade Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://zjhihpop.github.io/2019/08/18/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jade Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jade's Fantastic Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="排序算法（下） | Jade's Fantastic Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          排序算法（下）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-08-18 17:14:42" itemprop="dateCreated datePublished" datetime="2019-08-18T17:14:42+08:00">2019-08-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-05 12:51:05" itemprop="dateModified" datetime="2023-01-05T12:51:05+08:00">2023-01-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><em>本文讨论关于数组排序算法的实现， 给定一个整形数组，按从小到大排列</em></p>
+<p>本节主要实现的排序算法有：希尔排序，计数排序，基数排序，桶排序，堆排序</p>
+<h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><blockquote>
+<pre><code>希尔排序，也称递减增量排序算法，是插入排序的一种更高效的改进版本。希尔排序是非稳定排序算法。
+希尔排序是基于插入排序的以下两点性质而提出改进方法的：
+1. 插入排序在对几乎已经排好序的数据操作时，效率高，即可以达到线性排序的效率
+2. 但插入排序一般来说是低效的，因为插入排序每次只能将数据移动一位
+</code></pre>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> sort</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ShellSort</span><span class="params">(arr []<span class="type">int</span>, <span class="built_in">len</span> <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span> &lt;=<span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	times := <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	gap := <span class="built_in">len</span> / <span class="number">2</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> gap &gt;=<span class="number">1</span> &#123;</span><br><span class="line">		j := <span class="number">0</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> i:=gap; i&lt;<span class="built_in">len</span>; i++ &#123;</span><br><span class="line">			curr := arr[i]</span><br><span class="line"></span><br><span class="line">		<span class="comment">//	对第i个元素以及之前相同的gap间距元素进行对比排序</span></span><br><span class="line">		   <span class="keyword">for</span> j = i - gap; j&gt;=<span class="number">0</span> &amp;&amp; curr &lt; arr[j]; j -= gap &#123;</span><br><span class="line"></span><br><span class="line">			   times++</span><br><span class="line">			   arr[j+gap] = arr[j]</span><br><span class="line">		   &#125;</span><br><span class="line"></span><br><span class="line">		   arr[j + gap] = curr</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		gap /= <span class="number">2</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">println</span>(<span class="string">&quot;time O(&quot;</span>, times, <span class="string">&quot;)&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h3><blockquote>
+<pre><code>计数排序是一个非基于比较的排序算法，该算法于1954年由 Harold H. Seward 提出。它的优势在于在对一定范围内的整数排序时，
+它的复杂度为Ο(n+k)（其中k是整数的范围），快于任何比较排序算法。  当然这是一种牺牲空间换取时间的做法，而且当O(k)&gt;O(n*log(n))的时候其效率反而不如基于比较的排序（基于比较的排序的时间复杂度在理论上的下限是O(n*log(n)), 如归并排序，堆排序）
+</code></pre>
+</blockquote>
+<pre><code>计数排序的基本思想是对于给定的输入序列中的每一个元素x，确定该序列中值小于x的元素的个数（此处并非比较各元素的大小，而是通过
+对元素值的计数和计数值的累加来确定）。一旦有了这个信息，就可以将x直接存放到最终的输出序列的正确位置上。例如，如果输入序列
+中只有17个元素的值小于x的值，则x可以直接存放在输出序列的第18个位置上。当然，如果有多个元素具有相同的值时，我们不能将这些
+元素放在输出序列的同一个位置上，因此，上述方案还要作适当的修改。
+</code></pre>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> sort</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;math&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">CountingSort</span><span class="params">(a []<span class="type">int</span>, n <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> n &lt;= <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> times = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> max <span class="type">int</span> = math.MinInt32</span><br><span class="line">	<span class="keyword">for</span> i := <span class="keyword">range</span> a &#123;</span><br><span class="line">		<span class="keyword">if</span> a[i] &gt; max &#123;</span><br><span class="line">			max = a[i]</span><br><span class="line">		&#125;</span><br><span class="line">		times++</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	c := <span class="built_in">make</span>([]<span class="type">int</span>, max+<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="keyword">range</span> a &#123;</span><br><span class="line">		c[a[i]]++</span><br><span class="line">		times++</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= max; i++ &#123;</span><br><span class="line">		c[i] += c[i<span class="number">-1</span>]</span><br><span class="line">		times++</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	r := <span class="built_in">make</span>([]<span class="type">int</span>, n)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="keyword">range</span> a &#123;</span><br><span class="line">		index := c[a[i]] - <span class="number">1</span></span><br><span class="line">		r[index] = a[i]</span><br><span class="line">		c[a[i]]--</span><br><span class="line">		times++</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">copy</span>(a, r)</span><br><span class="line"></span><br><span class="line">	<span class="built_in">println</span>(<span class="string">&quot;Time O(&quot;</span>, times, <span class="string">&quot;)&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h3><blockquote>
+</blockquote>
+<pre><code>基数排序（radix sort）属于“分配式排序”（distribution sort），又称“桶子法”（bucket sort）或bin sort，顾名思义，它是透过键值的部份资讯，将要排序的元素分配至某些“桶”中，藉以达到排序的作用，基数排序法是属于稳定性的排序，其时间复杂度为O (nlog(r)m)，其中r为所采取的基数，而m为堆数，在某些时候，基数排序法的效率高于其它的稳定性排序法。
+
+基数排序要求基数的量不能太大， 否则做不到O(n)的时间复杂度
+</code></pre>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> sort</span><br><span class="line"></span><br><span class="line"><span class="comment">// 基数排序</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">RadixSort</span><span class="params">(arr []<span class="type">int</span>, <span class="built_in">len</span> <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>&lt;=<span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	max := arr[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">0</span>; i&lt; <span class="built_in">len</span>; i++ &#123;</span><br><span class="line">		<span class="keyword">if</span> arr[i] &gt; max &#123;</span><br><span class="line">			max = arr[i]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> exp:=<span class="number">1</span>; max/exp &gt; <span class="number">0</span>; exp *= <span class="number">10</span> &#123;</span><br><span class="line">		countSort(arr, exp, <span class="built_in">len</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">countSort</span><span class="params">(arr []<span class="type">int</span>, exp <span class="type">int</span>, <span class="built_in">len</span> <span class="type">int</span>)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	c := <span class="built_in">make</span>([]<span class="type">int</span>, <span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="keyword">range</span> arr &#123;</span><br><span class="line">		c[arr[i]/exp % <span class="number">10</span>]++</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt; <span class="built_in">cap</span>(c); i++ &#123;</span><br><span class="line">		c[i] += c[i<span class="number">-1</span>]</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	r := <span class="built_in">make</span>([]<span class="type">int</span>, <span class="built_in">len</span>, <span class="built_in">len</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i&lt;<span class="built_in">len</span>; i++ &#123;</span><br><span class="line">		r[c[arr[i]/exp %<span class="number">10</span>] <span class="number">-1</span>] = arr[i]</span><br><span class="line">		c[arr[i]/exp %<span class="number">10</span>]--</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">copy</span>(arr, r)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h3><blockquote>
+<p> 桶排序(Bucket sort)或所谓的箱排序，是一个排序算法，工作的原理是将数组分到有限数量的桶子里。 每个桶子再个别排序（有可能再使用别的排序算法或是以递归方式继续使用桶排序进行排序）。 桶排序是鸽巢排序的一种归纳结果。 当要被排序的数组内的数值是均匀分配的时候，桶排序使用线性时间（Θ（n））</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> sort</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getMax</span><span class="params">(arr []<span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">	max := <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="keyword">range</span> arr &#123;</span><br><span class="line">		<span class="keyword">if</span> i &gt; max &#123;</span><br><span class="line">			max = i</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> max</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">BucketSort</span><span class="params">(arr []<span class="type">int</span>, arrLen <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> arrLen &lt;= <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	max := getMax(arr)</span><br><span class="line">	buckets := <span class="built_in">make</span>([][]<span class="type">int</span>, arrLen / <span class="number">10</span>) <span class="comment">// seperate to length/10 buckets</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; arrLen; i++ &#123;</span><br><span class="line">		index := arr[i] * ( arrLen - <span class="number">1</span> ) / (<span class="number">10</span> * max) <span class="comment">// sperate data to different bucket</span></span><br><span class="line"></span><br><span class="line">		buckets[index] = <span class="built_in">append</span>(buckets[index], arr[i])</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	datalen := <span class="number">0</span> <span class="comment">// mark current data processed</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> j := <span class="number">0</span>; j &lt; <span class="built_in">len</span>(buckets); j++ &#123;</span><br><span class="line">		bucLen := <span class="built_in">len</span>(buckets[j])</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> bucLen &gt; <span class="number">0</span> &#123;</span><br><span class="line">			<span class="comment">// use quicksort to sort every bucket</span></span><br><span class="line">			QuickSort(buckets[j], bucLen)</span><br><span class="line"></span><br><span class="line">			<span class="built_in">copy</span>(arr[datalen:], buckets[j])</span><br><span class="line"></span><br><span class="line">			datalen += bucLen</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><blockquote>
+<p>堆排序是指利用堆这种数据结构所设计的一种排序算法。堆是一个近似完全二叉树的结构，并同时满足堆积的性质：即子节点的键值或索引总是小于它的父节点, </p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// TBD</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/08/15/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" rel="prev" title="排序算法（上）">
+                  <i class="fa fa-angle-left"></i> 排序算法（上）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/08/23/stack-queue/" rel="next" title="栈，队列">
+                  栈，队列 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Jade Zhang</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
